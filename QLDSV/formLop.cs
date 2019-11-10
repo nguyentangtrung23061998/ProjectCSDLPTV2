@@ -70,6 +70,34 @@ namespace QLDSV
                 txtMaKhoa.Focus();
                 return;
             }
+            
+            try
+            {
+                String strLenh = "SP_KiemTraLopTonTai";
+                Program.sqlcmd = Program.conn.CreateCommand();
+                Program.sqlcmd.CommandType = CommandType.StoredProcedure;
+                Program.sqlcmd.CommandText = strLenh;
+                Program.sqlcmd.Parameters.Add("@MALOP", SqlDbType.NChar).Value = txtMaLop.Text;
+                Program.sqlcmd.Parameters.Add("@Ret", SqlDbType.Int).Direction = ParameterDirection.ReturnValue;
+                Program.sqlcmd.ExecuteNonQuery();
+                String ret = Program.sqlcmd.Parameters["@Ret"].Value.ToString();
+                if(ret == "1")
+                {
+                    MessageBox.Show("Tồn tại mã lớp.\n" , "", MessageBoxButtons.OK);
+                    return;
+                }
+                if(ret == "2")
+                {
+                    MessageBox.Show("Tồn tại mã lớp ở site khác.\n" , "", MessageBoxButtons.OK);
+                    return;
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Lỗi tồn tại mã lớp.\n" + ex.Message, "", MessageBoxButtons.OK);
+                return;
+            }
+            ///thêm lớp
             try
             {
                 String strLenh = "dbo.SP_InsertLop";
@@ -82,7 +110,7 @@ namespace QLDSV
                 Program.sqlcmd.ExecuteNonQuery();
                 this.lOPTableAdapter.Update(this.qLDSVROOT.LOP);
                 this.lOPBindingSource.EndEdit();
-                MessageBox.Show("Thêm Nhân Viên Thành công", "THÔNG BÁO", MessageBoxButtons.OK);
+                MessageBox.Show("Thêm Lớp Thành công", "THÔNG BÁO", MessageBoxButtons.OK);
                 Program.conn.Close();
             }
             catch (Exception ex)
