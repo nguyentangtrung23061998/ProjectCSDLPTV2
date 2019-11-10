@@ -143,13 +143,14 @@ namespace QLDSV
             Program.mGroup = myReader.GetString(2);
             //Program.frmMain.HienThiMenu();
             MessageBox.Show("Đăng Nhập Thành Công", "", MessageBoxButtons.OK);
+            myReader.Close();
+            Program.conn.Close();
             this.Hide();
             formMain f = new formMain();
             f.HienThiMenu();
             f.ShowDialog();
             this.Close();
-            myReader.Close();
-            Program.conn.Close();
+           
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)

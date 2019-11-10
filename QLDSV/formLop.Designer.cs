@@ -46,14 +46,14 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.txtMaKhoa = new System.Windows.Forms.TextBox();
+            this.lOPBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.qLDSVROOT = new QLDSV.QLDSVROOT();
             this.label3 = new System.Windows.Forms.Label();
             this.txtTenLop = new System.Windows.Forms.TextBox();
             this.txtMaLop = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.frmLop = new DevExpress.XtraGrid.GridControl();
-            this.lOPBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.qLDSVROOT = new QLDSV.QLDSVROOT();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colMALOP = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTENLOP = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -67,9 +67,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.v_DS_PHANMANHBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.qLDSVPMMaster)).BeginInit();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.frmLop)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lOPBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.qLDSVROOT)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.frmLop)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -127,6 +127,7 @@
             this.btnLopSua.Name = "btnLopSua";
             this.btnLopSua.Size = new System.Drawing.Size(76, 26);
             this.btnLopSua.Text = "SỬA";
+            this.btnLopSua.Click += new System.EventHandler(this.btnLopSua_Click);
             // 
             // btnLopPhucHoi
             // 
@@ -145,6 +146,7 @@
             this.btnLopRefresh.Name = "btnLopRefresh";
             this.btnLopRefresh.Size = new System.Drawing.Size(124, 26);
             this.btnLopRefresh.Text = "REFRESH";
+            this.btnLopRefresh.Click += new System.EventHandler(this.btnLopRefresh_Click);
             // 
             // btnLopThoat
             // 
@@ -246,6 +248,16 @@
             this.txtMaKhoa.Size = new System.Drawing.Size(144, 27);
             this.txtMaKhoa.TabIndex = 3;
             // 
+            // lOPBindingSource
+            // 
+            this.lOPBindingSource.DataMember = "LOP";
+            this.lOPBindingSource.DataSource = this.qLDSVROOT;
+            // 
+            // qLDSVROOT
+            // 
+            this.qLDSVROOT.DataSetName = "QLDSVROOT";
+            this.qLDSVROOT.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -304,16 +316,6 @@
             this.frmLop.TabIndex = 4;
             this.frmLop.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
-            // 
-            // lOPBindingSource
-            // 
-            this.lOPBindingSource.DataMember = "LOP";
-            this.lOPBindingSource.DataSource = this.qLDSVROOT;
-            // 
-            // qLDSVROOT
-            // 
-            this.qLDSVROOT.DataSetName = "QLDSVROOT";
-            this.qLDSVROOT.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // gridView1
             // 
@@ -388,9 +390,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.qLDSVPMMaster)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.frmLop)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lOPBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.qLDSVROOT)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.frmLop)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
