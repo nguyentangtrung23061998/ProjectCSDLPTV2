@@ -34,9 +34,21 @@ namespace QLDSV
 
         private void formLop_Load(object sender, EventArgs e)
         {
-            //QLDSVROOT.EnforceConstraints = false;
+            // TODO: This line of code loads data into the 'qLDSVROOT.V_DS_PHANMANH' table. You can move, or remove it, as needed.
+            this.v_DS_PHANMANHTableAdapter1.Fill(this.qLDSVROOT.V_DS_PHANMANH);
+            // TODO: This line of code loads data into the 'qLDSVROOT.LOP' table. You can move, or remove it, as needed.
+            this.lOPTableAdapter.Fill(this.qLDSVROOT.LOP);
             // TODO: This line of code loads data into the 'qLDSVPMMaster.V_DS_PHANMANH' table. You can move, or remove it, as needed.
             this.v_DS_PHANMANHTableAdapter.Fill(this.qLDSVPMMaster.V_DS_PHANMANH);
+            // TODO: This line of code loads data into the 'qLDSVPMMaster.V_DS_PHANMANH' table. You can move, or remove it, as needed.
+            //this.v_DS_PHANMANHTableAdapter.Fill(this.qLDSVPMMaster.V_DS_PHANMANH);
+            // TODO: This line of code loads data into the 'qLDSVROOT.LOP' table. You can move, or remove it, as needed.
+           // this.lOPTableAdapter.Fill(this.qLDSVROOT.LOP);
+            // TODO: This line of code loads data into the 'qLDSVROOT.V_DS_PHANMANH' table. You can move, or remove it, as needed.
+            //this.v_DS_PHANMANHTableAdapter.Fill(this.qLDSVROOT.V_DS_PHANMANH);
+            //QLDSVROOT.EnforceConstraints = false;
+            // TODO: This line of code loads data into the 'qLDSVPMMaster.V_DS_PHANMANH' table. You can move, or remove it, as needed.
+            //this.v_DS_PHANMANHTableAdapter.Fill(this.qLDSVPMMaster.V_DS_PHANMANH);
             // TODO: This line of code loads data into the 'qLDSVROOT.LOP' table. You can move, or remove it, as needed.
             this.lOPTableAdapter.Connection.ConnectionString = Program.connstr;
             this.lOPTableAdapter.Fill(this.qLDSVROOT.LOP);
@@ -70,7 +82,7 @@ namespace QLDSV
                 txtMaKhoa.Focus();
                 return;
             }
-            
+
             try
             {
                 String strLenh = "SP_KiemTraLopTonTai";
@@ -81,18 +93,18 @@ namespace QLDSV
                 Program.sqlcmd.Parameters.Add("@Ret", SqlDbType.Int).Direction = ParameterDirection.ReturnValue;
                 Program.sqlcmd.ExecuteNonQuery();
                 String ret = Program.sqlcmd.Parameters["@Ret"].Value.ToString();
-                if(ret == "1")
+                if (ret == "1")
                 {
-                    MessageBox.Show("Tồn tại mã lớp.\n" , "", MessageBoxButtons.OK);
+                    MessageBox.Show("Tồn tại mã lớp.\n", "", MessageBoxButtons.OK);
                     return;
                 }
-                if(ret == "2")
+                if (ret == "2")
                 {
-                    MessageBox.Show("Tồn tại mã lớp ở site khác.\n" , "", MessageBoxButtons.OK);
+                    MessageBox.Show("Tồn tại mã lớp ở site khác.\n", "", MessageBoxButtons.OK);
                     return;
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show("Lỗi tồn tại mã lớp.\n" + ex.Message, "", MessageBoxButtons.OK);
                 return;
@@ -129,12 +141,13 @@ namespace QLDSV
         private void comboKHOA_SelectedIndexChanged(object sender, EventArgs e)
         {
             Program.servername = comboKHOA.SelectedValue.ToString();
-            if(comboKHOA.SelectedIndex != Program.mChinhanh)
+            if (comboKHOA.SelectedIndex != Program.mChinhanh)
             {
                 Program.mlogin = Program.remotelogin;
                 Program.password = Program.remotepassword;
             }
-            else{
+            else
+            {
                 Program.mlogin = Program.mloginDN;
                 Program.password = Program.passwordDN;
             }
@@ -152,12 +165,12 @@ namespace QLDSV
 
         private void btnLopXoa_Click(object sender, EventArgs e)
         {
-          
+
             if (Program.conn.State == ConnectionState.Closed)
                 Program.conn.Open();
             try
             {
-                String check= "SP_KiemTraMaLopTonTaiSinhVien";
+                String check = "SP_KiemTraMaLopTonTaiSinhVien";
                 Program.sqlcmd = Program.conn.CreateCommand();
                 Program.sqlcmd.CommandType = CommandType.StoredProcedure;
                 Program.sqlcmd.CommandText = check;
@@ -165,11 +178,11 @@ namespace QLDSV
                 Program.sqlcmd.Parameters.Add("@Ret", SqlDbType.Int).Direction = ParameterDirection.ReturnValue;
                 Program.sqlcmd.ExecuteNonQuery();
                 String ret = Program.sqlcmd.Parameters["@Ret"].Value.ToString();
-                if(ret == "1")
+                if (ret == "1")
                 {
                     MessageBox.Show("Mã lop ton tai trong sinh vien!", "THÔNG BÁO LỖI", MessageBoxButtons.OK);
                 }
-                if(ret == "0")
+                if (ret == "0")
                 {
                     this.lOPBindingSource.RemoveCurrent();
                     //  this.lOPTableAdapter.Connection.ConnectionString = Program.connstr;
@@ -177,7 +190,8 @@ namespace QLDSV
                     this.lOPTableAdapter.Update(this.qLDSVROOT.LOP);
 
                 }
-            }catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show("Lỗi xóa lớp.\n" + ex.Message, "", MessageBoxButtons.OK);
             }
@@ -195,7 +209,7 @@ namespace QLDSV
 
         private void btnLopSua_Click(object sender, EventArgs e)
         {
-        
+
             if (txtMaLop.Text.Trim() == "")
             {
                 MessageBox.Show("Mã lớp không được thiếu!", "", MessageBoxButtons.OK);
@@ -232,7 +246,7 @@ namespace QLDSV
                     MessageBox.Show(" nhân viên không tồn tại !", "THÔNG BÁO LỖI", MessageBoxButtons.OK);
                     return;
                 }
-                if(Ret == "1")
+                if (Ret == "1")
                 {
                     if (Program.conn.State == ConnectionState.Closed)
                         Program.conn.Open();
@@ -248,7 +262,7 @@ namespace QLDSV
                     this.lOPBindingSource.EndEdit();
                     Program.conn.Close();
                 }
-                
+
             }
             catch (Exception ex)
             {
@@ -265,7 +279,8 @@ namespace QLDSV
                 this.lOPTableAdapter.Fill(this.qLDSVROOT.LOP);
                 this.txtMaLop.Text = "";
                 this.txtTenLop.Text = "";
-            }catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show("Lỗi Reload :" + ex.Message, "", MessageBoxButtons.OK);
                 return;

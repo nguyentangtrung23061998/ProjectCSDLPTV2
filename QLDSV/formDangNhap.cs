@@ -45,11 +45,7 @@ namespace QLDSV
             comboBoxChiNhanh.ValueMember = "TENSERVER";
             comboBoxChiNhanh.SelectedIndex = 1;
             comboBoxChiNhanh.SelectedIndex = 0;
-        }
-
-        private void bunifuMaterialTextbox1_OnValueChanged(object sender, EventArgs e)
-        {
-
+            txtUsername.Focus();
         }
 
         private void txtUsernameEnter(object sender, EventArgs e)
@@ -150,9 +146,13 @@ namespace QLDSV
             //Program.frmMain.HienThiMenu();
             MessageBox.Show("Đăng Nhập Thành Công", "", MessageBoxButtons.OK);
             this.Hide();
+            
             formMain f = new formMain();
             f.HienThiMenu();
             f.ShowDialog();
+            f.TopMost = true;
+            f.FormBorderStyle = FormBorderStyle.None;
+            f.WindowState = FormWindowState.Maximized;
             this.Close();
             myReader.Close();
             Program.conn.Close();
@@ -169,11 +169,6 @@ namespace QLDSV
             {
                 Program.servername = "";
             }
-        }
-
-        private void VDSPHANMANHBindingSource1_CurrentChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }
