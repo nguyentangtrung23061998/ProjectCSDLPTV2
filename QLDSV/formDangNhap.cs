@@ -21,6 +21,12 @@ namespace QLDSV
 
         private void formDangNhap_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'qLDSVROOT.V_DS_PHANMANH' table. You can move, or remove it, as needed.
+            this.v_DS_PHANMANHTableAdapter.Fill(this.qLDSVROOT.V_DS_PHANMANH);
+            // TODO: This line of code loads data into the 'qLDSVROOT1.V_DS_PHANMANH' table. You can move, or remove it, as needed.
+            //this.v_DS_PHANMANHTableAdapter.Fill(this.qLDSVROOT1.V_DS_PHANMANH);
+            // TODO: This line of code loads data into the 'qLDSVROOT1.V_DS_PHANMANH' table. You can move, or remove it, as needed.
+            //  this.v_DS_PHANMANHTableAdapter.Fill(this.qLDSVROOT1.V_DS_PHANMANH);
             //this.v_DS_PHANMANHTableAdapter.Fill(this.qLDSVROOT.V_DS_PHANMANH);
             //DataTable dt = new DataTable();
             //dt = Program.ExecSqlDataTable("SELECT * FROM V_DS_PHANMANH");
@@ -28,7 +34,7 @@ namespace QLDSV
             //comboBoxChiNhanh.SelectedIndex = 1;
             //comboBoxChiNhanh.SelectedIndex = 0;
 
-            string chuoiketnoi = "Data Source=DESKTOP-695JA31\\SERVER1;Initial Catalog=QLDSV;Integrated Security=True";
+            string chuoiketnoi = "Data Source=THANH\\SERVER1;Initial Catalog=QLDSV;Integrated Security=True";
             Program.conn.ConnectionString = chuoiketnoi;
             Program.conn.Open();
             DataTable dt = new DataTable();
@@ -143,14 +149,13 @@ namespace QLDSV
             Program.mGroup = myReader.GetString(2);
             //Program.frmMain.HienThiMenu();
             MessageBox.Show("Đăng Nhập Thành Công", "", MessageBoxButtons.OK);
-            myReader.Close();
-            Program.conn.Close();
             this.Hide();
             formMain f = new formMain();
             f.HienThiMenu();
             f.ShowDialog();
             this.Close();
-           
+            myReader.Close();
+            Program.conn.Close();
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -158,12 +163,17 @@ namespace QLDSV
             try
             {
                 Program.servername = comboBoxChiNhanh.SelectedValue.ToString();
-               
+
             }
             catch (Exception ex)
             {
                 Program.servername = "";
             }
+        }
+
+        private void VDSPHANMANHBindingSource1_CurrentChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
