@@ -27,18 +27,11 @@ namespace QLDSV
 
         private void setComboboxKHOAbyDefault()
         {
-
-            //string chuoiketnoi = "Data Source=THANH\\SERVER1;Initial Catalog=QLDSV;Integrated Security=True";
-            //Program.conn.ConnectionString = chuoiketnoi;
-            //Program.conn.Open();
-            DataTable dt = new DataTable();
-            dt = Program.ExecSqlDataTable("SELECT * FROM V_DS_PHANMANH where ");
-            Program.bds_dspm.DataSource = dt;
-            comboKHOA.DataSource = dt;
+            comboKHOA.DataSource = Program.bds_dspm.DataSource;
             comboKHOA.DisplayMember = "TENCN";
             comboKHOA.ValueMember = "TENSERVER";
-            comboKHOA.SelectedIndex = 1;
-            comboKHOA.SelectedIndex = 0;
+            // We set mChinhanh when Login 
+            comboKHOA.SelectedIndex = Program.mChinhanh;
         }
         private void FormMonHoc_Load(object sender, EventArgs e)
         {
@@ -48,7 +41,8 @@ namespace QLDSV
             // TODO: This line of code loads data into the 'qLDSVROOT.MONHOC' table. You can move, or remove it, as needed.
             this.mONHOCTableAdapter.Fill(this.qLDSVROOT.MONHOC);
 
-            //setComboboxKHOAbyDefault();
+            // set default value for comboxKHOA
+            setComboboxKHOAbyDefault();
             // Disabled button add and undo
             loadButton();
         }
@@ -56,6 +50,9 @@ namespace QLDSV
         public String makh;
         private void ComboKHOA_SelectedIndexChanged(object sender, EventArgs e)
         {
+            // For close form
+            if (comboKHOA.SelectedValue == null) return;
+            // For selected combox value
             Program.servername = comboKHOA.SelectedValue.ToString();
             if (comboKHOA.SelectedIndex != Program.mChinhanh)
             {
@@ -67,13 +64,13 @@ namespace QLDSV
                 Program.mlogin = Program.mloginDN;
                 Program.password = Program.passwordDN;
             }
+            // Connect to other server using HTKN
             if (Program.KetNoi() == 0)
                 MessageBox.Show("Lỗi kết nối về chi nhánh mới", "", MessageBoxButtons.OK);
             else
             {
                 this.mONHOCTableAdapter.Connection.ConnectionString = Program.connstr;
                 this.mONHOCTableAdapter.Fill(this.qLDSVROOT.MONHOC);
-
             }
         }
 
@@ -108,6 +105,10 @@ namespace QLDSV
             Program.sqlcmd.ExecuteNonQuery();
             this.mONHOCTableAdapter.Update(this.qLDSVROOT.MONHOC);
             this.mONHOCBindingSource.EndEdit();
+            // refesh change 
+            this.qLDSVROOT.MONHOC.AcceptChanges();
+            this.mONHOCTableAdapter.Fill(this.qLDSVROOT.MONHOC);
+
             // Disabled btnThemMonHoc after added successfully
             MessageBox.Show(dialogDescription, "THÔNG BÁO", MessageBoxButtons.OK);
             this.btnThemMonHoc.Enabled = false;
@@ -115,7 +116,8 @@ namespace QLDSV
 
         private void BtnThemMonHoc_Click(object sender, EventArgs e)
         {
-           
+            if (Program.conn.State == ConnectionState.Closed)
+                Program.conn.Open();
             // Checking error
             if (txtMaMH.Text.Trim() == "")
             {
@@ -129,8 +131,7 @@ namespace QLDSV
                 txtTenMH.Focus();
                 return;
             }
-            if (Program.conn.State == ConnectionState.Closed)
-                Program.conn.Open();
+           
             try
             {
                 // SP return 
@@ -142,6 +143,7 @@ namespace QLDSV
                     MessageBox.Show("Mã môn học đã tồn tại.\n", "", MessageBoxButtons.OK);
                     return;
                 }
+              
 
             }
             catch (Exception ex)
@@ -151,23 +153,23 @@ namespace QLDSV
             }
             try
             {
-                // Excute SP 
+                // Excute SP
                 ExcuteSP_Update_Insert_MonHoc("SP_InsertMonHoc", "Thêm môn học thành công");
-                
+                Program.conn.Close(); 
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Lỗi thêm môn học.\n" + ex.Message, "", MessageBoxButtons.OK);
                 return;
             }
-            Program.conn.Close();
+           
         }
 
         private void BtnClearMonHoc_Click(object sender, EventArgs e)
         {
             // Disabled button
             this.btnThemMonHoc.Enabled = true;
-            this.btnSuaMonHoc.Enabled = true;
+            this.btnPhucHoiMonHoc.Enabled = true;
             // Create new row in grid control
             this.mONHOCBindingSource.AddNew();
         }
@@ -176,11 +178,9 @@ namespace QLDSV
         {
             try
             {
-                // Fill table MONHOC
+                // Fill table MONHOC, refesh data
                 this.mONHOCTableAdapter.Connection.ConnectionString = Program.connstr;
                 this.mONHOCTableAdapter.Fill(this.qLDSVROOT.MONHOC);
-                //this.txtMaMH.Text = "";
-                //this.txtTenMH.Text = "";
             }
             catch (Exception ex)
             {
@@ -191,53 +191,55 @@ namespace QLDSV
 
         private void BtnXoaMonHoc_Click(object sender, EventArgs e)
         {
-            if (Program.conn.State == ConnectionState.Closed)
-                Program.conn.Open();
-
-            try
-            {
-                // SP return 
-                // 1: exist
-                // 0: not exist 
-                // Check if MaMH exists
-                String result = ExecuteSP_KiemMaMonHoc("SP_KiemMaMHTonTai");
-                // If maMH exists
-                if (result == "1")
+            if(MessageBox.Show("Bạn có chắc muốn xóa nó không?", "Xóa môn học", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes) {
+                if (Program.conn.State == ConnectionState.Closed)
+                    Program.conn.Open();
+                try
                 {
-                    try
+                    // SP return 
+                    // 1: exist
+                    // 0: not exist 
+                    // Check if MaMH exists
+                    String result = ExecuteSP_KiemMaMonHoc("SP_KiemMaMHTonTai");
+                    // If maMH exists
+                    if (result == "1")
                     {
-                        String ret = ExecuteSP_KiemMaMonHoc("SP_KiemMHTonTaiDiem");
-                        // If MonHoc had Diem
-                        if (ret == "1")
+                        try
                         {
-                            MessageBox.Show("Mã môn này đã có điểm!", "THÔNG BÁO LỖI", MessageBoxButtons.OK);
-                        }
-                        if (ret == "0")
-                        {
-                            this.mONHOCBindingSource.RemoveCurrent();
-                            //  this.lOPTableAdapter.Connection.ConnectionString = Program.connstr;
-                            MessageBox.Show("Xóa thành công!", "Thành công", MessageBoxButtons.OK);
-                            this.mONHOCTableAdapter.Update(this.qLDSVROOT.MONHOC);
+                            // Check if MonHoc had Diem => cant delete
+                            String ret = ExecuteSP_KiemMaMonHoc("SP_KiemMHTonTaiDiem");
+                            // If MonHoc had Diem
+                            if (ret == "1")
+                            {
+                                MessageBox.Show("Mã môn này đã có điểm!", "THÔNG BÁO LỖI", MessageBoxButtons.OK);
+                            }
+                            if (ret == "0")
+                            {
+                                this.mONHOCBindingSource.RemoveCurrent();
+                                MessageBox.Show("Xóa thành công!", "Thành công", MessageBoxButtons.OK);
+                                this.mONHOCTableAdapter.Update(this.qLDSVROOT.MONHOC);
 
+                            }
                         }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Lỗi xóa môn học.\n" + ex.Message, "", MessageBoxButtons.OK);
+                        }
+
                     }
-                    catch (Exception ex)
+                    else
                     {
-                        MessageBox.Show("Lỗi xóa môn học.\n" + ex.Message, "", MessageBoxButtons.OK);
+                        MessageBox.Show("Mã môn học không tồn tại.\n", "THÔNG BÁO", MessageBoxButtons.OK);
+                        return;
                     }
 
                 }
-                else
+                catch (Exception ex)
                 {
-                    MessageBox.Show("Mã môn học không tồn tại.\n", "THÔNG BÁO", MessageBoxButtons.OK);
+                    // Can be if did not pick the Department 
+                    MessageBox.Show("Lỗi kiểm tra mã môn học.\n" + ex.Message, "", MessageBoxButtons.OK);
                     return;
                 }
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Lỗi kiểm tra mã môn học.\n" + ex.Message, "", MessageBoxButtons.OK);
-                return;
             }
         }
 
@@ -272,7 +274,7 @@ namespace QLDSV
 
                     // Run sp Update monHoc
                     ExcuteSP_Update_Insert_MonHoc("SP_UpdateMonHoc", "Sửa môn học thành công");
-
+                    Program.conn.Close();
                 }
                 else
                 {
@@ -287,7 +289,12 @@ namespace QLDSV
                 MessageBox.Show("Lỗi kiểm tra mã môn học.\n" + ex.Message, "", MessageBoxButtons.OK);
                 return;
             }
-            Program.conn.Close();
+           
+        }
+
+        private void BtnThoatMonHoc_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 } 

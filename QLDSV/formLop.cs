@@ -140,6 +140,7 @@ namespace QLDSV
 
         private void comboKHOA_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (comboKHOA.SelectedValue == null) return;
             Program.servername = comboKHOA.SelectedValue.ToString();
             if (comboKHOA.SelectedIndex != Program.mChinhanh)
             {

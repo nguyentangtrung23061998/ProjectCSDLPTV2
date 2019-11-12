@@ -140,7 +140,7 @@ namespace QLDSV
             formLop.WindowState = FormWindowState.Maximized;
 
             Program.frmMain = new formMain();
-            Program.frmMain.WindowState = FormWindowState.Normal;
+            Program.frmMain.WindowState = FormWindowState.Maximized;
             Application.Run(new formDangNhap());
         }
     }
