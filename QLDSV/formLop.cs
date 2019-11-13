@@ -341,8 +341,7 @@ namespace QLDSV
             try
             {
                 ObjectUndo ob = (ObjectUndo)st.Pop();
-                txtSPLenh.Text = ob.getLenh();
-
+              
                 if (ob.getType() == 1)
                 {
                     MessageBox.Show("Khôi phục sau khi thêm " + ob.getLenh());

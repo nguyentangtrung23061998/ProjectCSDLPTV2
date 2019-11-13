@@ -63,7 +63,6 @@
             this.txtTenLop = new DevExpress.XtraEditors.TextEdit();
             this.txtMaKhoa = new DevExpress.XtraEditors.TextEdit();
             this.tableAdapterManager = new QLDSV.QLDSVROOTTableAdapters.TableAdapterManager();
-            this.txtSPLenh = new System.Windows.Forms.TextBox();
             mALOPLabel = new System.Windows.Forms.Label();
             tENLOPLabel = new System.Windows.Forms.Label();
             mAKHLabel = new System.Windows.Forms.Label();
@@ -234,7 +233,6 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(236)))), ((int)(((byte)(239)))));
-            this.panel1.Controls.Add(this.txtSPLenh);
             this.panel1.Controls.Add(this.bunifuCards1);
             this.panel1.Controls.Add(this.comboKHOA);
             this.panel1.Controls.Add(this.label1);
@@ -408,13 +406,6 @@
             this.tableAdapterManager.SINHVIENTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = QLDSV.QLDSVROOTTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
-            // txtSPLenh
-            // 
-            this.txtSPLenh.Location = new System.Drawing.Point(374, 26);
-            this.txtSPLenh.Name = "txtSPLenh";
-            this.txtSPLenh.Size = new System.Drawing.Size(372, 21);
-            this.txtSPLenh.TabIndex = 3;
-            // 
             // formLop
             // 
             this.Appearance.BackColor = System.Drawing.Color.White;
@@ -484,7 +475,6 @@
         private DevExpress.XtraEditors.TextEdit txtTenLop;
         private DevExpress.XtraEditors.TextEdit txtMaKhoa;
         private QLDSVROOTTableAdapters.TableAdapterManager tableAdapterManager;
-        private System.Windows.Forms.TextBox txtSPLenh;
         // private QLDSV.QLDSVTableAdapters.LOPTableAdapter lOPTableAdapter;
         //private QLDSV.QLDSVTableAdapters.TableAdapterManager tableAdapterManager;
         // private QLDSV.QLDSVTableAdapters.LOPTableAdapter lOPTableAdapter;
