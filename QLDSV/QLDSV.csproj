@@ -98,6 +98,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>QLDSVROOT.xsd</DependentUpon>
     </Compile>
+    <Compile Include="undoRedo.cs" />
     <EmbeddedResource Include="formDangNhap.resx">
       <DependentUpon>formDangNhap.cs</DependentUpon>
     </EmbeddedResource>
