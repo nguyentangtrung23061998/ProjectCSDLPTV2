@@ -187,3 +187,14 @@ D:\_Hoc_ky_7\Co_so_du_lieu_phan_tan\final_project\final_QLDSV\ProjectCSDLPTV2\QL
 D:\_Hoc_ky_7\Co_so_du_lieu_phan_tan\final_project\final_QLDSV\ProjectCSDLPTV2\QLDSV\obj\Debug\QLDSV.exe
 D:\_Hoc_ky_7\Co_so_du_lieu_phan_tan\final_project\final_QLDSV\ProjectCSDLPTV2\QLDSV\obj\Debug\QLDSV.pdb
 D:\_Hoc_ky_7\Co_so_du_lieu_phan_tan\final_project\final_QLDSV\ProjectCSDLPTV2\QLDSV\obj\Debug\QLDSV.formMonHoc.resources
+D:\_Hoc_ky_7\Co_so_du_lieu_phan_tan\final_project\backup\QLDSV\obj\Debug\QLDSV.csprojAssemblyReference.cache
+D:\_Hoc_ky_7\Co_so_du_lieu_phan_tan\final_project\backup\QLDSV\obj\Debug\QLDSV.formDangNhap.resources
+D:\_Hoc_ky_7\Co_so_du_lieu_phan_tan\final_project\backup\QLDSV\obj\Debug\QLDSV.formLop.resources
+D:\_Hoc_ky_7\Co_so_du_lieu_phan_tan\final_project\backup\QLDSV\obj\Debug\QLDSV.formMain.resources
+D:\_Hoc_ky_7\Co_so_du_lieu_phan_tan\final_project\backup\QLDSV\obj\Debug\QLDSV.formMonHoc.resources
+D:\_Hoc_ky_7\Co_so_du_lieu_phan_tan\final_project\backup\QLDSV\obj\Debug\QLDSV.Properties.Resources.resources
+D:\_Hoc_ky_7\Co_so_du_lieu_phan_tan\final_project\backup\QLDSV\obj\Debug\QLDSV.csproj.GenerateResource.cache
+D:\_Hoc_ky_7\Co_so_du_lieu_phan_tan\final_project\backup\QLDSV\obj\Debug\QLDSV.exe.licenses
+D:\_Hoc_ky_7\Co_so_du_lieu_phan_tan\final_project\backup\QLDSV\obj\Debug\QLDSV.csproj.CoreCompileInputs.cache
+D:\_Hoc_ky_7\Co_so_du_lieu_phan_tan\final_project\backup\QLDSV\obj\Debug\QLDSV.exe
+D:\_Hoc_ky_7\Co_so_du_lieu_phan_tan\final_project\backup\QLDSV\obj\Debug\QLDSV.pdb
