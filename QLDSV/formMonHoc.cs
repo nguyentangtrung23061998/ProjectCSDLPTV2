@@ -141,32 +141,34 @@ namespace QLDSV
                 if (result == "1")
                 {
                     MessageBox.Show("Mã môn học đã tồn tại.\n", "", MessageBoxButtons.OK);
+                    Program.conn.Close();
                     return;
+                }else
+                {
+                    try
+                    {
+                        // Excute SP
+                        ExcuteSP_Update_Insert_MonHoc("SP_InsertMonHoc", "Thêm môn học thành công");
+                        Program.conn.Close();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Lỗi thêm môn học.\n" + ex.Message, "", MessageBoxButtons.OK);
+                        return;
+                    }
                 }
-              
-
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Lỗi kiểm tra mã môn học.\n" + ex.Message, "", MessageBoxButtons.OK);
                 return;
             }
-            try
-            {
-                // Excute SP
-                ExcuteSP_Update_Insert_MonHoc("SP_InsertMonHoc", "Thêm môn học thành công");
-                Program.conn.Close(); 
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Lỗi thêm môn học.\n" + ex.Message, "", MessageBoxButtons.OK);
-                return;
-            }
-           
+
         }
 
         private void BtnClearMonHoc_Click(object sender, EventArgs e)
         {
+            txtMaMH.Focus();
             // Disabled button
             this.btnThemMonHoc.Enabled = true;
             this.btnPhucHoiMonHoc.Enabled = true;
@@ -295,6 +297,11 @@ namespace QLDSV
         private void BtnThoatMonHoc_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void Panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 } 
