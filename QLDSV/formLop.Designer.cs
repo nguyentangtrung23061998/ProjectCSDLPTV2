@@ -137,6 +137,7 @@
             this.btnLopPhucHoi.Name = "btnLopPhucHoi";
             this.btnLopPhucHoi.Size = new System.Drawing.Size(125, 26);
             this.btnLopPhucHoi.Text = "PHỤC HỒI";
+            this.btnLopPhucHoi.Click += new System.EventHandler(this.btnLopPhucHoi_Click);
             // 
             // btnLopRefresh
             // 

@@ -9,17 +9,38 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using System.Data.SqlClient;
+using System.Collections;
 
 namespace QLDSV
 {
     public partial class formLop : DevExpress.XtraEditors.XtraForm
     {
-
+        public int chose = 0; // XAC DINH chon THEM / CHUYEN/ SUA   
         int vitri = 0;
         String makh = "";
 
         Boolean checkAdd = false;
+        public Stack st = new Stack();
+        public class ObjectUndo
+        {
+            int type;
+            String lenh;
 
+            public ObjectUndo(int t, String l)
+            {
+                this.type = t;
+                this.lenh = l;
+            }
+
+            public int getType()
+            {
+                return type;
+            }
+            public String getLenh()
+            {
+                return lenh;
+            }
+        }
         public formLop()
         {
             InitializeComponent();
@@ -28,7 +49,6 @@ namespace QLDSV
         public void loadButton()
         {
             this.btnLopThem.Enabled = false;
-            this.btnLopPhucHoi.Enabled = false;
         }
 
 
@@ -40,9 +60,8 @@ namespace QLDSV
             // TODO: This line of code loads data into the 'qLDSVROOT.LOP' table. You can move, or remove it, as needed.
             this.lOPTableAdapter.Connection.ConnectionString = Program.connstr;
             this.lOPTableAdapter.Fill(this.qLDSVROOT.LOP);
-            this.comboKHOA.SelectedIndex = 0;
             makh = ((DataRowView)lOPBindingSource[0])["MAKH"].ToString();
-            Program.servername = comboKHOA.SelectedValue.ToString();
+           // Program.servername = comboKHOA.SelectedValue.ToString();
             txtMaKhoa.Text = makh;
             txtMaKhoa.Enabled = false;
             loadButton();
@@ -97,6 +116,7 @@ namespace QLDSV
                 MessageBox.Show("Lỗi tồn tại mã lớp.\n" + ex.Message, "", MessageBoxButtons.OK);
                 return;
             }
+
             ///thêm lớp
             try
             {
@@ -111,6 +131,11 @@ namespace QLDSV
                 this.lOPTableAdapter.Update(this.qLDSVROOT.LOP);
                 this.lOPBindingSource.EndEdit();
                 MessageBox.Show("Thêm Lớp Thành công", "THÔNG BÁO", MessageBoxButtons.OK);
+                int type = 1;//Thêm
+                String lenh = "exec SP_UndoThemLop '" + txtMaLop.Text + "'";
+                ObjectUndo ob = new ObjectUndo(type, lenh);
+                st.Push(ob);
+                return;
                 Program.conn.Close();
             }
             catch (Exception ex)
@@ -118,13 +143,7 @@ namespace QLDSV
                 MessageBox.Show("Lỗi ghi lớp.\n" + ex.Message, "", MessageBoxButtons.OK);
                 return;
             }
-
-
         }
-
-        public String maL;
-        public String tenL;
-        public String maK;
 
         private void comboKHOA_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -169,13 +188,26 @@ namespace QLDSV
                 {
                     MessageBox.Show("Mã lop ton tai trong sinh vien!", "THÔNG BÁO LỖI", MessageBoxButtons.OK);
                 }
-                if(ret == "0")
+                if (ret == "2")
+                {
+                    MessageBox.Show("Tồn tại mã lớp trong sinh viên ở site khác.\n", "", MessageBoxButtons.OK);
+                    return;
+                }
+                if (ret == "0")
                 {
                     this.lOPBindingSource.RemoveCurrent();
                     //  this.lOPTableAdapter.Connection.ConnectionString = Program.connstr;
                     MessageBox.Show("Xóa thành công!", "Thành công", MessageBoxButtons.OK);
-                    this.lOPTableAdapter.Update(this.qLDSVROOT.LOP);
-
+                   // this.lOPTableAdapter.Update(this.qLDSVROOT.LOP);
+                    this.lOPBindingSource.EndEdit();
+                    int type = 2;//XÓA
+                    String lenh = "exec SP_UndoDeleteLop '"+txtMaLop.Text+"' '"+txtTenLop.Text+"' '"+txtMaKhoa.Text+"'";
+                    ObjectUndo ob = new ObjectUndo(type, lenh);
+                    st.Push(ob);
+                    Program.conn.Close();
+                    txtMaKhoa.Focus();
+                    return;
+                   
                 }
             }catch(Exception ex)
             {
@@ -187,6 +219,7 @@ namespace QLDSV
         {
             this.btnLopThem.Enabled = true;
             this.btnLopSua.Enabled = true;
+            this.lOPBindingSource.ResetBindings(true);
             this.lOPBindingSource.AddNew();
             makh = ((DataRowView)lOPBindingSource[0])["MAKH"].ToString();
             txtMaKhoa.Text = makh;
@@ -232,6 +265,11 @@ namespace QLDSV
                     MessageBox.Show(" nhân viên không tồn tại !", "THÔNG BÁO LỖI", MessageBoxButtons.OK);
                     return;
                 }
+                if(Ret == "2")
+                {
+                    MessageBox.Show("Tồn tại mã lớp ở site khác.\n", "", MessageBoxButtons.OK);
+                    return;
+                }
                 if(Ret == "1")
                 {
                     if (Program.conn.State == ConnectionState.Closed)
@@ -246,6 +284,10 @@ namespace QLDSV
                     Program.sqlcmd.ExecuteNonQuery();
                     this.lOPTableAdapter.Update(this.qLDSVROOT.LOP);
                     this.lOPBindingSource.EndEdit();
+                    int type = 3    ;//chỉnh sửa
+                    String lenh = "exec SP_UndoUpdateLop '" + txtMaLop.Text + "' '" + txtTenLop.Text + "' '" + txtMaKhoa.Text + "'";
+                    ObjectUndo ob = new ObjectUndo(type, lenh);
+                    st.Push(ob);
                     Program.conn.Close();
                 }
                 
@@ -261,14 +303,43 @@ namespace QLDSV
         {
             try
             {
-                this.lOPTableAdapter.Connection.ConnectionString = Program.connstr;
+                
                 this.lOPTableAdapter.Fill(this.qLDSVROOT.LOP);
-                this.txtMaLop.Text = "";
-                this.txtTenLop.Text = "";
+               
             }catch(Exception ex)
             {
                 MessageBox.Show("Lỗi Reload :" + ex.Message, "", MessageBoxButtons.OK);
                 return;
+            }
+        }
+
+        private void btnLopPhucHoi_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ObjectUndo ob = (ObjectUndo)st.Pop();
+                    if (ob.getType() == 1)
+                {
+                    MessageBox.Show("Khôi phục sau khi thêm " + ob.getLenh());
+                    Program.ExecSqlDataReader(ob.getLenh());
+                    this.lOPTableAdapter.Fill(this.qLDSVROOT.LOP);
+                }
+                if (ob.getType() == 2)
+                {
+                    MessageBox.Show("Khôi phục sau khi xóa " + ob.getLenh());
+                    Program.ExecSqlDataReader(ob.getLenh());
+                    this.lOPTableAdapter.Fill(this.qLDSVROOT.LOP);
+                }
+                if (ob.getType() == 3)
+                {
+                    MessageBox.Show("Khôi phục sau khi sữa " + ob.getLenh());
+                    Program.ExecSqlDataReader(ob.getLenh());
+                    this.lOPTableAdapter.Fill(this.qLDSVROOT.LOP);
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Không có gì để Undo", "THÔNG BÁO", MessageBoxButtons.OK);
             }
         }
     }
