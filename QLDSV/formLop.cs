@@ -16,6 +16,7 @@ namespace QLDSV
     public partial class formLop : DevExpress.XtraEditors.XtraForm
     {
         public int chose = 0; // XAC DINH chon THEM / CHUYEN/ SUA   
+        public int chose = 0; // XAC DINH chon THEM / CHUYEN/ SUA   
         int vitri = 0;
         String makh = "";
 
@@ -51,7 +52,14 @@ namespace QLDSV
             this.btnLopThem.Enabled = false;
         }
 
-
+        private void setComboboxKHOAbyDefault()
+        {
+            comboKHOA.DataSource = Program.bds_dspm.DataSource;
+            comboKHOA.DisplayMember = "TENCN";
+            comboKHOA.ValueMember = "TENSERVER";
+            // We set mChinhanh when Login 
+            comboKHOA.SelectedIndex = Program.mChinhanh;
+        }
         private void formLop_Load(object sender, EventArgs e)
         {
             //QLDSVROOT.EnforceConstraints = false;
@@ -65,6 +73,7 @@ namespace QLDSV
             txtMaKhoa.Text = makh;
             txtMaKhoa.Enabled = false;
             loadButton();
+            setComboboxKHOAbyDefault();
         }
 
         public String maL;
@@ -112,19 +121,22 @@ namespace QLDSV
                 Program.sqlcmd.Parameters.Add("@Ret", SqlDbType.Int).Direction = ParameterDirection.ReturnValue;
                 Program.sqlcmd.ExecuteNonQuery();
                 String ret = Program.sqlcmd.Parameters["@Ret"].Value.ToString();
-
-                Program.conn.Close();
+               
                 if (ret == "1")
                 {
+                   
                     MessageBox.Show("Tồn tại mã lớp.\n", "", MessageBoxButtons.OK);
                     return;
                 }
+           
                 if (ret == "2")
                 {
+                   
                     MessageBox.Show("Tồn tại mã lớp ở site khác.\n", "", MessageBoxButtons.OK);
                     return;
                 }
             }
+          
             catch (Exception ex)
             {
                 MessageBox.Show("Lỗi tồn tại mã lớp.\n" + ex.Message, "", MessageBoxButtons.OK);
@@ -153,8 +165,14 @@ namespace QLDSV
                 Program.conn.Close();
                 MessageBox.Show("Thêm Lớp Thành công", "THÔNG BÁO", MessageBoxButtons.OK);
 
-                return;
+                int type = 1;//Thêm
+                String lenh = "exec SP_UndoThemLop '" + txtMaLop.Text + "'";
+                ObjectUndo ob = new ObjectUndo(type, lenh);
+                st.Push(ob);
 
+                Program.conn.Close();
+                return;
+                
             }
             catch (Exception ex)
             {
@@ -165,6 +183,9 @@ namespace QLDSV
 
         private void comboKHOA_SelectedIndexChanged(object sender, EventArgs e)
         {
+            // For close form
+            if (comboKHOA.SelectedValue == null) return;
+
             Program.servername = comboKHOA.SelectedValue.ToString();
             if (comboKHOA.SelectedIndex != Program.mChinhanh)
             {
@@ -229,12 +250,14 @@ namespace QLDSV
                     this.lOPBindingSource.RemoveCurrent();
                     this.lOPBindingSource.EndEdit();
                     Program.conn.Close();
+                    this.lOPBindingSource.EndEdit();
 
 
                     txtMaKhoa.Focus();
                     return;
 
                 }
+          
             }
             catch (Exception ex)
             {
@@ -248,7 +271,6 @@ namespace QLDSV
             txtMaLop.Focus();
             this.btnLopThem.Enabled = true;
             this.btnLopSua.Enabled = true;
-            //  this.lOPBindingSource.ResetBindings(true);
             this.lOPBindingSource.AddNew();
             makh = ((DataRowView)lOPBindingSource[0])["MAKH"].ToString();
             txtMaKhoa.Text = makh;
@@ -294,6 +316,7 @@ namespace QLDSV
                     MessageBox.Show(" nhân viên không tồn tại !", "THÔNG BÁO LỖI", MessageBoxButtons.OK);
                     return;
                 }
+        
                 if (Ret == "2")
                 {
                     MessageBox.Show("Tồn tại mã lớp ở site khác.\n", "", MessageBoxButtons.OK);
