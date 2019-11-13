@@ -130,60 +130,60 @@
             // 
             // btnThemMonHoc
             // 
-            this.btnThemMonHoc.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnThemMonHoc.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnThemMonHoc.Image = ((System.Drawing.Image)(resources.GetObject("btnThemMonHoc.Image")));
             this.btnThemMonHoc.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnThemMonHoc.Name = "btnThemMonHoc";
-            this.btnThemMonHoc.Size = new System.Drawing.Size(86, 25);
+            this.btnThemMonHoc.Size = new System.Drawing.Size(76, 25);
             this.btnThemMonHoc.Text = "THÊM";
             this.btnThemMonHoc.Click += new System.EventHandler(this.BtnThemMonHoc_Click);
             // 
             // btnXoaMonHoc
             // 
-            this.btnXoaMonHoc.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnXoaMonHoc.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnXoaMonHoc.Image = ((System.Drawing.Image)(resources.GetObject("btnXoaMonHoc.Image")));
             this.btnXoaMonHoc.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnXoaMonHoc.Name = "btnXoaMonHoc";
-            this.btnXoaMonHoc.Size = new System.Drawing.Size(74, 25);
+            this.btnXoaMonHoc.Size = new System.Drawing.Size(67, 25);
             this.btnXoaMonHoc.Text = "XÓA";
             this.btnXoaMonHoc.Click += new System.EventHandler(this.BtnXoaMonHoc_Click);
             // 
             // btnSuaMonHoc
             // 
-            this.btnSuaMonHoc.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSuaMonHoc.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSuaMonHoc.Image = ((System.Drawing.Image)(resources.GetObject("btnSuaMonHoc.Image")));
             this.btnSuaMonHoc.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnSuaMonHoc.Name = "btnSuaMonHoc";
-            this.btnSuaMonHoc.Size = new System.Drawing.Size(73, 25);
+            this.btnSuaMonHoc.Size = new System.Drawing.Size(65, 25);
             this.btnSuaMonHoc.Text = "SỬA";
             this.btnSuaMonHoc.Click += new System.EventHandler(this.BtnSuaMonHoc_Click);
             // 
             // btnPhucHoiMonHoc
             // 
-            this.btnPhucHoiMonHoc.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPhucHoiMonHoc.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPhucHoiMonHoc.Image = ((System.Drawing.Image)(resources.GetObject("btnPhucHoiMonHoc.Image")));
             this.btnPhucHoiMonHoc.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnPhucHoiMonHoc.Name = "btnPhucHoiMonHoc";
-            this.btnPhucHoiMonHoc.Size = new System.Drawing.Size(122, 25);
+            this.btnPhucHoiMonHoc.Size = new System.Drawing.Size(107, 25);
             this.btnPhucHoiMonHoc.Text = "PHỤC HỒI";
             // 
             // btnThoatMonHoc
             // 
-            this.btnThoatMonHoc.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnThoatMonHoc.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnThoatMonHoc.Image = ((System.Drawing.Image)(resources.GetObject("btnThoatMonHoc.Image")));
             this.btnThoatMonHoc.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnThoatMonHoc.Name = "btnThoatMonHoc";
-            this.btnThoatMonHoc.Size = new System.Drawing.Size(98, 25);
+            this.btnThoatMonHoc.Size = new System.Drawing.Size(85, 25);
             this.btnThoatMonHoc.Text = "THOÁT";
             this.btnThoatMonHoc.Click += new System.EventHandler(this.BtnThoatMonHoc_Click);
             // 
             // btnRefeshMonHoc
             // 
-            this.btnRefeshMonHoc.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRefeshMonHoc.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRefeshMonHoc.Image = ((System.Drawing.Image)(resources.GetObject("btnRefeshMonHoc.Image")));
             this.btnRefeshMonHoc.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnRefeshMonHoc.Name = "btnRefeshMonHoc";
-            this.btnRefeshMonHoc.Size = new System.Drawing.Size(117, 25);
+            this.btnRefeshMonHoc.Size = new System.Drawing.Size(100, 25);
             this.btnRefeshMonHoc.Text = "REFRESH";
             this.btnRefeshMonHoc.Click += new System.EventHandler(this.BtnRefeshMonHoc_Click);
             // 
@@ -210,6 +210,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(879, 67);
             this.panel1.TabIndex = 2;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel1_Paint);
             // 
             // bunifuCards1
             // 
@@ -231,12 +232,12 @@
             this.comboKHOA.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.vDSPHANMANHBindingSource, "TENCN", true));
             this.comboKHOA.DataSource = this.vDSPHANMANHBindingSource;
             this.comboKHOA.DisplayMember = "TENCN";
-            this.comboKHOA.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboKHOA.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboKHOA.FormattingEnabled = true;
             this.comboKHOA.Location = new System.Drawing.Point(126, 23);
             this.comboKHOA.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboKHOA.Name = "comboKHOA";
-            this.comboKHOA.Size = new System.Drawing.Size(184, 24);
+            this.comboKHOA.Size = new System.Drawing.Size(184, 27);
             this.comboKHOA.TabIndex = 1;
             this.comboKHOA.ValueMember = "TENSERVER";
             this.comboKHOA.SelectedIndexChanged += new System.EventHandler(this.ComboKHOA_SelectedIndexChanged);
@@ -254,10 +255,10 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(65, 24);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(63, 21);
+            this.label1.Size = new System.Drawing.Size(55, 19);
             this.label1.TabIndex = 0;
             this.label1.Text = "KHOA";
             // 
@@ -286,7 +287,7 @@
             // 
             this.mONHOCGridControl.DataSource = this.mONHOCBindingSource;
             this.mONHOCGridControl.Dock = System.Windows.Forms.DockStyle.Top;
-            this.mONHOCGridControl.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mONHOCGridControl.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mONHOCGridControl.Location = new System.Drawing.Point(0, 95);
             this.mONHOCGridControl.MainView = this.gridView1;
             this.mONHOCGridControl.Name = "mONHOCGridControl";
