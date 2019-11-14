@@ -15,6 +15,7 @@ namespace QLDSV
 {
     public partial class formLop : DevExpress.XtraEditors.XtraForm
     {
+
         public int chose = 0; // XAC DINH chon THEM / CHUYEN/ SUA   
         int vitri = 0;
         String makh = "";
@@ -112,7 +113,7 @@ namespace QLDSV
                 MessageBox.Show("Lỗi tồn tại mã lớp.\n" + ex.Message, "", MessageBoxButtons.OK);
                 return 0;
             }
-            return 4; 
+            return 4;
         }
 
         private void handleDuLieuFocus()
@@ -147,7 +148,7 @@ namespace QLDSV
             }
 
             int checkMaLop = checkMaLopTonTai();
-            if(checkMaLop == 0 || checkMaLop == 1 || checkMaLop == 2)
+            if (checkMaLop == 0 || checkMaLop == 1 || checkMaLop == 2)
             {
                 return;
             }
@@ -176,7 +177,7 @@ namespace QLDSV
                 MessageBox.Show("Thêm Lớp Thành công", "THÔNG BÁO", MessageBoxButtons.OK);
                 st.Push(ob);
                 return;
-                
+
             }
             catch (Exception ex)
             {

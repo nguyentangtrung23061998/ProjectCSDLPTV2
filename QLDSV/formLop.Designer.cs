@@ -233,7 +233,6 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(236)))), ((int)(((byte)(239)))));
-            this.panel1.Controls.Add(this.txtSPLenh);
             this.panel1.Controls.Add(this.bunifuCards1);
             this.panel1.Controls.Add(this.comboKHOA);
             this.panel1.Controls.Add(this.label1);
@@ -489,7 +488,6 @@
         private DevExpress.XtraEditors.TextEdit txtTenLop;
         private DevExpress.XtraEditors.TextEdit txtMaKhoa;
         private QLDSVROOTTableAdapters.TableAdapterManager tableAdapterManager;
-        private System.Windows.Forms.TextBox txtSPLenh;
         // private QLDSV.QLDSVTableAdapters.LOPTableAdapter lOPTableAdapter;
         //private QLDSV.QLDSVTableAdapters.TableAdapterManager tableAdapterManager;
         // private QLDSV.QLDSVTableAdapters.LOPTableAdapter lOPTableAdapter;
