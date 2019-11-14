@@ -192,10 +192,10 @@
         }
 
         #endregion
-   //     private QLDSVDataSet qLDSVDataSet;
+        //     private QLDSVDataSet qLDSVDataSet;
         private System.Windows.Forms.BindingSource v_DS_PHANMANHBindingSource;
-   //     private QLDSVDataSetTableAdapters.V_DS_PHANMANHTableAdapter v_DS_PHANMANHTableAdapter;
-       // private QLDSVDataSetTableAdapters.TableAdapterManager tableAdapterManager;
+        //     private QLDSVDataSetTableAdapters.V_DS_PHANMANHTableAdapter v_DS_PHANMANHTableAdapter;
+        // private QLDSVDataSetTableAdapters.TableAdapterManager tableAdapterManager;
         private DevExpress.XtraBars.Ribbon.RibbonControl ribbonControl1;
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage1;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;

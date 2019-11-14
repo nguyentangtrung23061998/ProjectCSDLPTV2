@@ -204,3 +204,4 @@ D:\_Hoc_ky_7\Co_so_du_lieu_phan_tan\final_project\final_QLDSV\ProjectCSDLPTV2\QL
 D:\_Hoc_ky_7\Co_so_du_lieu_phan_tan\final_project\final_QLDSV\ProjectCSDLPTV2\QLDSV\bin\Debug\es\DevExpress.Xpo.v19.1.resources.dll
 D:\_Hoc_ky_7\Co_so_du_lieu_phan_tan\final_project\final_QLDSV\ProjectCSDLPTV2\QLDSV\bin\Debug\ja\DevExpress.Xpo.v19.1.resources.dll
 D:\_Hoc_ky_7\Co_so_du_lieu_phan_tan\final_project\final_QLDSV\ProjectCSDLPTV2\QLDSV\bin\Debug\ru\DevExpress.Xpo.v19.1.resources.dll
+D:\_Hoc_ky_7\Co_so_du_lieu_phan_tan\final_project\final_QLDSV\ProjectCSDLPTV2\QLDSV\obj\Debug\QLDSV.formDiem.resources
