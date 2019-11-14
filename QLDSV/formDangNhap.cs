@@ -94,6 +94,8 @@ namespace QLDSV
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
+            txtUsername.Text = "son";
+            txtPassword.Text = "1234";
             if (txtUsername.Text.Trim() == "")
             {
                 MessageBox.Show("Tên tài khoản không được để trống", "Lỗi", MessageBoxButtons.OK);

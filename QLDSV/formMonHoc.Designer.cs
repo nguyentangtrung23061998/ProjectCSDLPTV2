@@ -166,6 +166,7 @@
             this.btnPhucHoiMonHoc.Name = "btnPhucHoiMonHoc";
             this.btnPhucHoiMonHoc.Size = new System.Drawing.Size(107, 25);
             this.btnPhucHoiMonHoc.Text = "PHỤC HỒI";
+            this.btnPhucHoiMonHoc.Click += new System.EventHandler(this.BtnPhucHoiMonHoc_Click);
             // 
             // btnThoatMonHoc
             // 
@@ -210,7 +211,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(879, 67);
             this.panel1.TabIndex = 2;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel1_Paint);
             // 
             // bunifuCards1
             // 
@@ -291,7 +291,7 @@
             this.mONHOCGridControl.Location = new System.Drawing.Point(0, 95);
             this.mONHOCGridControl.MainView = this.gridView1;
             this.mONHOCGridControl.Name = "mONHOCGridControl";
-            this.mONHOCGridControl.Size = new System.Drawing.Size(879, 262);
+            this.mONHOCGridControl.Size = new System.Drawing.Size(879, 224);
             this.mONHOCGridControl.TabIndex = 2;
             this.mONHOCGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -329,9 +329,9 @@
             this.panelControl1.Controls.Add(tENMHLabel);
             this.panelControl1.Controls.Add(this.txtTenMH);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl1.Location = new System.Drawing.Point(0, 357);
+            this.panelControl1.Location = new System.Drawing.Point(0, 319);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(879, 57);
+            this.panelControl1.Size = new System.Drawing.Size(879, 95);
             this.panelControl1.TabIndex = 3;
             // 
             // txtMaMH

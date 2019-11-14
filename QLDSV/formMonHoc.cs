@@ -8,6 +8,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
+using System.Collections;
 
 namespace QLDSV
 {
@@ -18,11 +19,31 @@ namespace QLDSV
             InitializeComponent();
         }
 
+        public Stack st = new Stack();
+        public class ObjectUndo
+        {
+            int type;//thêm = 1, xóa =2 , sửa =3
+            String lenh;//lệnh SP
+
+            public ObjectUndo(int t, String l)
+            {
+                this.type = t;
+                this.lenh = l;
+            }
+
+            public int getType()
+            {
+                return type;
+            }
+            public String getLenh()
+            {
+                return lenh;
+            }
+        }
         public void loadButton()
         {
-            // Disable add and undo button
+            // Disable add, Enable when click clear
             this.btnThemMonHoc.Enabled = false;
-            this.btnPhucHoiMonHoc.Enabled = false;
         }
 
         private void setComboboxKHOAbyDefault()
@@ -30,8 +51,18 @@ namespace QLDSV
             comboKHOA.DataSource = Program.bds_dspm.DataSource;
             comboKHOA.DisplayMember = "TENCN";
             comboKHOA.ValueMember = "TENSERVER";
-            // We set mChinhanh when Login 
+            // We already set mChinhanh when Login 
             comboKHOA.SelectedIndex = Program.mChinhanh;
+        }
+
+        public String maMH;
+        public String tenMH;
+  
+        private void handleDuLieuFocus()
+        {
+            maMH = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "MAMH").ToString().Trim();
+            tenMH = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "TENMH").ToString().Trim();
+           
         }
         private void FormMonHoc_Load(object sender, EventArgs e)
         {
@@ -100,7 +131,7 @@ namespace QLDSV
             Program.sqlcmd.CommandText = spName;
             // SP variables
             Program.sqlcmd.Parameters.Add("@MAMH", SqlDbType.NChar).Value = txtMaMH.Text;
-            Program.sqlcmd.Parameters.Add("@TENMH", SqlDbType.NVarChar).Value = txtTenMH.Text;
+            Program.sqlcmd.Parameters.Add("@TENMH", SqlDbType.NVarChar).Value = txtTenMH.Text.Trim();
             // Run query 
             Program.sqlcmd.ExecuteNonQuery();
             this.mONHOCTableAdapter.Update(this.qLDSVROOT.MONHOC);
@@ -147,8 +178,18 @@ namespace QLDSV
                 {
                     try
                     {
+                        // Save action add Monhoc into Stack 
+                        int type = 1;
+                        String lenh = "exec SP_UndoThemMonHoc '" + txtMaMH.Text + "'";
+                        ObjectUndo ob = new ObjectUndo(type, lenh);
+                        st.Push(ob);
                         // Excute SP
                         ExcuteSP_Update_Insert_MonHoc("SP_InsertMonHoc", "Thêm môn học thành công");
+                        gridView1.ClearSelection();
+                        //int nRowIndex = gridView1.RowCount - 1;
+
+                        gridView1.SetFocusedRowModified();
+                        
                         Program.conn.Close();
                     }
                     catch (Exception ex)
@@ -217,6 +258,12 @@ namespace QLDSV
                             }
                             if (ret == "0")
                             {
+                                // Save action delete Monhoc into Stack
+                                int type = 2;
+                                String lenh = "exec SP_UndoDeleteMonHoc '" + txtMaMH.Text + "', '" + txtTenMH.Text.Trim() + "'";
+                                ObjectUndo ob = new ObjectUndo(type, lenh);
+                                st.Push(ob);
+                                // Delete Monhoc
                                 this.mONHOCBindingSource.RemoveCurrent();
                                 MessageBox.Show("Xóa thành công!", "Thành công", MessageBoxButtons.OK);
                                 this.mONHOCTableAdapter.Update(this.qLDSVROOT.MONHOC);
@@ -273,7 +320,13 @@ namespace QLDSV
                 // If maMH exists
                 if (result == "1")
                 {
-
+                    // Get the row on focus contain data
+                    handleDuLieuFocus();
+                    // Save action update Monhoc into Stack
+                    int type = 3;
+                    String lenh = "exec SP_UndoUpdateMonHoc '" + maMH + "', '" + tenMH + "'";
+                    ObjectUndo ob = new ObjectUndo(type, lenh);
+                    st.Push(ob);
                     // Run sp Update monHoc
                     ExcuteSP_Update_Insert_MonHoc("SP_UpdateMonHoc", "Sửa môn học thành công");
                     Program.conn.Close();
@@ -283,15 +336,12 @@ namespace QLDSV
                      MessageBox.Show("Mã môn học không tồn tại.\n", "THÔNG BÁO", MessageBoxButtons.OK);
                     return;
                 }
-                
-
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Lỗi kiểm tra mã môn học.\n" + ex.Message, "", MessageBoxButtons.OK);
                 return;
             }
-           
         }
 
         private void BtnThoatMonHoc_Click(object sender, EventArgs e)
@@ -299,9 +349,37 @@ namespace QLDSV
             this.Close();
         }
 
-        private void Panel1_Paint(object sender, PaintEventArgs e)
+        private void undo(String message, String spLenh)
         {
-
+            if (Program.conn.State == ConnectionState.Closed)
+                Program.conn.Open();
+            MessageBox.Show(message + spLenh);
+            Program.ExecSqlDataReader(spLenh);
+            this.mONHOCTableAdapter.Fill(this.qLDSVROOT.MONHOC);
+            Program.conn.Close();
+        }
+        private void BtnPhucHoiMonHoc_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ObjectUndo ob = (ObjectUndo)st.Pop();
+                if (ob.getType() == 1)
+                {
+                    undo("Khôi phục sau khi thêm ", ob.getLenh());
+                }
+                if (ob.getType() == 2)
+                {
+                    undo("Khôi phục sau khi xóa ", ob.getLenh());  
+                }
+                if (ob.getType() == 3)
+                {
+                    undo("Khôi phục sau khi sữa ", ob.getLenh());
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Không có gì để Undo", "THÔNG BÁO", MessageBoxButtons.OK);
+            }
         }
     }
 } 
