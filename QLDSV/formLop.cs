@@ -16,7 +16,6 @@ namespace QLDSV
     public partial class formLop : DevExpress.XtraEditors.XtraForm
     {
         public int chose = 0; // XAC DINH chon THEM / CHUYEN/ SUA   
-        public int chose = 0; // XAC DINH chon THEM / CHUYEN/ SUA   
         int vitri = 0;
         String makh = "";
 
@@ -164,10 +163,6 @@ namespace QLDSV
                 lOPBindingSource.ResetAllowNew();
                 Program.conn.Close();
                 MessageBox.Show("Thêm Lớp Thành công", "THÔNG BÁO", MessageBoxButtons.OK);
-
-                int type = 1;//Thêm
-                String lenh = "exec SP_UndoThemLop '" + txtMaLop.Text + "'";
-                ObjectUndo ob = new ObjectUndo(type, lenh);
                 st.Push(ob);
 
                 Program.conn.Close();
