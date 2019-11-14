@@ -40,12 +40,7 @@
             this.btnThoatMonHoc = new System.Windows.Forms.ToolStripButton();
             this.btnRefeshMonHoc = new System.Windows.Forms.ToolStripButton();
             this.btnClearMonHoc = new System.Windows.Forms.ToolStripButton();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.bunifuCards1 = new Bunifu.Framework.UI.BunifuCards();
-            this.comboKHOA = new System.Windows.Forms.ComboBox();
-            this.vDSPHANMANHBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.qLDSVROOT = new QLDSV.QLDSVROOT();
-            this.label1 = new System.Windows.Forms.Label();
             this.mONHOCBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.mONHOCTableAdapter = new QLDSV.QLDSVROOTTableAdapters.MONHOCTableAdapter();
             this.tableAdapterManager = new QLDSV.QLDSVROOTTableAdapters.TableAdapterManager();
@@ -53,7 +48,6 @@
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colMAMH = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTENMH = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.v_DS_PHANMANHTableAdapter = new QLDSV.QLDSVROOTTableAdapters.V_DS_PHANMANHTableAdapter();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.txtMaMH = new DevExpress.XtraEditors.TextEdit();
             this.txtTenMH = new DevExpress.XtraEditors.TextEdit();
@@ -69,8 +63,6 @@
             tENMHLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
             this.bindingNavigator1.SuspendLayout();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.vDSPHANMANHBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.qLDSVROOT)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mONHOCBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mONHOCGridControl)).BeginInit();
@@ -86,21 +78,21 @@
             // 
             mAMHLabel.AutoSize = true;
             mAMHLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            mAMHLabel.Location = new System.Drawing.Point(27, 21);
+            mAMHLabel.Location = new System.Drawing.Point(15, 27);
             mAMHLabel.Name = "mAMHLabel";
-            mAMHLabel.Size = new System.Drawing.Size(62, 19);
+            mAMHLabel.Size = new System.Drawing.Size(89, 19);
             mAMHLabel.TabIndex = 0;
-            mAMHLabel.Text = "MAMH:";
+            mAMHLabel.Text = "Mã môn học:";
             // 
             // tENMHLabel
             // 
             tENMHLabel.AutoSize = true;
             tENMHLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            tENMHLabel.Location = new System.Drawing.Point(276, 21);
+            tENMHLabel.Location = new System.Drawing.Point(290, 26);
             tENMHLabel.Name = "tENMHLabel";
-            tENMHLabel.Size = new System.Drawing.Size(67, 19);
+            tENMHLabel.Size = new System.Drawing.Size(91, 19);
             tENMHLabel.TabIndex = 2;
-            tENMHLabel.Text = "TENMH:";
+            tENMHLabel.Text = "Tên môn học:";
             // 
             // bindingNavigator1
             // 
@@ -198,69 +190,10 @@
             this.btnClearMonHoc.Text = "CLEAR";
             this.btnClearMonHoc.Click += new System.EventHandler(this.BtnClearMonHoc_Click);
             // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(236)))), ((int)(((byte)(239)))));
-            this.panel1.Controls.Add(this.bunifuCards1);
-            this.panel1.Controls.Add(this.comboKHOA);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel1.Location = new System.Drawing.Point(0, 28);
-            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(879, 67);
-            this.panel1.TabIndex = 2;
-            // 
-            // bunifuCards1
-            // 
-            this.bunifuCards1.BackColor = System.Drawing.Color.White;
-            this.bunifuCards1.BorderRadius = 5;
-            this.bunifuCards1.BottomSahddow = true;
-            this.bunifuCards1.color = System.Drawing.Color.Tomato;
-            this.bunifuCards1.LeftSahddow = false;
-            this.bunifuCards1.Location = new System.Drawing.Point(248, 24);
-            this.bunifuCards1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.bunifuCards1.Name = "bunifuCards1";
-            this.bunifuCards1.RightSahddow = true;
-            this.bunifuCards1.ShadowDepth = 20;
-            this.bunifuCards1.Size = new System.Drawing.Size(7, 6);
-            this.bunifuCards1.TabIndex = 2;
-            // 
-            // comboKHOA
-            // 
-            this.comboKHOA.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.vDSPHANMANHBindingSource, "TENCN", true));
-            this.comboKHOA.DataSource = this.vDSPHANMANHBindingSource;
-            this.comboKHOA.DisplayMember = "TENCN";
-            this.comboKHOA.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboKHOA.FormattingEnabled = true;
-            this.comboKHOA.Location = new System.Drawing.Point(126, 23);
-            this.comboKHOA.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.comboKHOA.Name = "comboKHOA";
-            this.comboKHOA.Size = new System.Drawing.Size(184, 27);
-            this.comboKHOA.TabIndex = 1;
-            this.comboKHOA.ValueMember = "TENSERVER";
-            this.comboKHOA.SelectedIndexChanged += new System.EventHandler(this.ComboKHOA_SelectedIndexChanged);
-            // 
-            // vDSPHANMANHBindingSource
-            // 
-            this.vDSPHANMANHBindingSource.DataMember = "V_DS_PHANMANH";
-            this.vDSPHANMANHBindingSource.DataSource = this.qLDSVROOT;
-            // 
             // qLDSVROOT
             // 
             this.qLDSVROOT.DataSetName = "QLDSVROOT";
             this.qLDSVROOT.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(65, 24);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(55, 19);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "KHOA";
             // 
             // mONHOCBindingSource
             // 
@@ -288,10 +221,10 @@
             this.mONHOCGridControl.DataSource = this.mONHOCBindingSource;
             this.mONHOCGridControl.Dock = System.Windows.Forms.DockStyle.Top;
             this.mONHOCGridControl.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mONHOCGridControl.Location = new System.Drawing.Point(0, 95);
+            this.mONHOCGridControl.Location = new System.Drawing.Point(0, 28);
             this.mONHOCGridControl.MainView = this.gridView1;
             this.mONHOCGridControl.Name = "mONHOCGridControl";
-            this.mONHOCGridControl.Size = new System.Drawing.Size(879, 224);
+            this.mONHOCGridControl.Size = new System.Drawing.Size(879, 308);
             this.mONHOCGridControl.TabIndex = 2;
             this.mONHOCGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -306,6 +239,9 @@
             // 
             // colMAMH
             // 
+            this.colMAMH.AppearanceCell.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colMAMH.AppearanceCell.Options.UseFont = true;
+            this.colMAMH.Caption = "Mã môn học";
             this.colMAMH.FieldName = "MAMH";
             this.colMAMH.Name = "colMAMH";
             this.colMAMH.Visible = true;
@@ -313,14 +249,13 @@
             // 
             // colTENMH
             // 
+            this.colTENMH.AppearanceCell.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colTENMH.AppearanceCell.Options.UseFont = true;
+            this.colTENMH.Caption = "Tên môn học";
             this.colTENMH.FieldName = "TENMH";
             this.colTENMH.Name = "colTENMH";
             this.colTENMH.Visible = true;
             this.colTENMH.VisibleIndex = 1;
-            // 
-            // v_DS_PHANMANHTableAdapter
-            // 
-            this.v_DS_PHANMANHTableAdapter.ClearBeforeFill = true;
             // 
             // panelControl1
             // 
@@ -329,15 +264,15 @@
             this.panelControl1.Controls.Add(tENMHLabel);
             this.panelControl1.Controls.Add(this.txtTenMH);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl1.Location = new System.Drawing.Point(0, 319);
+            this.panelControl1.Location = new System.Drawing.Point(0, 336);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(879, 95);
+            this.panelControl1.Size = new System.Drawing.Size(879, 78);
             this.panelControl1.TabIndex = 3;
             // 
             // txtMaMH
             // 
             this.txtMaMH.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.mONHOCBindingSource, "MAMH", true));
-            this.txtMaMH.Location = new System.Drawing.Point(94, 19);
+            this.txtMaMH.Location = new System.Drawing.Point(110, 24);
             this.txtMaMH.Name = "txtMaMH";
             this.txtMaMH.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMaMH.Properties.Appearance.Options.UseFont = true;
@@ -347,11 +282,11 @@
             // txtTenMH
             // 
             this.txtTenMH.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.mONHOCBindingSource, "TENMH", true));
-            this.txtTenMH.Location = new System.Drawing.Point(343, 19);
+            this.txtTenMH.Location = new System.Drawing.Point(387, 24);
             this.txtTenMH.Name = "txtTenMH";
             this.txtTenMH.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTenMH.Properties.Appearance.Options.UseFont = true;
-            this.txtTenMH.Size = new System.Drawing.Size(280, 26);
+            this.txtTenMH.Size = new System.Drawing.Size(231, 26);
             this.txtTenMH.TabIndex = 3;
             // 
             // barManager1
@@ -422,7 +357,6 @@
             this.ClientSize = new System.Drawing.Size(879, 414);
             this.Controls.Add(this.panelControl1);
             this.Controls.Add(this.mONHOCGridControl);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.bindingNavigator1);
             this.Controls.Add(this.barDockControlLeft);
             this.Controls.Add(this.barDockControlRight);
@@ -434,9 +368,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).EndInit();
             this.bindingNavigator1.ResumeLayout(false);
             this.bindingNavigator1.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.vDSPHANMANHBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.qLDSVROOT)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mONHOCBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mONHOCGridControl)).EndInit();
@@ -462,18 +393,12 @@
         private System.Windows.Forms.ToolStripButton btnRefeshMonHoc;
         private System.Windows.Forms.ToolStripButton btnThoatMonHoc;
         private System.Windows.Forms.ToolStripButton btnClearMonHoc;
-        private System.Windows.Forms.Panel panel1;
-        private Bunifu.Framework.UI.BunifuCards bunifuCards1;
-        private System.Windows.Forms.ComboBox comboKHOA;
-        private System.Windows.Forms.Label label1;
         private QLDSVROOT qLDSVROOT;
         private System.Windows.Forms.BindingSource mONHOCBindingSource;
         private QLDSVROOTTableAdapters.MONHOCTableAdapter mONHOCTableAdapter;
         private QLDSVROOTTableAdapters.TableAdapterManager tableAdapterManager;
         private DevExpress.XtraGrid.GridControl mONHOCGridControl;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
-        private System.Windows.Forms.BindingSource vDSPHANMANHBindingSource;
-        private QLDSVROOTTableAdapters.V_DS_PHANMANHTableAdapter v_DS_PHANMANHTableAdapter;
         private DevExpress.XtraGrid.Columns.GridColumn colMAMH;
         private DevExpress.XtraGrid.Columns.GridColumn colTENMH;
         private DevExpress.XtraEditors.PanelControl panelControl1;

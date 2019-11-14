@@ -46,14 +46,14 @@ namespace QLDSV
             this.btnThemMonHoc.Enabled = false;
         }
 
-        private void setComboboxKHOAbyDefault()
-        {
-            comboKHOA.DataSource = Program.bds_dspm.DataSource;
-            comboKHOA.DisplayMember = "TENCN";
-            comboKHOA.ValueMember = "TENSERVER";
-            // We already set mChinhanh when Login 
-            comboKHOA.SelectedIndex = Program.mChinhanh;
-        }
+        //private void setComboboxKHOAbyDefault()
+        //{
+        //    comboKHOA.DataSource = Program.bds_dspm.DataSource;
+        //    comboKHOA.DisplayMember = "TENCN";
+        //    comboKHOA.ValueMember = "TENSERVER";
+        //    // We already set mChinhanh when Login 
+        //    comboKHOA.SelectedIndex = Program.mChinhanh;
+        //}
 
         public String maMH;
         public String tenMH;
@@ -66,44 +66,41 @@ namespace QLDSV
         }
         private void FormMonHoc_Load(object sender, EventArgs e)
         {
-
-            // TODO: This line of code loads data into the 'qLDSVROOT.V_DS_PHANMANH' table. You can move, or remove it, as needed.
-            this.v_DS_PHANMANHTableAdapter.Fill(this.qLDSVROOT.V_DS_PHANMANH);
             // TODO: This line of code loads data into the 'qLDSVROOT.MONHOC' table. You can move, or remove it, as needed.
             this.mONHOCTableAdapter.Fill(this.qLDSVROOT.MONHOC);
 
             // set default value for comboxKHOA
-            setComboboxKHOAbyDefault();
+            //setComboboxKHOAbyDefault();
             // Disabled button add and undo
             loadButton();
         }
 
-        public String makh;
-        private void ComboKHOA_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            // For close form
-            if (comboKHOA.SelectedValue == null) return;
-            // For selected combox value
-            Program.servername = comboKHOA.SelectedValue.ToString();
-            if (comboKHOA.SelectedIndex != Program.mChinhanh)
-            {
-                Program.mlogin = Program.remotelogin;
-                Program.password = Program.remotepassword;
-            }
-            else
-            {
-                Program.mlogin = Program.mloginDN;
-                Program.password = Program.passwordDN;
-            }
-            // Connect to other server using HTKN
-            if (Program.KetNoi() == 0)
-                MessageBox.Show("Lỗi kết nối về chi nhánh mới", "", MessageBoxButtons.OK);
-            else
-            {
-                this.mONHOCTableAdapter.Connection.ConnectionString = Program.connstr;
-                this.mONHOCTableAdapter.Fill(this.qLDSVROOT.MONHOC);
-            }
-        }
+        //public String makh;
+        //private void ComboKHOA_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+        //    // For close form
+        //    if (comboKHOA.SelectedValue == null) return;
+        //    // For selected combox value
+        //    Program.servername = comboKHOA.SelectedValue.ToString();
+        //    if (comboKHOA.SelectedIndex != Program.mChinhanh)
+        //    {
+        //        Program.mlogin = Program.remotelogin;
+        //        Program.password = Program.remotepassword;
+        //    }
+        //    else
+        //    {
+        //        Program.mlogin = Program.mloginDN;
+        //        Program.password = Program.passwordDN;
+        //    }
+        //    // Connect to other server using HTKN
+        //    if (Program.KetNoi() == 0)
+        //        MessageBox.Show("Lỗi kết nối về chi nhánh mới", "", MessageBoxButtons.OK);
+        //    else
+        //    {
+        //        this.mONHOCTableAdapter.Connection.ConnectionString = Program.connstr;
+        //        this.mONHOCTableAdapter.Fill(this.qLDSVROOT.MONHOC);
+        //    }
+        //}
 
         private string ExecuteSP_KiemMaMonHoc(String spName)
         {
@@ -131,7 +128,7 @@ namespace QLDSV
             Program.sqlcmd.CommandText = spName;
             // SP variables
             Program.sqlcmd.Parameters.Add("@MAMH", SqlDbType.NChar).Value = txtMaMH.Text;
-            Program.sqlcmd.Parameters.Add("@TENMH", SqlDbType.NVarChar).Value = txtTenMH.Text.Trim();
+            Program.sqlcmd.Parameters.Add("@TENMH", SqlDbType.NVarChar).Value = txtTenMH.Text;
             // Run query 
             Program.sqlcmd.ExecuteNonQuery();
             this.mONHOCTableAdapter.Update(this.qLDSVROOT.MONHOC);
@@ -260,7 +257,7 @@ namespace QLDSV
                             {
                                 // Save action delete Monhoc into Stack
                                 int type = 2;
-                                String lenh = "exec SP_UndoDeleteMonHoc '" + txtMaMH.Text + "', '" + txtTenMH.Text.Trim() + "'";
+                                String lenh = "exec SP_UndoDeleteMonHoc '" + txtMaMH.Text + "', '" + txtTenMH.Text + "'";
                                 ObjectUndo ob = new ObjectUndo(type, lenh);
                                 st.Push(ob);
                                 // Delete Monhoc
@@ -381,5 +378,6 @@ namespace QLDSV
                 MessageBox.Show("Không có gì để Undo", "THÔNG BÁO", MessageBoxButtons.OK);
             }
         }
+
     }
 } 
