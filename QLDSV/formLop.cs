@@ -16,7 +16,7 @@ namespace QLDSV
     public partial class formLop : DevExpress.XtraEditors.XtraForm
     {
 
-        public int choice = 0; // XAC DINH chon THEM / CHUYEN/ SUA   
+        //public int choice = 0; // XAC DINH chon THEM / CHUYEN/ SUA   
         String makh = "";
 
         public Stack st = new Stack();
