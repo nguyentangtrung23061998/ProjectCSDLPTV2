@@ -79,6 +79,42 @@ namespace QLDSV
         public String tenL;
         public String maK;
 
+        public int checkMaLopTonTai()
+        {
+            try
+            {
+                String strLenh = "SP_KiemTraLopTonTai";
+                Program.sqlcmd = Program.conn.CreateCommand();
+                Program.sqlcmd.CommandType = CommandType.StoredProcedure;
+                Program.sqlcmd.CommandText = strLenh;
+                Program.sqlcmd.Parameters.Add("@MALOP", SqlDbType.NChar).Value = txtMaLop.Text;
+                Program.sqlcmd.Parameters.Add("@Ret", SqlDbType.Int).Direction = ParameterDirection.ReturnValue;
+                Program.sqlcmd.ExecuteNonQuery();
+                String ret = Program.sqlcmd.Parameters["@Ret"].Value.ToString();
+
+                if (ret == "1")
+                {
+
+                    MessageBox.Show("Tồn tại mã lớp.\n", "", MessageBoxButtons.OK);
+                    return 1;
+                }
+
+                if (ret == "2")
+                {
+
+                    MessageBox.Show("Tồn tại mã lớp ở site khác.\n", "", MessageBoxButtons.OK);
+                    return 2;
+                }
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi tồn tại mã lớp.\n" + ex.Message, "", MessageBoxButtons.OK);
+                return 0;
+            }
+            return 4; 
+        }
+
         private void handleDuLieuFocus()
         {
             maL = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "MALOP").ToString().Trim();
@@ -110,38 +146,11 @@ namespace QLDSV
                 return;
             }
 
-            try
+            int checkMaLop = checkMaLopTonTai();
+            if(checkMaLop == 0 || checkMaLop == 1 || checkMaLop == 2)
             {
-                String strLenh = "SP_KiemTraLopTonTai";
-                Program.sqlcmd = Program.conn.CreateCommand();
-                Program.sqlcmd.CommandType = CommandType.StoredProcedure;
-                Program.sqlcmd.CommandText = strLenh;
-                Program.sqlcmd.Parameters.Add("@MALOP", SqlDbType.NChar).Value = txtMaLop.Text;
-                Program.sqlcmd.Parameters.Add("@Ret", SqlDbType.Int).Direction = ParameterDirection.ReturnValue;
-                Program.sqlcmd.ExecuteNonQuery();
-                String ret = Program.sqlcmd.Parameters["@Ret"].Value.ToString();
-               
-                if (ret == "1")
-                {
-                   
-                    MessageBox.Show("Tồn tại mã lớp.\n", "", MessageBoxButtons.OK);
-                    return;
-                }
-           
-                if (ret == "2")
-                {
-                   
-                    MessageBox.Show("Tồn tại mã lớp ở site khác.\n", "", MessageBoxButtons.OK);
-                    return;
-                }
-            }
-          
-            catch (Exception ex)
-            {
-                MessageBox.Show("Lỗi tồn tại mã lớp.\n" + ex.Message, "", MessageBoxButtons.OK);
                 return;
             }
-
             ///thêm lớp
             try
             {
@@ -154,18 +163,18 @@ namespace QLDSV
                 Program.sqlcmd.Parameters.Add("@MALOP", SqlDbType.NChar).Value = txtMaLop.Text;
                 Program.sqlcmd.Parameters.Add("@TENLOP", SqlDbType.NVarChar).Value = txtTenLop.Text;
                 Program.sqlcmd.Parameters.Add("@MAKH", SqlDbType.NChar).Value = txtMaKhoa.Text;
+                Program.sqlcmd.ExecuteNonQuery();
+                Program.conn.Close();
+                this.btnLopThem.Enabled = false;
                 int type = 1;//Thêm
                 String lenh = "exec SP_UndoThemLop '" + txtMaLop.Text + "'";
                 ObjectUndo ob = new ObjectUndo(type, lenh);
                 st.Push(ob);
-                Program.sqlcmd.ExecuteNonQuery();
                 this.lOPBindingSource.EndEdit();
                 lOPBindingSource.ResetAllowNew();
                 Program.conn.Close();
                 MessageBox.Show("Thêm Lớp Thành công", "THÔNG BÁO", MessageBoxButtons.OK);
                 st.Push(ob);
-
-                Program.conn.Close();
                 return;
                 
             }
@@ -204,59 +213,60 @@ namespace QLDSV
             }
         }
 
+        //kiem tra Ma Lop tồn tại sinh viên
+
         private void btnLopXoa_Click(object sender, EventArgs e)
         {
-
-            if (Program.conn.State == ConnectionState.Closed)
-                Program.conn.Open();
-            try
+            if (MessageBox.Show("Bạn có chắc muốn xóa nó không?", "Xóa lớp", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                String check = "SP_KiemTraMaLopTonTaiSinhVien";
-                Program.sqlcmd = Program.conn.CreateCommand();
-                Program.sqlcmd.CommandType = CommandType.StoredProcedure;
-                Program.sqlcmd.CommandText = check;
-                Program.sqlcmd.Parameters.Add("@MALOP", SqlDbType.NChar).Value = txtMaLop.Text;
-                Program.sqlcmd.Parameters.Add("@Ret", SqlDbType.Int).Direction = ParameterDirection.ReturnValue;
-                Program.sqlcmd.ExecuteNonQuery();
-                String ret = Program.sqlcmd.Parameters["@Ret"].Value.ToString();
-                if (ret == "1")
+                if (Program.conn.State == ConnectionState.Closed)
+                    Program.conn.Open();
+                try
                 {
-                    MessageBox.Show("Mã lop ton tai trong sinh vien!", "THÔNG BÁO LỖI", MessageBoxButtons.OK);
-                }
-                if (ret == "2")
-                {
-                    MessageBox.Show("Tồn tại mã lớp trong sinh viên ở site khác.\n", "", MessageBoxButtons.OK);
-                    return;
-                }
-                if (ret == "0")
-                {
-                    String lenhstr = "SP_DeleteMaLop";
+                    String check = "SP_KiemTraMaLopTonTaiSinhVien";
                     Program.sqlcmd = Program.conn.CreateCommand();
                     Program.sqlcmd.CommandType = CommandType.StoredProcedure;
-                    Program.sqlcmd.CommandText = lenhstr;
+                    Program.sqlcmd.CommandText = check;
                     Program.sqlcmd.Parameters.Add("@MALOP", SqlDbType.NChar).Value = txtMaLop.Text;
+                    Program.sqlcmd.Parameters.Add("@Ret", SqlDbType.Int).Direction = ParameterDirection.ReturnValue;
                     Program.sqlcmd.ExecuteNonQuery();
-                    //  this.lOPTableAdapter.Connection.ConnectionString = Program.connstr;
-                    MessageBox.Show("Xóa thành công!", "Thành công", MessageBoxButtons.OK);
-                    int type = 2;//XÓA
-                    String lenh = "exec SP_UndoDeleteLop '" + txtMaLop.Text + "', '" + txtTenLop.Text + "', '" + txtMaKhoa.Text + "'";
-                    ObjectUndo ob = new ObjectUndo(type, lenh);
-                    st.Push(ob);
-                    this.lOPBindingSource.RemoveCurrent();
-                    this.lOPBindingSource.EndEdit();
-                    Program.conn.Close();
-                    this.lOPBindingSource.EndEdit();
-
-
-                    txtMaKhoa.Focus();
-                    return;
+                    String ret = Program.sqlcmd.Parameters["@Ret"].Value.ToString();
+                    if (ret == "1")
+                    {
+                        MessageBox.Show("Mã lop ton tai trong sinh vien!", "THÔNG BÁO LỖI", MessageBoxButtons.OK);
+                    }
+                    if (ret == "2")
+                    {
+                        MessageBox.Show("Tồn tại mã lớp trong sinh viên ở site khác.\n", "", MessageBoxButtons.OK);
+                        return;
+                    }
+                    if (ret == "0")
+                    {
+                        String lenhstr = "SP_DeleteMaLop";
+                        Program.sqlcmd = Program.conn.CreateCommand();
+                        Program.sqlcmd.CommandType = CommandType.StoredProcedure;
+                        Program.sqlcmd.CommandText = lenhstr;
+                        Program.sqlcmd.Parameters.Add("@MALOP", SqlDbType.NChar).Value = txtMaLop.Text;
+                        Program.sqlcmd.ExecuteNonQuery();
+                        //  this.lOPTableAdapter.Connection.ConnectionString = Program.connstr;
+                        MessageBox.Show("Xóa thành công!", "Thành công", MessageBoxButtons.OK);
+                        int type = 2;//XÓA
+                        String lenh = "exec SP_UndoDeleteLop '" + txtMaLop.Text + "', '" + txtTenLop.Text + "', '" + txtMaKhoa.Text + "'";
+                        ObjectUndo ob = new ObjectUndo(type, lenh);
+                        st.Push(ob);
+                        this.lOPBindingSource.RemoveCurrent();
+                        this.lOPBindingSource.EndEdit();
+                        Program.conn.Close();
+                        txtMaKhoa.Focus();
+                        this.btnLopThem.Enabled = false;
+                        return;
+                    }
 
                 }
-          
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Lỗi xóa lớp.\n" + ex.Message, "", MessageBoxButtons.OK);
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi xóa lớp.\n" + ex.Message, "", MessageBoxButtons.OK);
+                }
             }
         }
 
@@ -274,79 +284,79 @@ namespace QLDSV
 
         private void btnLopSua_Click(object sender, EventArgs e)
         {
-
-            if (txtMaLop.Text.Trim() == "")
+            if (MessageBox.Show("Bạn có chắc muốn sửa nó không?", "Sửa lớp", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                MessageBox.Show("Mã lớp không được thiếu!", "", MessageBoxButtons.OK);
-                txtMaLop.Focus();
-                return;
-            }
-            if (txtTenLop.Text.Trim() == "")
-            {
-                MessageBox.Show("Tên lớp không được thiếu!", "", MessageBoxButtons.OK);
-                txtTenLop.Focus();
-                return;
-            }
-            if (txtMaKhoa.Text.Trim() == "")
-            {
-                MessageBox.Show("Mã khoa không được thiếu!", "", MessageBoxButtons.OK);
-                txtMaKhoa.Focus();
-                return;
-            }
-            try
-            {
-                if (Program.conn.State == ConnectionState.Closed)
-                    Program.conn.Open();
-                String strLenh = "dbo.SP_KiemTraLopTonTai";
-                Program.sqlcmd = Program.conn.CreateCommand();
-                Program.sqlcmd.CommandType = CommandType.StoredProcedure;
-                Program.sqlcmd.CommandText = strLenh;
-                Program.sqlcmd.Parameters.Add("@MALOP", SqlDbType.NChar).Value = txtMaLop.Text;
-                Program.sqlcmd.Parameters.Add("@Ret", SqlDbType.Int).Direction = ParameterDirection.ReturnValue;
-                Program.sqlcmd.ExecuteNonQuery();
-                Program.conn.Close();
-                String Ret = Program.sqlcmd.Parameters["@Ret"].Value.ToString();
-                if (Ret == "0")
+                if (txtMaLop.Text.Trim() == "")
                 {
-                    MessageBox.Show(" nhân viên không tồn tại !", "THÔNG BÁO LỖI", MessageBoxButtons.OK);
+                    MessageBox.Show("Mã lớp không được thiếu!", "", MessageBoxButtons.OK);
+                    txtMaLop.Focus();
                     return;
                 }
-        
-                if (Ret == "2")
+                if (txtTenLop.Text.Trim() == "")
                 {
-                    MessageBox.Show("Tồn tại mã lớp ở site khác.\n", "", MessageBoxButtons.OK);
+                    MessageBox.Show("Tên lớp không được thiếu!", "", MessageBoxButtons.OK);
+                    txtTenLop.Focus();
                     return;
                 }
-                if (Ret == "1")
+                if (txtMaKhoa.Text.Trim() == "")
+                {
+                    MessageBox.Show("Mã khoa không được thiếu!", "", MessageBoxButtons.OK);
+                    txtMaKhoa.Focus();
+                    return;
+                }
+                try
                 {
                     if (Program.conn.State == ConnectionState.Closed)
                         Program.conn.Open();
-                    handleDuLieuFocus();
-                    String lenh = "exec SP_UndoUpdateLop " + maL + ", " + tenL + ", " + maK;
-                    String upDateLop = "SP_UpdateMaLop";
+                    String strLenh = "dbo.SP_KiemTraLopTonTai";
                     Program.sqlcmd = Program.conn.CreateCommand();
                     Program.sqlcmd.CommandType = CommandType.StoredProcedure;
-                    Program.sqlcmd.CommandText = upDateLop;
+                    Program.sqlcmd.CommandText = strLenh;
                     Program.sqlcmd.Parameters.Add("@MALOP", SqlDbType.NChar).Value = txtMaLop.Text;
-                    Program.sqlcmd.Parameters.Add("@TENLOP", SqlDbType.NVarChar).Value = txtTenLop.Text;
-                    Program.sqlcmd.Parameters.Add("@MAKH", SqlDbType.NChar).Value = txtMaKhoa.Text;
+                    Program.sqlcmd.Parameters.Add("@Ret", SqlDbType.Int).Direction = ParameterDirection.ReturnValue;
                     Program.sqlcmd.ExecuteNonQuery();
-                    this.lOPBindingSource.EndEdit();
-                    int type = 3;//chỉnh sửa
-
-                    // String lenh = "exec SP_UndoUpdateLop '" + txtMaLop.Text + "' '" + txtTenLop.Text + "' '" + txtMaKhoa.Text + "'";
-
-
-                    ObjectUndo ob = new ObjectUndo(type, lenh);
-                    st.Push(ob);
                     Program.conn.Close();
-                }
+                    String Ret = Program.sqlcmd.Parameters["@Ret"].Value.ToString();
+                    if (Ret == "0")
+                    {
+                        MessageBox.Show(" nhân viên không tồn tại !", "THÔNG BÁO LỖI", MessageBoxButtons.OK);
+                        return;
+                    }
 
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Lỗi ghi lớp.\n" + ex.Message, "", MessageBoxButtons.OK);
-                return;
+                    if (Ret == "2")
+                    {
+                        MessageBox.Show("Tồn tại mã lớp ở site khác.\n", "", MessageBoxButtons.OK);
+                        return;
+                    }
+                    if (Ret == "1")
+                    {
+                        if (Program.conn.State == ConnectionState.Closed)
+                            Program.conn.Open();
+                        handleDuLieuFocus();
+                        String lenh = "exec SP_UndoUpdateLop " + maL + ", " + tenL + ", " + maK;
+                        String upDateLop = "SP_UpdateMaLop";
+                        Program.sqlcmd = Program.conn.CreateCommand();
+                        Program.sqlcmd.CommandType = CommandType.StoredProcedure;
+                        Program.sqlcmd.CommandText = upDateLop;
+                        Program.sqlcmd.Parameters.Add("@MALOP", SqlDbType.NChar).Value = txtMaLop.Text;
+                        Program.sqlcmd.Parameters.Add("@TENLOP", SqlDbType.NVarChar).Value = txtTenLop.Text;
+                        Program.sqlcmd.Parameters.Add("@MAKH", SqlDbType.NChar).Value = txtMaKhoa.Text;
+                        Program.sqlcmd.ExecuteNonQuery();
+                        Program.conn.Close();
+                        MessageBox.Show("Sửa lớp thành công!", "", MessageBoxButtons.OK);
+                        this.lOPBindingSource.EndEdit();
+                        int type = 3;//chỉnh sửa
+                        ObjectUndo ob = new ObjectUndo(type, lenh);
+                        st.Push(ob);
+                        this.btnLopThem.Enabled = false;
+                    }
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi ghi lớp.\n" + ex.Message, "", MessageBoxButtons.OK);
+                    return;
+                }
             }
         }
 
@@ -402,6 +412,11 @@ namespace QLDSV
             {
                 MessageBox.Show("Không có gì để Undo", "THÔNG BÁO", MessageBoxButtons.OK);
             }
+        }
+
+        private void btnLopThoat_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
