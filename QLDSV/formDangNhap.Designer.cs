@@ -32,19 +32,23 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formDangNhap));
             this.panel1 = new System.Windows.Forms.Panel();
             this.comboBoxChiNhanh = new System.Windows.Forms.ComboBox();
+            this.vDSPHANMANHBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
+            this.qLDSVROOT = new QLDSV.QLDSVROOT();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnLogin = new System.Windows.Forms.Button();
             this.txtPassword = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.txtUsername = new Bunifu.Framework.UI.BunifuMaterialTextbox();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.qLDSVROOT = new QLDSV.QLDSVROOT();
             this.vDSPHANMANHBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.panel2 = new System.Windows.Forms.Panel();
             this.v_DS_PHANMANHTableAdapter = new QLDSV.QLDSVROOTTableAdapters.V_DS_PHANMANHTableAdapter();
+            this.vDSPHANMANHBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vDSPHANMANHBindingSource2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.qLDSVROOT)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vDSPHANMANHBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vDSPHANMANHBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -56,44 +60,54 @@
             this.panel1.Controls.Add(this.btnLogin);
             this.panel1.Controls.Add(this.txtPassword);
             this.panel1.Controls.Add(this.txtUsername);
-            this.panel1.Font = new System.Drawing.Font("Century Schoolbook", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel1.Location = new System.Drawing.Point(78, 65);
+            this.panel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel1.Location = new System.Drawing.Point(67, 53);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(692, 452);
+            this.panel1.Size = new System.Drawing.Size(593, 367);
             this.panel1.TabIndex = 0;
             // 
             // comboBoxChiNhanh
             // 
-            this.comboBoxChiNhanh.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.vDSPHANMANHBindingSource, "TENCN", true));
-            this.comboBoxChiNhanh.DataSource = this.vDSPHANMANHBindingSource;
-            this.comboBoxChiNhanh.DisplayMember = "TENCN";
+            this.comboBoxChiNhanh.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.vDSPHANMANHBindingSource2, "TENCN", true));
             this.comboBoxChiNhanh.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxChiNhanh.ForeColor = System.Drawing.Color.RoyalBlue;
             this.comboBoxChiNhanh.FormattingEnabled = true;
-            this.comboBoxChiNhanh.Location = new System.Drawing.Point(221, 181);
+            this.comboBoxChiNhanh.Location = new System.Drawing.Point(189, 147);
+            this.comboBoxChiNhanh.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBoxChiNhanh.Name = "comboBoxChiNhanh";
-            this.comboBoxChiNhanh.Size = new System.Drawing.Size(360, 29);
+            this.comboBoxChiNhanh.Size = new System.Drawing.Size(309, 27);
             this.comboBoxChiNhanh.TabIndex = 6;
-            this.comboBoxChiNhanh.ValueMember = "TENSERVER";
             this.comboBoxChiNhanh.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
+            // vDSPHANMANHBindingSource2
+            // 
+            this.vDSPHANMANHBindingSource2.DataMember = "V_DS_PHANMANH";
+            this.vDSPHANMANHBindingSource2.DataSource = this.qLDSVROOT;
+            // 
+            // qLDSVROOT
+            // 
+            this.qLDSVROOT.DataSetName = "QLDSVROOT";
+            this.qLDSVROOT.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label1.Location = new System.Drawing.Point(131, 185);
+            this.label1.Location = new System.Drawing.Point(112, 150);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(66, 22);
+            this.label1.Size = new System.Drawing.Size(52, 20);
             this.label1.TabIndex = 5;
             this.label1.Text = "KHOA";
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(280, 23);
+            this.pictureBox1.Location = new System.Drawing.Point(240, 19);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(144, 100);
+            this.pictureBox1.Size = new System.Drawing.Size(123, 81);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
@@ -106,9 +120,10 @@
             this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogin.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogin.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnLogin.Location = new System.Drawing.Point(263, 346);
+            this.btnLogin.Location = new System.Drawing.Point(225, 281);
+            this.btnLogin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(208, 48);
+            this.btnLogin.Size = new System.Drawing.Size(178, 39);
             this.btnLogin.TabIndex = 3;
             this.btnLogin.Text = "ĐĂNG NHẬP";
             this.btnLogin.UseVisualStyleBackColor = false;
@@ -126,10 +141,10 @@
             this.txtPassword.LineIdleColor = System.Drawing.Color.Gray;
             this.txtPassword.LineMouseHoverColor = System.Drawing.Color.Blue;
             this.txtPassword.LineThickness = 3;
-            this.txtPassword.Location = new System.Drawing.Point(132, 277);
+            this.txtPassword.Location = new System.Drawing.Point(113, 225);
             this.txtPassword.Margin = new System.Windows.Forms.Padding(4);
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(449, 33);
+            this.txtPassword.Size = new System.Drawing.Size(385, 27);
             this.txtPassword.TabIndex = 2;
             this.txtPassword.Text = "Password";
             this.txtPassword.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -148,55 +163,58 @@
             this.txtUsername.LineIdleColor = System.Drawing.Color.Gray;
             this.txtUsername.LineMouseHoverColor = System.Drawing.Color.Blue;
             this.txtUsername.LineThickness = 3;
-            this.txtUsername.Location = new System.Drawing.Point(132, 224);
+            this.txtUsername.Location = new System.Drawing.Point(113, 182);
             this.txtUsername.Margin = new System.Windows.Forms.Padding(4);
             this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(449, 33);
+            this.txtUsername.Size = new System.Drawing.Size(385, 27);
             this.txtUsername.TabIndex = 2;
             this.txtUsername.Text = "Username";
             this.txtUsername.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.txtUsername.OnValueChanged += new System.EventHandler(this.bunifuMaterialTextbox1_OnValueChanged);
             this.txtUsername.Enter += new System.EventHandler(this.txtUsernameEnter);
             this.txtUsername.Leave += new System.EventHandler(this.txtUsernameLeave);
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.RoyalBlue;
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(833, 148);
-            this.panel2.TabIndex = 0;
-            // 
-            // qLDSVROOT
-            // 
-            this.qLDSVROOT.DataSetName = "QLDSVROOT";
-            this.qLDSVROOT.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // vDSPHANMANHBindingSource
             // 
             this.vDSPHANMANHBindingSource.DataMember = "V_DS_PHANMANH";
             this.vDSPHANMANHBindingSource.DataSource = this.qLDSVROOT;
             // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.RoyalBlue;
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(714, 120);
+            this.panel2.TabIndex = 0;
+            // 
             // v_DS_PHANMANHTableAdapter
             // 
             this.v_DS_PHANMANHTableAdapter.ClearBeforeFill = true;
             // 
+            // vDSPHANMANHBindingSource1
+            // 
+            this.vDSPHANMANHBindingSource1.DataMember = "V_DS_PHANMANH";
+            this.vDSPHANMANHBindingSource1.DataSource = this.qLDSVROOT;
+            // 
             // formDangNhap
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(833, 556);
+            this.ClientSize = new System.Drawing.Size(714, 452);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "formDangNhap";
-            this.Text = "formDangNhap";
+            this.Text = "Đăng nhập";
             this.Load += new System.EventHandler(this.formDangNhap_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vDSPHANMANHBindingSource2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.qLDSVROOT)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vDSPHANMANHBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vDSPHANMANHBindingSource1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -214,5 +232,7 @@
         private QLDSVROOT qLDSVROOT;
         private System.Windows.Forms.BindingSource vDSPHANMANHBindingSource;
         private QLDSVROOTTableAdapters.V_DS_PHANMANHTableAdapter v_DS_PHANMANHTableAdapter;
+        private System.Windows.Forms.BindingSource vDSPHANMANHBindingSource2;
+        private System.Windows.Forms.BindingSource vDSPHANMANHBindingSource1;
     }
 }
