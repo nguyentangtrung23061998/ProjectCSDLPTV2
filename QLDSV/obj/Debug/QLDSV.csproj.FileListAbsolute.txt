@@ -288,3 +288,4 @@ G:\TaiLieuHkINam4\ProjectCSDLPTV2\QLDSV_Merge\QLDSV\bin\Debug\de\DevExpress.Xpo.
 G:\TaiLieuHkINam4\ProjectCSDLPTV2\QLDSV_Merge\QLDSV\bin\Debug\es\DevExpress.Xpo.v19.1.resources.dll
 G:\TaiLieuHkINam4\ProjectCSDLPTV2\QLDSV_Merge\QLDSV\bin\Debug\ja\DevExpress.Xpo.v19.1.resources.dll
 G:\TaiLieuHkINam4\ProjectCSDLPTV2\QLDSV_Merge\QLDSV\bin\Debug\ru\DevExpress.Xpo.v19.1.resources.dll
+G:\TaiLieuHkINam4\ProjectCSDLPTV2\QLDSV_Merge\QLDSV\obj\Debug\QLDSV.formDiem.resources

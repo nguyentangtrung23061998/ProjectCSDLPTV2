@@ -215,6 +215,10 @@ namespace QLDSV
             this.btnPhucHoiMonHoc.Enabled = true;
             // Create new row in grid control
             this.mONHOCBindingSource.AddNew();
+
+
+            // add coment
+
         }
 
         private void BtnRefeshMonHoc_Click(object sender, EventArgs e)
