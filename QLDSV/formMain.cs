@@ -43,5 +43,19 @@ namespace QLDSV
             frm.MdiParent = this;
             frm.Show();
         }
+
+        private void BtnDiem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            formDiem frm = new formDiem();
+            frm.MdiParent = this;
+            frm.Show();
+        }
+
+        private void BtnHocPhi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            formHocPhi frm = new formHocPhi();
+            frm.MdiParent = this;
+            frm.Show();
+        }
     }
 }
