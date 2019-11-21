@@ -28,7 +28,10 @@ namespace QLDSV
 
         private void FormHocPhi_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'qLDSVROOT.SINHVIEN' table. You can move, or remove it, as needed.
+            qLDSVROOT.EnforceConstraints = false;
+            // TODO: This line of code loads data into the 'qLDSVROOT.info_SINHVIEN' table. You can move, or remove it, as needed.
+            this.info_SINHVIENTableAdapter.Fill(this.qLDSVROOT.info_SINHVIEN);
+            // TODO: This line of code loads data into the 'qLDSVROOT.info_SINHVIEN' table. You can move, or remove it, as neede
             this.sINHVIENTableAdapter.Fill(this.qLDSVROOT.SINHVIEN);
             // TODO: This line of code loads data into the 'qLDSVROOT.HOCPHI' table. You can move, or remove it, as needed.
             this.hOCPHITableAdapter.Fill(this.qLDSVROOT.HOCPHI);
