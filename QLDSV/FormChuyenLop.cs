@@ -11,9 +11,9 @@ using DevExpress.XtraEditors;
 
 namespace QLDSV
 {
-    public partial class FormChuyenLop : DevExpress.XtraEditors.XtraForm
+    public partial class formChuyenLop : DevExpress.XtraEditors.XtraForm
     {
-        public FormChuyenLop()
+        public formChuyenLop()
         {
             InitializeComponent();
         }

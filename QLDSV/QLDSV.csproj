@@ -86,11 +86,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FormChuyenLop.cs">
+    <Compile Include="formChuyenLop.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormChuyenLop.Designer.cs">
-      <DependentUpon>FormChuyenLop.cs</DependentUpon>
+    <Compile Include="formChuyenLop.Designer.cs">
+      <DependentUpon>formChuyenLop.cs</DependentUpon>
     </Compile>
     <Compile Include="formDangNhap.cs">
       <SubType>Form</SubType>
@@ -134,8 +134,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>QLDSVROOT.xsd</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="FormChuyenLop.resx">
-      <DependentUpon>FormChuyenLop.cs</DependentUpon>
+    <EmbeddedResource Include="formChuyenLop.resx">
+      <DependentUpon>formChuyenLop.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="formDangNhap.resx">
       <DependentUpon>formDangNhap.cs</DependentUpon>

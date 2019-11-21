@@ -493,7 +493,7 @@ namespace QLDSV
             saveInfo.noiSinh = txtNoiSinh.Text.Trim();
             saveInfo.diaChi = txtDiaChi.Text.Trim();
             saveInfo.nghiHoc = checkboxNghiHoc.Checked;
-            var frm = new FormChuyenLop();
+            var frm = new formChuyenLop();
             frm.ShowDialog(this);
 
             btnRefresh.PerformClick();
