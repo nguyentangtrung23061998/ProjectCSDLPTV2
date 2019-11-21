@@ -11,9 +11,9 @@ using DevExpress.XtraEditors;
 
 namespace QLDSV
 {
-    public partial class formChuyenLop : DevExpress.XtraEditors.XtraForm
+    public partial class FormChuyenLop : DevExpress.XtraEditors.XtraForm
     {
-        public formChuyenLop()
+        public FormChuyenLop()
         {
             InitializeComponent();
         }
@@ -108,15 +108,10 @@ namespace QLDSV
                 this.Close();
                 formSinhVienV2 frm = new formSinhVienV2();
                 frm.formSinhVienV2_Load(sender, e);
-                //frm.Close();
-                // frm.MdiParent
-                //frm.refresh();
-                //frm.btnRefresh_Click(sender, e);
-                //frm.formSinhVienV2_Load(sender, e);
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi ghi sinh viên.\n" + ex.Message, "", MessageBoxButtons.OK);
+                MessageBox.Show("Lỗi chuyển lớp sinh viên.\n" + ex.Message, "", MessageBoxButtons.OK);
                 return;
             }
         }

@@ -1,6 +1,6 @@
 ﻿namespace QLDSV
 {
-    partial class formChuyenLop
+    partial class FormChuyenLop
     {
         /// <summary>
         /// Required designer variable.
