@@ -119,7 +119,7 @@
             this.frmLop.Dock = System.Windows.Forms.DockStyle.Top;
             this.frmLop.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.frmLop.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.frmLop.Location = new System.Drawing.Point(0, 109);
+            this.frmLop.Location = new System.Drawing.Point(0, 111);
             this.frmLop.MainView = this.gridView1;
             this.frmLop.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.frmLop.Name = "frmLop";
@@ -236,7 +236,7 @@
             this.panel1.Controls.Add(this.comboKHOA);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 29);
+            this.panel1.Location = new System.Drawing.Point(0, 31);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(955, 80);
@@ -248,7 +248,7 @@
             this.btnLopThem.Image = ((System.Drawing.Image)(resources.GetObject("btnLopThem.Image")));
             this.btnLopThem.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnLopThem.Name = "btnLopThem";
-            this.btnLopThem.Size = new System.Drawing.Size(89, 26);
+            this.btnLopThem.Size = new System.Drawing.Size(89, 28);
             this.btnLopThem.Text = "THÊM";
             this.btnLopThem.Click += new System.EventHandler(this.btnLopThem_Click);
             // 
@@ -334,7 +334,7 @@
             this.bindingNavigator1.MovePreviousItem = null;
             this.bindingNavigator1.Name = "bindingNavigator1";
             this.bindingNavigator1.PositionItem = null;
-            this.bindingNavigator1.Size = new System.Drawing.Size(955, 29);
+            this.bindingNavigator1.Size = new System.Drawing.Size(955, 31);
             this.bindingNavigator1.TabIndex = 0;
             this.bindingNavigator1.Text = "bindingNavigator1";
             // 
@@ -359,10 +359,10 @@
             this.panelControl1.Controls.Add(mAKHLabel);
             this.panelControl1.Controls.Add(this.txtMaKhoa);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl1.Location = new System.Drawing.Point(0, 308);
+            this.panelControl1.Location = new System.Drawing.Point(0, 310);
             this.panelControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(955, 197);
+            this.panelControl1.Size = new System.Drawing.Size(955, 195);
             this.panelControl1.TabIndex = 5;
             // 
             // txtMaLop
@@ -423,7 +423,7 @@
             this.Controls.Add(this.bindingNavigator1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "formLop";
-            this.Text = "formLop";
+            this.Text = "FormLop";
             this.Load += new System.EventHandler(this.formLop_Load);
             ((System.ComponentModel.ISupportInitialize)(this.frmLop)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lOPBindingSource)).EndInit();

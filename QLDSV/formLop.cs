@@ -172,9 +172,7 @@ namespace QLDSV
                 st.Push(ob);
                 this.lOPBindingSource.EndEdit();
                 lOPBindingSource.ResetAllowNew();
-                Program.conn.Close();
                 MessageBox.Show("Thêm Lớp Thành công", "THÔNG BÁO", MessageBoxButtons.OK);
-                st.Push(ob);
                 return;
 
             }
@@ -364,7 +362,6 @@ namespace QLDSV
         {
             try
             {
-
                 this.lOPTableAdapter.Fill(this.qLDSVROOT.LOP);
 
             }
