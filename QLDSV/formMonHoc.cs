@@ -67,6 +67,7 @@ namespace QLDSV
         private void FormMonHoc_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'qLDSVROOT.MONHOC' table. You can move, or remove it, as needed.
+            this.mONHOCTableAdapter.Connection.ConnectionString = Program.connstr;
             this.mONHOCTableAdapter.Fill(this.qLDSVROOT.MONHOC);
 
             // set default value for comboxKHOA
@@ -257,7 +258,7 @@ namespace QLDSV
                             {
                                 // Save action delete Monhoc into Stack
                                 int type = 2;
-                                String lenh = "exec SP_UndoDeleteMonHoc '" + txtMaMH.Text + "', '" + txtTenMH.Text + "'";
+                                String lenh = "exec SP_UndoDeleteMonHoc '" + txtMaMH.Text + "', N'" + txtTenMH.Text + "'";
                                 ObjectUndo ob = new ObjectUndo(type, lenh);
                                 st.Push(ob);
                                 // Delete Monhoc
@@ -305,15 +306,17 @@ namespace QLDSV
                 txtTenMH.Focus();
                 return;
             }
-            if (Program.conn.State == ConnectionState.Closed)
-                Program.conn.Open();
+           
             try
             {
                 // SP return 
                 // 1: exist
                 // 0: not exist 
                 // Check if MaMH exists
+                if (Program.conn.State == ConnectionState.Closed)
+                    Program.conn.Open();
                 String result = ExecuteSP_KiemMaMonHoc("SP_KiemMaMHTonTai");
+                Program.conn.Close();
                 // If maMH exists
                 if (result == "1")
                 {
@@ -321,7 +324,9 @@ namespace QLDSV
                     handleDuLieuFocus();
                     // Save action update Monhoc into Stack
                     int type = 3;
-                    String lenh = "exec SP_UndoUpdateMonHoc '" + maMH + "', '" + tenMH + "'";
+                    if (Program.conn.State == ConnectionState.Closed)
+                        Program.conn.Open();
+                    String lenh = "exec SP_UndoUpdateMonHoc '" + maMH + "', N'" + tenMH + "'";
                     ObjectUndo ob = new ObjectUndo(type, lenh);
                     st.Push(ob);
                     // Run sp Update monHoc
