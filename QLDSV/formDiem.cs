@@ -88,9 +88,6 @@ namespace QLDSV
             {
                 this.lOPTableAdapter.Connection.ConnectionString = Program.connstr;
                 this.lOPTableAdapter.Fill(this.qLDSVROOT.LOP);
-                //this.sINHVIENTableAdapter.Connection.ConnectionString = Program.connstr;
-                //this.sINHVIENTableAdapter.Fill(this.qLDSVROOT.SINHVIEN);
-
             }
 
         }
@@ -155,15 +152,6 @@ namespace QLDSV
             }
             sPNhapDiemMonHocBindingSource.EndEdit();
         }
-
-        //private void dataGridView1_DefaultValuesNeeded(object sender, System.Windows.Forms.DataGridViewRowEventArgs e)
-        //{
-        //    if (e.Row.Cells["colDiem"].Value == null)
-        //    {
-        //        e.Row.Cells["colDiem"].Value = 0;
-        //    }
-
-        //}
 
         private void BtnCancel_Click(object sender, EventArgs e)
         {
