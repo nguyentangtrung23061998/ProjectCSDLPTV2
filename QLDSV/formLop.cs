@@ -15,10 +15,11 @@ namespace QLDSV
 {
     public partial class formLop : DevExpress.XtraEditors.XtraForm
     {
-
-        public int choice = 0; // XAC DINH chon THEM / CHUYEN/ SUA   
+        public int chose = 0; // XAC DINH chon THEM / CHUYEN/ SUA   
+        int vitri = 0;
         String makh = "";
 
+        Boolean checkAdd = false;
         public Stack st = new Stack();
         public class ObjectUndo
         {
