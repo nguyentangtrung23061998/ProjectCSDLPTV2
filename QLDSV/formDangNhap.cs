@@ -147,7 +147,7 @@ namespace QLDSV
             Program.mGroup = myReader.GetString(2);
             //Program.frmMain.HienThiMenu();
             MessageBox.Show("Đăng Nhập Thành Công", "", MessageBoxButtons.OK);
-            this.Hide();
+            //this.Hide();
             
             formMain f = new formMain();
             f.HienThiMenu();
