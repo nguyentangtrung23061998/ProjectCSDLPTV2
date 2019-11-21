@@ -43,5 +43,12 @@ namespace QLDSV
             frm.MdiParent = this;
             frm.Show();
         }
+
+        private void btnSinhVien_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            formSinhVienV2 frm = new formSinhVienV2();
+            frm.MdiParent = this;
+            frm.Show();
+        }
     }
 }

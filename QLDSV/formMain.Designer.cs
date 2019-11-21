@@ -45,6 +45,8 @@
             this.toolStripStatusLabelRole = new System.Windows.Forms.ToolStripStatusLabel();
             this.documentManager1 = new DevExpress.XtraBars.Docking2010.DocumentManager(this.components);
             this.tabbedView1 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView(this.components);
+            this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.btnSinhVien = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.v_DS_PHANMANHBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             this.statusStrip1.SuspendLayout();
@@ -66,14 +68,15 @@
             this.barButtonItem2,
             this.barButtonItem3,
             this.btnLop,
-            this.btnMonHoc});
+            this.btnMonHoc,
+            this.btnSinhVien});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
             this.ribbonControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.ribbonControl1.MaxItemId = 8;
+            this.ribbonControl1.MaxItemId = 9;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1});
-            this.ribbonControl1.Size = new System.Drawing.Size(1290, 141);
+            this.ribbonControl1.Size = new System.Drawing.Size(1505, 176);
             // 
             // barButtonItem1
             // 
@@ -116,7 +119,8 @@
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.ribbonPageGroup1});
+            this.ribbonPageGroup1,
+            this.ribbonPageGroup2});
             this.ribbonPage1.Name = "ribbonPage1";
             this.ribbonPage1.Text = "Quản Lý";
             // 
@@ -134,29 +138,28 @@
             this.toolStripStatusLabelMaUSER,
             this.toolStripStatusLabelTenUser,
             this.toolStripStatusLabelRole});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 646);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 796);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Padding = new System.Windows.Forms.Padding(1, 0, 12, 0);
-            this.statusStrip1.Size = new System.Drawing.Size(1290, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(1505, 26);
             this.statusStrip1.TabIndex = 2;
             this.statusStrip1.Text = "statusStrip1";
             // 
             // toolStripStatusLabelMaUSER
             // 
             this.toolStripStatusLabelMaUSER.Name = "toolStripStatusLabelMaUSER";
-            this.toolStripStatusLabelMaUSER.Size = new System.Drawing.Size(18, 17);
+            this.toolStripStatusLabelMaUSER.Size = new System.Drawing.Size(24, 20);
             this.toolStripStatusLabelMaUSER.Text = "ID";
             // 
             // toolStripStatusLabelTenUser
             // 
             this.toolStripStatusLabelTenUser.Name = "toolStripStatusLabelTenUser";
-            this.toolStripStatusLabelTenUser.Size = new System.Drawing.Size(34, 17);
+            this.toolStripStatusLabelTenUser.Size = new System.Drawing.Size(44, 20);
             this.toolStripStatusLabelTenUser.Text = "USER";
             // 
             // toolStripStatusLabelRole
             // 
             this.toolStripStatusLabelRole.Name = "toolStripStatusLabelRole";
-            this.toolStripStatusLabelRole.Size = new System.Drawing.Size(35, 17);
+            this.toolStripStatusLabelRole.Size = new System.Drawing.Size(44, 20);
             this.toolStripStatusLabelRole.Text = "ROLE";
             // 
             // documentManager1
@@ -167,11 +170,26 @@
             this.documentManager1.ViewCollection.AddRange(new DevExpress.XtraBars.Docking2010.Views.BaseView[] {
             this.tabbedView1});
             // 
+            // ribbonPageGroup2
+            // 
+            this.ribbonPageGroup2.ItemLinks.Add(this.btnSinhVien);
+            this.ribbonPageGroup2.Name = "ribbonPageGroup2";
+            this.ribbonPageGroup2.Text = "ribbonPageGroup2";
+            // 
+            // btnSinhVien
+            // 
+            this.btnSinhVien.Caption = "SINH VIÊN";
+            this.btnSinhVien.Id = 8;
+            this.btnSinhVien.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnSinhVien.ImageOptions.Image")));
+            this.btnSinhVien.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnSinhVien.ImageOptions.LargeImage")));
+            this.btnSinhVien.Name = "btnSinhVien";
+            this.btnSinhVien.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnSinhVien_ItemClick);
+            // 
             // formMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1290, 668);
+            this.ClientSize = new System.Drawing.Size(1505, 822);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.ribbonControl1);
             this.IsMdiContainer = true;
@@ -210,5 +228,7 @@
         private DevExpress.XtraBars.BarButtonItem btnMonHoc;
         private DevExpress.XtraBars.Docking2010.DocumentManager documentManager1;
         private DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView tabbedView1;
+        private DevExpress.XtraBars.BarButtonItem btnSinhVien;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup2;
     }
 }
