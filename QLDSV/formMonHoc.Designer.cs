@@ -363,7 +363,7 @@
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
             this.Name = "formMonHoc";
-            this.Text = "Môn học";
+            this.Text = "formMonHoc";
             this.Load += new System.EventHandler(this.FormMonHoc_Load);
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).EndInit();
             this.bindingNavigator1.ResumeLayout(false);
