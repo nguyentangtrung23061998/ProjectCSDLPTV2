@@ -8,7 +8,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
-using DevExpress.XtraGrid.Columns;
 
 namespace QLDSV
 {
@@ -18,6 +17,8 @@ namespace QLDSV
         {
             InitializeComponent();
         }
+<<<<<<< HEAD
+=======
         private void setComboboxKHOAbyDefault()
         {
             comboKHOA.DataSource = Program.bds_dspm.DataSource;
@@ -199,5 +200,6 @@ namespace QLDSV
                 MessageBox.Show("Lỗi " + ex.Message);
             }
         }
+>>>>>>> origin/thanh
     }
 }

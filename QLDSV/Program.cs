@@ -17,8 +17,6 @@ namespace QLDSV
         public static SqlConnection conn = new SqlConnection();
         public static SqlCommand sqlcmd = new SqlCommand();
         public static String connstr;
-        // If table sinh vien doesn't have Diem
-        public static SqlDataReader myReader;
 
         public static String servername = "";
         public static String username = "";
@@ -28,7 +26,7 @@ namespace QLDSV
 
         public static String database = "QLDSV";
         public static String remotelogin = "HTKN";
-        public static String remotepassword = "1234";
+        public static String remotepassword = "123456";
         public static String mloginDN = "";
         public static String passwordDN = "";
         public static String mGroup = "";
