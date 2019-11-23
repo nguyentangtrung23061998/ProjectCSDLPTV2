@@ -20,6 +20,16 @@ namespace QLDSV
 
         private void formMain_Load(object sender, EventArgs e)
         {
+            if(Program.maCN != "KETOAN")
+            {
+                btnHocPhi.Enabled = false;
+               
+            }else
+            {
+                btnDiem.Enabled = false;
+                btnMonHoc.Enabled = false;
+                btnLop.Enabled = false;
+            }
         }
 
         public void HienThiMenu()
