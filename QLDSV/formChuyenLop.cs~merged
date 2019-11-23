@@ -11,17 +11,38 @@ using DevExpress.XtraEditors;
 
 namespace QLDSV
 {
+<<<<<<< HEAD
     public partial class formChuyenLop : DevExpress.XtraEditors.XtraForm
     {
         public formChuyenLop()
         {
             InitializeComponent();
         }
+=======
+    public partial class FormChuyenLop : DevExpress.XtraEditors.XtraForm
+    {
+        public FormChuyenLop()
+        {
+            InitializeComponent();
+        }
+
+        private void sINHVIENBindingNavigatorSaveItem_Click(object sender, EventArgs e)
+        {
+            this.Validate();
+            this.sINHVIENBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.qLDSVROOT);
+
+        }
+>>>>>>> 6505e52437fb2b1945ad23835d3f5ff7281e2dd0
         public void enableInput()
         {
             txtMaSV.Enabled = false;
             txtHo.Enabled = false;
+<<<<<<< HEAD
             txtTen.Enabled = false;
+=======
+            txtTen.Enabled =  false;
+>>>>>>> 6505e52437fb2b1945ad23835d3f5ff7281e2dd0
             txtMaLop.Enabled = false;
             comboNgaySinh.Enabled = false;
             txtNoiSinh.Enabled = false;
@@ -32,6 +53,7 @@ namespace QLDSV
         }
         public void info()
         {
+<<<<<<< HEAD
             txtMaSV.Text = formSinhVien.saveInfo.maSV;
             txtHo.Text = formSinhVien.saveInfo.ho;
             txtTen.Text = formSinhVien.saveInfo.ten;
@@ -41,6 +63,17 @@ namespace QLDSV
             txtDiaChi.Text = formSinhVien.saveInfo.diaChi;
             cbPhai.Checked = formSinhVien.saveInfo.phai;
             cbNghiHoc.Checked = formSinhVien.saveInfo.nghiHoc;
+=======
+            txtMaSV.Text = formSinhVienV2.saveInfo.maSV;
+            txtHo.Text = formSinhVienV2.saveInfo.ho;
+            txtTen.Text = formSinhVienV2.saveInfo.ten;
+            txtMaLop.Text = formSinhVienV2.saveInfo.maLop;
+            comboNgaySinh.Text = formSinhVienV2.saveInfo.ngaySinh;
+            txtNoiSinh.Text = formSinhVienV2.saveInfo.noiSinh;
+            txtDiaChi.Text = formSinhVienV2.saveInfo.diaChi;
+            cbPhai.Checked = formSinhVienV2.saveInfo.phai;
+            cbNghiHoc.Checked = formSinhVienV2.saveInfo.nghiHoc;
+>>>>>>> 6505e52437fb2b1945ad23835d3f5ff7281e2dd0
             txtTL.Text = txtMaLop.Text;
         }
         public void cmdSinhVien(String maSV, String ho, String ten, String maLop,
@@ -67,12 +100,22 @@ namespace QLDSV
                 return;
             }
         }
+<<<<<<< HEAD
 
         private void formChuyenLop_Load(object sender, EventArgs e)
+=======
+        private void FormChuyenLop_Load(object sender, EventArgs e)
+>>>>>>> 6505e52437fb2b1945ad23835d3f5ff7281e2dd0
         {
             // TODO: This line of code loads data into the 'qLDSVROOT.LOP' table. You can move, or remove it, as needed.
             this.lOPTableAdapter.Connection.ConnectionString = Program.connstr;
             this.lOPTableAdapter.Fill(this.qLDSVROOT.LOP);
+<<<<<<< HEAD
+=======
+            // TODO: This line of code loads data into the 'qLDSVROOT.V_DS_PHANMANH' table. You can move, or remove it, as needed.
+           
+
+>>>>>>> 6505e52437fb2b1945ad23835d3f5ff7281e2dd0
             enableInput();
             info();
             toolStripStatusMaSV.Text = "MaSV: " + txtMaSV.Text;
@@ -93,10 +136,18 @@ namespace QLDSV
                 Program.sqlcmd.ExecuteNonQuery();
                 Program.conn.Close();
                 MessageBox.Show("Chuyển lớp thành công!", "", MessageBoxButtons.OK);
+<<<<<<< HEAD
                 this.Hide();
                 this.Close();
                 formSinhVien frm = new formSinhVien();
                 frm.formSinhVien_Load(sender, e);
+=======
+                this.sINHVIENBindingSource.EndEdit();
+                this.Hide();
+                this.Close();
+                formSinhVienV2 frm = new formSinhVienV2();
+                frm.formSinhVienV2_Load(sender, e);
+>>>>>>> 6505e52437fb2b1945ad23835d3f5ff7281e2dd0
             }
             catch (Exception ex)
             {

@@ -17,8 +17,6 @@ namespace QLDSV
         {
             InitializeComponent();
         }
-<<<<<<< HEAD
-=======
         private void setComboboxKHOAbyDefault()
         {
             comboKHOA.DataSource = Program.bds_dspm.DataSource;
@@ -200,6 +198,5 @@ namespace QLDSV
                 MessageBox.Show("Lỗi " + ex.Message);
             }
         }
->>>>>>> origin/thanh
     }
 }

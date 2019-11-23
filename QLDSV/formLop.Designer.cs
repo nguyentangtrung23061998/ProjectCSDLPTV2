@@ -87,9 +87,9 @@
             // 
             mALOPLabel.AutoSize = true;
             mALOPLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            mALOPLabel.Location = new System.Drawing.Point(44, 28);
+            mALOPLabel.Location = new System.Drawing.Point(38, 23);
             mALOPLabel.Name = "mALOPLabel";
-            mALOPLabel.Size = new System.Drawing.Size(83, 22);
+            mALOPLabel.Size = new System.Drawing.Size(67, 19);
             mALOPLabel.TabIndex = 9;
             mALOPLabel.Text = "MALOP:";
             // 
@@ -97,9 +97,9 @@
             // 
             tENLOPLabel.AutoSize = true;
             tENLOPLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            tENLOPLabel.Location = new System.Drawing.Point(44, 69);
+            tENLOPLabel.Location = new System.Drawing.Point(38, 56);
             tENLOPLabel.Name = "tENLOPLabel";
-            tENLOPLabel.Size = new System.Drawing.Size(90, 22);
+            tENLOPLabel.Size = new System.Drawing.Size(72, 19);
             tENLOPLabel.TabIndex = 11;
             tENLOPLabel.Text = "TENLOP:";
             // 
@@ -107,9 +107,9 @@
             // 
             mAKHLabel.AutoSize = true;
             mAKHLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            mAKHLabel.Location = new System.Drawing.Point(44, 105);
+            mAKHLabel.Location = new System.Drawing.Point(38, 85);
             mAKHLabel.Name = "mAKHLabel";
-            mAKHLabel.Size = new System.Drawing.Size(75, 22);
+            mAKHLabel.Size = new System.Drawing.Size(60, 19);
             mAKHLabel.TabIndex = 13;
             mAKHLabel.Text = "MAKH:";
             // 
@@ -119,11 +119,11 @@
             this.frmLop.Dock = System.Windows.Forms.DockStyle.Top;
             this.frmLop.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.frmLop.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.frmLop.Location = new System.Drawing.Point(0, 111);
+            this.frmLop.Location = new System.Drawing.Point(0, 92);
             this.frmLop.MainView = this.gridView1;
             this.frmLop.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.frmLop.Name = "frmLop";
-            this.frmLop.Size = new System.Drawing.Size(955, 199);
+            this.frmLop.Size = new System.Drawing.Size(819, 162);
             this.frmLop.TabIndex = 4;
             this.frmLop.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -144,43 +144,44 @@
             this.colMALOP,
             this.colTENLOP,
             this.colMAKH});
+            this.gridView1.DetailHeight = 284;
             this.gridView1.GridControl = this.frmLop;
             this.gridView1.Name = "gridView1";
             // 
             // colMALOP
             // 
             this.colMALOP.FieldName = "MALOP";
-            this.colMALOP.MinWidth = 24;
+            this.colMALOP.MinWidth = 21;
             this.colMALOP.Name = "colMALOP";
             this.colMALOP.Visible = true;
             this.colMALOP.VisibleIndex = 0;
-            this.colMALOP.Width = 94;
+            this.colMALOP.Width = 81;
             // 
             // colTENLOP
             // 
             this.colTENLOP.FieldName = "TENLOP";
-            this.colTENLOP.MinWidth = 24;
+            this.colTENLOP.MinWidth = 21;
             this.colTENLOP.Name = "colTENLOP";
             this.colTENLOP.Visible = true;
             this.colTENLOP.VisibleIndex = 1;
-            this.colTENLOP.Width = 94;
+            this.colTENLOP.Width = 81;
             // 
             // colMAKH
             // 
             this.colMAKH.FieldName = "MAKH";
-            this.colMAKH.MinWidth = 24;
+            this.colMAKH.MinWidth = 21;
             this.colMAKH.Name = "colMAKH";
             this.colMAKH.Visible = true;
             this.colMAKH.VisibleIndex = 2;
-            this.colMAKH.Width = 94;
+            this.colMAKH.Width = 81;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(76, 30);
+            this.label1.Location = new System.Drawing.Point(65, 24);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(66, 22);
+            this.label1.Size = new System.Drawing.Size(55, 19);
             this.label1.TabIndex = 0;
             this.label1.Text = "KHOA";
             // 
@@ -191,10 +192,10 @@
             this.comboKHOA.DisplayMember = "TENCN";
             this.comboKHOA.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboKHOA.FormattingEnabled = true;
-            this.comboKHOA.Location = new System.Drawing.Point(147, 28);
+            this.comboKHOA.Location = new System.Drawing.Point(126, 23);
             this.comboKHOA.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboKHOA.Name = "comboKHOA";
-            this.comboKHOA.Size = new System.Drawing.Size(214, 27);
+            this.comboKHOA.Size = new System.Drawing.Size(184, 24);
             this.comboKHOA.TabIndex = 1;
             this.comboKHOA.ValueMember = "TENSERVER";
             this.comboKHOA.SelectedIndexChanged += new System.EventHandler(this.comboKHOA_SelectedIndexChanged);
@@ -221,12 +222,12 @@
             this.bunifuCards1.BottomSahddow = true;
             this.bunifuCards1.color = System.Drawing.Color.Tomato;
             this.bunifuCards1.LeftSahddow = false;
-            this.bunifuCards1.Location = new System.Drawing.Point(289, 30);
+            this.bunifuCards1.Location = new System.Drawing.Point(248, 24);
             this.bunifuCards1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.bunifuCards1.Name = "bunifuCards1";
             this.bunifuCards1.RightSahddow = true;
             this.bunifuCards1.ShadowDepth = 20;
-            this.bunifuCards1.Size = new System.Drawing.Size(8, 7);
+            this.bunifuCards1.Size = new System.Drawing.Size(7, 6);
             this.bunifuCards1.TabIndex = 2;
             // 
             // panel1
@@ -236,10 +237,10 @@
             this.panel1.Controls.Add(this.comboKHOA);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 31);
+            this.panel1.Location = new System.Drawing.Point(0, 27);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(955, 80);
+            this.panel1.Size = new System.Drawing.Size(819, 65);
             this.panel1.TabIndex = 1;
             // 
             // btnLopThem
@@ -248,7 +249,7 @@
             this.btnLopThem.Image = ((System.Drawing.Image)(resources.GetObject("btnLopThem.Image")));
             this.btnLopThem.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnLopThem.Name = "btnLopThem";
-            this.btnLopThem.Size = new System.Drawing.Size(89, 28);
+            this.btnLopThem.Size = new System.Drawing.Size(76, 24);
             this.btnLopThem.Text = "THÊM";
             this.btnLopThem.Click += new System.EventHandler(this.btnLopThem_Click);
             // 
@@ -258,7 +259,7 @@
             this.btnLopXoa.Image = ((System.Drawing.Image)(resources.GetObject("btnLopXoa.Image")));
             this.btnLopXoa.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnLopXoa.Name = "btnLopXoa";
-            this.btnLopXoa.Size = new System.Drawing.Size(76, 26);
+            this.btnLopXoa.Size = new System.Drawing.Size(67, 24);
             this.btnLopXoa.Text = "XÓA";
             this.btnLopXoa.Click += new System.EventHandler(this.btnLopXoa_Click);
             // 
@@ -268,7 +269,7 @@
             this.btnLopSua.Image = ((System.Drawing.Image)(resources.GetObject("btnLopSua.Image")));
             this.btnLopSua.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnLopSua.Name = "btnLopSua";
-            this.btnLopSua.Size = new System.Drawing.Size(75, 26);
+            this.btnLopSua.Size = new System.Drawing.Size(65, 24);
             this.btnLopSua.Text = "SỬA";
             this.btnLopSua.Click += new System.EventHandler(this.btnLopSua_Click);
             // 
@@ -278,7 +279,7 @@
             this.btnLopPhucHoi.Image = ((System.Drawing.Image)(resources.GetObject("btnLopPhucHoi.Image")));
             this.btnLopPhucHoi.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnLopPhucHoi.Name = "btnLopPhucHoi";
-            this.btnLopPhucHoi.Size = new System.Drawing.Size(124, 26);
+            this.btnLopPhucHoi.Size = new System.Drawing.Size(107, 24);
             this.btnLopPhucHoi.Text = "PHỤC HỒI";
             this.btnLopPhucHoi.Click += new System.EventHandler(this.btnLopPhucHoi_Click);
             // 
@@ -288,7 +289,7 @@
             this.btnLopRefresh.Image = ((System.Drawing.Image)(resources.GetObject("btnLopRefresh.Image")));
             this.btnLopRefresh.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnLopRefresh.Name = "btnLopRefresh";
-            this.btnLopRefresh.Size = new System.Drawing.Size(120, 26);
+            this.btnLopRefresh.Size = new System.Drawing.Size(100, 24);
             this.btnLopRefresh.Text = "REFRESH";
             this.btnLopRefresh.Click += new System.EventHandler(this.btnLopRefresh_Click);
             // 
@@ -298,7 +299,7 @@
             this.btnLopThoat.Image = ((System.Drawing.Image)(resources.GetObject("btnLopThoat.Image")));
             this.btnLopThoat.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnLopThoat.Name = "btnLopThoat";
-            this.btnLopThoat.Size = new System.Drawing.Size(100, 26);
+            this.btnLopThoat.Size = new System.Drawing.Size(85, 24);
             this.btnLopThoat.Text = "THOÁT";
             this.btnLopThoat.Click += new System.EventHandler(this.btnLopThoat_Click);
             // 
@@ -308,7 +309,7 @@
             this.btnLopClear.Image = ((System.Drawing.Image)(resources.GetObject("btnLopClear.Image")));
             this.btnLopClear.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnLopClear.Name = "btnLopClear";
-            this.btnLopClear.Size = new System.Drawing.Size(97, 26);
+            this.btnLopClear.Size = new System.Drawing.Size(83, 24);
             this.btnLopClear.Text = "CLEAR";
             this.btnLopClear.Click += new System.EventHandler(this.btnLopClear_Click);
             // 
@@ -334,7 +335,7 @@
             this.bindingNavigator1.MovePreviousItem = null;
             this.bindingNavigator1.Name = "bindingNavigator1";
             this.bindingNavigator1.PositionItem = null;
-            this.bindingNavigator1.Size = new System.Drawing.Size(955, 31);
+            this.bindingNavigator1.Size = new System.Drawing.Size(819, 27);
             this.bindingNavigator1.TabIndex = 0;
             this.bindingNavigator1.Text = "bindingNavigator1";
             // 
@@ -359,43 +360,39 @@
             this.panelControl1.Controls.Add(mAKHLabel);
             this.panelControl1.Controls.Add(this.txtMaKhoa);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl1.Location = new System.Drawing.Point(0, 310);
-            this.panelControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.panelControl1.Location = new System.Drawing.Point(0, 254);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(955, 195);
+            this.panelControl1.Size = new System.Drawing.Size(819, 156);
             this.panelControl1.TabIndex = 5;
             // 
             // txtMaLop
             // 
             this.txtMaLop.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.lOPBindingSource, "MALOP", true));
-            this.txtMaLop.Location = new System.Drawing.Point(128, 20);
-            this.txtMaLop.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtMaLop.Location = new System.Drawing.Point(110, 16);
             this.txtMaLop.Name = "txtMaLop";
             this.txtMaLop.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMaLop.Properties.Appearance.Options.UseFont = true;
-            this.txtMaLop.Size = new System.Drawing.Size(117, 28);
+            this.txtMaLop.Size = new System.Drawing.Size(100, 26);
             this.txtMaLop.TabIndex = 10;
             // 
             // txtTenLop
             // 
             this.txtTenLop.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.lOPBindingSource, "TENLOP", true));
-            this.txtTenLop.Location = new System.Drawing.Point(128, 60);
-            this.txtTenLop.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtTenLop.Location = new System.Drawing.Point(110, 49);
             this.txtTenLop.Name = "txtTenLop";
             this.txtTenLop.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTenLop.Properties.Appearance.Options.UseFont = true;
-            this.txtTenLop.Size = new System.Drawing.Size(233, 28);
+            this.txtTenLop.Size = new System.Drawing.Size(200, 26);
             this.txtTenLop.TabIndex = 12;
             // 
             // txtMaKhoa
             // 
             this.txtMaKhoa.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.lOPBindingSource, "MAKH", true));
-            this.txtMaKhoa.Location = new System.Drawing.Point(128, 105);
-            this.txtMaKhoa.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtMaKhoa.Location = new System.Drawing.Point(110, 85);
             this.txtMaKhoa.Name = "txtMaKhoa";
             this.txtMaKhoa.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMaKhoa.Properties.Appearance.Options.UseFont = true;
-            this.txtMaKhoa.Size = new System.Drawing.Size(117, 28);
+            this.txtMaKhoa.Size = new System.Drawing.Size(100, 26);
             this.txtMaKhoa.TabIndex = 14;
             // 
             // tableAdapterManager
@@ -414,16 +411,16 @@
             // 
             this.Appearance.BackColor = System.Drawing.Color.White;
             this.Appearance.Options.UseBackColor = true;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(955, 505);
+            this.ClientSize = new System.Drawing.Size(819, 410);
             this.Controls.Add(this.panelControl1);
             this.Controls.Add(this.frmLop);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.bindingNavigator1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "formLop";
-            this.Text = "FormLop";
+            this.Text = "Lớp";
             this.Load += new System.EventHandler(this.formLop_Load);
             ((System.ComponentModel.ISupportInitialize)(this.frmLop)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lOPBindingSource)).EndInit();
