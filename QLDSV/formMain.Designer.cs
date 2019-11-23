@@ -39,6 +39,7 @@
             this.btnMonHoc = new DevExpress.XtraBars.BarButtonItem();
             this.btnDiem = new DevExpress.XtraBars.BarButtonItem();
             this.btnHocPhi = new DevExpress.XtraBars.BarButtonItem();
+            this.btnSinhVien = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
@@ -70,10 +71,11 @@
             this.btnLop,
             this.btnMonHoc,
             this.btnDiem,
-            this.btnHocPhi});
+            this.btnHocPhi,
+            this.btnSinhVien});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
             this.ribbonControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.ribbonControl1.MaxItemId = 10;
+            this.ribbonControl1.MaxItemId = 11;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1});
@@ -137,6 +139,15 @@
             | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
             this.btnHocPhi.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.BtnHocPhi_ItemClick);
             // 
+            // btnSinhVien
+            // 
+            this.btnSinhVien.Caption = "Sinh Viên";
+            this.btnSinhVien.Id = 10;
+            this.btnSinhVien.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnSinhVien.ImageOptions.Image")));
+            this.btnSinhVien.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnSinhVien.ImageOptions.LargeImage")));
+            this.btnSinhVien.Name = "btnSinhVien";
+            this.btnSinhVien.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.BtnSinhVien_ItemClick);
+            // 
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -150,6 +161,7 @@
             this.ribbonPageGroup1.ItemLinks.Add(this.btnMonHoc);
             this.ribbonPageGroup1.ItemLinks.Add(this.btnDiem);
             this.ribbonPageGroup1.ItemLinks.Add(this.btnHocPhi);
+            this.ribbonPageGroup1.ItemLinks.Add(this.btnSinhVien);
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
             this.ribbonPageGroup1.Text = "ribbonPageGroup1";
             // 
@@ -238,5 +250,6 @@
         private DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView tabbedView1;
         private DevExpress.XtraBars.BarButtonItem btnDiem;
         private DevExpress.XtraBars.BarButtonItem btnHocPhi;
+        private DevExpress.XtraBars.BarButtonItem btnSinhVien;
     }
 }
