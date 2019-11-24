@@ -94,8 +94,8 @@ namespace QLDSV
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            txtUsername.Text = "son";
-            txtPassword.Text = "123456";
+            //txtUsername.Text = "son";
+            //txtPassword.Text = "123456";
             if (txtUsername.Text.Trim() == "")
             {
                 MessageBox.Show("Tên tài khoản không được để trống", "Lỗi", MessageBoxButtons.OK);
@@ -145,6 +145,7 @@ namespace QLDSV
             }
             Program.mHoten = myReader.GetString(1);
             Program.mGroup = myReader.GetString(2);
+            Program.conn.Close();
             //Program.frmMain.HienThiMenu();
             MessageBox.Show("Đăng Nhập Thành Công", "", MessageBoxButtons.OK);
             this.Hide();
@@ -156,7 +157,7 @@ namespace QLDSV
             f.WindowState = FormWindowState.Maximized;
             this.Close();
             myReader.Close();
-            Program.conn.Close();
+           
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)

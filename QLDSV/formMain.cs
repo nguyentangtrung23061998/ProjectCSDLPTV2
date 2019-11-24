@@ -64,5 +64,21 @@ namespace QLDSV
             frm.MdiParent = this;
             frm.Show();
         }
+
+        private void btnTaoTaiKhoan_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            formTaoLogin frm = new formTaoLogin();
+            frm.MdiParent = this;
+            frm.Show();
+        }
+
+        private void btnDangXuat_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            formMain frmMain = new formMain();
+            Program.conn.Close();
+            frmMain.Hide();
+            frmMain.Close();
+           
+        }
     }
 }

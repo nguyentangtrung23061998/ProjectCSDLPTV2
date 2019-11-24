@@ -311,3 +311,4 @@ G:\TaiLieuHkINam4\ProjectCSDLPTV2\thanh\QLDSV\obj\Debug\QLDSV.exe
 G:\TaiLieuHkINam4\ProjectCSDLPTV2\thanh\QLDSV\obj\Debug\QLDSV.pdb
 G:\TaiLieuHkINam4\ProjectCSDLPTV2\thanh\QLDSV\obj\Debug\QLDSV.formSinhVien.resources
 G:\TaiLieuHkINam4\ProjectCSDLPTV2\thanh\QLDSV\obj\Debug\QLDSV.formChuyenLop.resources
+G:\TaiLieuHkINam4\ProjectCSDLPTV2\thanh\QLDSV\obj\Debug\QLDSV.formTaoLogin.resources
