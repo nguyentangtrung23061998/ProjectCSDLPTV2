@@ -20,7 +20,8 @@ namespace QLDSV
 
         private void formMain_Load(object sender, EventArgs e)
         {
-            if(Program.maCN != "KETOAN")
+            this.WindowState = FormWindowState.Maximized;
+            if (Program.maCN != "KETOAN")
             {
                 btnHocPhi.Enabled = false;
                
@@ -106,11 +107,12 @@ namespace QLDSV
 
         private void btnDangXuat_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            formMain frmMain = new formMain();
-            Program.conn.Close();
-            frmMain.Hide();
-            frmMain.Close();
-           
+            if (Program.conn.State == ConnectionState.Open) Program.conn.Close();
+            // Close formMain and open formDangNhap
+            this.Hide();
+            formDangNhap form2 = new formDangNhap();    
+            form2.ShowDialog();
+            this.Close();
         }
 
         private void BtnTaoTaiKhoan_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

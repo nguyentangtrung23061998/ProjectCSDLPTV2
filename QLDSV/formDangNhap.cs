@@ -23,16 +23,6 @@ namespace QLDSV
         {
             // TODO: This line of code loads data into the 'qLDSVROOT.V_DS_PHANMANH' table. You can move, or remove it, as needed.
             this.v_DS_PHANMANHTableAdapter.Fill(this.qLDSVROOT.V_DS_PHANMANH);
-            // TODO: This line of code loads data into the 'qLDSVROOT1.V_DS_PHANMANH' table. You can move, or remove it, as needed.
-            //this.v_DS_PHANMANHTableAdapter.Fill(this.qLDSVROOT1.V_DS_PHANMANH);
-            // TODO: This line of code loads data into the 'qLDSVROOT1.V_DS_PHANMANH' table. You can move, or remove it, as needed.
-            //  this.v_DS_PHANMANHTableAdapter.Fill(this.qLDSVROOT1.V_DS_PHANMANH);
-            //this.v_DS_PHANMANHTableAdapter.Fill(this.qLDSVROOT.V_DS_PHANMANH);
-            //DataTable dt = new DataTable();
-            //dt = Program.ExecSqlDataTable("SELECT * FROM V_DS_PHANMANH");
-            //Program.bds_dspm.DataSource=dt;
-            //comboBoxChiNhanh.SelectedIndex = 1;
-            //comboBoxChiNhanh.SelectedIndex = 0;
 
             string chuoiketnoi = "Data Source=THANH\\SERVER1;Initial Catalog=QLDSV;Integrated Security=True;";
             Program.conn.ConnectionString = chuoiketnoi;
@@ -145,19 +135,17 @@ namespace QLDSV
             }
             Program.mHoten = myReader.GetString(1);
             Program.mGroup = myReader.GetString(2);
-            //Program.frmMain.HienThiMenu();
+            myReader.Close();
+            Program.conn.Close();
+
             MessageBox.Show("Đăng Nhập Thành Công", "", MessageBoxButtons.OK);
-            //this.Hide();
             
+            this.Hide();
             formMain f = new formMain();
             f.HienThiMenu();
             f.ShowDialog();
-            f.TopMost = true;
-            f.FormBorderStyle = FormBorderStyle.None;
-            f.WindowState = FormWindowState.Maximized;
             this.Close();
-            myReader.Close();
-            Program.conn.Close();
+           
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -165,7 +153,6 @@ namespace QLDSV
             try
             {
                 Program.servername = comboBoxChiNhanh.SelectedValue.ToString();
-
             }
             catch (Exception ex)
             {
