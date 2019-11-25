@@ -81,7 +81,7 @@ namespace QLDSV
         private void buttonOk_Click(object sender, EventArgs e)
         {
             Boolean checkEmpty = checkInfoGV();
-                String s = comboBoxQuyen.Items[2].ToString();
+            String s = comboBoxQuyen.Items[2].ToString();
             if (checkEmpty)
             {
                 try
@@ -178,5 +178,7 @@ namespace QLDSV
                 MessageBox.Show("Lỗi Reload :" + ex.Message, "", MessageBoxButtons.OK);
             }
         }
+
+      
     }
 }

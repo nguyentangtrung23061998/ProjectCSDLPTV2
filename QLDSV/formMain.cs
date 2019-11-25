@@ -112,5 +112,17 @@ namespace QLDSV
             frmMain.Close();
            
         }
+
+        private void BtnTaoTaiKhoan_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form frm = this.CheckExists(typeof(formTaoLogin));
+            if (frm != null) frm.Activate();
+            else
+            {
+                formTaoLogin f = new formTaoLogin();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
     }
 }
