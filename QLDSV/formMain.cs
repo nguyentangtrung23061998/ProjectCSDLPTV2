@@ -103,5 +103,14 @@ namespace QLDSV
                 f.Show();
             }
         }
+
+        private void btnDangXuat_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            formMain frmMain = new formMain();
+            Program.conn.Close();
+            frmMain.Hide();
+            frmMain.Close();
+           
+        }
     }
 }

@@ -301,7 +301,6 @@
             this.btnLopThoat.Name = "btnLopThoat";
             this.btnLopThoat.Size = new System.Drawing.Size(85, 24);
             this.btnLopThoat.Text = "THOÁT";
-            this.btnLopThoat.Click += new System.EventHandler(this.btnLopThoat_Click);
             // 
             // btnLopClear
             // 

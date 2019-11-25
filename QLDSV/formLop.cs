@@ -15,6 +15,7 @@ namespace QLDSV
 {
     public partial class formLop : DevExpress.XtraEditors.XtraForm
     {
+
         public int chose = 0; // XAC DINH chon THEM / CHUYEN/ SUA   
         int vitri = 0;
         String makh = "";
@@ -172,7 +173,9 @@ namespace QLDSV
                 st.Push(ob);
                 this.lOPBindingSource.EndEdit();
                 lOPBindingSource.ResetAllowNew();
+                Program.conn.Close();
                 MessageBox.Show("Thêm Lớp Thành công", "THÔNG BÁO", MessageBoxButtons.OK);
+                st.Push(ob);
                 return;
 
             }
@@ -362,6 +365,7 @@ namespace QLDSV
         {
             try
             {
+
                 this.lOPTableAdapter.Fill(this.qLDSVROOT.LOP);
 
             }
