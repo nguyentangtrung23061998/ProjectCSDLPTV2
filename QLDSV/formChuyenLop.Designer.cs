@@ -464,7 +464,7 @@
             this.Controls.Add(this.tabControl1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "formChuyenLop";
-            this.Text = "formChuyenLop";
+            this.Text = "Chuyển lớp";
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();

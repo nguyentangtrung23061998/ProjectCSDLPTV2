@@ -46,15 +46,6 @@ namespace QLDSV
             this.btnThemMonHoc.Enabled = false;
         }
 
-        //private void setComboboxKHOAbyDefault()
-        //{
-        //    comboKHOA.DataSource = Program.bds_dspm.DataSource;
-        //    comboKHOA.DisplayMember = "TENCN";
-        //    comboKHOA.ValueMember = "TENSERVER";
-        //    // We already set mChinhanh when Login 
-        //    comboKHOA.SelectedIndex = Program.mChinhanh;
-        //}
-
         public String maMH;
         public String tenMH;
 
@@ -70,38 +61,9 @@ namespace QLDSV
             this.mONHOCTableAdapter.Connection.ConnectionString = Program.connstr;
             this.mONHOCTableAdapter.Fill(this.qLDSVROOT.MONHOC);
 
-            // set default value for comboxKHOA
-            //setComboboxKHOAbyDefault();
-            // Disabled button add and undo
+            if (Program.conn.State == ConnectionState.Open) Program.conn.Close();
             loadButton();
         }
-
-        //public String makh;
-        //private void ComboKHOA_SelectedIndexChanged(object sender, EventArgs e)
-        //{
-        //    // For close form
-        //    if (comboKHOA.SelectedValue == null) return;
-        //    // For selected combox value
-        //    Program.servername = comboKHOA.SelectedValue.ToString();
-        //    if (comboKHOA.SelectedIndex != Program.mChinhanh)
-        //    {
-        //        Program.mlogin = Program.remotelogin;
-        //        Program.password = Program.remotepassword;
-        //    }
-        //    else
-        //    {
-        //        Program.mlogin = Program.mloginDN;
-        //        Program.password = Program.passwordDN;
-        //    }
-        //    // Connect to other server using HTKN
-        //    if (Program.KetNoi() == 0)
-        //        MessageBox.Show("Lỗi kết nối về chi nhánh mới", "", MessageBoxButtons.OK);
-        //    else
-        //    {
-        //        this.mONHOCTableAdapter.Connection.ConnectionString = Program.connstr;
-        //        this.mONHOCTableAdapter.Fill(this.qLDSVROOT.MONHOC);
-        //    }
-        //}
 
         private string ExecuteSP_KiemMaMonHoc(String spName)
         {

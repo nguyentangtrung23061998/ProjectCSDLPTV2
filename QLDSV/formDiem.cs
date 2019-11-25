@@ -119,28 +119,69 @@ namespace QLDSV
             string strLenh = "";
             for (int i = 0; i < dem; i++)
             {
-                try
-                {
-                    if (Program.conn.State == ConnectionState.Closed)
-                        Program.conn.Open();
-                    strLenh = "UPDATE dbo.DIEM SET DIEM = @DIEM WHERE MASV = @MASV and MAMH = @MAMH and LAN = @LAN";
-                    Program.sqlcmd = Program.conn.CreateCommand();
-                    Program.sqlcmd.CommandType = CommandType.Text;
-                    Program.sqlcmd.CommandText = strLenh;
-                    Program.sqlcmd.Parameters.Add("@MASV", SqlDbType.NChar).Value = gridView1.GetRowCellValue(i, "MASV").ToString().Trim();
-                    Program.sqlcmd.Parameters.Add("@MAMH", SqlDbType.NVarChar).Value = cmbMaMH.SelectedValue.ToString();
-                    Program.sqlcmd.Parameters.Add("@LAN", SqlDbType.SmallInt).Value = short.Parse(cmbLanThi.SelectedValue.ToString());
-                    Program.sqlcmd.Parameters.Add("@DIEM", SqlDbType.Float).Value = Math.Round(float.Parse(gridView1.GetRowCellValue(i, "DIEM").ToString().Trim()), 2, MidpointRounding.AwayFromZero);
-                    Program.sqlcmd.ExecuteNonQuery();
-                    Program.conn.Close();
-                  
+                // Check if SinhVien did not have diem yet 
+                if (Program.conn.State == ConnectionState.Closed)
+                    Program.conn.Open();
+                String check = "SP_KiemTraSinhVienCoDiem";
+                Program.sqlcmd = Program.conn.CreateCommand();
+                Program.sqlcmd.CommandType = CommandType.StoredProcedure;
+                Program.sqlcmd.CommandText = check;
+                Program.sqlcmd.Parameters.Add("@MASV", SqlDbType.NChar).Value = gridView1.GetRowCellValue(i, "MASV").ToString().Trim();
+                Program.sqlcmd.Parameters.Add("@MAMH", SqlDbType.NVarChar).Value = cmbMaMH.SelectedValue.ToString();
+                Program.sqlcmd.Parameters.Add("@LAN", SqlDbType.SmallInt).Value = short.Parse(cmbLanThi.SelectedValue.ToString());
+                Program.sqlcmd.Parameters.Add("@Ret", SqlDbType.Int).Direction = ParameterDirection.ReturnValue;
+                Program.sqlcmd.ExecuteNonQuery();
+                String ret = Program.sqlcmd.Parameters["@Ret"].Value.ToString();
+                // dont have Diem before, insert into table DIEM
+                if (ret == "1")
+                {   
+                    try
+                    {
+                        if (Program.conn.State == ConnectionState.Closed)
+                            Program.conn.Open();
+                        strLenh = "UPDATE dbo.DIEM SET DIEM = @DIEM WHERE MASV = @MASV and MAMH = @MAMH and LAN = @LAN";
+                        Program.sqlcmd = Program.conn.CreateCommand();
+                        Program.sqlcmd.CommandType = CommandType.Text;
+                        Program.sqlcmd.CommandText = strLenh;
+                        Program.sqlcmd.Parameters.Add("@MASV", SqlDbType.NChar).Value = gridView1.GetRowCellValue(i, "MASV").ToString().Trim();
+                        Program.sqlcmd.Parameters.Add("@MAMH", SqlDbType.NVarChar).Value = cmbMaMH.SelectedValue.ToString();
+                        Program.sqlcmd.Parameters.Add("@LAN", SqlDbType.SmallInt).Value = short.Parse(cmbLanThi.SelectedValue.ToString());
+                        Program.sqlcmd.Parameters.Add("@DIEM", SqlDbType.Float).Value = Math.Round(float.Parse(gridView1.GetRowCellValue(i, "DIEM").ToString().Trim()), 2, MidpointRounding.AwayFromZero);
+                        Program.sqlcmd.ExecuteNonQuery();
+                        Program.conn.Close();
+
+                    }
+                    catch (Exception ex)
+                    {
+                        hasError = true;
+                        MessageBox.Show("Lỗi ghi điểm! " + ex.Message, "", MessageBoxButtons.OK);
+                        return;
+                    }
                 }
-                catch (Exception ex)
+                else
                 {
-                    hasError = true;
-                    MessageBox.Show("Lỗi ghi điểm! " + ex.Message, "", MessageBoxButtons.OK);
-                    return;
+                    try
+                    {
+                        strLenh = "INSERT INTO dbo.DIEM (MASV,MAMH,LAN,DIEM) VALUES (@MASV,@MAMH,@LAN,@DIEM)";
+                        Program.sqlcmd = Program.conn.CreateCommand();
+                        Program.sqlcmd.CommandType = CommandType.Text;
+                        Program.sqlcmd.CommandText = strLenh;
+                        Program.sqlcmd.Parameters.Add("@MASV", SqlDbType.NChar).Value = gridView1.GetRowCellValue(i, "MASV").ToString().Trim();
+                        Program.sqlcmd.Parameters.Add("@MAMH", SqlDbType.NVarChar).Value = cmbMaMH.SelectedValue.ToString();
+                        Program.sqlcmd.Parameters.Add("@LAN", SqlDbType.SmallInt).Value = short.Parse(cmbLanThi.SelectedValue.ToString());
+                        Program.sqlcmd.Parameters.Add("@DIEM", SqlDbType.Float).Value = Math.Round(float.Parse(gridView1.GetRowCellValue(i, "DIEM").ToString().Trim()), 2, MidpointRounding.AwayFromZero);
+                        Program.sqlcmd.ExecuteNonQuery();
+                        Program.conn.Close();
+
+                    }
+                    catch (Exception ex)
+                    {
+                        hasError = true;
+                        MessageBox.Show("Lỗi ghi điểm! " + ex.Message, "", MessageBoxButtons.OK);
+                        return;
+                    }
                 }
+                
             }
             if(!hasError)
             {
@@ -148,6 +189,9 @@ namespace QLDSV
                 // If dont have error
                 this.btnBatDau.Enabled = true;
                 this.btnGhiDiem.Enabled = false;
+            }else
+            {
+                MessageBox.Show("Ghi điểm thất bại!", "Thông báo", MessageBoxButtons.OK);
             }
             sPNhapDiemMonHocBindingSource.EndEdit();
         }
