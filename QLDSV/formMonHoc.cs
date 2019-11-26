@@ -46,23 +46,14 @@ namespace QLDSV
             this.btnThemMonHoc.Enabled = false;
         }
 
-        //private void setComboboxKHOAbyDefault()
-        //{
-        //    comboKHOA.DataSource = Program.bds_dspm.DataSource;
-        //    comboKHOA.DisplayMember = "TENCN";
-        //    comboKHOA.ValueMember = "TENSERVER";
-        //    // We already set mChinhanh when Login 
-        //    comboKHOA.SelectedIndex = Program.mChinhanh;
-        //}
-
         public String maMH;
         public String tenMH;
-  
+
         private void handleDuLieuFocus()
         {
             maMH = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "MAMH").ToString().Trim();
             tenMH = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "TENMH").ToString().Trim();
-           
+
         }
         private void FormMonHoc_Load(object sender, EventArgs e)
         {
@@ -70,38 +61,9 @@ namespace QLDSV
             this.mONHOCTableAdapter.Connection.ConnectionString = Program.connstr;
             this.mONHOCTableAdapter.Fill(this.qLDSVROOT.MONHOC);
 
-            // set default value for comboxKHOA
-            //setComboboxKHOAbyDefault();
-            // Disabled button add and undo
+            if (Program.conn.State == ConnectionState.Open) Program.conn.Close();
             loadButton();
         }
-
-        //public String makh;
-        //private void ComboKHOA_SelectedIndexChanged(object sender, EventArgs e)
-        //{
-        //    // For close form
-        //    if (comboKHOA.SelectedValue == null) return;
-        //    // For selected combox value
-        //    Program.servername = comboKHOA.SelectedValue.ToString();
-        //    if (comboKHOA.SelectedIndex != Program.mChinhanh)
-        //    {
-        //        Program.mlogin = Program.remotelogin;
-        //        Program.password = Program.remotepassword;
-        //    }
-        //    else
-        //    {
-        //        Program.mlogin = Program.mloginDN;
-        //        Program.password = Program.passwordDN;
-        //    }
-        //    // Connect to other server using HTKN
-        //    if (Program.KetNoi() == 0)
-        //        MessageBox.Show("Lỗi kết nối về chi nhánh mới", "", MessageBoxButtons.OK);
-        //    else
-        //    {
-        //        this.mONHOCTableAdapter.Connection.ConnectionString = Program.connstr;
-        //        this.mONHOCTableAdapter.Fill(this.qLDSVROOT.MONHOC);
-        //    }
-        //}
 
         private string ExecuteSP_KiemMaMonHoc(String spName)
         {
@@ -160,7 +122,7 @@ namespace QLDSV
                 txtTenMH.Focus();
                 return;
             }
-           
+
             try
             {
                 // SP return 
@@ -172,7 +134,8 @@ namespace QLDSV
                     MessageBox.Show("Mã môn học đã tồn tại.\n", "", MessageBoxButtons.OK);
                     Program.conn.Close();
                     return;
-                }else
+                }
+                else
                 {
                     try
                     {
@@ -187,7 +150,7 @@ namespace QLDSV
                         //int nRowIndex = gridView1.RowCount - 1;
 
                         gridView1.SetFocusedRowModified();
-                        
+
                         Program.conn.Close();
                     }
                     catch (Exception ex)
@@ -232,7 +195,8 @@ namespace QLDSV
 
         private void BtnXoaMonHoc_Click(object sender, EventArgs e)
         {
-            if(MessageBox.Show("Bạn có chắc muốn xóa nó không?", "Xóa môn học", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes) {
+            if (MessageBox.Show("Bạn có chắc muốn xóa nó không?", "Xóa môn học", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
                 if (Program.conn.State == ConnectionState.Closed)
                     Program.conn.Open();
                 try
@@ -293,7 +257,7 @@ namespace QLDSV
 
         private void BtnSuaMonHoc_Click(object sender, EventArgs e)
         {
-           
+
             if (txtMaMH.Text.Trim() == "")
             {
                 MessageBox.Show("Mã môn học không để trống!", "", MessageBoxButtons.OK);
@@ -306,7 +270,7 @@ namespace QLDSV
                 txtTenMH.Focus();
                 return;
             }
-           
+
             try
             {
                 // SP return 
@@ -335,7 +299,7 @@ namespace QLDSV
                 }
                 else
                 {
-                     MessageBox.Show("Mã môn học không tồn tại.\n", "THÔNG BÁO", MessageBoxButtons.OK);
+                    MessageBox.Show("Mã môn học không tồn tại.\n", "THÔNG BÁO", MessageBoxButtons.OK);
                     return;
                 }
             }
@@ -371,7 +335,7 @@ namespace QLDSV
                 }
                 if (ob.getType() == 2)
                 {
-                    undo("Khôi phục sau khi xóa ", ob.getLenh());  
+                    undo("Khôi phục sau khi xóa ", ob.getLenh());
                 }
                 if (ob.getType() == 3)
                 {
@@ -385,4 +349,4 @@ namespace QLDSV
         }
 
     }
-} 
+}

@@ -28,7 +28,7 @@ namespace QLDSV
 
         public static String database = "QLDSV";
         public static String remotelogin = "HTKN";
-        public static String remotepassword = "123456";
+        public static String remotepassword = "1234";
         public static String mloginDN = "";
         public static String passwordDN = "";
         public static String mGroup = "";
@@ -37,11 +37,6 @@ namespace QLDSV
         public static String tenChiNhanh = "";
         public static String maCN = "";
         public static BindingSource bds_dspm = new BindingSource();
-        public static formMain frmMain;
-        public static String MaKHO;
-        public static String LoaiPhieu;
-        public static String Phieu;
-        public static XtraTabControl xtratabcontrol;
         public static int checkDangNhap = 0;
 
 
@@ -132,17 +127,6 @@ namespace QLDSV
             Application.SetCompatibleTextRenderingDefault(false);
 
             BonusSkins.Register();
-            //formDangNhap fromDN = new formDangNhap();
-            //fromDN.WindowState = FormWindowState.Maximized;
-
-            //formMain formMain = new formMain();
-            //formMain.WindowState = FormWindowState.Maximized;
-
-            formLop formLop = new formLop();
-            formLop.WindowState = FormWindowState.Maximized;
-
-            Program.frmMain = new formMain();
-            Program.frmMain.WindowState = FormWindowState.Maximized;
             Application.Run(new formDangNhap());
         }
     }

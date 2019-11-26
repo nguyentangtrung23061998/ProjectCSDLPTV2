@@ -419,7 +419,7 @@
             this.Controls.Add(this.bindingNavigator1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "formLop";
-            this.Text = "formLop";
+            this.Text = "Lớp";
             this.Load += new System.EventHandler(this.formLop_Load);
             ((System.ComponentModel.ISupportInitialize)(this.frmLop)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lOPBindingSource)).EndInit();
