@@ -109,10 +109,13 @@ namespace QLDSV
         {
             if (Program.conn.State == ConnectionState.Open) Program.conn.Close();
             // Close formMain and open formDangNhap
-            this.Hide();
-            formDangNhap form2 = new formDangNhap();    
-            form2.ShowDialog();
-            this.Close();
+            if (MessageBox.Show("Bạn muốn thoát chương trình?", "Xóa môn học", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                this.Hide();
+                formDangNhap form2 = new formDangNhap();
+                form2.ShowDialog();
+                this.Close();
+            }  
         }
 
         private void BtnTaoTaiKhoan_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
