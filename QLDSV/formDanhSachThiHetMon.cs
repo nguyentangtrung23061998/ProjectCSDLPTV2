@@ -34,10 +34,6 @@ namespace QLDSV
         
         private void FormDanhSachThiHetMon_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'qLDSVROOT.MONHOC' table. You can move, or remove it, as needed.
-            this.mONHOCTableAdapter.Fill(this.qLDSVROOT.MONHOC);
-            // TODO: This line of code loads data into the 'qLDSVROOT.LOP' table. You can move, or remove it, as needed.
-            this.lOPTableAdapter.Fill(this.qLDSVROOT.LOP);
             qLDSVROOT.EnforceConstraints = false;
             // TODO: This line of code loads data into the 'qLDSVROOT.MONHOC' table. You can move, or remove it, as needed.
             this.mONHOCTableAdapter.Connection.ConnectionString = Program.connstr;
@@ -82,8 +78,13 @@ namespace QLDSV
             }
             else
             {
-                //this.lOPTableAdapter.Connection.ConnectionString = Program.connstr;
-                //this.lOPTableAdapter.Fill(this.qLDSVROOT.LOP);
+                qLDSVROOT.EnforceConstraints = false;
+                // TODO: This line of code loads data into the 'qLDSVROOT.MONHOC' table. You can move, or remove it, as needed.
+                this.mONHOCTableAdapter.Connection.ConnectionString = Program.connstr;
+                this.mONHOCTableAdapter.Fill(this.qLDSVROOT.MONHOC);
+
+                this.lOPTableAdapter.Connection.ConnectionString = Program.connstr;
+                this.lOPTableAdapter.Fill(this.qLDSVROOT.LOP);
             }
         }
 
@@ -96,6 +97,7 @@ namespace QLDSV
             XtraReport1 rpt = new XtraReport1(maLop, maMH, lan);
             rpt.lblLop.Text = cmbTenLop.SelectedValue.ToString();
             rpt.lblMonHoc.Text = cmbTenMH.SelectedValue.ToString();
+            rpt.lblNgayThi.Text = dtNgayThi.Text;
 
             ReportPrintTool print = new ReportPrintTool(rpt);
             print.ShowPreviewDialog();

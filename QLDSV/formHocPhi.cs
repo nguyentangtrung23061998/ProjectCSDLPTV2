@@ -31,6 +31,8 @@ namespace QLDSV
         }
         private void FormHocPhi_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'qLDSVROOT.SINHVIEN' table. You can move, or remove it, as needed.
+            this.sINHVIENTableAdapter.Fill(this.qLDSVROOT.SINHVIEN);
             // TODO: This line of code loads data into the 'qLDSVPMMaster.V_DS_PHANMANH' table. You can move, or remove it, as needed.
             this.v_DS_PHANMANHTableAdapter.Fill(this.qLDSVPMMaster.V_DS_PHANMANH);
             qLDSVROOT.EnforceConstraints = false;
@@ -82,12 +84,15 @@ namespace QLDSV
                     this.sP_DongHocPhiSinhVienTableAdapter.Fill(this.qLDSVROOT.SP_DongHocPhiSinhVien, txtMASV.Text.Trim());
 
                     txtMASV.Enabled = false;
-                    btnLoad.Enabled = false;
+                    btnLoad.Enabled = true;
                     btnNhapSV.Enabled = true;
                     btnGhi.Enabled = true;
                     hOCPHIGridControl.Enabled = true;
                     pnclHocPhi.Visible = true;
-                    
+
+                    sINHVIENGridControl.Enabled = false;
+
+
                 }
                 myReader.Close();
             }
@@ -245,8 +250,9 @@ namespace QLDSV
             btnLoad.Enabled = true;
             hOCPHIGridControl.Enabled = false;
             pnclHocPhi.Visible = false;
+            sINHVIENGridControl.Enabled = true;
             // Clear fields
-            txtMASV.Text = "";
+            //txtMASV.Text = "";
             lbHOTEN.Text = "";
             lbMALOP.Text = "";
         }
@@ -265,5 +271,7 @@ namespace QLDSV
         {
             this.Close();
         }
+
+      
     }
 }

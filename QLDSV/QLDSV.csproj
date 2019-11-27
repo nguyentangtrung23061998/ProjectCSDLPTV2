@@ -77,6 +77,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BAOCAO\Xrpt_PhieuDiem.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="BAOCAO\Xrpt_PhieuDiem.Designer.cs">
+      <DependentUpon>Xrpt_PhieuDiem.cs</DependentUpon>
+    </Compile>
     <Compile Include="formChuyenLop.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -125,6 +131,12 @@
     <Compile Include="formMonHoc.Designer.cs">
       <DependentUpon>formMonHoc.cs</DependentUpon>
     </Compile>
+    <Compile Include="formInPhieuDiem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formInPhieuDiem.Designer.cs">
+      <DependentUpon>formInPhieuDiem.cs</DependentUpon>
+    </Compile>
     <Compile Include="formSinhVien.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -152,12 +164,15 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>QLDSVROOT.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Xrpt_DSThiHetMon.cs">
+    <Compile Include="BAOCAO\Xrpt_DSThiHetMon.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Xrpt_DSThiHetMon.Designer.cs">
+    <Compile Include="BAOCAO\Xrpt_DSThiHetMon.Designer.cs">
       <DependentUpon>Xrpt_DSThiHetMon.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="BAOCAO\Xrpt_PhieuDiem.resx">
+      <DependentUpon>Xrpt_PhieuDiem.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="formChuyenLop.resx">
       <DependentUpon>formChuyenLop.cs</DependentUpon>
     </EmbeddedResource>
@@ -182,6 +197,9 @@
     <EmbeddedResource Include="formMonHoc.resx">
       <DependentUpon>formMonHoc.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="formInPhieuDiem.resx">
+      <DependentUpon>formInPhieuDiem.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="formSinhVien.resx">
       <DependentUpon>formSinhVien.cs</DependentUpon>
     </EmbeddedResource>
@@ -198,7 +216,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Xrpt_DSThiHetMon.resx">
+    <EmbeddedResource Include="BAOCAO\Xrpt_DSThiHetMon.resx">
       <DependentUpon>Xrpt_DSThiHetMon.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
@@ -269,5 +287,6 @@
     <Content Include="image\users-icon.png" />
     <Content Include="image\xuat-tra-lai.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -141,5 +141,17 @@ namespace QLDSV
                 f.Show();
             }
         }
+
+        private void BtnPhieuDiem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form frm = this.CheckExists(typeof(formInPhieuDiem));
+            if (frm != null) frm.Activate();
+            else
+            {
+                formInPhieuDiem f = new formInPhieuDiem();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
     }
 }
