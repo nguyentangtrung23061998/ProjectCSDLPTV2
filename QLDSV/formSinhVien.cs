@@ -90,7 +90,7 @@ namespace QLDSV
             maLop = ((DataRowView)lOPBindingSource[0])["MALOP"].ToString();
             txtMaLop.Text = maLop;
             txtMaLop.Enabled = false;
-            btnThem.Enabled = false;
+         
             setComboboxKHOAbyDefault();
         }
 
@@ -119,11 +119,10 @@ namespace QLDSV
             }
         }
 
-        private void btnClear_Click(object sender, EventArgs e)
+        private void btnClearSV_Click(object sender, EventArgs e)
         {
             txtMaSV.Focus();
-            this.btnThem.Enabled = true;
-            this.btnSua.Enabled = true;
+            this.btnSuaSV.Enabled = true;
             this.sINHVIENBindingSource.AddNew();
             maLop = ((DataRowView)sINHVIENBindingSource[0])["MALOP"].ToString();
             txtMaLop.Text = maLop;
@@ -239,7 +238,7 @@ namespace QLDSV
             return true;
         }
 
-        private void btnThem_Click(object sender, EventArgs e)
+        private void btnThemSV2_Click(object sender, EventArgs e)
         {
             if (Program.conn.State == ConnectionState.Closed)
                 Program.conn.Open();
@@ -269,12 +268,12 @@ namespace QLDSV
                                 comboNgaySinh.Text, txtNoiSinh.Text, txtDiaChi.Text, checkboxNghiHoc.Checked);
                     Program.sqlcmd.ExecuteNonQuery();
                     Program.conn.Close();
-                    this.btnThem.Enabled = false;
+                    this.btnRefreshSV.Enabled = false;
                     this.sINHVIENBindingSource.EndEdit();
                     sINHVIENBindingSource.ResetAllowNew();
                     Program.conn.Close();
                     MessageBox.Show("Thêm sinh viên thành công", "THÔNG BÁO", MessageBoxButtons.OK);
-                    this.btnThem.Enabled = false;
+                    this.btnRefreshSV.Enabled = false;
                     int type = 1;//Thêm
                     String lenh = "exec SP_UndoThemSinhVien '" + txtMaSV.Text + "'";
                     ObjectUndo ob = new ObjectUndo(type, lenh);
@@ -288,6 +287,7 @@ namespace QLDSV
                 }
             }
         }
+
         public int xoaSinhVien(String maSV)
         {
             if (Program.conn.State == ConnectionState.Closed)
@@ -320,7 +320,7 @@ namespace QLDSV
             }
         }
 
-        private void btnXoa_Click(object sender, EventArgs e)
+        private void btnXoaSV_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Bạn có chắc muốn xóa nó không?", "Xóa sinh viên", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
@@ -328,7 +328,7 @@ namespace QLDSV
                 if (result == 1)
                 {
                     MessageBox.Show("Xóa sinh viên thành công.", "", MessageBoxButtons.OK);
-                    this.btnThem.Enabled = false;
+                    this.btnRefreshSV.Enabled = false;
                 }
                 else
                 {
@@ -336,6 +336,7 @@ namespace QLDSV
                 }
             }
         }
+      
         public void handleSinhVienTable()
         {
             maSV = gridView2.GetRowCellValue(gridView2.FocusedRowHandle, "MASV").ToString().Trim();
@@ -349,7 +350,7 @@ namespace QLDSV
             nghiHoc = gridView2.GetRowCellValue(gridView2.FocusedRowHandle, "NGHIHOC").ToString().Trim();
         }
 
-        private void btnSua_Click(object sender, EventArgs e)
+        private void btnSuaSV_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Bạn có chắc muốn sửa nó không?", "Sửa sinh viên", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
@@ -392,7 +393,7 @@ namespace QLDSV
                         int type = 3;//chỉnh sửa
                         ObjectUndo ob = new ObjectUndo(type, lenh);
                         st.Push(ob);
-                        this.btnThem.Enabled = false;
+                        this.btnRefreshSV.Enabled = false;
                     }
                     catch (Exception ex)
                     {
@@ -409,7 +410,6 @@ namespace QLDSV
             {
                 this.lOPTableAdapter.Fill(this.qLDSVROOT.LOP);
                 this.sINHVIENTableAdapter.Fill(this.qLDSVROOT.SINHVIEN);
-                this.btnThem.Enabled = false;
             }
             catch (Exception ex)
             {
@@ -417,13 +417,27 @@ namespace QLDSV
                 return;
             }
         }
+        //private void rEFRESHToolStripMenuItem_Click(object sender, EventArgs e)
+        //{
+        //    try
+        //    {
+        //        this.lOPTableAdapter.Fill(this.qLDSVROOT.LOP);
+        //        this.sINHVIENTableAdapter.Fill(this.qLDSVROOT.SINHVIEN);
+        //        this.btnRefreshSV.Enabled = false;
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show("Lỗi Reload :" + ex.Message, "", MessageBoxButtons.OK);
+        //        return;
+        //    }
+        //}
 
-        private void btnThoat_Click(object sender, EventArgs e)
+        private void btnThoatSV_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void btnPhucHoi_Click(object sender, EventArgs e)
+        private void btnPhucHoiSV_Click(object sender, EventArgs e)
         {
             try
             {
@@ -461,7 +475,7 @@ namespace QLDSV
                 MessageBox.Show("Không có gì để Undo", "THÔNG BÁO", MessageBoxButtons.OK);
             }
         }
-
+    
         private void btnChuyenLop_Click(object sender, EventArgs e)
         {
             saveInfo.maSV = txtMaSV.Text.Trim();
@@ -478,5 +492,12 @@ namespace QLDSV
 
             btnRefresh.PerformClick();
         }
+
+        private void panelControl1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+      
     }
 }

@@ -40,14 +40,6 @@
             this.dIACHILabel = new System.Windows.Forms.Label();
             this.nGHIHOCLabel = new System.Windows.Forms.Label();
             this.qLDSVROOT = new QLDSV.QLDSVROOT();
-            this.bindingNavigator1 = new System.Windows.Forms.BindingNavigator(this.components);
-            this.btnThem = new System.Windows.Forms.ToolStripButton();
-            this.btnXoa = new System.Windows.Forms.ToolStripButton();
-            this.btnSua = new System.Windows.Forms.ToolStripButton();
-            this.btnPhucHoi = new System.Windows.Forms.ToolStripButton();
-            this.btnRefresh = new System.Windows.Forms.ToolStripButton();
-            this.btnThoat = new System.Windows.Forms.ToolStripButton();
-            this.btnClear = new System.Windows.Forms.ToolStripButton();
             this.lOPBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.lOPTableAdapter = new QLDSV.QLDSVROOTTableAdapters.LOPTableAdapter();
             this.tableAdapterManager = new QLDSV.QLDSVROOTTableAdapters.TableAdapterManager();
@@ -65,6 +57,10 @@
             this.colTENLOP = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colMAKH = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.btnThoatSV = new System.Windows.Forms.Button();
+            this.btnClearSV = new System.Windows.Forms.Button();
+            this.btnPhucHoiSV = new System.Windows.Forms.Button();
+            this.btnSVThem = new System.Windows.Forms.Button();
             this.txtMaSV = new System.Windows.Forms.ComboBox();
             this.sINHVIENBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.txtHo = new DevExpress.XtraEditors.TextEdit();
@@ -89,10 +85,11 @@
             this.colNGHIHOC = new DevExpress.XtraGrid.Columns.GridColumn();
             this.sINHVIENTableAdapter = new QLDSV.QLDSVROOTTableAdapters.SINHVIENTableAdapter();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.btnRefresh = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnXoaSV = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnSuaSV = new System.Windows.Forms.ToolStripMenuItem();
             this.btnChuyenLop = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.qLDSVROOT)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
-            this.bindingNavigator1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lOPBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.qLDSVPMMaster)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.v_DS_PHANMANHBindingSource)).BeginInit();
@@ -204,102 +201,6 @@
             this.qLDSVROOT.DataSetName = "QLDSVROOT";
             this.qLDSVROOT.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // bindingNavigator1
-            // 
-            this.bindingNavigator1.AddNewItem = null;
-            this.bindingNavigator1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(236)))), ((int)(((byte)(239)))));
-            this.bindingNavigator1.CountItem = null;
-            this.bindingNavigator1.DeleteItem = null;
-            this.bindingNavigator1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.bindingNavigator1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.btnThem,
-            this.btnXoa,
-            this.btnSua,
-            this.btnPhucHoi,
-            this.btnRefresh,
-            this.btnThoat,
-            this.btnClear});
-            this.bindingNavigator1.Location = new System.Drawing.Point(0, 0);
-            this.bindingNavigator1.MoveFirstItem = null;
-            this.bindingNavigator1.MoveLastItem = null;
-            this.bindingNavigator1.MoveNextItem = null;
-            this.bindingNavigator1.MovePreviousItem = null;
-            this.bindingNavigator1.Name = "bindingNavigator1";
-            this.bindingNavigator1.PositionItem = null;
-            this.bindingNavigator1.Size = new System.Drawing.Size(943, 29);
-            this.bindingNavigator1.TabIndex = 3;
-            this.bindingNavigator1.Text = " ";
-            // 
-            // btnThem
-            // 
-            this.btnThem.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnThem.Image = ((System.Drawing.Image)(resources.GetObject("btnThem.Image")));
-            this.btnThem.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnThem.Name = "btnThem";
-            this.btnThem.Size = new System.Drawing.Size(89, 26);
-            this.btnThem.Text = "THÊM";
-            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
-            // 
-            // btnXoa
-            // 
-            this.btnXoa.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnXoa.Image = ((System.Drawing.Image)(resources.GetObject("btnXoa.Image")));
-            this.btnXoa.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnXoa.Name = "btnXoa";
-            this.btnXoa.Size = new System.Drawing.Size(76, 26);
-            this.btnXoa.Text = "XÓA";
-            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
-            // 
-            // btnSua
-            // 
-            this.btnSua.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSua.Image = ((System.Drawing.Image)(resources.GetObject("btnSua.Image")));
-            this.btnSua.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnSua.Name = "btnSua";
-            this.btnSua.Size = new System.Drawing.Size(75, 26);
-            this.btnSua.Text = "SỬA";
-            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
-            // 
-            // btnPhucHoi
-            // 
-            this.btnPhucHoi.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPhucHoi.Image = ((System.Drawing.Image)(resources.GetObject("btnPhucHoi.Image")));
-            this.btnPhucHoi.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnPhucHoi.Name = "btnPhucHoi";
-            this.btnPhucHoi.Size = new System.Drawing.Size(124, 26);
-            this.btnPhucHoi.Text = "PHỤC HỒI";
-            this.btnPhucHoi.Click += new System.EventHandler(this.btnPhucHoi_Click);
-            // 
-            // btnRefresh
-            // 
-            this.btnRefresh.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRefresh.Image = ((System.Drawing.Image)(resources.GetObject("btnRefresh.Image")));
-            this.btnRefresh.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(120, 26);
-            this.btnRefresh.Text = "REFRESH";
-            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
-            // 
-            // btnThoat
-            // 
-            this.btnThoat.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnThoat.Image = ((System.Drawing.Image)(resources.GetObject("btnThoat.Image")));
-            this.btnThoat.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnThoat.Name = "btnThoat";
-            this.btnThoat.Size = new System.Drawing.Size(100, 26);
-            this.btnThoat.Text = "THOÁT";
-            this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
-            // 
-            // btnClear
-            // 
-            this.btnClear.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClear.Image = ((System.Drawing.Image)(resources.GetObject("btnClear.Image")));
-            this.btnClear.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(97, 26);
-            this.btnClear.Text = "CLEAR";
-            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
-            // 
             // lOPBindingSource
             // 
             this.lOPBindingSource.DataMember = "LOP";
@@ -387,7 +288,7 @@
             this.panel1.Controls.Add(this.comboKHOA);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 29);
+            this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(943, 80);
@@ -398,11 +299,11 @@
             this.lOPGridControl.DataSource = this.lOPBindingSource;
             this.lOPGridControl.Dock = System.Windows.Forms.DockStyle.Top;
             this.lOPGridControl.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.lOPGridControl.Location = new System.Drawing.Point(0, 109);
+            this.lOPGridControl.Location = new System.Drawing.Point(0, 80);
             this.lOPGridControl.MainView = this.gridView1;
             this.lOPGridControl.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lOPGridControl.Name = "lOPGridControl";
-            this.lOPGridControl.Size = new System.Drawing.Size(943, 165);
+            this.lOPGridControl.Size = new System.Drawing.Size(943, 188);
             this.lOPGridControl.TabIndex = 4;
             this.lOPGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -445,6 +346,10 @@
             // 
             // panelControl1
             // 
+            this.panelControl1.Controls.Add(this.btnThoatSV);
+            this.panelControl1.Controls.Add(this.btnClearSV);
+            this.panelControl1.Controls.Add(this.btnPhucHoiSV);
+            this.panelControl1.Controls.Add(this.btnSVThem);
             this.panelControl1.Controls.Add(this.mASVLabel);
             this.panelControl1.Controls.Add(this.txtMaSV);
             this.panelControl1.Controls.Add(this.hOLabel);
@@ -464,11 +369,63 @@
             this.panelControl1.Controls.Add(this.nGHIHOCLabel);
             this.panelControl1.Controls.Add(this.checkboxNghiHoc);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelControl1.Location = new System.Drawing.Point(0, 274);
+            this.panelControl1.Location = new System.Drawing.Point(0, 268);
             this.panelControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(483, 306);
+            this.panelControl1.Size = new System.Drawing.Size(483, 312);
             this.panelControl1.TabIndex = 5;
+            this.panelControl1.Paint += new System.Windows.Forms.PaintEventHandler(this.panelControl1_Paint);
+            // 
+            // btnThoatSV
+            // 
+            this.btnThoatSV.BackColor = System.Drawing.Color.Blue;
+            this.btnThoatSV.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnThoatSV.ForeColor = System.Drawing.Color.White;
+            this.btnThoatSV.Location = new System.Drawing.Point(289, 236);
+            this.btnThoatSV.Name = "btnThoatSV";
+            this.btnThoatSV.Size = new System.Drawing.Size(145, 41);
+            this.btnThoatSV.TabIndex = 18;
+            this.btnThoatSV.Text = "THOÁT";
+            this.btnThoatSV.UseVisualStyleBackColor = false;
+            this.btnThoatSV.Click += new System.EventHandler(this.btnThoatSV_Click);
+            // 
+            // btnClearSV
+            // 
+            this.btnClearSV.BackColor = System.Drawing.Color.Red;
+            this.btnClearSV.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClearSV.ForeColor = System.Drawing.Color.White;
+            this.btnClearSV.Location = new System.Drawing.Point(289, 167);
+            this.btnClearSV.Name = "btnClearSV";
+            this.btnClearSV.Size = new System.Drawing.Size(145, 41);
+            this.btnClearSV.TabIndex = 18;
+            this.btnClearSV.Text = "CLEAR";
+            this.btnClearSV.UseVisualStyleBackColor = false;
+            this.btnClearSV.Click += new System.EventHandler(this.btnClearSV_Click);
+            // 
+            // btnPhucHoiSV
+            // 
+            this.btnPhucHoiSV.BackColor = System.Drawing.Color.Fuchsia;
+            this.btnPhucHoiSV.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPhucHoiSV.ForeColor = System.Drawing.Color.White;
+            this.btnPhucHoiSV.Location = new System.Drawing.Point(98, 236);
+            this.btnPhucHoiSV.Name = "btnPhucHoiSV";
+            this.btnPhucHoiSV.Size = new System.Drawing.Size(145, 41);
+            this.btnPhucHoiSV.TabIndex = 18;
+            this.btnPhucHoiSV.Text = "PHỤC HỒI";
+            this.btnPhucHoiSV.UseVisualStyleBackColor = false;
+            this.btnPhucHoiSV.Click += new System.EventHandler(this.btnPhucHoiSV_Click);
+            // 
+            // btnSVThem
+            // 
+            this.btnSVThem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnSVThem.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSVThem.ForeColor = System.Drawing.Color.White;
+            this.btnSVThem.Location = new System.Drawing.Point(98, 167);
+            this.btnSVThem.Name = "btnSVThem";
+            this.btnSVThem.Size = new System.Drawing.Size(145, 41);
+            this.btnSVThem.TabIndex = 18;
+            this.btnSVThem.Text = "THÊM";
+            this.btnSVThem.UseVisualStyleBackColor = false;
             // 
             // txtMaSV
             // 
@@ -568,10 +525,10 @@
             // 
             this.panelControl2.Controls.Add(this.sINHVIENGridControl);
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl2.Location = new System.Drawing.Point(483, 274);
+            this.panelControl2.Location = new System.Drawing.Point(483, 268);
             this.panelControl2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(460, 306);
+            this.panelControl2.Size = new System.Drawing.Size(460, 312);
             this.panelControl2.TabIndex = 6;
             // 
             // sINHVIENGridControl
@@ -583,7 +540,7 @@
             this.sINHVIENGridControl.MainView = this.gridView2;
             this.sINHVIENGridControl.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.sINHVIENGridControl.Name = "sINHVIENGridControl";
-            this.sINHVIENGridControl.Size = new System.Drawing.Size(456, 302);
+            this.sINHVIENGridControl.Size = new System.Drawing.Size(456, 308);
             this.sINHVIENGridControl.TabIndex = 0;
             this.sINHVIENGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
@@ -692,14 +649,50 @@
             // 
             this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btnRefresh,
+            this.btnXoaSV,
+            this.btnSuaSV,
             this.btnChuyenLop});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(156, 28);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(213, 124);
+            // 
+            // btnRefresh
+            // 
+            this.btnRefresh.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRefresh.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnRefresh.Image = ((System.Drawing.Image)(resources.GetObject("btnRefresh.Image")));
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(212, 30);
+            this.btnRefresh.Text = "REFRESH";
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
+            // 
+            // btnXoaSV
+            // 
+            this.btnXoaSV.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnXoaSV.ForeColor = System.Drawing.Color.Olive;
+            this.btnXoaSV.Image = ((System.Drawing.Image)(resources.GetObject("btnXoaSV.Image")));
+            this.btnXoaSV.Name = "btnXoaSV";
+            this.btnXoaSV.Size = new System.Drawing.Size(212, 30);
+            this.btnXoaSV.Text = "XÓA";
+            this.btnXoaSV.Click += new System.EventHandler(this.btnXoaSV_Click);
+            // 
+            // btnSuaSV
+            // 
+            this.btnSuaSV.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSuaSV.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnSuaSV.Image = ((System.Drawing.Image)(resources.GetObject("btnSuaSV.Image")));
+            this.btnSuaSV.Name = "btnSuaSV";
+            this.btnSuaSV.Size = new System.Drawing.Size(212, 30);
+            this.btnSuaSV.Text = "SỬA";
+            this.btnSuaSV.Click += new System.EventHandler(this.btnSuaSV_Click);
             // 
             // btnChuyenLop
             // 
+            this.btnChuyenLop.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnChuyenLop.ForeColor = System.Drawing.Color.Red;
+            this.btnChuyenLop.Image = ((System.Drawing.Image)(resources.GetObject("btnChuyenLop.Image")));
             this.btnChuyenLop.Name = "btnChuyenLop";
-            this.btnChuyenLop.Size = new System.Drawing.Size(155, 24);
+            this.btnChuyenLop.Size = new System.Drawing.Size(212, 30);
             this.btnChuyenLop.Text = "Chuyển Lớp";
             this.btnChuyenLop.Click += new System.EventHandler(this.btnChuyenLop_Click);
             // 
@@ -713,15 +706,11 @@
             this.Controls.Add(this.panelControl1);
             this.Controls.Add(this.lOPGridControl);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.bindingNavigator1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "formSinhVien";
             this.Text = "Sinh viên";
             this.Load += new System.EventHandler(this.formSinhVien_Load);
             ((System.ComponentModel.ISupportInitialize)(this.qLDSVROOT)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).EndInit();
-            this.bindingNavigator1.ResumeLayout(false);
-            this.bindingNavigator1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lOPBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.qLDSVPMMaster)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.v_DS_PHANMANHBindingSource)).EndInit();
@@ -748,21 +737,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
         private QLDSVROOT qLDSVROOT;
-        private System.Windows.Forms.BindingNavigator bindingNavigator1;
-        private System.Windows.Forms.ToolStripButton btnThem;
-        private System.Windows.Forms.ToolStripButton btnXoa;
-        private System.Windows.Forms.ToolStripButton btnSua;
-        private System.Windows.Forms.ToolStripButton btnPhucHoi;
-        private System.Windows.Forms.ToolStripButton btnRefresh;
-        private System.Windows.Forms.ToolStripButton btnThoat;
-        private System.Windows.Forms.ToolStripButton btnClear;
         private System.Windows.Forms.BindingSource lOPBindingSource;
         private QLDSVROOTTableAdapters.LOPTableAdapter lOPTableAdapter;
         private QLDSVROOTTableAdapters.TableAdapterManager tableAdapterManager;
@@ -814,5 +794,13 @@
         private System.Windows.Forms.Label nOISINHLabel;
         private System.Windows.Forms.Label dIACHILabel;
         private System.Windows.Forms.Label nGHIHOCLabel;
+        private System.Windows.Forms.ToolStripMenuItem btnXoaSV;
+        private System.Windows.Forms.ToolStripMenuItem btnSuaSV;
+        private System.Windows.Forms.Button btnThoatSV;
+        private System.Windows.Forms.Button btnClearSV;
+        private System.Windows.Forms.Button btnPhucHoiSV;
+        private System.Windows.Forms.Button btnRefreshSV;
+        private System.Windows.Forms.Button btnSVThem;
+        private System.Windows.Forms.ToolStripMenuItem btnRefresh;
     }
 }
