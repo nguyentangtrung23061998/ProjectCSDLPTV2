@@ -126,5 +126,17 @@ namespace QLDSV
                 f.Show();
             }
         }
+
+        private void btnDanhSachSinhVien_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form frm= this.CheckExists(typeof(formInDSSV));
+            if (frm != null) frm.Activate();
+            else
+            {
+                formInDSSV f = new formInDSSV();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
     }
 }
