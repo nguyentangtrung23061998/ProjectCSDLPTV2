@@ -48,6 +48,7 @@ namespace QLDSV
             if(checkMasvIsExist == 1)
             {
                 gctrl_sP_PhieuDiemSinhVien.Enabled = true;
+                
                 sP_PhieuDiemSinhVienTableAdapter.Connection.ConnectionString = Program.connstr;
                 sP_PhieuDiemSinhVienTableAdapter.Fill(this.qLDSVROOT.SP_PhieuDiemSinhVien, maSV);
             }else
@@ -62,17 +63,17 @@ namespace QLDSV
         {
             this.Close();
         }
-
+ 
         private void BtnMayIn_Click(object sender, EventArgs e)
         {
             maSV = txtMaSV.Text;
 
             BAOCAO.Xrpt_PhieuDiem rpt = new BAOCAO.Xrpt_PhieuDiem(maSV);
+            rpt.lblHoTen.Text = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "HO").ToString().Trim() + " " + gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "TEN").ToString().Trim();
+            rpt.lblMaSV.Text = maSV;
 
             ReportPrintTool print = new ReportPrintTool(rpt);
             print.ShowPreviewDialog();
-            
         }
-
     }
 }

@@ -43,6 +43,10 @@
             this.pageInfo1 = new DevExpress.XtraReports.UI.XRPageInfo();
             this.pageInfo2 = new DevExpress.XtraReports.UI.XRPageInfo();
             this.ReportHeader = new DevExpress.XtraReports.UI.ReportHeaderBand();
+            this.lblMaSV = new DevExpress.XtraReports.UI.XRLabel();
+            this.lblHoTen = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrLabel2 = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrLabel1 = new DevExpress.XtraReports.UI.XRLabel();
             this.label1 = new DevExpress.XtraReports.UI.XRLabel();
             this.GroupHeader1 = new DevExpress.XtraReports.UI.GroupHeaderBand();
             this.table1 = new DevExpress.XtraReports.UI.XRTable();
@@ -162,18 +166,62 @@
             // ReportHeader
             // 
             this.ReportHeader.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.lblMaSV,
+            this.lblHoTen,
+            this.xrLabel2,
+            this.xrLabel1,
             this.label1});
-            this.ReportHeader.HeightF = 45.41667F;
+            this.ReportHeader.HeightF = 103.75F;
             this.ReportHeader.Name = "ReportHeader";
+            // 
+            // lblMaSV
+            // 
+            this.lblMaSV.LocationFloat = new DevExpress.Utils.PointFloat(342.9583F, 56.3193F);
+            this.lblMaSV.Multiline = true;
+            this.lblMaSV.Name = "lblMaSV";
+            this.lblMaSV.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.lblMaSV.SizeF = new System.Drawing.SizeF(100F, 23F);
+            this.lblMaSV.Text = "lblMaSV";
+            // 
+            // lblHoTen
+            // 
+            this.lblHoTen.LocationFloat = new DevExpress.Utils.PointFloat(342.9583F, 33.31931F);
+            this.lblHoTen.Multiline = true;
+            this.lblHoTen.Name = "lblHoTen";
+            this.lblHoTen.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.lblHoTen.SizeF = new System.Drawing.SizeF(100F, 23F);
+            this.lblHoTen.Text = "lblHoTen";
+            // 
+            // xrLabel2
+            // 
+            this.xrLabel2.LocationFloat = new DevExpress.Utils.PointFloat(242.9583F, 56.3193F);
+            this.xrLabel2.Multiline = true;
+            this.xrLabel2.Name = "xrLabel2";
+            this.xrLabel2.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel2.SizeF = new System.Drawing.SizeF(100F, 23F);
+            this.xrLabel2.Text = "Mã sinh viên:";
+            // 
+            // xrLabel1
+            // 
+            this.xrLabel1.LocationFloat = new DevExpress.Utils.PointFloat(242.9583F, 33.31931F);
+            this.xrLabel1.Multiline = true;
+            this.xrLabel1.Name = "xrLabel1";
+            this.xrLabel1.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel1.SizeF = new System.Drawing.SizeF(100F, 23F);
+            this.xrLabel1.Text = "Sinh viên tên: ";
             // 
             // label1
             // 
+            this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Black;
             this.label1.LocationFloat = new DevExpress.Utils.PointFloat(6.00001F, 5.999994F);
             this.label1.Name = "label1";
             this.label1.SizeF = new System.Drawing.SizeF(638F, 27.31932F);
             this.label1.StyleName = "Title";
+            this.label1.StylePriority.UseBackColor = false;
             this.label1.StylePriority.UseFont = false;
+            this.label1.StylePriority.UseForeColor = false;
             this.label1.StylePriority.UseTextAlignment = false;
             this.label1.Text = "PHIẾU ĐIỂM";
             this.label1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter;
@@ -442,5 +490,9 @@
         private DevExpress.XtraReports.UI.XRTableCell tableCell8;
         private QLDSVROOT qldsvroot1;
         private QLDSVROOTTableAdapters.SP_PhieuDiemSinhVienTableAdapter sP_PhieuDiemSinhVienTableAdapter;
+        public DevExpress.XtraReports.UI.XRLabel lblMaSV;
+        public DevExpress.XtraReports.UI.XRLabel lblHoTen;
+        private DevExpress.XtraReports.UI.XRLabel xrLabel2;
+        private DevExpress.XtraReports.UI.XRLabel xrLabel1;
     }
 }

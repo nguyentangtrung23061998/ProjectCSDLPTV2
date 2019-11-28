@@ -34,6 +34,12 @@ namespace QLDSV
         
         private void FormDanhSachThiHetMon_Load(object sender, EventArgs e)
         {
+            dtNgayThi.Properties.MaxValue = DateTime.Today.AddYears(+3);
+            dtNgayThi.Properties.MinValue = DateTime.Today.AddYears(-10);
+            dtNgayThi.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTime;
+            dtNgayThi.Properties.Mask.EditMask = "dd/MM/yyyy";
+            dtNgayThi.EditValue = "09/09/2019";
+
             qLDSVROOT.EnforceConstraints = false;
             // TODO: This line of code loads data into the 'qLDSVROOT.MONHOC' table. You can move, or remove it, as needed.
             this.mONHOCTableAdapter.Connection.ConnectionString = Program.connstr;
@@ -54,6 +60,8 @@ namespace QLDSV
             cmbLanThi.ValueMember = "Key";
 
             gctrl_sP_DSThiHetMon.Enabled = false;
+
+            cmbTenLop.Focus();
         }
 
         private void ComboKHOA_SelectedIndexChanged(object sender, EventArgs e)

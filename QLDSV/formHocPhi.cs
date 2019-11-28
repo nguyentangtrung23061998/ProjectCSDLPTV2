@@ -14,14 +14,15 @@ namespace QLDSV
 {
     public partial class formHocPhi : DevExpress.XtraEditors.XtraForm
     {
-        private Boolean isAddNew = false;
+        public Boolean isAddNew = false;
+        public Boolean isChonMaSV = false;
         public formHocPhi()
         {
             InitializeComponent();
         }
         private void setComboboxKHOAbyDefault()
         {
-           
+
             comboKHOA.DataSource = Program.bds_dspm;
             comboKHOA.DisplayMember = "TENCN";
             comboKHOA.ValueMember = "TENSERVER";
@@ -47,15 +48,22 @@ namespace QLDSV
             cmbHocKy.ValueMember = "Key";
 
             hOCPHIGridControl.Enabled = false;
+            sINHVIENGridControl.Enabled = false;
+
             btnGhi.Enabled = false;
-            btnNhapSV.Enabled = false;
+
             pnclHocPhi.Visible = false;
             txtNienKhoa.ReadOnly = true;
-           
+
         }
 
         private void BtnLoad_Click(object sender, EventArgs e)
         {
+            if (isChonMaSV)
+            {
+                txtMASV.Text = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "MASV").ToString().Trim();
+                isChonMaSV = false;
+            }
             if (txtMASV.Text == "")
             {
                 MessageBox.Show("Vui lòng nhập mã SV!");
@@ -64,14 +72,17 @@ namespace QLDSV
             }
             try
             {
+
                 if (Program.conn.State == ConnectionState.Open) Program.conn.Close();
                 SqlDataReader myReader;
                 string strLenh = " exec SP_GetThongTinSinhVien '" + txtMASV.Text.Trim() + "'";
                 myReader = Program.ExecSqlDataReader(strLenh);
+
                 if (!myReader.HasRows)
                 {
                     MessageBox.Show("Sinh viên không tồn tại hoặc đã NGHỈ HỌC!", "", MessageBoxButtons.OK);
                     myReader.Close();
+                    if (!isChonMaSV) isChonMaSV = true;
                     txtMASV.Focus();
                     return;
                 }
@@ -85,14 +96,27 @@ namespace QLDSV
 
                     txtMASV.Enabled = false;
                     btnLoad.Enabled = true;
-                    btnNhapSV.Enabled = true;
+
                     btnGhi.Enabled = true;
                     hOCPHIGridControl.Enabled = true;
                     pnclHocPhi.Visible = true;
 
                     sINHVIENGridControl.Enabled = false;
 
-
+                    int dem = sPDongHocPhiSinhVienBindingSource.Count;
+                    if (dem <= 0)
+                    {
+                        btnClear.Enabled = false;
+                        txtNienKhoa.Focus();
+                        txtNienKhoa.ReadOnly = false;
+                        // Create new row in grid control
+                        this.sPDongHocPhiSinhVienBindingSource.AddNew();
+                        isAddNew = true;
+                    }
+                    else
+                    {
+                        btnClear.Enabled = true;
+                    }
                 }
                 myReader.Close();
             }
@@ -106,46 +130,48 @@ namespace QLDSV
 
         private void BtnGhi_Click(object sender, EventArgs e)
         {
-
-            if(txtNienKhoa.Text.Trim() == "")
+            int hocPhi = int.Parse(txtHocPhi.Text);
+            int soTien = int.Parse(txtSoTien.Text);
+            if (txtNienKhoa.Text.Trim() == "")
             {
                 MessageBox.Show("Niên khóa không được để trống!", "Lỗi", MessageBoxButtons.OK);
                 txtNienKhoa.Focus();
                 return;
             }
-            if(txtHocPhi.Text.Trim() == "")
+            if (txtHocPhi.Text.Trim() == "")
             {
                 MessageBox.Show("Học phí không được để trống!", "Lỗi", MessageBoxButtons.OK);
                 txtHocPhi.Focus();
                 return;
-            }else
-            {
-                int hocPhi = int.Parse(txtHocPhi.Text);
-                if(hocPhi < 0)
-                {
-                    MessageBox.Show("Học phí không được âm!", "Lỗi", MessageBoxButtons.OK);
-                    txtHocPhi.Focus();
-                    return;
-                }
             }
-            if(txtSoTien.Text.Trim() == "")
+            else if (hocPhi < 0)
+            {
+                MessageBox.Show("Học phí không được âm!", "Lỗi", MessageBoxButtons.OK);
+                txtHocPhi.Focus();
+                return;
+            }
+
+            if (txtSoTien.Text.Trim() == "")
             {
                 MessageBox.Show("Số tiền đã đóng không được để trống!", "Lỗi", MessageBoxButtons.OK);
                 txtSoTien.Focus();
                 return;
-            }else
-            {
-                int soTien = int.Parse(txtSoTien.Text);
-                if(soTien < 0)
+            }
+            else if (soTien < 0)
                 {
                     MessageBox.Show("Số tiền không được âm!", "Lỗi", MessageBoxButtons.OK);
                     txtSoTien.Focus();
                     return;
                 }
+     
+            if (soTien > hocPhi)
+            {
+                MessageBox.Show("Số tiền đã đóng <= học phí!", "Lỗi", MessageBoxButtons.OK);
+                txtSoTien.Focus();
+                return;
             }
-
             Boolean stopUpdate = false;
-            if(isAddNew)
+            if (isAddNew)
             {
                 try
                 {
@@ -178,7 +204,7 @@ namespace QLDSV
                 }
             }
 
-            if(!stopUpdate)
+            if (!stopUpdate)
             {
                 if (isAddNew)
                 {
@@ -246,17 +272,19 @@ namespace QLDSV
         private void BtnNhapSV_Click(object sender, EventArgs e)
         {
             txtMASV.Enabled = true;
-            btnNhapSV.Enabled = false;
+            txtMASV.Focus();
+
             btnLoad.Enabled = true;
             hOCPHIGridControl.Enabled = false;
+            sINHVIENGridControl.Enabled = false;
             pnclHocPhi.Visible = false;
-            sINHVIENGridControl.Enabled = true;
+
             // Clear fields
-            //txtMASV.Text = "";
+            txtMASV.ReadOnly = false;
             lbHOTEN.Text = "";
             lbMALOP.Text = "";
         }
-        
+
         private void BtnClear_Click(object sender, EventArgs e)
         {
             txtNienKhoa.Focus();
@@ -272,6 +300,18 @@ namespace QLDSV
             this.Close();
         }
 
-      
+        private void BtnChonSV_Click(object sender, EventArgs e)
+        {
+            hOCPHIGridControl.Enabled = false;
+            pnclHocPhi.Visible = false;
+
+            sINHVIENGridControl.Enabled = true;
+            gridView1.OptionsBehavior.Editable = false;
+
+            txtMASV.ReadOnly = true;
+
+            isChonMaSV = true;
+
+        }
     }
 }

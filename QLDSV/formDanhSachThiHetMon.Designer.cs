@@ -41,6 +41,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.v_DS_PHANMANHTableAdapter = new QLDSV.QLDSVPMMasterTableAdapters.V_DS_PHANMANHTableAdapter();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.label2 = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnPrint = new System.Windows.Forms.Button();
             this.btnScreen = new System.Windows.Forms.Button();
@@ -67,7 +68,6 @@
             this.mONHOCTableAdapter = new QLDSV.QLDSVROOTTableAdapters.MONHOCTableAdapter();
             this.sP_DSThiHetMonTableAdapter = new QLDSV.QLDSVROOTTableAdapters.SP_DSThiHetMonTableAdapter();
             this.behaviorManager1 = new DevExpress.Utils.Behaviors.BehaviorManager(this.components);
-            this.label2 = new System.Windows.Forms.Label();
             this.tableAdapterManager = new QLDSV.QLDSVROOTTableAdapters.TableAdapterManager();
             this.dtNgayThi = new DevExpress.XtraEditors.DateEdit();
             tENLOPLabel = new System.Windows.Forms.Label();
@@ -219,6 +219,17 @@
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(970, 142);
             this.panelControl1.TabIndex = 6;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(755, 59);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(61, 17);
+            this.label2.TabIndex = 25;
+            this.label2.Text = "Ngày thi:";
             // 
             // btnClose
             // 
@@ -458,17 +469,6 @@
             // 
             this.sP_DSThiHetMonTableAdapter.ClearBeforeFill = true;
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(755, 59);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(61, 17);
-            this.label2.TabIndex = 25;
-            this.label2.Text = "Ngày thi:";
-            // 
             // tableAdapterManager
             // 
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
@@ -484,7 +484,8 @@
             // dtNgayThi
             // 
             this.dtNgayThi.EditValue = null;
-            this.dtNgayThi.Location = new System.Drawing.Point(821, 56);
+            this.dtNgayThi.Location = new System.Drawing.Point(821, 58);
+            this.dtNgayThi.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtNgayThi.Name = "dtNgayThi";
             this.dtNgayThi.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtNgayThi.Properties.Appearance.Options.UseFont = true;
@@ -492,8 +493,13 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dtNgayThi.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dtNgayThi.Size = new System.Drawing.Size(100, 24);
-            this.dtNgayThi.TabIndex = 28;
+            this.dtNgayThi.Properties.DisplayFormat.FormatString = "dd/MM/yyyy";
+            this.dtNgayThi.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.dtNgayThi.Properties.EditFormat.FormatString = "dd/MM/yyyy";
+            this.dtNgayThi.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.dtNgayThi.Properties.Mask.EditMask = "dd/MM/yyyy";
+            this.dtNgayThi.Size = new System.Drawing.Size(107, 24);
+            this.dtNgayThi.TabIndex = 30;
             // 
             // formDanhSachThiHetMon
             // 
