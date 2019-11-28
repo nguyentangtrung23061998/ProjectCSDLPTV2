@@ -426,6 +426,7 @@
             this.btnSVThem.TabIndex = 18;
             this.btnSVThem.Text = "THÊM";
             this.btnSVThem.UseVisualStyleBackColor = false;
+            this.btnSVThem.Click += new System.EventHandler(this.btnSVThem_Click);
             // 
             // txtMaSV
             // 

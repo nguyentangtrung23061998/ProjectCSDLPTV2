@@ -53,6 +53,7 @@ namespace QLDSV
             //ReportPrintTool print = new ReportPrintTool(rpt2);
             //print.ShowPreviewDialog();
             BaoCao.xRpt_InDSSV_spTimSVTheoMaLop rpt = new BaoCao.xRpt_InDSSV_spTimSVTheoMaLop(txtML.Text);
+            rpt.lbML.Text = comboBox1.SelectedValue.ToString();
             ReportPrintTool print = new ReportPrintTool(rpt);
             print.ShowPreviewDialog();
 

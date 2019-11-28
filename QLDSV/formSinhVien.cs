@@ -498,6 +498,9 @@ namespace QLDSV
 
         }
 
-      
+        private void btnSVThem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
