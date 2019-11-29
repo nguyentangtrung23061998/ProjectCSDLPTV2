@@ -31,6 +31,9 @@ namespace QLDSV
             this.v_DS_PHANMANHTableAdapter.Fill(this.qLDSVROOT.V_DS_PHANMANH);
 
             gctrl_sP_PhieuDiemSinhVien.Enabled = false;
+
+            gridView1.OptionsBehavior.Editable = false;
+
         }
 
         private void BtnManHinh_Click(object sender, EventArgs e)

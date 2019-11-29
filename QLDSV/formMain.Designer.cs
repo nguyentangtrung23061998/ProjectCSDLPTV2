@@ -43,19 +43,21 @@
             this.btnTaoTaiKhoan = new DevExpress.XtraBars.BarButtonItem();
             this.btnDangXuat = new DevExpress.XtraBars.BarButtonItem();
             this.btnDSThiHetMon = new DevExpress.XtraBars.BarButtonItem();
+            this.btnPhieuDiem = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabelMaUSER = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabelTenUser = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabelRole = new System.Windows.Forms.ToolStripStatusLabel();
             this.documentManager1 = new DevExpress.XtraBars.Docking2010.DocumentManager(this.components);
             this.tabbedView1 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView(this.components);
-            this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.btnPhieuDiem = new DevExpress.XtraBars.BarButtonItem();
+            this.ribbonPageGroup5 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.btnBangDiemMonHoc = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.v_DS_PHANMANHBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             this.statusStrip1.SuspendLayout();
@@ -84,10 +86,11 @@
             this.btnTaoTaiKhoan,
             this.btnDangXuat,
             this.btnDSThiHetMon,
-            this.btnPhieuDiem});
+            this.btnPhieuDiem,
+            this.btnBangDiemMonHoc});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
             this.ribbonControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.ribbonControl1.MaxItemId = 21;
+            this.ribbonControl1.MaxItemId = 23;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1,
@@ -188,6 +191,15 @@
             this.btnDSThiHetMon.Name = "btnDSThiHetMon";
             this.btnDSThiHetMon.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.BtnDSThiHetMon_ItemClick);
             // 
+            // btnPhieuDiem
+            // 
+            this.btnPhieuDiem.Caption = "Phiếu điểm";
+            this.btnPhieuDiem.Id = 20;
+            this.btnPhieuDiem.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnPhieuDiem.ImageOptions.Image")));
+            this.btnPhieuDiem.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnPhieuDiem.ImageOptions.LargeImage")));
+            this.btnPhieuDiem.Name = "btnPhieuDiem";
+            this.btnPhieuDiem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.BtnPhieuDiem_ItemClick);
+            // 
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -217,7 +229,8 @@
             // 
             this.ribbonPage2.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.ribbonPageGroup3,
-            this.ribbonPageGroup4});
+            this.ribbonPageGroup4,
+            this.ribbonPageGroup5});
             this.ribbonPage2.Name = "ribbonPage2";
             this.ribbonPage2.Text = "In ấn";
             // 
@@ -226,6 +239,12 @@
             this.ribbonPageGroup3.ItemLinks.Add(this.btnDSThiHetMon);
             this.ribbonPageGroup3.Name = "ribbonPageGroup3";
             this.ribbonPageGroup3.Text = "ribbonPageGroup3";
+            // 
+            // ribbonPageGroup4
+            // 
+            this.ribbonPageGroup4.ItemLinks.Add(this.btnPhieuDiem);
+            this.ribbonPageGroup4.Name = "ribbonPageGroup4";
+            this.ribbonPageGroup4.Text = "ribbonPageGroup4";
             // 
             // statusStrip1
             // 
@@ -267,20 +286,20 @@
             this.documentManager1.ViewCollection.AddRange(new DevExpress.XtraBars.Docking2010.Views.BaseView[] {
             this.tabbedView1});
             // 
-            // ribbonPageGroup4
+            // ribbonPageGroup5
             // 
-            this.ribbonPageGroup4.ItemLinks.Add(this.btnPhieuDiem);
-            this.ribbonPageGroup4.Name = "ribbonPageGroup4";
-            this.ribbonPageGroup4.Text = "ribbonPageGroup4";
+            this.ribbonPageGroup5.ItemLinks.Add(this.btnBangDiemMonHoc);
+            this.ribbonPageGroup5.Name = "ribbonPageGroup5";
+            this.ribbonPageGroup5.Text = "ribbonPageGroup5";
             // 
-            // btnPhieuDiem
+            // btnBangDiemMonHoc
             // 
-            this.btnPhieuDiem.Caption = "Phiếu điểm";
-            this.btnPhieuDiem.Id = 20;
-            this.btnPhieuDiem.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem4.ImageOptions.Image")));
-            this.btnPhieuDiem.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem4.ImageOptions.LargeImage")));
-            this.btnPhieuDiem.Name = "btnPhieuDiem";
-            this.btnPhieuDiem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.BtnPhieuDiem_ItemClick);
+            this.btnBangDiemMonHoc.Caption = "Bảng điểm môn học";
+            this.btnBangDiemMonHoc.Id = 22;
+            this.btnBangDiemMonHoc.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnBangDiemMonHoc.ImageOptions.Image")));
+            this.btnBangDiemMonHoc.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnBangDiemMonHoc.ImageOptions.LargeImage")));
+            this.btnBangDiemMonHoc.Name = "btnBangDiemMonHoc";
+            this.btnBangDiemMonHoc.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.BtnBangDiemMonHoc_ItemClick);
             // 
             // formMain
             // 
@@ -336,5 +355,7 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup3;
         private DevExpress.XtraBars.BarButtonItem btnPhieuDiem;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup4;
+        private DevExpress.XtraBars.BarButtonItem btnBangDiemMonHoc;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup5;
     }
 }

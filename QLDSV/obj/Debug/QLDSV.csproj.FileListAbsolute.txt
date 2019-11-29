@@ -409,3 +409,4 @@ D:\_Hoc_ky_7\Co_so_du_lieu_phan_tan\master\ProjectCSDLPTV2\QLDSV\obj\Debug\QLDSV
 D:\_Hoc_ky_7\Co_so_du_lieu_phan_tan\master\ProjectCSDLPTV2\QLDSV\obj\Debug\QLDSV.formInPhieuDiem.resources
 D:\_Hoc_ky_7\Co_so_du_lieu_phan_tan\master\ProjectCSDLPTV2\QLDSV\obj\Debug\QLDSV.BAOCAO.Xrpt_PhieuDiem.resources
 D:\_Hoc_ky_7\Co_so_du_lieu_phan_tan\master\ProjectCSDLPTV2\QLDSV\obj\Debug\QLDSV.formDanhSachThiHetMon.resources
+D:\_Hoc_ky_7\Co_so_du_lieu_phan_tan\master\ProjectCSDLPTV2\QLDSV\obj\Debug\QLDSV.formInBangDiemMonHoc.resources

@@ -122,7 +122,7 @@ namespace QLDSV
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi lưu học phí:\n" + ex.Message, "", MessageBoxButtons.OK);
+                MessageBox.Show("Lỗi load học phí:\n" + ex.Message, "", MessageBoxButtons.OK);
                 Program.conn.Close();
                 return;
             }
@@ -130,8 +130,6 @@ namespace QLDSV
 
         private void BtnGhi_Click(object sender, EventArgs e)
         {
-            int hocPhi = int.Parse(txtHocPhi.Text);
-            int soTien = int.Parse(txtSoTien.Text);
             if (txtNienKhoa.Text.Trim() == "")
             {
                 MessageBox.Show("Niên khóa không được để trống!", "Lỗi", MessageBoxButtons.OK);
@@ -144,7 +142,7 @@ namespace QLDSV
                 txtHocPhi.Focus();
                 return;
             }
-            else if (hocPhi < 0)
+            else if (int.Parse(txtHocPhi.Text) < 0)
             {
                 MessageBox.Show("Học phí không được âm!", "Lỗi", MessageBoxButtons.OK);
                 txtHocPhi.Focus();
@@ -157,14 +155,14 @@ namespace QLDSV
                 txtSoTien.Focus();
                 return;
             }
-            else if (soTien < 0)
-                {
-                    MessageBox.Show("Số tiền không được âm!", "Lỗi", MessageBoxButtons.OK);
-                    txtSoTien.Focus();
-                    return;
-                }
-     
-            if (soTien > hocPhi)
+            else if (int.Parse(txtSoTien.Text) < 0)
+            {
+                MessageBox.Show("Số tiền không được âm!", "Lỗi", MessageBoxButtons.OK);
+                txtSoTien.Focus();
+                return;
+            }
+
+            if (int.Parse(txtSoTien.Text) > int.Parse(txtHocPhi.Text))
             {
                 MessageBox.Show("Số tiền đã đóng <= học phí!", "Lỗi", MessageBoxButtons.OK);
                 txtSoTien.Focus();
@@ -217,7 +215,7 @@ namespace QLDSV
                         Program.sqlcmd = Program.conn.CreateCommand();
                         Program.sqlcmd.CommandType = CommandType.Text;
                         Program.sqlcmd.CommandText = strLenh;
-                        Program.sqlcmd.Parameters.Add("@MASV", SqlDbType.NVarChar).Value = txtMASV.Text.Trim();
+                        Program.sqlcmd.Parameters.Add("@MASV", SqlDbType.NChar).Value = txtMASV.Text.Trim();
                         Program.sqlcmd.Parameters.Add("@NIENKHOA", SqlDbType.NVarChar).Value = txtNienKhoa.Text.Trim();
                         Program.sqlcmd.Parameters.Add("@HOCKY", SqlDbType.Int).Value = int.Parse(cmbHocKy.SelectedValue.ToString());
                         Program.sqlcmd.Parameters.Add("@HOCPHI", SqlDbType.Int).Value = int.Parse(txtHocPhi.Text.Trim());
@@ -245,7 +243,7 @@ namespace QLDSV
                         Program.sqlcmd = Program.conn.CreateCommand();
                         Program.sqlcmd.CommandType = CommandType.Text;
                         Program.sqlcmd.CommandText = strLenh;
-                        Program.sqlcmd.Parameters.Add("@MASV", SqlDbType.NVarChar).Value = txtMASV.Text.Trim();
+                        Program.sqlcmd.Parameters.Add("@MASV", SqlDbType.NChar).Value = txtMASV.Text.Trim();
                         Program.sqlcmd.Parameters.Add("@NIENKHOA", SqlDbType.NVarChar).Value = txtNienKhoa.Text.Trim();
                         Program.sqlcmd.Parameters.Add("@HOCKY", SqlDbType.Int).Value = int.Parse(cmbHocKy.SelectedValue.ToString());
                         Program.sqlcmd.Parameters.Add("@HOCPHI", SqlDbType.Int).Value = int.Parse(txtHocPhi.Text.Trim());

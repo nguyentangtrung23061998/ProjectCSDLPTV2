@@ -12,6 +12,7 @@ namespace QLDSV
         {
             InitializeComponent();
             qldsvroot1.EnforceConstraints = false;
+            this.sP_DSThiHetMonTableAdapter.Connection.ConnectionString = Program.connstr;
             this.sP_DSThiHetMonTableAdapter.Fill(this.qldsvroot1.SP_DSThiHetMon, maLop, maMH, lan);
         }
 

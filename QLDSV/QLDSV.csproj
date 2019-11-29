@@ -113,6 +113,12 @@
     <Compile Include="formHocPhi.Designer.cs">
       <DependentUpon>formHocPhi.cs</DependentUpon>
     </Compile>
+    <Compile Include="formInBangDiemMonHoc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formInBangDiemMonHoc.Designer.cs">
+      <DependentUpon>formInBangDiemMonHoc.cs</DependentUpon>
+    </Compile>
     <Compile Include="formLop.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -187,6 +193,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="formHocPhi.resx">
       <DependentUpon>formHocPhi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formInBangDiemMonHoc.resx">
+      <DependentUpon>formInBangDiemMonHoc.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="formLop.resx">
       <DependentUpon>formLop.cs</DependentUpon>

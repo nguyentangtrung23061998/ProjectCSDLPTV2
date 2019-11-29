@@ -390,6 +390,8 @@
             // 
             // colSTT
             // 
+            this.colSTT.AppearanceCell.Options.UseTextOptions = true;
+            this.colSTT.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.colSTT.Caption = "STT";
             this.colSTT.FieldName = "STT";
             this.colSTT.Name = "colSTT";
@@ -398,6 +400,8 @@
             // 
             // colMAMH
             // 
+            this.colMAMH.AppearanceCell.Options.UseTextOptions = true;
+            this.colMAMH.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.colMAMH.Caption = "Mã môn học";
             this.colMAMH.FieldName = "MAMH";
             this.colMAMH.Name = "colMAMH";
@@ -414,6 +418,8 @@
             // 
             // colDIEM
             // 
+            this.colDIEM.AppearanceCell.Options.UseTextOptions = true;
+            this.colDIEM.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.colDIEM.Caption = "Điểm";
             this.colDIEM.FieldName = "DIEM";
             this.colDIEM.Name = "colDIEM";

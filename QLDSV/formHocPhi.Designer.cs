@@ -612,6 +612,8 @@
             this.txtHocPhi.Name = "txtHocPhi";
             this.txtHocPhi.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtHocPhi.Properties.Appearance.Options.UseFont = true;
+            this.txtHocPhi.Properties.Mask.EditMask = "d";
+            this.txtHocPhi.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.txtHocPhi.Size = new System.Drawing.Size(121, 26);
             this.txtHocPhi.TabIndex = 27;
             // 
@@ -622,6 +624,8 @@
             this.txtSoTien.Name = "txtSoTien";
             this.txtSoTien.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSoTien.Properties.Appearance.Options.UseFont = true;
+            this.txtSoTien.Properties.Mask.EditMask = "d";
+            this.txtSoTien.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.txtSoTien.Size = new System.Drawing.Size(121, 26);
             this.txtSoTien.TabIndex = 26;
             // 
@@ -632,6 +636,8 @@
             this.txtNienKhoa.Name = "txtNienKhoa";
             this.txtNienKhoa.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNienKhoa.Properties.Appearance.Options.UseFont = true;
+            this.txtNienKhoa.Properties.Mask.EditMask = "d";
+            this.txtNienKhoa.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.txtNienKhoa.Size = new System.Drawing.Size(121, 26);
             this.txtNienKhoa.TabIndex = 21;
             // 

@@ -129,8 +129,8 @@
             this.btnCancel.Image = ((System.Drawing.Image)(resources.GetObject("btnCancel.Image")));
             this.btnCancel.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(96, 25);
-            this.btnCancel.Text = "CANCEL";
+            this.btnCancel.Size = new System.Drawing.Size(68, 25);
+            this.btnCancel.Text = "Thoát";
             this.btnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
             // 
             // mONHOCBindingSource
@@ -364,6 +364,7 @@
             this.cmbLanThi.Name = "cmbLanThi";
             this.cmbLanThi.Size = new System.Drawing.Size(70, 25);
             this.cmbLanThi.TabIndex = 14;
+            this.cmbLanThi.SelectedIndexChanged += new System.EventHandler(this.CmbLanThi_SelectedIndexChanged);
             // 
             // label1
             // 

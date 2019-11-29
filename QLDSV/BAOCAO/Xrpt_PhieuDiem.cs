@@ -12,6 +12,7 @@ namespace QLDSV.BAOCAO
         {
             InitializeComponent();
             qldsvroot1.EnforceConstraints = false;
+            this.sP_PhieuDiemSinhVienTableAdapter.Connection.ConnectionString = Program.connstr;
             this.sP_PhieuDiemSinhVienTableAdapter.Fill(this.qldsvroot1.SP_PhieuDiemSinhVien, masv);
         }
 

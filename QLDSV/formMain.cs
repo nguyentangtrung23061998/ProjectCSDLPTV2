@@ -109,7 +109,7 @@ namespace QLDSV
         {
             if (Program.conn.State == ConnectionState.Open) Program.conn.Close();
             // Close formMain and open formDangNhap
-            if (MessageBox.Show("Bạn muốn thoát chương trình?", "Xóa môn học", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show("Bạn muốn thoát chương trình?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 this.Hide();
                 formDangNhap form2 = new formDangNhap();
@@ -149,6 +149,18 @@ namespace QLDSV
             else
             {
                 formInPhieuDiem f = new formInPhieuDiem();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
+
+        private void BtnBangDiemMonHoc_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form frm = this.CheckExists(typeof(formInBangDiemMonHoc));
+            if (frm != null) frm.Activate();
+            else
+            {
+                formInBangDiemMonHoc f = new formInBangDiemMonHoc();
                 f.MdiParent = this;
                 f.Show();
             }

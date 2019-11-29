@@ -572,7 +572,7 @@
             this.sqlDataSource1,
             this.qldsvroot1});
             this.DataAdapter = this.sP_DSThiHetMonTableAdapter;
-            this.DataMember = "DIEM";
+            this.DataMember = "SP_DSThiHetMon";
             this.DataSource = this.qldsvroot1;
             this.Font = new System.Drawing.Font("Arial", 9.75F);
             this.Margins = new System.Drawing.Printing.Margins(100, 100, 40, 172);
