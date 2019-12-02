@@ -43,6 +43,8 @@
             this.btnTaoTaiKhoan = new DevExpress.XtraBars.BarButtonItem();
             this.btnDangXuat = new DevExpress.XtraBars.BarButtonItem();
             this.btnDanhSachSinhVien = new DevExpress.XtraBars.BarButtonItem();
+            this.btnBangDiemMH = new DevExpress.XtraBars.BarButtonItem();
+            this.btnDanhSachHocPhi = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -54,7 +56,6 @@
             this.toolStripStatusLabelRole = new System.Windows.Forms.ToolStripStatusLabel();
             this.documentManager1 = new DevExpress.XtraBars.Docking2010.DocumentManager(this.components);
             this.tabbedView1 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView(this.components);
-            this.btnBangDiemMH = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.v_DS_PHANMANHBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             this.statusStrip1.SuspendLayout();
@@ -83,10 +84,11 @@
             this.btnTaoTaiKhoan,
             this.btnDangXuat,
             this.btnDanhSachSinhVien,
-            this.btnBangDiemMH});
+            this.btnBangDiemMH,
+            this.btnDanhSachHocPhi});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
             this.ribbonControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.ribbonControl1.MaxItemId = 21;
+            this.ribbonControl1.MaxItemId = 22;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1,
@@ -187,6 +189,24 @@
             this.btnDanhSachSinhVien.Name = "btnDanhSachSinhVien";
             this.btnDanhSachSinhVien.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDanhSachSinhVien_ItemClick);
             // 
+            // btnBangDiemMH
+            // 
+            this.btnBangDiemMH.Caption = "Bảng Điểm Môn Học";
+            this.btnBangDiemMH.Id = 20;
+            this.btnBangDiemMH.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnBangDiemMH.ImageOptions.Image")));
+            this.btnBangDiemMH.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnBangDiemMH.ImageOptions.LargeImage")));
+            this.btnBangDiemMH.Name = "btnBangDiemMH";
+            this.btnBangDiemMH.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnBangDiemMH_ItemClick);
+            // 
+            // btnDanhSachHocPhi
+            // 
+            this.btnDanhSachHocPhi.Caption = "In DS Học Phi Lớp";
+            this.btnDanhSachHocPhi.Id = 21;
+            this.btnDanhSachHocPhi.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnDanhSachHocPhi.ImageOptions.Image")));
+            this.btnDanhSachHocPhi.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnDanhSachHocPhi.ImageOptions.LargeImage")));
+            this.btnDanhSachHocPhi.Name = "btnDanhSachHocPhi";
+            this.btnDanhSachHocPhi.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDanhSachHocPhi_ItemClick);
+            // 
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -223,6 +243,7 @@
             // 
             this.ribbonPageGroup3.ItemLinks.Add(this.btnDanhSachSinhVien);
             this.ribbonPageGroup3.ItemLinks.Add(this.btnBangDiemMH);
+            this.ribbonPageGroup3.ItemLinks.Add(this.btnDanhSachHocPhi);
             this.ribbonPageGroup3.Name = "ribbonPageGroup3";
             this.ribbonPageGroup3.Text = "ribbonPageGroup3";
             // 
@@ -264,15 +285,6 @@
             this.documentManager1.View = this.tabbedView1;
             this.documentManager1.ViewCollection.AddRange(new DevExpress.XtraBars.Docking2010.Views.BaseView[] {
             this.tabbedView1});
-            // 
-            // btnBangDiemMH
-            // 
-            this.btnBangDiemMH.Caption = "Bảng Điểm Môn Học";
-            this.btnBangDiemMH.Id = 20;
-            this.btnBangDiemMH.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnBangDiemMH.ImageOptions.Image")));
-            this.btnBangDiemMH.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnBangDiemMH.ImageOptions.LargeImage")));
-            this.btnBangDiemMH.Name = "btnBangDiemMH";
-            this.btnBangDiemMH.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnBangDiemMH_ItemClick);
             // 
             // formMain
             // 
@@ -327,5 +339,6 @@
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage2;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup3;
         private DevExpress.XtraBars.BarButtonItem btnBangDiemMH;
+        private DevExpress.XtraBars.BarButtonItem btnDanhSachHocPhi;
     }
 }

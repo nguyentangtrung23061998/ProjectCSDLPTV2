@@ -24,8 +24,10 @@ namespace QLDSV
             if (Program.maCN != "KETOAN")
             {
                 btnHocPhi.Enabled = false;
-               
-            }else
+                btnDanhSachHocPhi.Enabled = false;
+
+            }
+            else
             {
                 btnDiem.Enabled = false;
                 btnMonHoc.Enabled = false;
@@ -110,7 +112,7 @@ namespace QLDSV
             if (Program.conn.State == ConnectionState.Open) Program.conn.Close();
             // Close formMain and open formDangNhap
             this.Hide();
-            formDangNhap form2 = new formDangNhap();    
+            formDangNhap form2 = new formDangNhap();
             form2.ShowDialog();
             this.Close();
         }
@@ -129,7 +131,7 @@ namespace QLDSV
 
         private void btnDanhSachSinhVien_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            Form frm= this.CheckExists(typeof(formInDSSV));
+            Form frm = this.CheckExists(typeof(formInDSSV));
             if (frm != null) frm.Activate();
             else
             {
@@ -146,6 +148,18 @@ namespace QLDSV
             else
             {
                 formBangDiemMonHoc f = new formBangDiemMonHoc();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
+
+        private void btnDanhSachHocPhi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form frm = this.CheckExists(typeof(formDanhSachHocPhiTheoLop));
+            if (frm != null) frm.Activate();
+            else
+            {
+                formDanhSachHocPhiTheoLop f = new formDanhSachHocPhiTheoLop();
                 f.MdiParent = this;
                 f.Show();
             }

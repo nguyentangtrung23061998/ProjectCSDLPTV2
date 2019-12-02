@@ -139,7 +139,7 @@
             this.btnMayIn.Image = ((System.Drawing.Image)(resources.GetObject("btnMayIn.Image")));
             this.btnMayIn.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnMayIn.Name = "btnMayIn";
-            this.btnMayIn.Size = new System.Drawing.Size(103, 26);
+            this.btnMayIn.Size = new System.Drawing.Size(103, 28);
             this.btnMayIn.Text = "MÁY IN";
             this.btnMayIn.Click += new System.EventHandler(this.btnMayIn_Click);
             // 
@@ -149,7 +149,7 @@
             this.btnThoatMonHoc.Image = ((System.Drawing.Image)(resources.GetObject("btnThoatMonHoc.Image")));
             this.btnThoatMonHoc.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnThoatMonHoc.Name = "btnThoatMonHoc";
-            this.btnThoatMonHoc.Size = new System.Drawing.Size(100, 26);
+            this.btnThoatMonHoc.Size = new System.Drawing.Size(100, 28);
             this.btnThoatMonHoc.Text = "THOÁT";
             this.btnThoatMonHoc.Click += new System.EventHandler(this.btnThoatMonHoc_Click);
             // 

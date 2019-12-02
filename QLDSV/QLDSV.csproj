@@ -83,6 +83,12 @@
     <Compile Include="BaoCao\xRpt_InBangDiemMonHoc_spXuatBangDiemMonHoc.Designer.cs">
       <DependentUpon>xRpt_InBangDiemMonHoc_spXuatBangDiemMonHoc.cs</DependentUpon>
     </Compile>
+    <Compile Include="BaoCao\xRpt_InDanhSachHocPhiLop_spDanhSachHocPhiLop.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="BaoCao\xRpt_InDanhSachHocPhiLop_spDanhSachHocPhiLop.Designer.cs">
+      <DependentUpon>xRpt_InDanhSachHocPhiLop_spDanhSachHocPhiLop.cs</DependentUpon>
+    </Compile>
     <Compile Include="BaoCao\xRpt_InDSSV_spTimSVTheoMaLop.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -106,6 +112,12 @@
     </Compile>
     <Compile Include="formDangNhap.Designer.cs">
       <DependentUpon>formDangNhap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formDanhSachHocPhiTheoLop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formDanhSachHocPhiTheoLop.Designer.cs">
+      <DependentUpon>formDanhSachHocPhiTheoLop.cs</DependentUpon>
     </Compile>
     <Compile Include="formDiem.cs">
       <SubType>Form</SubType>
@@ -173,6 +185,9 @@
     <EmbeddedResource Include="BaoCao\xRpt_InBangDiemMonHoc_spXuatBangDiemMonHoc.resx">
       <DependentUpon>xRpt_InBangDiemMonHoc_spXuatBangDiemMonHoc.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="BaoCao\xRpt_InDanhSachHocPhiLop_spDanhSachHocPhiLop.resx">
+      <DependentUpon>xRpt_InDanhSachHocPhiLop_spDanhSachHocPhiLop.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="BaoCao\xRpt_InDSSV_spTimSVTheoMaLop.resx">
       <DependentUpon>xRpt_InDSSV_spTimSVTheoMaLop.cs</DependentUpon>
     </EmbeddedResource>
@@ -184,6 +199,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="formDangNhap.resx">
       <DependentUpon>formDangNhap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formDanhSachHocPhiTheoLop.resx">
+      <DependentUpon>formDanhSachHocPhiTheoLop.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="formDiem.resx">
       <DependentUpon>formDiem.cs</DependentUpon>

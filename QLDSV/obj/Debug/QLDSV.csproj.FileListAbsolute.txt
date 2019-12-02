@@ -409,3 +409,5 @@ G:\TaiLieuHkINam4\ProjectCSDLPTV2\thanh\QLDSV\obj\Debug\QLDSV.formInDSSV.resourc
 G:\TaiLieuHkINam4\ProjectCSDLPTV2\thanh\QLDSV\obj\Debug\QLDSV.BaoCao.xRpt_InDSSV_spTimSVTheoMaLop.resources
 G:\TaiLieuHkINam4\ProjectCSDLPTV2\thanh\QLDSV\obj\Debug\QLDSV.formBangDiemMonHoc.resources
 G:\TaiLieuHkINam4\ProjectCSDLPTV2\thanh\QLDSV\obj\Debug\QLDSV.BaoCao.xRpt_InBangDiemMonHoc_spXuatBangDiemMonHoc.resources
+G:\TaiLieuHkINam4\ProjectCSDLPTV2\thanh\QLDSV\obj\Debug\QLDSV.formDanhSachHocPhiTheoLop.resources
+G:\TaiLieuHkINam4\ProjectCSDLPTV2\thanh\QLDSV\obj\Debug\QLDSV.BaoCao.xRpt_InDanhSachHocPhiLop_spDanhSachHocPhiLop.resources
