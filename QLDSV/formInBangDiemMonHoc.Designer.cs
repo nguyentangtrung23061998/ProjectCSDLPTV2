@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.Label mASVLabel;
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.comboKHOA = new System.Windows.Forms.ComboBox();
             this.vDSPHANMANHBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.qLDSVROOT = new QLDSV.QLDSVROOT();
             this.label2 = new System.Windows.Forms.Label();
@@ -40,19 +40,20 @@
             this.lOPGridControl = new DevExpress.XtraGrid.GridControl();
             this.lOPBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colMALOP = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colTENLOP = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
+            this.btnNhapLop = new System.Windows.Forms.Button();
             this.btnThoat = new System.Windows.Forms.Button();
             this.btnMayIn = new System.Windows.Forms.Button();
             this.btnManHinh = new System.Windows.Forms.Button();
             this.txtTenLop = new DevExpress.XtraEditors.TextEdit();
             this.v_DS_PHANMANHTableAdapter = new QLDSV.QLDSVROOTTableAdapters.V_DS_PHANMANHTableAdapter();
-            this.lOPTableAdapter = new QLDSV.QLDSVROOTTableAdapters.LOPTableAdapter();
             this.tableAdapterManager = new QLDSV.QLDSVROOTTableAdapters.TableAdapterManager();
             this.panelControl5 = new DevExpress.XtraEditors.PanelControl();
             this.BangDiemTongKetGridControl = new DevExpress.XtraGrid.GridControl();
-            this.sPInBangDiemTongKetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.sP_InBangDiemTongKetTableAdapter1 = new QLDSV.QLDSVROOTTableAdapters.SP_InBangDiemTongKetTableAdapter();
+            this.lOPTableAdapter = new QLDSV.QLDSVROOTTableAdapters.LOPTableAdapter();
             mASVLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
@@ -71,7 +72,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl5)).BeginInit();
             this.panelControl5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BangDiemTongKetGridControl)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sPInBangDiemTongKetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
             this.SuspendLayout();
             // 
@@ -79,7 +79,7 @@
             // 
             mASVLabel.AutoSize = true;
             mASVLabel.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            mASVLabel.Location = new System.Drawing.Point(82, 42);
+            mASVLabel.Location = new System.Drawing.Point(65, 33);
             mASVLabel.Name = "mASVLabel";
             mASVLabel.Size = new System.Drawing.Size(56, 17);
             mASVLabel.TabIndex = 41;
@@ -87,7 +87,7 @@
             // 
             // panelControl1
             // 
-            this.panelControl1.Controls.Add(this.comboBox1);
+            this.panelControl1.Controls.Add(this.comboKHOA);
             this.panelControl1.Controls.Add(this.label2);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
@@ -95,18 +95,19 @@
             this.panelControl1.Size = new System.Drawing.Size(824, 60);
             this.panelControl1.TabIndex = 46;
             // 
-            // comboBox1
+            // comboKHOA
             // 
-            this.comboBox1.DataSource = this.vDSPHANMANHBindingSource;
-            this.comboBox1.DisplayMember = "TENCN";
-            this.comboBox1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(97, 17);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(177, 27);
-            this.comboBox1.TabIndex = 44;
-            this.comboBox1.ValueMember = "TENSERVER";
+            this.comboKHOA.DataSource = this.vDSPHANMANHBindingSource;
+            this.comboKHOA.DisplayMember = "TENCN";
+            this.comboKHOA.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboKHOA.FormattingEnabled = true;
+            this.comboKHOA.Location = new System.Drawing.Point(97, 17);
+            this.comboKHOA.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.comboKHOA.Name = "comboKHOA";
+            this.comboKHOA.Size = new System.Drawing.Size(177, 27);
+            this.comboKHOA.TabIndex = 44;
+            this.comboKHOA.ValueMember = "TENSERVER";
+            this.comboKHOA.SelectedIndexChanged += new System.EventHandler(this.ComboBox1_SelectedIndexChanged);
             // 
             // vDSPHANMANHBindingSource
             // 
@@ -142,9 +143,9 @@
             // 
             this.panelControl4.Controls.Add(this.lOPGridControl);
             this.panelControl4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl4.Location = new System.Drawing.Point(363, 2);
+            this.panelControl4.Location = new System.Drawing.Point(436, 2);
             this.panelControl4.Name = "panelControl4";
-            this.panelControl4.Size = new System.Drawing.Size(459, 185);
+            this.panelControl4.Size = new System.Drawing.Size(386, 185);
             this.panelControl4.TabIndex = 1;
             // 
             // lOPGridControl
@@ -154,7 +155,7 @@
             this.lOPGridControl.Location = new System.Drawing.Point(2, 2);
             this.lOPGridControl.MainView = this.gridView1;
             this.lOPGridControl.Name = "lOPGridControl";
-            this.lOPGridControl.Size = new System.Drawing.Size(455, 181);
+            this.lOPGridControl.Size = new System.Drawing.Size(382, 181);
             this.lOPGridControl.TabIndex = 0;
             this.lOPGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -166,11 +167,31 @@
             // 
             // gridView1
             // 
+            this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colMALOP,
+            this.colTENLOP});
             this.gridView1.GridControl = this.lOPGridControl;
             this.gridView1.Name = "gridView1";
             // 
+            // colMALOP
+            // 
+            this.colMALOP.Caption = "Mã lớp";
+            this.colMALOP.FieldName = "MALOP";
+            this.colMALOP.Name = "colMALOP";
+            this.colMALOP.Visible = true;
+            this.colMALOP.VisibleIndex = 0;
+            // 
+            // colTENLOP
+            // 
+            this.colTENLOP.Caption = "Tên Lớp";
+            this.colTENLOP.FieldName = "TENLOP";
+            this.colTENLOP.Name = "colTENLOP";
+            this.colTENLOP.Visible = true;
+            this.colTENLOP.VisibleIndex = 1;
+            // 
             // panelControl3
             // 
+            this.panelControl3.Controls.Add(this.btnNhapLop);
             this.panelControl3.Controls.Add(this.btnThoat);
             this.panelControl3.Controls.Add(this.btnMayIn);
             this.panelControl3.Controls.Add(this.btnManHinh);
@@ -179,33 +200,46 @@
             this.panelControl3.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelControl3.Location = new System.Drawing.Point(2, 2);
             this.panelControl3.Name = "panelControl3";
-            this.panelControl3.Size = new System.Drawing.Size(361, 185);
+            this.panelControl3.Size = new System.Drawing.Size(434, 185);
             this.panelControl3.TabIndex = 0;
+            // 
+            // btnNhapLop
+            // 
+            this.btnNhapLop.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNhapLop.Location = new System.Drawing.Point(147, 76);
+            this.btnNhapLop.Name = "btnNhapLop";
+            this.btnNhapLop.Size = new System.Drawing.Size(129, 23);
+            this.btnNhapLop.TabIndex = 46;
+            this.btnNhapLop.Text = "Nhập tên lớp";
+            this.btnNhapLop.UseVisualStyleBackColor = true;
+            this.btnNhapLop.Click += new System.EventHandler(this.BtnNhapLop_Click);
             // 
             // btnThoat
             // 
             this.btnThoat.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnThoat.Location = new System.Drawing.Point(247, 102);
+            this.btnThoat.Location = new System.Drawing.Point(276, 133);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Size = new System.Drawing.Size(75, 23);
             this.btnThoat.TabIndex = 45;
             this.btnThoat.Text = "Thoát";
             this.btnThoat.UseVisualStyleBackColor = true;
+            this.btnThoat.Click += new System.EventHandler(this.BtnThoat_Click_1);
             // 
             // btnMayIn
             // 
             this.btnMayIn.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMayIn.Location = new System.Drawing.Point(147, 102);
+            this.btnMayIn.Location = new System.Drawing.Point(176, 133);
             this.btnMayIn.Name = "btnMayIn";
             this.btnMayIn.Size = new System.Drawing.Size(75, 23);
             this.btnMayIn.TabIndex = 44;
             this.btnMayIn.Text = "Print";
             this.btnMayIn.UseVisualStyleBackColor = true;
+            this.btnMayIn.Click += new System.EventHandler(this.BtnMayIn_Click);
             // 
             // btnManHinh
             // 
             this.btnManHinh.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnManHinh.Location = new System.Drawing.Point(45, 102);
+            this.btnManHinh.Location = new System.Drawing.Point(74, 133);
             this.btnManHinh.Name = "btnManHinh";
             this.btnManHinh.Size = new System.Drawing.Size(75, 23);
             this.btnManHinh.TabIndex = 43;
@@ -215,29 +249,27 @@
             // 
             // txtTenLop
             // 
-            this.txtTenLop.Location = new System.Drawing.Point(144, 39);
+            this.txtTenLop.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.lOPBindingSource, "TENLOP", true));
+            this.txtTenLop.Location = new System.Drawing.Point(127, 30);
             this.txtTenLop.Name = "txtTenLop";
             this.txtTenLop.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTenLop.Properties.Appearance.Options.UseFont = true;
-            this.txtTenLop.Size = new System.Drawing.Size(157, 24);
+            this.txtTenLop.Size = new System.Drawing.Size(218, 24);
             this.txtTenLop.TabIndex = 42;
             // 
             // v_DS_PHANMANHTableAdapter
             // 
             this.v_DS_PHANMANHTableAdapter.ClearBeforeFill = true;
             // 
-            // lOPTableAdapter
-            // 
-            this.lOPTableAdapter.ClearBeforeFill = true;
-            // 
             // tableAdapterManager
             // 
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.Connection = null;
             this.tableAdapterManager.DIEMTableAdapter = null;
             this.tableAdapterManager.GIANGVIENTableAdapter = null;
             this.tableAdapterManager.HOCPHITableAdapter = null;
             this.tableAdapterManager.KHOATableAdapter = null;
-            this.tableAdapterManager.LOPTableAdapter = this.lOPTableAdapter;
+            this.tableAdapterManager.LOPTableAdapter = null;
             this.tableAdapterManager.MONHOCTableAdapter = null;
             this.tableAdapterManager.SINHVIENTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = QLDSV.QLDSVROOTTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
@@ -253,7 +285,6 @@
             // 
             // BangDiemTongKetGridControl
             // 
-            this.BangDiemTongKetGridControl.DataSource = this.sPInBangDiemTongKetBindingSource;
             this.BangDiemTongKetGridControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.BangDiemTongKetGridControl.Location = new System.Drawing.Point(2, 2);
             this.BangDiemTongKetGridControl.MainView = this.gridView2;
@@ -263,19 +294,14 @@
             this.BangDiemTongKetGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
             // 
-            // sPInBangDiemTongKetBindingSource
-            // 
-            this.sPInBangDiemTongKetBindingSource.DataMember = "SP_InBangDiemTongKet";
-            this.sPInBangDiemTongKetBindingSource.DataSource = this.qLDSVROOT;
-            // 
             // gridView2
             // 
             this.gridView2.GridControl = this.BangDiemTongKetGridControl;
             this.gridView2.Name = "gridView2";
             // 
-            // sP_InBangDiemTongKetTableAdapter1
+            // lOPTableAdapter
             // 
-            this.sP_InBangDiemTongKetTableAdapter1.ClearBeforeFill = true;
+            this.lOPTableAdapter.ClearBeforeFill = true;
             // 
             // formInBangDiemMonHoc
             // 
@@ -286,7 +312,7 @@
             this.Controls.Add(this.panelControl2);
             this.Controls.Add(this.panelControl1);
             this.Name = "formInBangDiemMonHoc";
-            this.Text = "formInBangDiemMonHoc";
+            this.Text = "In bảng điểm môn học";
             this.Load += new System.EventHandler(this.FormInBangDiemMonHoc_Load);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
@@ -307,7 +333,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl5)).EndInit();
             this.panelControl5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.BangDiemTongKetGridControl)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sPInBangDiemTongKetBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
             this.ResumeLayout(false);
 
@@ -316,7 +341,7 @@
         #endregion
 
         private DevExpress.XtraEditors.PanelControl panelControl1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox comboKHOA;
         private System.Windows.Forms.Label label2;
         private DevExpress.XtraEditors.PanelControl panelControl2;
         private DevExpress.XtraEditors.PanelControl panelControl4;
@@ -328,8 +353,6 @@
         private QLDSVROOT qLDSVROOT;
         private System.Windows.Forms.BindingSource vDSPHANMANHBindingSource;
         private QLDSVROOTTableAdapters.V_DS_PHANMANHTableAdapter v_DS_PHANMANHTableAdapter;
-        private System.Windows.Forms.BindingSource lOPBindingSource;
-        private QLDSVROOTTableAdapters.LOPTableAdapter lOPTableAdapter;
         private QLDSVROOTTableAdapters.TableAdapterManager tableAdapterManager;
         private DevExpress.XtraGrid.GridControl lOPGridControl;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
@@ -337,7 +360,10 @@
         private QLDSVROOTTableAdapters.SP_InBangDiemTongKetTableAdapter sP_InBangDiemTongKetTableAdapter;
         private DevExpress.XtraGrid.GridControl BangDiemTongKetGridControl;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
-        private System.Windows.Forms.BindingSource sPInBangDiemTongKetBindingSource;
-        private QLDSVROOTTableAdapters.SP_InBangDiemTongKetTableAdapter sP_InBangDiemTongKetTableAdapter1;
+        private System.Windows.Forms.BindingSource lOPBindingSource;
+        private QLDSVROOTTableAdapters.LOPTableAdapter lOPTableAdapter;
+        private DevExpress.XtraGrid.Columns.GridColumn colMALOP;
+        private DevExpress.XtraGrid.Columns.GridColumn colTENLOP;
+        private System.Windows.Forms.Button btnNhapLop;
     }
 }

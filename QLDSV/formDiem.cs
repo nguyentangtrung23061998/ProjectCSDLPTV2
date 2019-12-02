@@ -230,6 +230,7 @@ namespace QLDSV
                 Program.sqlcmd.Parameters.Add("@Ret", SqlDbType.Int).Direction = ParameterDirection.ReturnValue;
                 Program.sqlcmd.ExecuteNonQuery();
                 String ret = Program.sqlcmd.Parameters["@Ret"].Value.ToString();
+               
                 // Did not have Diem lan 1, Dont allow to see LAN 2
                 if (ret == "2")
                 {
@@ -242,14 +243,16 @@ namespace QLDSV
                     // Fill the data
                     this.sP_NhapDiemMonHocTableAdapter.Connection.ConnectionString = Program.connstr;
                     this.sP_NhapDiemMonHocTableAdapter.Fill(this.qLDSVROOT.SP_NhapDiemMonHoc, cmbMaLop.SelectedValue.ToString(), cmbMaMH.SelectedValue.ToString(), short.Parse(cmbLanThi.SelectedValue.ToString()));
+                    Program.conn.Close();
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show("Lỗi \n" + ex.Message);
+                   
                     return;
                 }
 
-                if (sPNhapDiemMonHocBindingSource.Count < 0)
+                if (sPNhapDiemMonHocBindingSource.Count == 0)
                 {
                     MessageBox.Show("Lớp chưa có sinh viên!","Thông báo", MessageBoxButtons.OK);
                     return;
@@ -285,7 +288,7 @@ namespace QLDSV
 
         private void CmbMaLop_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cmbMaLop.SelectedIndex != prevSelectedMaLop && gridControlFillDiem.Enabled == true)
+            if (cmbMaLop.SelectedIndex != prevSelectedMaLop && cmbMaLop.SelectedIndex != -1 && gridControlFillDiem.Enabled == true)
             {
                 // prevSelectedIndex = cmbMaLop.SelectedIndex;
                 if (MessageBox.Show("Bạn muốn nhập điểm lớp khác?", "Xác nhận", MessageBoxButtons.YesNo) == DialogResult.Yes)
@@ -306,7 +309,7 @@ namespace QLDSV
 
         private void CmbMaMH_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cmbMaMH.SelectedIndex != prevSelectedMonHoc && gridControlFillDiem.Enabled == true)
+            if (cmbMaMH.SelectedIndex != prevSelectedMonHoc && cmbMaMH.SelectedIndex != -1 && gridControlFillDiem.Enabled == true)
             {
                 // prevSelectedIndex = cmbMaLop.SelectedIndex;
                 if (MessageBox.Show("Bạn muốn nhập điểm môn học khác?", "Xác nhận", MessageBoxButtons.YesNo) == DialogResult.Yes)
