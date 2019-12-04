@@ -30,7 +30,10 @@ namespace QLDSV
             this.tableAdapterManager.UpdateAll(this.qLDSVROOT);
 
         }
-
+        private void validate()
+        {
+            //if(Program.mGroup=="")
+        }
         private void formTaoLogin_Load(object sender, EventArgs e)
         {
             this.qLDSVROOT.EnforceConstraints = false;

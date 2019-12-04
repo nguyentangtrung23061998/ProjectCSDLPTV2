@@ -24,7 +24,7 @@ namespace QLDSV
             // TODO: This line of code loads data into the 'qLDSVROOT.V_DS_PHANMANH' table. You can move, or remove it, as needed.
             this.v_DS_PHANMANHTableAdapter.Fill(this.qLDSVROOT.V_DS_PHANMANH);
 
-            string chuoiketnoi = "Data Source=THANH\\SERVER1;Initial Catalog=QLDSV;Integrated Security=True;";
+            string chuoiketnoi = "Data Source=DESKTOP-695JA31\\SERVER1;Initial Catalog=QLDSV;Integrated Security=True;";
             Program.conn.ConnectionString = chuoiketnoi;
             Program.conn.Open();
             DataTable dt = new DataTable();
@@ -84,8 +84,6 @@ namespace QLDSV
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            txtUsername.Text = "HUY";
-            txtPassword.Text = "1234";
             if (txtUsername.Text.Trim() == "")
             {
                 MessageBox.Show("Tên tài khoản không được để trống", "Lỗi", MessageBoxButtons.OK);

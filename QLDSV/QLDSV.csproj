@@ -77,11 +77,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BAOCAO\Xrpt_PhieuDiem.cs">
+    <Compile Include="BaoCao\xRpt_InBangDiemMonHoc_spXuatBangDiemMonHoc.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="BAOCAO\Xrpt_PhieuDiem.Designer.cs">
-      <DependentUpon>Xrpt_PhieuDiem.cs</DependentUpon>
+    <Compile Include="BaoCao\xRpt_InBangDiemMonHoc_spXuatBangDiemMonHoc.Designer.cs">
+      <DependentUpon>xRpt_InBangDiemMonHoc_spXuatBangDiemMonHoc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BaoCao\xRpt_InDanhSachHocPhiLop_spDanhSachHocPhiLop.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="BaoCao\xRpt_InDanhSachHocPhiLop_spDanhSachHocPhiLop.Designer.cs">
+      <DependentUpon>xRpt_InDanhSachHocPhiLop_spDanhSachHocPhiLop.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BaoCao\xRpt_InDSSV_spTimSVTheoMaLop.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="BaoCao\xRpt_InDSSV_spTimSVTheoMaLop.Designer.cs">
+      <DependentUpon>xRpt_InDSSV_spTimSVTheoMaLop.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formBangDiemMonHoc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formBangDiemMonHoc.Designer.cs">
+      <DependentUpon>formBangDiemMonHoc.cs</DependentUpon>
     </Compile>
     <Compile Include="formChuyenLop.cs">
       <SubType>Form</SubType>
@@ -95,11 +113,11 @@
     <Compile Include="formDangNhap.Designer.cs">
       <DependentUpon>formDangNhap.cs</DependentUpon>
     </Compile>
-    <Compile Include="formDanhSachThiHetMon.cs">
+    <Compile Include="formDanhSachHocPhiTheoLop.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="formDanhSachThiHetMon.Designer.cs">
-      <DependentUpon>formDanhSachThiHetMon.cs</DependentUpon>
+    <Compile Include="formDanhSachHocPhiTheoLop.Designer.cs">
+      <DependentUpon>formDanhSachHocPhiTheoLop.cs</DependentUpon>
     </Compile>
     <Compile Include="formDiem.cs">
       <SubType>Form</SubType>
@@ -113,11 +131,11 @@
     <Compile Include="formHocPhi.Designer.cs">
       <DependentUpon>formHocPhi.cs</DependentUpon>
     </Compile>
-    <Compile Include="formInBangDiemMonHoc.cs">
+    <Compile Include="formInDSSV.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="formInBangDiemMonHoc.Designer.cs">
-      <DependentUpon>formInBangDiemMonHoc.cs</DependentUpon>
+    <Compile Include="formInDSSV.Designer.cs">
+      <DependentUpon>formInDSSV.cs</DependentUpon>
     </Compile>
     <Compile Include="formLop.cs">
       <SubType>Form</SubType>
@@ -136,12 +154,6 @@
     </Compile>
     <Compile Include="formMonHoc.Designer.cs">
       <DependentUpon>formMonHoc.cs</DependentUpon>
-    </Compile>
-    <Compile Include="formInPhieuDiem.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="formInPhieuDiem.Designer.cs">
-      <DependentUpon>formInPhieuDiem.cs</DependentUpon>
     </Compile>
     <Compile Include="formSinhVien.cs">
       <SubType>Form</SubType>
@@ -170,14 +182,17 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>QLDSVROOT.xsd</DependentUpon>
     </Compile>
-    <Compile Include="BAOCAO\Xrpt_DSThiHetMon.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="BAOCAO\Xrpt_DSThiHetMon.Designer.cs">
-      <DependentUpon>Xrpt_DSThiHetMon.cs</DependentUpon>
-    </Compile>
-    <EmbeddedResource Include="BAOCAO\Xrpt_PhieuDiem.resx">
-      <DependentUpon>Xrpt_PhieuDiem.cs</DependentUpon>
+    <EmbeddedResource Include="BaoCao\xRpt_InBangDiemMonHoc_spXuatBangDiemMonHoc.resx">
+      <DependentUpon>xRpt_InBangDiemMonHoc_spXuatBangDiemMonHoc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BaoCao\xRpt_InDanhSachHocPhiLop_spDanhSachHocPhiLop.resx">
+      <DependentUpon>xRpt_InDanhSachHocPhiLop_spDanhSachHocPhiLop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BaoCao\xRpt_InDSSV_spTimSVTheoMaLop.resx">
+      <DependentUpon>xRpt_InDSSV_spTimSVTheoMaLop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formBangDiemMonHoc.resx">
+      <DependentUpon>formBangDiemMonHoc.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="formChuyenLop.resx">
       <DependentUpon>formChuyenLop.cs</DependentUpon>
@@ -185,8 +200,8 @@
     <EmbeddedResource Include="formDangNhap.resx">
       <DependentUpon>formDangNhap.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="formDanhSachThiHetMon.resx">
-      <DependentUpon>formDanhSachThiHetMon.cs</DependentUpon>
+    <EmbeddedResource Include="formDanhSachHocPhiTheoLop.resx">
+      <DependentUpon>formDanhSachHocPhiTheoLop.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="formDiem.resx">
       <DependentUpon>formDiem.cs</DependentUpon>
@@ -194,8 +209,8 @@
     <EmbeddedResource Include="formHocPhi.resx">
       <DependentUpon>formHocPhi.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="formInBangDiemMonHoc.resx">
-      <DependentUpon>formInBangDiemMonHoc.cs</DependentUpon>
+    <EmbeddedResource Include="formInDSSV.resx">
+      <DependentUpon>formInDSSV.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="formLop.resx">
       <DependentUpon>formLop.cs</DependentUpon>
@@ -205,9 +220,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="formMonHoc.resx">
       <DependentUpon>formMonHoc.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="formInPhieuDiem.resx">
-      <DependentUpon>formInPhieuDiem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="formSinhVien.resx">
       <DependentUpon>formSinhVien.cs</DependentUpon>
@@ -225,9 +237,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="BAOCAO\Xrpt_DSThiHetMon.resx">
-      <DependentUpon>Xrpt_DSThiHetMon.cs</DependentUpon>
-    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -284,6 +293,7 @@
     <Content Include="image\Apps-system-software-update-icon.png" />
     <Content Include="image\Create-New-icon.png" />
     <Content Include="image\iconfinder_user-alt_285645.png" />
+    <Content Include="image\icons8-print-100.png" />
     <Content Include="image\kho.png" />
     <Content Include="image\Login-icon.png" />
     <Content Include="image\logout-icon %281%29.png" />
@@ -296,6 +306,5 @@
     <Content Include="image\users-icon.png" />
     <Content Include="image\xuat-tra-lai.png" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

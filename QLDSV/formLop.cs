@@ -15,7 +15,6 @@ namespace QLDSV
 {
     public partial class formLop : DevExpress.XtraEditors.XtraForm
     {
-
         public int chose = 0; // XAC DINH chon THEM / CHUYEN/ SUA   
         int vitri = 0;
         String makh = "";
@@ -60,6 +59,20 @@ namespace QLDSV
             // We set mChinhanh when Login 
             comboKHOA.SelectedIndex = Program.mChinhanh;
         }
+        
+        private void validation()
+        {
+            if (Program.mGroup=="KHOA")
+            {
+                this.btnLopThem.Visible = false;
+                this.btnLopSua.Visible = false;
+                this.btnLopXoa.Visible = false;
+                this.btnLopPhucHoi.Visible = false;
+                this.btnLopClear.Visible = false;
+                this.gridView1.OptionsBehavior.ReadOnly = true;
+            }
+        }
+
         private void formLop_Load(object sender, EventArgs e)
         {
             //QLDSVROOT.EnforceConstraints = false;
@@ -74,6 +87,7 @@ namespace QLDSV
             txtMaKhoa.Enabled = false;
             loadButton();
             setComboboxKHOAbyDefault();
+            this.validation(); ;
         }
 
         public String maL;

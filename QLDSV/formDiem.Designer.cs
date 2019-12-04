@@ -36,6 +36,8 @@
             this.btnCancel = new System.Windows.Forms.ToolStripButton();
             this.mONHOCBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.qLDSVROOT = new QLDSV.QLDSVROOT();
+            this.lOPBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.lOPTableAdapter = new QLDSV.QLDSVROOTTableAdapters.LOPTableAdapter();
             this.mONHOCTableAdapter = new QLDSV.QLDSVROOTTableAdapters.MONHOCTableAdapter();
             this.colMASV = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colMASV1 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -49,9 +51,7 @@
             this.colHO1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTEN = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridControlFillDiem = new DevExpress.XtraGrid.GridControl();
-            this.sPNhapDiemMonHocBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cmbMaLop = new System.Windows.Forms.ComboBox();
-            this.lOPBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cmbMaMH = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -64,20 +64,19 @@
             this.label1 = new System.Windows.Forms.Label();
             this.comboKHOA = new System.Windows.Forms.ComboBox();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.sPNhapDiemMonHocBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.sP_NhapDiemMonHocTableAdapter = new QLDSV.QLDSVROOTTableAdapters.SP_NhapDiemMonHocTableAdapter();
-            this.tableAdapterManager = new QLDSV.QLDSVROOTTableAdapters.TableAdapterManager();
-            this.lOPTableAdapter = new QLDSV.QLDSVROOTTableAdapters.LOPTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
             this.bindingNavigator1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mONHOCBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.qLDSVROOT)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lOPBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlFillDiem)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sPNhapDiemMonHocBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lOPBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.sPNhapDiemMonHocBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // bindingNavigator1
@@ -129,8 +128,8 @@
             this.btnCancel.Image = ((System.Drawing.Image)(resources.GetObject("btnCancel.Image")));
             this.btnCancel.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(68, 25);
-            this.btnCancel.Text = "Thoát";
+            this.btnCancel.Size = new System.Drawing.Size(96, 25);
+            this.btnCancel.Text = "CANCEL";
             this.btnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
             // 
             // mONHOCBindingSource
@@ -142,6 +141,15 @@
             // 
             this.qLDSVROOT.DataSetName = "QLDSVROOT";
             this.qLDSVROOT.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // lOPBindingSource
+            // 
+            this.lOPBindingSource.DataMember = "LOP";
+            this.lOPBindingSource.DataSource = this.qLDSVROOT;
+            // 
+            // lOPTableAdapter
+            // 
+            this.lOPTableAdapter.ClearBeforeFill = true;
             // 
             // mONHOCTableAdapter
             // 
@@ -240,11 +248,6 @@
             this.gridControlFillDiem.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
             // 
-            // sPNhapDiemMonHocBindingSource
-            // 
-            this.sPNhapDiemMonHocBindingSource.DataMember = "SP_NhapDiemMonHoc";
-            this.sPNhapDiemMonHocBindingSource.DataSource = this.qLDSVROOT;
-            // 
             // cmbMaLop
             // 
             this.cmbMaLop.DataSource = this.lOPBindingSource;
@@ -257,12 +260,6 @@
             this.cmbMaLop.Size = new System.Drawing.Size(172, 25);
             this.cmbMaLop.TabIndex = 0;
             this.cmbMaLop.ValueMember = "MALOP";
-            this.cmbMaLop.SelectedIndexChanged += new System.EventHandler(this.CmbMaLop_SelectedIndexChanged);
-            // 
-            // lOPBindingSource
-            // 
-            this.lOPBindingSource.DataMember = "LOP";
-            this.lOPBindingSource.DataSource = this.qLDSVROOT;
             // 
             // cmbMaMH
             // 
@@ -276,7 +273,6 @@
             this.cmbMaMH.Size = new System.Drawing.Size(172, 25);
             this.cmbMaMH.TabIndex = 1;
             this.cmbMaMH.ValueMember = "MAMH";
-            this.cmbMaMH.SelectedIndexChanged += new System.EventHandler(this.CmbMaMH_SelectedIndexChanged);
             // 
             // label2
             // 
@@ -364,7 +360,6 @@
             this.cmbLanThi.Name = "cmbLanThi";
             this.cmbLanThi.Size = new System.Drawing.Size(70, 25);
             this.cmbLanThi.TabIndex = 14;
-            this.cmbLanThi.SelectedIndexChanged += new System.EventHandler(this.CmbLanThi_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -404,6 +399,7 @@
             this.panelControl1.Controls.Add(this.label2);
             this.panelControl1.Controls.Add(this.cmbMaMH);
             this.panelControl1.Controls.Add(this.cmbMaLop);
+            this.panelControl1.DataBindings.Add(new System.Windows.Forms.Binding("BorderStyle", this.lOPBindingSource, "TENLOP", true));
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl1.Location = new System.Drawing.Point(0, 28);
             this.panelControl1.Margin = new System.Windows.Forms.Padding(4);
@@ -411,25 +407,14 @@
             this.panelControl1.Size = new System.Drawing.Size(839, 146);
             this.panelControl1.TabIndex = 5;
             // 
+            // sPNhapDiemMonHocBindingSource
+            // 
+            this.sPNhapDiemMonHocBindingSource.DataMember = "SP_NhapDiemMonHoc";
+            this.sPNhapDiemMonHocBindingSource.DataSource = this.qLDSVROOT;
+            // 
             // sP_NhapDiemMonHocTableAdapter
             // 
             this.sP_NhapDiemMonHocTableAdapter.ClearBeforeFill = true;
-            // 
-            // tableAdapterManager
-            // 
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.DIEMTableAdapter = null;
-            this.tableAdapterManager.GIANGVIENTableAdapter = null;
-            this.tableAdapterManager.HOCPHITableAdapter = null;
-            this.tableAdapterManager.KHOATableAdapter = null;
-            this.tableAdapterManager.LOPTableAdapter = null;
-            this.tableAdapterManager.MONHOCTableAdapter = this.mONHOCTableAdapter;
-            this.tableAdapterManager.SINHVIENTableAdapter = null;
-            this.tableAdapterManager.UpdateOrder = QLDSV.QLDSVROOTTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            // 
-            // lOPTableAdapter
-            // 
-            this.lOPTableAdapter.ClearBeforeFill = true;
             // 
             // formDiem
             // 
@@ -450,14 +435,14 @@
             this.bindingNavigator1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mONHOCBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.qLDSVROOT)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lOPBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlFillDiem)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sPNhapDiemMonHocBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lOPBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             this.panelControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.sPNhapDiemMonHocBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -469,6 +454,8 @@
         private System.Windows.Forms.ToolStripButton btnBatDau;
         private System.Windows.Forms.ToolStripButton btnGhiDiem;
         private QLDSVROOT qLDSVROOT;
+        private System.Windows.Forms.BindingSource lOPBindingSource;
+        private QLDSVROOTTableAdapters.LOPTableAdapter lOPTableAdapter;
         private QLDSVROOTTableAdapters.MONHOCTableAdapter mONHOCTableAdapter;
         private System.Windows.Forms.BindingSource mONHOCBindingSource;
         private DevExpress.XtraGrid.Columns.GridColumn colMASV;
@@ -499,8 +486,5 @@
         private DevExpress.XtraEditors.PanelControl panelControl1;
         private System.Windows.Forms.BindingSource sPNhapDiemMonHocBindingSource;
         private QLDSVROOTTableAdapters.SP_NhapDiemMonHocTableAdapter sP_NhapDiemMonHocTableAdapter;
-        private QLDSVROOTTableAdapters.TableAdapterManager tableAdapterManager;
-        private System.Windows.Forms.BindingSource lOPBindingSource;
-        private QLDSVROOTTableAdapters.LOPTableAdapter lOPTableAdapter;
     }
 }
