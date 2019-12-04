@@ -98,99 +98,99 @@
             mALOPLabel.AutoSize = true;
             mALOPLabel.Location = new System.Drawing.Point(8, 156);
             mALOPLabel.Name = "mALOPLabel";
-            mALOPLabel.Size = new System.Drawing.Size(56, 17);
+            mALOPLabel.Size = new System.Drawing.Size(52, 17);
             mALOPLabel.TabIndex = 40;
-            mALOPLabel.Text = "MALOP:";
+            mALOPLabel.Text = "Mã Lớp";
             // 
             // mASVLabel
             // 
             mASVLabel.AutoSize = true;
             mASVLabel.Location = new System.Drawing.Point(8, 34);
             mASVLabel.Name = "mASVLabel";
-            mASVLabel.Size = new System.Drawing.Size(47, 17);
+            mASVLabel.Size = new System.Drawing.Size(45, 17);
             mASVLabel.TabIndex = 24;
-            mASVLabel.Text = "MASV:";
+            mASVLabel.Text = "Mã SV";
             // 
             // hOLabel
             // 
             hOLabel.AutoSize = true;
             hOLabel.Location = new System.Drawing.Point(8, 62);
             hOLabel.Name = "hOLabel";
-            hOLabel.Size = new System.Drawing.Size(32, 17);
+            hOLabel.Size = new System.Drawing.Size(25, 17);
             hOLabel.TabIndex = 26;
-            hOLabel.Text = "HO:";
+            hOLabel.Text = "Họ";
             // 
             // tENLabel
             // 
             tENLabel.AutoSize = true;
             tENLabel.Location = new System.Drawing.Point(8, 90);
             tENLabel.Name = "tENLabel";
-            tENLabel.Size = new System.Drawing.Size(38, 17);
+            tENLabel.Size = new System.Drawing.Size(31, 17);
             tENLabel.TabIndex = 28;
-            tENLabel.Text = "TEN:";
+            tENLabel.Text = "Tên";
             // 
             // pHAILabel
             // 
             pHAILabel.AutoSize = true;
             pHAILabel.Location = new System.Drawing.Point(8, 118);
             pHAILabel.Name = "pHAILabel";
-            pHAILabel.Size = new System.Drawing.Size(42, 17);
+            pHAILabel.Size = new System.Drawing.Size(33, 17);
             pHAILabel.TabIndex = 30;
-            pHAILabel.Text = "PHAI:";
+            pHAILabel.Text = "Phái";
             // 
             // nGAYSINHLabel
             // 
             nGAYSINHLabel.AutoSize = true;
             nGAYSINHLabel.Location = new System.Drawing.Point(282, 34);
             nGAYSINHLabel.Name = "nGAYSINHLabel";
-            nGAYSINHLabel.Size = new System.Drawing.Size(77, 17);
+            nGAYSINHLabel.Size = new System.Drawing.Size(70, 17);
             nGAYSINHLabel.TabIndex = 32;
-            nGAYSINHLabel.Text = "NGAYSINH:";
+            nGAYSINHLabel.Text = "Ngày Sinh";
             // 
             // nOISINHLabel
             // 
             nOISINHLabel.AutoSize = true;
             nOISINHLabel.Location = new System.Drawing.Point(282, 62);
             nOISINHLabel.Name = "nOISINHLabel";
-            nOISINHLabel.Size = new System.Drawing.Size(66, 17);
+            nOISINHLabel.Size = new System.Drawing.Size(57, 17);
             nOISINHLabel.TabIndex = 34;
-            nOISINHLabel.Text = "NOISINH:";
+            nOISINHLabel.Text = "Nơi Sinh";
             // 
             // dIACHILabel
             // 
             dIACHILabel.AutoSize = true;
             dIACHILabel.Location = new System.Drawing.Point(282, 90);
             dIACHILabel.Name = "dIACHILabel";
-            dIACHILabel.Size = new System.Drawing.Size(57, 17);
+            dIACHILabel.Size = new System.Drawing.Size(50, 17);
             dIACHILabel.TabIndex = 36;
-            dIACHILabel.Text = "DIACHI:";
+            dIACHILabel.Text = "Địa Chỉ";
             // 
             // nGHIHOCLabel
             // 
             nGHIHOCLabel.AutoSize = true;
             nGHIHOCLabel.Location = new System.Drawing.Point(282, 121);
             nGHIHOCLabel.Name = "nGHIHOCLabel";
-            nGHIHOCLabel.Size = new System.Drawing.Size(72, 17);
+            nGHIHOCLabel.Size = new System.Drawing.Size(63, 17);
             nGHIHOCLabel.TabIndex = 38;
-            nGHIHOCLabel.Text = "NGHIHOC:";
+            nGHIHOCLabel.Text = "Nghỉ Học";
             // 
             // tENLOPLabel
             // 
             tENLOPLabel.AutoSize = true;
             tENLOPLabel.Location = new System.Drawing.Point(17, 101);
             tENLOPLabel.Name = "tENLOPLabel";
-            tENLOPLabel.Size = new System.Drawing.Size(56, 17);
+            tENLOPLabel.Size = new System.Drawing.Size(52, 17);
             tENLOPLabel.TabIndex = 38;
-            tENLOPLabel.Text = "MALOP:";
+            tENLOPLabel.Text = "Mã Lớp";
             // 
             // mALOPLabel2
             // 
             mALOPLabel2.AutoSize = true;
             mALOPLabel2.Location = new System.Drawing.Point(309, 98);
             mALOPLabel2.Name = "mALOPLabel2";
-            mALOPLabel2.Size = new System.Drawing.Size(56, 17);
+            mALOPLabel2.Size = new System.Drawing.Size(52, 17);
             mALOPLabel2.TabIndex = 37;
-            mALOPLabel2.Text = "MALOP:";
+            mALOPLabel2.Text = "Mã Lớp";
             // 
             // tabControl1
             // 
@@ -458,7 +458,7 @@
             this.ClientSize = new System.Drawing.Size(536, 324);
             this.Controls.Add(this.tabControl1);
             this.Name = "formChuyenLop";
-            this.Text = "formChuyenLop";
+            this.Text = "Chuyển Lớp";
             this.Load += new System.EventHandler(this.formChuyenLop_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);

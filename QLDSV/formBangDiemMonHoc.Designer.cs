@@ -297,6 +297,7 @@
             // 
             // colHOTEN
             // 
+            this.colHOTEN.Caption = "Họ Tên";
             this.colHOTEN.FieldName = "HOTEN";
             this.colHOTEN.MinWidth = 25;
             this.colHOTEN.Name = "colHOTEN";
@@ -306,6 +307,7 @@
             // 
             // colDIEM
             // 
+            this.colDIEM.Caption = "Điểm";
             this.colDIEM.FieldName = "DIEM";
             this.colDIEM.MinWidth = 25;
             this.colDIEM.Name = "colDIEM";
@@ -387,7 +389,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.bindingNavigator1);
             this.Name = "formBangDiemMonHoc";
-            this.Text = "formBangDiemMonHoc";
+            this.Text = "Bảng Điểm Môn Học";
             this.Load += new System.EventHandler(this.formBangDiemMonHoc_Load);
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).EndInit();
             this.bindingNavigator1.ResumeLayout(false);

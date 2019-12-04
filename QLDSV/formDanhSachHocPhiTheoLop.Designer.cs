@@ -91,7 +91,7 @@
             this.bindingNavigator1.MovePreviousItem = null;
             this.bindingNavigator1.Name = "bindingNavigator1";
             this.bindingNavigator1.PositionItem = null;
-            this.bindingNavigator1.Size = new System.Drawing.Size(836, 29);
+            this.bindingNavigator1.Size = new System.Drawing.Size(836, 31);
             this.bindingNavigator1.TabIndex = 3;
             this.bindingNavigator1.Text = "bindingNavigator1";
             // 
@@ -101,7 +101,7 @@
             this.btnManHinh.Image = ((System.Drawing.Image)(resources.GetObject("btnManHinh.Image")));
             this.btnManHinh.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnManHinh.Name = "btnManHinh";
-            this.btnManHinh.Size = new System.Drawing.Size(133, 26);
+            this.btnManHinh.Size = new System.Drawing.Size(133, 28);
             this.btnManHinh.Text = "MÀN HÌNH";
             this.btnManHinh.Click += new System.EventHandler(this.btnManHinh_Click);
             // 
@@ -331,7 +331,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.bindingNavigator1);
             this.Name = "formDanhSachHocPhiTheoLop";
-            this.Text = "formDanhSachHocPhiTheoLop";
+            this.Text = "Danh Sách Học Phí Theo Lớp";
             this.Load += new System.EventHandler(this.formDanhSachHocPhiTheoLop_Load);
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).EndInit();
             this.bindingNavigator1.ResumeLayout(false);
