@@ -21,7 +21,6 @@ namespace QLDSV
 
         private void formDangNhap_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'qLDSVROOT.V_DS_PHANMANH' table. You can move, or remove it, as needed.
             this.v_DS_PHANMANHTableAdapter.Fill(this.qLDSVROOT.V_DS_PHANMANH);
 
             string chuoiketnoi = "Data Source=THANH\\SERVER1;Initial Catalog=QLDSV;Integrated Security=True;";
@@ -84,8 +83,8 @@ namespace QLDSV
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            txtUsername.Text = "HUY";
-            txtPassword.Text = "1234";
+            //txtUsername.Text = "HUY";
+            //txtPassword.Text = "1234";
             if (txtUsername.Text.Trim() == "")
             {
                 MessageBox.Show("Tên tài khoản không được để trống", "Lỗi", MessageBoxButtons.OK);
@@ -141,9 +140,11 @@ namespace QLDSV
             MessageBox.Show("Đăng Nhập Thành Công", "", MessageBoxButtons.OK);
             
             this.Hide();
+
             formMain f = new formMain();
             f.HienThiMenu();
             f.ShowDialog();
+
             this.Close();
            
         }
@@ -158,6 +159,11 @@ namespace QLDSV
             {
                 Program.servername = "";
             }
+        }
+
+        private void BtnThoat_Click(object sender, EventArgs e)
+        {
+           this.Close();
         }
     }
 }

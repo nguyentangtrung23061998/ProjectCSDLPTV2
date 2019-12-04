@@ -31,9 +31,18 @@ namespace QLDSV
             this.v_DS_PHANMANHTableAdapter.Fill(this.qLDSVROOT.V_DS_PHANMANH);
 
             gctrl_sP_PhieuDiemSinhVien.Enabled = false;
-
             gridView1.OptionsBehavior.Editable = false;
 
+            cmbKhoa.DataSource = Program.bds_dspm.DataSource;
+            cmbKhoa.DisplayMember = "TENCN";
+            cmbKhoa.ValueMember = "TENSERVER";
+            // We set mChinhanh when Login 
+            cmbKhoa.SelectedIndex = Program.mChinhanh;
+
+            if (Program.mGroup == "KHOA")
+            {
+                cmbKhoa.Enabled = false;
+            }
         }
 
         private void BtnManHinh_Click(object sender, EventArgs e)
@@ -77,6 +86,33 @@ namespace QLDSV
 
             ReportPrintTool print = new ReportPrintTool(rpt);
             print.ShowPreviewDialog();
+        }
+
+        private void CmbKhoa_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // For close form
+            if (cmbKhoa.SelectedValue == null) return;
+
+            Program.servername = cmbKhoa.SelectedValue.ToString();
+            if (cmbKhoa.SelectedIndex != Program.mChinhanh)
+            {
+                Program.mlogin = Program.remotelogin;
+                Program.password = Program.remotepassword;
+            }
+            else
+            {
+                Program.mlogin = Program.mloginDN;
+                Program.password = Program.passwordDN;
+            }
+            if (Program.KetNoi() == 0)
+            {
+                MessageBox.Show("Lỗi kết nối về chi nhánh mới", "", MessageBoxButtons.OK);
+            }
+            else
+            {
+                this.sINHVIENTableAdapter.Connection.ConnectionString = Program.connstr;
+                this.sINHVIENTableAdapter.Fill(this.qLDSVROOT.SINHVIEN);
+            }
         }
     }
 }

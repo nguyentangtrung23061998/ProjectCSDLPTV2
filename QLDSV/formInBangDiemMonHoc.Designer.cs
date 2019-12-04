@@ -43,7 +43,6 @@
             this.colMALOP = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTENLOP = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
-            this.btnNhapLop = new System.Windows.Forms.Button();
             this.btnThoat = new System.Windows.Forms.Button();
             this.btnMayIn = new System.Windows.Forms.Button();
             this.btnManHinh = new System.Windows.Forms.Button();
@@ -79,7 +78,7 @@
             // 
             mASVLabel.AutoSize = true;
             mASVLabel.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            mASVLabel.Location = new System.Drawing.Point(65, 33);
+            mASVLabel.Location = new System.Drawing.Point(71, 54);
             mASVLabel.Name = "mASVLabel";
             mASVLabel.Size = new System.Drawing.Size(56, 17);
             mASVLabel.TabIndex = 41;
@@ -191,7 +190,6 @@
             // 
             // panelControl3
             // 
-            this.panelControl3.Controls.Add(this.btnNhapLop);
             this.panelControl3.Controls.Add(this.btnThoat);
             this.panelControl3.Controls.Add(this.btnMayIn);
             this.panelControl3.Controls.Add(this.btnManHinh);
@@ -202,17 +200,6 @@
             this.panelControl3.Name = "panelControl3";
             this.panelControl3.Size = new System.Drawing.Size(434, 185);
             this.panelControl3.TabIndex = 0;
-            // 
-            // btnNhapLop
-            // 
-            this.btnNhapLop.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNhapLop.Location = new System.Drawing.Point(147, 76);
-            this.btnNhapLop.Name = "btnNhapLop";
-            this.btnNhapLop.Size = new System.Drawing.Size(129, 23);
-            this.btnNhapLop.TabIndex = 46;
-            this.btnNhapLop.Text = "Nhập tên lớp";
-            this.btnNhapLop.UseVisualStyleBackColor = true;
-            this.btnNhapLop.Click += new System.EventHandler(this.BtnNhapLop_Click);
             // 
             // btnThoat
             // 
@@ -250,7 +237,7 @@
             // txtTenLop
             // 
             this.txtTenLop.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.lOPBindingSource, "TENLOP", true));
-            this.txtTenLop.Location = new System.Drawing.Point(127, 30);
+            this.txtTenLop.Location = new System.Drawing.Point(133, 51);
             this.txtTenLop.Name = "txtTenLop";
             this.txtTenLop.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTenLop.Properties.Appearance.Options.UseFont = true;
@@ -364,6 +351,5 @@
         private QLDSVROOTTableAdapters.LOPTableAdapter lOPTableAdapter;
         private DevExpress.XtraGrid.Columns.GridColumn colMALOP;
         private DevExpress.XtraGrid.Columns.GridColumn colTENLOP;
-        private System.Windows.Forms.Button btnNhapLop;
     }
 }

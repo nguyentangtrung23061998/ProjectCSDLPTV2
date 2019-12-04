@@ -50,51 +50,34 @@ namespace QLDSV
             tenMH = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "TENMH").ToString().Trim();
 
         }
+
+        public void validationButton()
+        {
+            if (Program.mGroup == "KHOA")
+            {
+                txtMaMH.ReadOnly = true;
+                txtTenMH.ReadOnly = true;
+                btnThemMonHoc.Visible = false;
+                btnSuaMonHoc.Visible = false;
+                btnXoaMonHoc.Visible = false;
+                btnClearMonHoc.Visible = false;
+                btnPhucHoiMonHoc.Visible = false;
+                gridView1.OptionsBehavior.ReadOnly = true;
+            }
+        }
         private void FormMonHoc_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'qLDSVROOT.MONHOC' table. You can move, or remove it, as needed.
             this.mONHOCTableAdapter.Connection.ConnectionString = Program.connstr;
             this.mONHOCTableAdapter.Fill(this.qLDSVROOT.MONHOC);
+
             txtMaMH.ReadOnly = true;
             if (Program.conn.State == ConnectionState.Open) Program.conn.Close();
+
             // Disable add, Enable when click clear
             this.btnThemMonHoc.Enabled = false;
-        }
 
-        private string ExecuteSP_KiemMaMonHoc(String spName)
-        {
-            // SP return 
-            // 1: exist
-            // 0: not exist 
-            // String strLenh = spName;
-            Program.sqlcmd = Program.conn.CreateCommand();
-            Program.sqlcmd.CommandType = CommandType.StoredProcedure;
-            Program.sqlcmd.CommandText = spName;
-            // SP Variables
-            Program.sqlcmd.Parameters.Add("@MAMH", SqlDbType.NChar).Value = txtMaMH.Text;
-            Program.sqlcmd.Parameters.Add("@TENMH", SqlDbType.NVarChar).Value = txtTenMH.Text;
-            Program.sqlcmd.Parameters.Add("@Ret", SqlDbType.Int).Direction = ParameterDirection.ReturnValue;
-            Program.sqlcmd.ExecuteNonQuery();
-            String ret = Program.sqlcmd.Parameters["@Ret"].Value.ToString();
-
-            return ret;
-        }
-        private string ExecuteSP_KiemMHTonTaiDiem(String spName)
-        {
-            // SP return 
-            // 1: exist
-            // 0: not exist 
-            // String strLenh = spName;
-            Program.sqlcmd = Program.conn.CreateCommand();
-            Program.sqlcmd.CommandType = CommandType.StoredProcedure;
-            Program.sqlcmd.CommandText = spName;
-            // SP Variables
-            Program.sqlcmd.Parameters.Add("@MAMH", SqlDbType.NChar).Value = txtMaMH.Text;
-            Program.sqlcmd.Parameters.Add("@Ret", SqlDbType.Int).Direction = ParameterDirection.ReturnValue;
-            Program.sqlcmd.ExecuteNonQuery();
-            String ret = Program.sqlcmd.Parameters["@Ret"].Value.ToString();
-
-            return ret;
+            validationButton();
         }
 
         private void ExcuteSP_Update_Insert_MonHoc(String spName, String dialogDescription)
@@ -122,12 +105,16 @@ namespace QLDSV
 
         private void BtnThemMonHoc_Click(object sender, EventArgs e)
         {
-            if (Program.conn.State == ConnectionState.Closed)
-                Program.conn.Open();
             // Checking error
             if (txtMaMH.Text.Trim() == "")
             {
                 MessageBox.Show("Mã môn học không được để trống!", "", MessageBoxButtons.OK);
+                txtMaMH.Focus();
+                return;
+            }
+            if(txtMaMH.Text.Trim().Length > 8)
+            {
+                MessageBox.Show("Mã môn học tối đa 8 ký tự!", "", MessageBoxButtons.OK);
                 txtMaMH.Focus();
                 return;
             }
@@ -137,13 +124,31 @@ namespace QLDSV
                 txtTenMH.Focus();
                 return;
             }
+            if (txtTenMH.Text.Trim().Length > 40)
+            {
+                MessageBox.Show("Tên môn học tối đa 40 ký tự!", "", MessageBoxButtons.OK);
+                txtTenMH.Focus();
+                return;
+            }
 
             try
             {
                 // SP return 
                 // 1: exist
                 // 0: not exist 
-                String result = ExecuteSP_KiemMaMonHoc("SP_KiemMaMHTonTai");
+                // String strLenh = spName;
+                if (Program.conn.State == ConnectionState.Closed) Program.conn.Open();
+                String spName = "SP_KiemMaMHTonTai";
+                Program.sqlcmd = Program.conn.CreateCommand();
+                Program.sqlcmd.CommandType = CommandType.StoredProcedure;
+                Program.sqlcmd.CommandText = spName;
+                // SP Variables
+                Program.sqlcmd.Parameters.Add("@MAMH", SqlDbType.NChar).Value = txtMaMH.Text;
+                Program.sqlcmd.Parameters.Add("@TENMH", SqlDbType.NVarChar).Value = txtTenMH.Text;
+                Program.sqlcmd.Parameters.Add("@Ret", SqlDbType.Int).Direction = ParameterDirection.ReturnValue;
+                Program.sqlcmd.ExecuteNonQuery();
+                String result = Program.sqlcmd.Parameters["@Ret"].Value.ToString();
+
                 if (result == "1")
                 {
                     MessageBox.Show("Mã môn học đã tồn tại.\n", "", MessageBoxButtons.OK);
@@ -167,16 +172,18 @@ namespace QLDSV
                         st.Push(ob);
                         // Excute SP
                         ExcuteSP_Update_Insert_MonHoc("SP_InsertMonHoc", "Thêm môn học thành công");
-                        gridView1.ClearSelection();
-                        //int nRowIndex = gridView1.RowCount - 1;
-                        txtMaMH.ReadOnly = true;
-                        gridView1.SetFocusedRowModified();
 
+                        isCleared = false;
+                        // Do not allow user to edit MaMH
+                        txtMaMH.ReadOnly = true;
+                     
+                        // Close connection
                         Program.conn.Close();
                     }
                     catch (Exception ex)
                     {
                         MessageBox.Show("Lỗi thêm môn học.\n" + ex.Message, "", MessageBoxButtons.OK);
+                        Program.conn.Close();
                         return;
                     }
                 }
@@ -184,11 +191,12 @@ namespace QLDSV
             catch (Exception ex)
             {
                 MessageBox.Show("Lỗi kiểm tra mã môn học.\n" + ex.Message, "", MessageBoxButtons.OK);
+                Program.conn.Close();
                 return;
             }
 
         }
-
+        Boolean isCleared = false;
         private void BtnClearMonHoc_Click(object sender, EventArgs e)
         {
             txtMaMH.Focus();
@@ -198,13 +206,19 @@ namespace QLDSV
             this.btnThemMonHoc.Enabled = true;
             this.btnPhucHoiMonHoc.Enabled = true;
             // Create new row in grid control
-            this.mONHOCBindingSource.AddNew();
+            if(!isCleared)
+            {
+                this.mONHOCBindingSource.AddNew();
+                isCleared = true;
+            }
+           
         }
 
         private void BtnRefeshMonHoc_Click(object sender, EventArgs e)
         {
             try
             {
+                btnThemMonHoc.Enabled = false;
                 // Fill table MONHOC, refesh data
                 this.mONHOCTableAdapter.Connection.ConnectionString = Program.connstr;
                 this.mONHOCTableAdapter.Fill(this.qLDSVROOT.MONHOC);
@@ -221,24 +235,44 @@ namespace QLDSV
             // Delete on MAMH
             try
             {
-                // SP return 
-                // 1: exist
-                // 0: not exist 
                 // Check if MaMH exists
-                if (Program.conn.State == ConnectionState.Closed)
-                    Program.conn.Open();
-                String result = ExecuteSP_KiemMaMonHoc("SP_KiemMaMHTonTai");
+                if (Program.conn.State == ConnectionState.Closed) Program.conn.Open();
+                String spName = "SP_KiemMaMHTonTai";
+                Program.sqlcmd = Program.conn.CreateCommand();
+                Program.sqlcmd.CommandType = CommandType.StoredProcedure;
+                Program.sqlcmd.CommandText = spName;
+
+                // SP Variables
+                Program.sqlcmd.Parameters.Add("@MAMH", SqlDbType.NChar).Value = txtMaMH.Text;
+                Program.sqlcmd.Parameters.Add("@TENMH", SqlDbType.NVarChar).Value = txtTenMH.Text;
+                Program.sqlcmd.Parameters.Add("@Ret", SqlDbType.Int).Direction = ParameterDirection.ReturnValue;
+                Program.sqlcmd.ExecuteNonQuery();
+                String result = Program.sqlcmd.Parameters["@Ret"].Value.ToString();
+
                 // If maMH exists
                 if (result == "1")
                 {
                     try
                     {
+                        // SP return 
+                        // 1: exist
+                        // 0: not exist 
                         // Check if MonHoc had Diem => cant delete
-                        String ret = ExecuteSP_KiemMHTonTaiDiem("SP_KiemMHTonTaiDiem");
+                        String spName1 = "SP_KiemMHTonTaiDiem";
+                        Program.sqlcmd = Program.conn.CreateCommand();
+                        Program.sqlcmd.CommandType = CommandType.StoredProcedure;
+                        Program.sqlcmd.CommandText = spName1;
+
+                        // SP Variables
+                        Program.sqlcmd.Parameters.Add("@MAMH", SqlDbType.NChar).Value = txtMaMH.Text;
+                        Program.sqlcmd.Parameters.Add("@Ret", SqlDbType.Int).Direction = ParameterDirection.ReturnValue;
+                        Program.sqlcmd.ExecuteNonQuery();
+                        String ret = Program.sqlcmd.Parameters["@Ret"].Value.ToString();
+
                         // If MonHoc had Diem
                         if (ret == "1")
                         {
-                            MessageBox.Show("Mã môn này đã có điểm!", "THÔNG BÁO LỖI", MessageBoxButtons.OK);
+                            MessageBox.Show("Mã môn này đã có điểm!", "THÔNG BÁO", MessageBoxButtons.OK);
                         }
                         if (ret == "0")
                         {
@@ -249,21 +283,26 @@ namespace QLDSV
                                 String lenh = "exec SP_UndoDeleteMonHoc '" + txtMaMH.Text + "', N'" + txtTenMH.Text + "'";
                                 ObjectUndo ob = new ObjectUndo(type, lenh);
                                 st.Push(ob);
+
                                 // Delete Monhoc
                                 this.mONHOCBindingSource.RemoveCurrent();
                                 MessageBox.Show("Xóa thành công!", "Thành công", MessageBoxButtons.OK);
                                 this.mONHOCTableAdapter.Update(this.qLDSVROOT.MONHOC);
+                                Program.conn.Close();
                             }
                         }
                     }
                     catch (Exception ex)
                     {
                         MessageBox.Show("Lỗi xóa môn học.\n" + ex.Message, "", MessageBoxButtons.OK);
+                        Program.conn.Close();
+                        return;
                     }
                 }
                 else
                 {
                     MessageBox.Show("Mã môn học không tồn tại.\n", "THÔNG BÁO", MessageBoxButtons.OK);
+                    Program.conn.Close();
                     return;
                 }
             }
@@ -271,6 +310,7 @@ namespace QLDSV
             {
                 // Can be if did not pick the Department 
                 MessageBox.Show("Lỗi kiểm tra mã môn học.\n" + ex.Message, "", MessageBoxButtons.OK);
+                Program.conn.Close();
                 return;
             }
         }
@@ -285,23 +325,40 @@ namespace QLDSV
                 txtMaMH.Focus();
                 return;
             }
+            if (txtMaMH.Text.Trim().Length > 8)
+            {
+                MessageBox.Show("Mã môn học tối đa 8 ký tự!", "", MessageBoxButtons.OK);
+                txtMaMH.Focus();
+                return;
+            }
             if (txtTenMH.Text.Trim() == "")
             {
                 MessageBox.Show("Tên môn học không để trống!", "", MessageBoxButtons.OK);
                 txtTenMH.Focus();
                 return;
             }
-
+            if (txtTenMH.Text.Trim().Length > 40)
+            {
+                MessageBox.Show("Tên môn học tối đa 40 ký tự!", "", MessageBoxButtons.OK);
+                txtTenMH.Focus();
+                return;
+            }
             try
             {
-                // SP return 
-                // 1: exist
-                // 0: not exist 
                 // Check if MaMH exists
-                if (Program.conn.State == ConnectionState.Closed)
-                    Program.conn.Open();
-                String result = ExecuteSP_KiemMaMonHoc("SP_KiemMaMHTonTai");
-                Program.conn.Close();
+                if (Program.conn.State == ConnectionState.Closed) Program.conn.Open();
+                String spName = "SP_KiemMaMHTonTai";
+                Program.sqlcmd = Program.conn.CreateCommand();
+                Program.sqlcmd.CommandType = CommandType.StoredProcedure;
+                Program.sqlcmd.CommandText = spName;
+
+                // SP Variables
+                Program.sqlcmd.Parameters.Add("@MAMH", SqlDbType.NChar).Value = txtMaMH.Text;
+                Program.sqlcmd.Parameters.Add("@TENMH", SqlDbType.NVarChar).Value = txtTenMH.Text;
+                Program.sqlcmd.Parameters.Add("@Ret", SqlDbType.Int).Direction = ParameterDirection.ReturnValue;
+                Program.sqlcmd.ExecuteNonQuery();
+                String result = Program.sqlcmd.Parameters["@Ret"].Value.ToString();
+
                 // If maMH exists
                 if (result == "2")
                 {
@@ -309,20 +366,26 @@ namespace QLDSV
                     Program.conn.Close();
                     return;
                 }
-                else if (result == "1")
+                else if(result == "0")
+                {
+                    MessageBox.Show("Mã môn học không tồn tại.\n", "", MessageBoxButtons.OK);
+                    Program.conn.Close();
+                    return;
+                } else
                 {
                     if (MessageBox.Show("Bạn có chắc muốn sửa không?", "Sửa môn học", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
                         // Get the row on focus contain data
                         handleDuLieuFocus();
+
                         // Save action update Monhoc into Stack
                         int type = 3;
-                        if (Program.conn.State == ConnectionState.Closed)
-                            Program.conn.Open();
                         String lenh = "exec SP_UndoUpdateMonHoc '" + maMH + "', N'" + tenMH + "'";
                         ObjectUndo ob = new ObjectUndo(type, lenh);
                         st.Push(ob);
+
                         // Run sp Update monHoc
+                        if (Program.conn.State == ConnectionState.Closed) Program.conn.Open();
                         ExcuteSP_Update_Insert_MonHoc("SP_UpdateMonHoc", "Sửa môn học thành công");
                         Program.conn.Close();
                     }
@@ -331,12 +394,13 @@ namespace QLDSV
             catch (Exception ex)
             {
                 MessageBox.Show("Lỗi kiểm tra mã môn học.\n" + ex.Message, "", MessageBoxButtons.OK);
+                Program.conn.Close();
                 return;
             }
         }
 
         private void BtnThoatMonHoc_Click(object sender, EventArgs e)
-        {
+        { 
             this.Close();
         }
 
@@ -344,10 +408,12 @@ namespace QLDSV
         {
             if (MessageBox.Show(message, "Undo hoạt động", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                if (Program.conn.State == ConnectionState.Closed)
-                    Program.conn.Open();
-                MessageBox.Show(message + spLenh);
+                if (Program.conn.State == ConnectionState.Closed) Program.conn.Open();
                 Program.ExecSqlDataReader(spLenh);
+
+                MessageBox.Show(message + spLenh);
+                // Fill datagridview
+                this.mONHOCTableAdapter.Connection.ConnectionString = Program.connstr;
                 this.mONHOCTableAdapter.Fill(this.qLDSVROOT.MONHOC);
                 Program.conn.Close();
             }

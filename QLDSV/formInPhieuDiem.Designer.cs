@@ -39,7 +39,7 @@
             this.sP_PhieuDiemSinhVienTableAdapter = new QLDSV.QLDSVROOTTableAdapters.SP_PhieuDiemSinhVienTableAdapter();
             this.sINHVIENTableAdapter = new QLDSV.QLDSVROOTTableAdapters.SINHVIENTableAdapter();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cmbKhoa = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.panelControl4 = new DevExpress.XtraEditors.PanelControl();
@@ -145,7 +145,7 @@
             // 
             // panelControl1
             // 
-            this.panelControl1.Controls.Add(this.comboBox1);
+            this.panelControl1.Controls.Add(this.cmbKhoa);
             this.panelControl1.Controls.Add(this.label2);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
@@ -153,18 +153,19 @@
             this.panelControl1.Size = new System.Drawing.Size(1070, 60);
             this.panelControl1.TabIndex = 45;
             // 
-            // comboBox1
+            // cmbKhoa
             // 
-            this.comboBox1.DataSource = this.vDSPHANMANHBindingSource;
-            this.comboBox1.DisplayMember = "TENCN";
-            this.comboBox1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(97, 17);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(177, 27);
-            this.comboBox1.TabIndex = 44;
-            this.comboBox1.ValueMember = "TENSERVER";
+            this.cmbKhoa.DataSource = this.vDSPHANMANHBindingSource;
+            this.cmbKhoa.DisplayMember = "TENCN";
+            this.cmbKhoa.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbKhoa.FormattingEnabled = true;
+            this.cmbKhoa.Location = new System.Drawing.Point(97, 17);
+            this.cmbKhoa.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cmbKhoa.Name = "cmbKhoa";
+            this.cmbKhoa.Size = new System.Drawing.Size(177, 27);
+            this.cmbKhoa.TabIndex = 44;
+            this.cmbKhoa.ValueMember = "TENSERVER";
+            this.cmbKhoa.SelectedIndexChanged += new System.EventHandler(this.CmbKhoa_SelectedIndexChanged);
             // 
             // label2
             // 
@@ -472,7 +473,7 @@
         private System.Windows.Forms.BindingSource sINHVIENBindingSource;
         private QLDSVROOTTableAdapters.SINHVIENTableAdapter sINHVIENTableAdapter;
         private DevExpress.XtraEditors.PanelControl panelControl1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cmbKhoa;
         private System.Windows.Forms.Label label2;
         private DevExpress.XtraEditors.PanelControl panelControl2;
         private DevExpress.XtraEditors.PanelControl panelControl4;

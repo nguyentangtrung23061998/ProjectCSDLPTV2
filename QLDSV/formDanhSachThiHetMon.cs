@@ -62,6 +62,12 @@ namespace QLDSV
             gctrl_sP_DSThiHetMon.Enabled = false;
 
             cmbTenLop.Focus();
+
+
+            if (Program.mGroup == "KHOA")
+            {
+                comboKHOA.Enabled = false;
+            }
         }
 
         private void ComboKHOA_SelectedIndexChanged(object sender, EventArgs e)

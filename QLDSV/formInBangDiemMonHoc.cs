@@ -41,6 +41,11 @@ namespace QLDSV
             BangDiemTongKetGridControl.Visible = false;
 
             txtTenLop.ReadOnly = true;
+
+            if (Program.mGroup == "KHOA")
+            {
+                comboKHOA.Enabled = false;
+            }
         }
         private void BtnManHinh_Click(object sender, EventArgs e)
         {
@@ -312,15 +317,6 @@ namespace QLDSV
             rep.Bands[BandKind.Detail].Controls.Add(tableDetail);
         }
 
-        private void BtnNhapLop_Click(object sender, EventArgs e)
-        {
-            txtTenLop.ReadOnly = false;
-            lOPGridControl.Enabled = false;
-            BangDiemTongKetGridControl.Enabled = false;
-            BangDiemTongKetGridControl.Visible = false;
-            isNhap = true;
-        }
-
         private void ComboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             // For close form
@@ -343,7 +339,6 @@ namespace QLDSV
             {
                 this.lOPTableAdapter.Connection.ConnectionString = Program.connstr;
                 this.lOPTableAdapter.Fill(this.qLDSVROOT.LOP);
-
             }
         }
 

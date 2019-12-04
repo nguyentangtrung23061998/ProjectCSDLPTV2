@@ -30,6 +30,10 @@ namespace QLDSV
                 btnDiem.Enabled = false;
                 btnMonHoc.Enabled = false;
                 btnLop.Enabled = false;
+                btnSinhVien.Enabled = false;
+                btnPhieuDiem.Enabled = false;
+                btnDSThiHetMon.Enabled = false;
+                btnBangDiemMonHoc.Enabled = false;
             }
         }
         private Form CheckExists(Type ftype)

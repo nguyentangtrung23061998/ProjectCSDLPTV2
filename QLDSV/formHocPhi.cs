@@ -32,11 +32,12 @@ namespace QLDSV
         }
         private void FormHocPhi_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'qLDSVROOT.SINHVIEN' table. You can move, or remove it, as needed.
-            this.sINHVIENTableAdapter.Fill(this.qLDSVROOT.SINHVIEN);
-            // TODO: This line of code loads data into the 'qLDSVPMMaster.V_DS_PHANMANH' table. You can move, or remove it, as needed.
-            this.v_DS_PHANMANHTableAdapter.Fill(this.qLDSVPMMaster.V_DS_PHANMANH);
             qLDSVROOT.EnforceConstraints = false;
+            this.sINHVIENTableAdapter.Connection.ConnectionString = Program.connstr;
+            this.sINHVIENTableAdapter.Fill(this.qLDSVROOT.SINHVIEN);
+           
+            this.v_DS_PHANMANHTableAdapter.Fill(this.qLDSVPMMaster.V_DS_PHANMANH);
+           
             setComboboxKHOAbyDefault();
 
             IDictionary<int, string> dict = new Dictionary<int, string>();
@@ -51,10 +52,8 @@ namespace QLDSV
             sINHVIENGridControl.Enabled = false;
 
             btnGhi.Enabled = false;
-
             pnclHocPhi.Visible = false;
-            txtNienKhoa.ReadOnly = true;
-
+            cmbHocKy.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
         private void BtnLoad_Click(object sender, EventArgs e)
@@ -72,7 +71,6 @@ namespace QLDSV
             }
             try
             {
-
                 if (Program.conn.State == ConnectionState.Open) Program.conn.Close();
                 SqlDataReader myReader;
                 string strLenh = " exec SP_GetThongTinSinhVien '" + txtMASV.Text.Trim() + "'";
@@ -94,6 +92,8 @@ namespace QLDSV
                     this.sP_DongHocPhiSinhVienTableAdapter.Connection.ConnectionString = Program.connstr;
                     this.sP_DongHocPhiSinhVienTableAdapter.Fill(this.qLDSVROOT.SP_DongHocPhiSinhVien, txtMASV.Text.Trim());
 
+                    txtNienKhoa.ReadOnly = true;
+                    cmbHocKy.Enabled = false;
                     txtMASV.Enabled = false;
                     btnLoad.Enabled = true;
 
@@ -291,10 +291,16 @@ namespace QLDSV
             isAddNew = true;
             btnClear.Enabled = false;
             txtNienKhoa.ReadOnly = false;
+            cmbHocKy.Enabled = true;
         }
 
         private void BtnThoat_Click(object sender, EventArgs e)
         {
+            if (Program.conn.State == ConnectionState.Open) Program.conn.Close();
+            if(isAddNew)
+            {
+                this.sPDongHocPhiSinhVienBindingSource.RemoveCurrent();
+            }
             this.Close();
         }
 
@@ -307,7 +313,6 @@ namespace QLDSV
             gridView1.OptionsBehavior.Editable = false;
 
             txtMASV.ReadOnly = true;
-
             isChonMaSV = true;
 
         }
