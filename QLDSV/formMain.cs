@@ -32,6 +32,10 @@ namespace QLDSV
                 btnDiem.Enabled = false;
                 btnMonHoc.Enabled = false;
                 btnLop.Enabled = false;
+                btnSinhVien.Enabled = false;
+                btnPhieuDiem.Enabled = false;
+                btnDSThiHetMon.Enabled = false;
+                btnBangDiemMonHoc.Enabled = false;
             }
         }
         private Form CheckExists(Type ftype)
@@ -111,10 +115,13 @@ namespace QLDSV
         {
             if (Program.conn.State == ConnectionState.Open) Program.conn.Close();
             // Close formMain and open formDangNhap
-            this.Hide();
-            formDangNhap form2 = new formDangNhap();
-            form2.ShowDialog();
-            this.Close();
+            if (MessageBox.Show("Bạn muốn thoát chương trình?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                this.Hide();
+                formDangNhap form2 = new formDangNhap();
+                form2.ShowDialog();
+                this.Close();
+            }  
         }
 
         private void BtnTaoTaiKhoan_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -124,6 +131,42 @@ namespace QLDSV
             else
             {
                 formTaoLogin f = new formTaoLogin();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
+
+        private void BtnDSThiHetMon_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form frm = this.CheckExists(typeof(formDanhSachThiHetMon));
+            if (frm != null) frm.Activate();
+            else
+            {
+                formDanhSachThiHetMon f = new formDanhSachThiHetMon();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
+
+        private void BtnPhieuDiem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form frm = this.CheckExists(typeof(formInPhieuDiem));
+            if (frm != null) frm.Activate();
+            else
+            {
+                formInPhieuDiem f = new formInPhieuDiem();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
+
+        private void BtnBangDiemMonHoc_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form frm = this.CheckExists(typeof(formInBangDiemMonHoc));
+            if (frm != null) frm.Activate();
+            else
+            {
+                formInBangDiemMonHoc f = new formInBangDiemMonHoc();
                 f.MdiParent = this;
                 f.Show();
             }

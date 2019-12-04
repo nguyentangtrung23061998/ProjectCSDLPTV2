@@ -14,14 +14,15 @@ namespace QLDSV
 {
     public partial class formHocPhi : DevExpress.XtraEditors.XtraForm
     {
-        private Boolean isAddNew = false;
+        public Boolean isAddNew = false;
+        public Boolean isChonMaSV = false;
         public formHocPhi()
         {
             InitializeComponent();
         }
         private void setComboboxKHOAbyDefault()
         {
-           
+
             comboKHOA.DataSource = Program.bds_dspm;
             comboKHOA.DisplayMember = "TENCN";
             comboKHOA.ValueMember = "TENSERVER";
@@ -31,9 +32,12 @@ namespace QLDSV
         }
         private void FormHocPhi_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'qLDSVPMMaster.V_DS_PHANMANH' table. You can move, or remove it, as needed.
-            this.v_DS_PHANMANHTableAdapter.Fill(this.qLDSVPMMaster.V_DS_PHANMANH);
             qLDSVROOT.EnforceConstraints = false;
+            this.sINHVIENTableAdapter.Connection.ConnectionString = Program.connstr;
+            this.sINHVIENTableAdapter.Fill(this.qLDSVROOT.SINHVIEN);
+           
+            this.v_DS_PHANMANHTableAdapter.Fill(this.qLDSVPMMaster.V_DS_PHANMANH);
+           
             setComboboxKHOAbyDefault();
 
             IDictionary<int, string> dict = new Dictionary<int, string>();
@@ -45,15 +49,20 @@ namespace QLDSV
             cmbHocKy.ValueMember = "Key";
 
             hOCPHIGridControl.Enabled = false;
+            sINHVIENGridControl.Enabled = false;
+
             btnGhi.Enabled = false;
-            btnNhapSV.Enabled = false;
             pnclHocPhi.Visible = false;
-            txtNienKhoa.ReadOnly = true;
-           
+            cmbHocKy.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
         private void BtnLoad_Click(object sender, EventArgs e)
         {
+            if (isChonMaSV)
+            {
+                txtMASV.Text = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "MASV").ToString().Trim();
+                isChonMaSV = false;
+            }
             if (txtMASV.Text == "")
             {
                 MessageBox.Show("Vui lòng nhập mã SV!");
@@ -66,10 +75,12 @@ namespace QLDSV
                 SqlDataReader myReader;
                 string strLenh = " exec SP_GetThongTinSinhVien '" + txtMASV.Text.Trim() + "'";
                 myReader = Program.ExecSqlDataReader(strLenh);
+
                 if (!myReader.HasRows)
                 {
                     MessageBox.Show("Sinh viên không tồn tại hoặc đã NGHỈ HỌC!", "", MessageBoxButtons.OK);
                     myReader.Close();
+                    if (!isChonMaSV) isChonMaSV = true;
                     txtMASV.Focus();
                     return;
                 }
@@ -81,19 +92,37 @@ namespace QLDSV
                     this.sP_DongHocPhiSinhVienTableAdapter.Connection.ConnectionString = Program.connstr;
                     this.sP_DongHocPhiSinhVienTableAdapter.Fill(this.qLDSVROOT.SP_DongHocPhiSinhVien, txtMASV.Text.Trim());
 
+                    txtNienKhoa.ReadOnly = true;
+                    cmbHocKy.Enabled = false;
                     txtMASV.Enabled = false;
-                    btnLoad.Enabled = false;
-                    btnNhapSV.Enabled = true;
+                    btnLoad.Enabled = true;
+
                     btnGhi.Enabled = true;
                     hOCPHIGridControl.Enabled = true;
                     pnclHocPhi.Visible = true;
-                    
+
+                    sINHVIENGridControl.Enabled = false;
+
+                    int dem = sPDongHocPhiSinhVienBindingSource.Count;
+                    if (dem <= 0)
+                    {
+                        btnClear.Enabled = false;
+                        txtNienKhoa.Focus();
+                        txtNienKhoa.ReadOnly = false;
+                        // Create new row in grid control
+                        this.sPDongHocPhiSinhVienBindingSource.AddNew();
+                        isAddNew = true;
+                    }
+                    else
+                    {
+                        btnClear.Enabled = true;
+                    }
                 }
                 myReader.Close();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi lưu học phí:\n" + ex.Message, "", MessageBoxButtons.OK);
+                MessageBox.Show("Lỗi load học phí:\n" + ex.Message, "", MessageBoxButtons.OK);
                 Program.conn.Close();
                 return;
             }
@@ -101,46 +130,46 @@ namespace QLDSV
 
         private void BtnGhi_Click(object sender, EventArgs e)
         {
-
-            if(txtNienKhoa.Text.Trim() == "")
+            if (txtNienKhoa.Text.Trim() == "")
             {
                 MessageBox.Show("Niên khóa không được để trống!", "Lỗi", MessageBoxButtons.OK);
                 txtNienKhoa.Focus();
                 return;
             }
-            if(txtHocPhi.Text.Trim() == "")
+            if (txtHocPhi.Text.Trim() == "")
             {
                 MessageBox.Show("Học phí không được để trống!", "Lỗi", MessageBoxButtons.OK);
                 txtHocPhi.Focus();
                 return;
-            }else
-            {
-                int hocPhi = int.Parse(txtHocPhi.Text);
-                if(hocPhi < 0)
-                {
-                    MessageBox.Show("Học phí không được âm!", "Lỗi", MessageBoxButtons.OK);
-                    txtHocPhi.Focus();
-                    return;
-                }
             }
-            if(txtSoTien.Text.Trim() == "")
+            else if (int.Parse(txtHocPhi.Text) < 0)
+            {
+                MessageBox.Show("Học phí không được âm!", "Lỗi", MessageBoxButtons.OK);
+                txtHocPhi.Focus();
+                return;
+            }
+
+            if (txtSoTien.Text.Trim() == "")
             {
                 MessageBox.Show("Số tiền đã đóng không được để trống!", "Lỗi", MessageBoxButtons.OK);
                 txtSoTien.Focus();
                 return;
-            }else
+            }
+            else if (int.Parse(txtSoTien.Text) < 0)
             {
-                int soTien = int.Parse(txtSoTien.Text);
-                if(soTien < 0)
-                {
-                    MessageBox.Show("Số tiền không được âm!", "Lỗi", MessageBoxButtons.OK);
-                    txtSoTien.Focus();
-                    return;
-                }
+                MessageBox.Show("Số tiền không được âm!", "Lỗi", MessageBoxButtons.OK);
+                txtSoTien.Focus();
+                return;
             }
 
+            if (int.Parse(txtSoTien.Text) > int.Parse(txtHocPhi.Text))
+            {
+                MessageBox.Show("Số tiền đã đóng <= học phí!", "Lỗi", MessageBoxButtons.OK);
+                txtSoTien.Focus();
+                return;
+            }
             Boolean stopUpdate = false;
-            if(isAddNew)
+            if (isAddNew)
             {
                 try
                 {
@@ -173,7 +202,7 @@ namespace QLDSV
                 }
             }
 
-            if(!stopUpdate)
+            if (!stopUpdate)
             {
                 if (isAddNew)
                 {
@@ -186,7 +215,7 @@ namespace QLDSV
                         Program.sqlcmd = Program.conn.CreateCommand();
                         Program.sqlcmd.CommandType = CommandType.Text;
                         Program.sqlcmd.CommandText = strLenh;
-                        Program.sqlcmd.Parameters.Add("@MASV", SqlDbType.NVarChar).Value = txtMASV.Text.Trim();
+                        Program.sqlcmd.Parameters.Add("@MASV", SqlDbType.NChar).Value = txtMASV.Text.Trim();
                         Program.sqlcmd.Parameters.Add("@NIENKHOA", SqlDbType.NVarChar).Value = txtNienKhoa.Text.Trim();
                         Program.sqlcmd.Parameters.Add("@HOCKY", SqlDbType.Int).Value = int.Parse(cmbHocKy.SelectedValue.ToString());
                         Program.sqlcmd.Parameters.Add("@HOCPHI", SqlDbType.Int).Value = int.Parse(txtHocPhi.Text.Trim());
@@ -214,7 +243,7 @@ namespace QLDSV
                         Program.sqlcmd = Program.conn.CreateCommand();
                         Program.sqlcmd.CommandType = CommandType.Text;
                         Program.sqlcmd.CommandText = strLenh;
-                        Program.sqlcmd.Parameters.Add("@MASV", SqlDbType.NVarChar).Value = txtMASV.Text.Trim();
+                        Program.sqlcmd.Parameters.Add("@MASV", SqlDbType.NChar).Value = txtMASV.Text.Trim();
                         Program.sqlcmd.Parameters.Add("@NIENKHOA", SqlDbType.NVarChar).Value = txtNienKhoa.Text.Trim();
                         Program.sqlcmd.Parameters.Add("@HOCKY", SqlDbType.Int).Value = int.Parse(cmbHocKy.SelectedValue.ToString());
                         Program.sqlcmd.Parameters.Add("@HOCPHI", SqlDbType.Int).Value = int.Parse(txtHocPhi.Text.Trim());
@@ -241,16 +270,19 @@ namespace QLDSV
         private void BtnNhapSV_Click(object sender, EventArgs e)
         {
             txtMASV.Enabled = true;
-            btnNhapSV.Enabled = false;
+            txtMASV.Focus();
+
             btnLoad.Enabled = true;
             hOCPHIGridControl.Enabled = false;
+            sINHVIENGridControl.Enabled = false;
             pnclHocPhi.Visible = false;
+
             // Clear fields
-            txtMASV.Text = "";
+            txtMASV.ReadOnly = false;
             lbHOTEN.Text = "";
             lbMALOP.Text = "";
         }
-        
+
         private void BtnClear_Click(object sender, EventArgs e)
         {
             txtNienKhoa.Focus();
@@ -259,11 +291,30 @@ namespace QLDSV
             isAddNew = true;
             btnClear.Enabled = false;
             txtNienKhoa.ReadOnly = false;
+            cmbHocKy.Enabled = true;
         }
 
         private void BtnThoat_Click(object sender, EventArgs e)
         {
+            if (Program.conn.State == ConnectionState.Open) Program.conn.Close();
+            if(isAddNew)
+            {
+                this.sPDongHocPhiSinhVienBindingSource.RemoveCurrent();
+            }
             this.Close();
+        }
+
+        private void BtnChonSV_Click(object sender, EventArgs e)
+        {
+            hOCPHIGridControl.Enabled = false;
+            pnclHocPhi.Visible = false;
+
+            sINHVIENGridControl.Enabled = true;
+            gridView1.OptionsBehavior.Editable = false;
+
+            txtMASV.ReadOnly = true;
+            isChonMaSV = true;
+
         }
     }
 }

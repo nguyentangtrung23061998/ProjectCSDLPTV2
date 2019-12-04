@@ -18,6 +18,10 @@ namespace QLDSV
         {
             InitializeComponent();
         }
+
+        public int prevSelectedMaLop = -1;
+        public int prevSelectedMonHoc = -1;
+        public int prevSelectedLanThi = 0;
         private void setComboboxKHOAbyDefault()
         {
             comboKHOA.DataSource = Program.bds_dspm.DataSource;
@@ -29,6 +33,8 @@ namespace QLDSV
 
         private void FormDiem_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'qLDSVROOT.LOP' table. You can move, or remove it, as needed.
+            this.lOPTableAdapter.Fill(this.qLDSVROOT.LOP);
             // Stop checking the constraints
             qLDSVROOT.EnforceConstraints = false;
             // Run on the newest connection
@@ -88,9 +94,13 @@ namespace QLDSV
             {
                 this.lOPTableAdapter.Connection.ConnectionString = Program.connstr;
                 this.lOPTableAdapter.Fill(this.qLDSVROOT.LOP);
+
+                this.mONHOCTableAdapter.Connection.ConnectionString = Program.connstr;
+                this.mONHOCTableAdapter.Fill(this.qLDSVROOT.MONHOC);
             }
 
         }
+
 
         private void BtnGhiDiem_Click(object sender, EventArgs e)
         {
@@ -135,7 +145,7 @@ namespace QLDSV
                 String ret = Program.sqlcmd.Parameters["@Ret"].Value.ToString();
                 // dont have Diem before, insert into table DIEM
                 if (ret == "1")
-                {   
+                {
                     try
                     {
                         if (Program.conn.State == ConnectionState.Closed)
@@ -182,15 +192,16 @@ namespace QLDSV
                         return;
                     }
                 }
-                
+
             }
-            if(!hasError)
+            if (!hasError)
             {
                 MessageBox.Show("Ghi điểm thành công!", "", MessageBoxButtons.OK);
                 // If dont have error
-                this.btnBatDau.Enabled = true;
-                this.btnGhiDiem.Enabled = false;
-            }else
+                //this.btnBatDau.Enabled = true;
+                //this.btnGhiDiem.Enabled = false;
+            }
+            else
             {
                 MessageBox.Show("Ghi điểm thất bại!", "Thông báo", MessageBoxButtons.OK);
             }
@@ -199,48 +210,140 @@ namespace QLDSV
 
         private void BtnCancel_Click(object sender, EventArgs e)
         {
-            this.btnBatDau.Enabled = true;
-            this.btnGhiDiem.Enabled = false;
-
-            gridControlFillDiem.Enabled = false;
-            gridControlFillDiem.Visible = false;
+            this.Close();
         }
 
         private void BtnBatDau_Click(object sender, EventArgs e)
         {
             try
             {
+                // Check if SinhVien did not have diem yet 
                 if (Program.conn.State == ConnectionState.Closed)
                     Program.conn.Open();
-                string strLenh = "dbo.SP_NhapDiemMonHoc";
+                String check = "SP_KiemTraDieuKienNhapDiem";
                 Program.sqlcmd = Program.conn.CreateCommand();
                 Program.sqlcmd.CommandType = CommandType.StoredProcedure;
-                Program.sqlcmd.CommandText = strLenh;
+                Program.sqlcmd.CommandText = check;
                 Program.sqlcmd.Parameters.Add("@MALOP", SqlDbType.NChar).Value = cmbMaLop.SelectedValue.ToString();
-                Program.sqlcmd.Parameters.Add("@MAMH", SqlDbType.NVarChar).Value = cmbMaMH.SelectedValue.ToString();
-                Program.sqlcmd.Parameters.Add("@LANTHI", SqlDbType.NChar).Value = short.Parse(cmbLanThi.SelectedValue.ToString());
+                Program.sqlcmd.Parameters.Add("@MAMH", SqlDbType.NChar).Value = cmbMaMH.SelectedValue.ToString();
+                Program.sqlcmd.Parameters.Add("@LAN", SqlDbType.SmallInt).Value = short.Parse(cmbLanThi.SelectedValue.ToString());
+                Program.sqlcmd.Parameters.Add("@Ret", SqlDbType.Int).Direction = ParameterDirection.ReturnValue;
                 Program.sqlcmd.ExecuteNonQuery();
-                Program.conn.Close();
-                //fill the data
-                this.sP_NhapDiemMonHocTableAdapter.Connection.ConnectionString = Program.connstr;
-                this.sP_NhapDiemMonHocTableAdapter.Fill(this.qLDSVROOT.SP_NhapDiemMonHoc, cmbMaLop.SelectedValue.ToString(), cmbMaMH.SelectedValue.ToString(), short.Parse(cmbLanThi.SelectedValue.ToString()));
-                if (sPNhapDiemMonHocBindingSource.Count > 0)
+                String ret = Program.sqlcmd.Parameters["@Ret"].Value.ToString();
+               
+                // Did not have Diem lan 1, Dont allow to see LAN 2
+                if (ret == "2")
+                {
+                    MessageBox.Show("Chưa nhập điểm lần một\nVui lòng nhập lần 1 trước!", "Thông báo", MessageBoxButtons.OK);
+                    return;
+                }
+
+                try
+                {
+                    // Fill the data
+                    this.sP_NhapDiemMonHocTableAdapter.Connection.ConnectionString = Program.connstr;
+                    this.sP_NhapDiemMonHocTableAdapter.Fill(this.qLDSVROOT.SP_NhapDiemMonHoc, cmbMaLop.SelectedValue.ToString(), cmbMaMH.SelectedValue.ToString(), short.Parse(cmbLanThi.SelectedValue.ToString()));
+                    Program.conn.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi \n" + ex.Message);
+                   
+                    return;
+                }
+
+                if (sPNhapDiemMonHocBindingSource.Count == 0)
+                {
+                    MessageBox.Show("Lớp chưa có sinh viên!","Thông báo", MessageBoxButtons.OK);
+                    return;
+                }else
                 {
                     gridControlFillDiem.Enabled = true;
                     gridControlFillDiem.Visible = true;
-                    this.btnBatDau.Enabled = false;
-                    this.btnGhiDiem.Enabled = true;
+                    prevSelectedMaLop = cmbMaLop.SelectedIndex;
+                    prevSelectedMonHoc = cmbMaMH.SelectedIndex;
+                    prevSelectedLanThi = cmbLanThi.SelectedIndex;
                 }
-                else
+
+                // Allow to edit and fill
+                if (ret == "1")
                 {
-                    MessageBox.Show("Lớp và môn học chưa có điểm!");
-                    gridControlFillDiem.Enabled = false;
-                    gridControlFillDiem.Visible = false;
+                     this.btnBatDau.Enabled = false;
+                     this.btnGhiDiem.Enabled = true;
+                }
+                // Dont allow to edit LAN 1 cuz had LAN 2 already
+                if (ret == "0")
+                {
+                        gridView1.OptionsBehavior.Editable = false;
+                        this.btnBatDau.Enabled = true;
+                        this.btnGhiDiem.Enabled = false;
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi " + ex.Message);
+                MessageBox.Show("Lỗi kiểm tra điều kiện nhập điểm!\n" + ex.Message);
+            }
+        }
+
+
+        private void CmbMaLop_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbMaLop.SelectedIndex != prevSelectedMaLop && cmbMaLop.SelectedIndex != -1 && gridControlFillDiem.Enabled == true)
+            {
+                // prevSelectedIndex = cmbMaLop.SelectedIndex;
+                if (MessageBox.Show("Bạn muốn nhập điểm lớp khác?", "Xác nhận", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    this.btnBatDau.Enabled = true;
+                    this.btnGhiDiem.Enabled = false;
+
+                    gridControlFillDiem.Enabled = false;
+                    gridControlFillDiem.Visible = false;
+                }
+                else
+                {
+                    cmbMaLop.SelectedIndex = prevSelectedMaLop;
+                }
+            }
+
+        }
+
+        private void CmbMaMH_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbMaMH.SelectedIndex != prevSelectedMonHoc && cmbMaMH.SelectedIndex != -1 && gridControlFillDiem.Enabled == true)
+            {
+                // prevSelectedIndex = cmbMaLop.SelectedIndex;
+                if (MessageBox.Show("Bạn muốn nhập điểm môn học khác?", "Xác nhận", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    this.btnBatDau.Enabled = true;
+                    this.btnGhiDiem.Enabled = false;
+
+                    gridControlFillDiem.Enabled = false;
+                    gridControlFillDiem.Visible = false;
+                }
+                else
+                {
+                    cmbMaMH.SelectedIndex = prevSelectedMonHoc;
+                }
+            }
+        }
+
+        private void CmbLanThi_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbLanThi.SelectedIndex != prevSelectedLanThi && gridControlFillDiem.Enabled == true)
+            {
+                // prevSelectedIndex = cmbMaLop.SelectedIndex;
+                if (MessageBox.Show("Bạn muốn nhập điểm lần khác?", "Xác nhận", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    this.btnBatDau.Enabled = true;
+                    this.btnGhiDiem.Enabled = false;
+
+                    gridControlFillDiem.Enabled = false;
+                    gridControlFillDiem.Visible = false;
+                }
+                else
+                {
+                    cmbLanThi.SelectedIndex = prevSelectedLanThi;
+                }
             }
         }
     }
