@@ -32,6 +32,10 @@ namespace QLDSV
                 btnDiem.Enabled = false;
                 btnMonHoc.Enabled = false;
                 btnLop.Enabled = false;
+                btnSinhVien.Enabled = false;
+                btnPhieuDiem.Enabled = false;
+                btnDSThiHetMon.Enabled = false;
+                btnBangDiemMonHoc.Enabled = false;
             }
         }
         private Form CheckExists(Type ftype)
@@ -124,6 +128,42 @@ namespace QLDSV
             else
             {
                 formTaoLogin f = new formTaoLogin();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
+
+        private void btnDanhSachSinhVien_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form frm = this.CheckExists(typeof(formInDSSV));
+            if (frm != null) frm.Activate();
+            else
+            {
+                formInDSSV f = new formInDSSV();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
+
+        private void btnBangDiemMH_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form frm = this.CheckExists(typeof(formBangDiemMonHoc));
+            if (frm != null) frm.Activate();
+            else
+            {
+                formBangDiemMonHoc f = new formBangDiemMonHoc();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
+
+        private void btnDanhSachHocPhi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form frm = this.CheckExists(typeof(formDanhSachHocPhiTheoLop));
+            if (frm != null) frm.Activate();
+            else
+            {
+                formDanhSachHocPhiTheoLop f = new formDanhSachHocPhiTheoLop();
                 f.MdiParent = this;
                 f.Show();
             }

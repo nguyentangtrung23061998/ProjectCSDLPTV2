@@ -43,6 +43,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.v_DS_PHANMANHTableAdapter = new QLDSV.QLDSVROOTTableAdapters.V_DS_PHANMANHTableAdapter();
             this.vDSPHANMANHBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.btnThoat = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.vDSPHANMANHBindingSource2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.qLDSVROOT)).BeginInit();
@@ -54,6 +55,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.btnThoat);
             this.panel1.Controls.Add(this.comboBoxChiNhanh);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.pictureBox1);
@@ -120,10 +122,10 @@
             this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogin.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogin.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnLogin.Location = new System.Drawing.Point(225, 281);
+            this.btnLogin.Location = new System.Drawing.Point(113, 281);
             this.btnLogin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(178, 39);
+            this.btnLogin.Size = new System.Drawing.Size(178, 36);
             this.btnLogin.TabIndex = 3;
             this.btnLogin.Text = "ĐĂNG NHẬP";
             this.btnLogin.UseVisualStyleBackColor = false;
@@ -197,6 +199,23 @@
             this.vDSPHANMANHBindingSource1.DataMember = "V_DS_PHANMANH";
             this.vDSPHANMANHBindingSource1.DataSource = this.qLDSVROOT;
             // 
+            // btnThoat
+            // 
+            this.btnThoat.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btnThoat.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnThoat.FlatAppearance.BorderSize = 0;
+            this.btnThoat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnThoat.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnThoat.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnThoat.Location = new System.Drawing.Point(320, 281);
+            this.btnThoat.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnThoat.Name = "btnThoat";
+            this.btnThoat.Size = new System.Drawing.Size(178, 36);
+            this.btnThoat.TabIndex = 7;
+            this.btnThoat.Text = "THOÁT";
+            this.btnThoat.UseVisualStyleBackColor = false;
+            this.btnThoat.Click += new System.EventHandler(this.BtnThoat_Click);
+            // 
             // formDangNhap
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -234,5 +253,6 @@
         private QLDSVROOTTableAdapters.V_DS_PHANMANHTableAdapter v_DS_PHANMANHTableAdapter;
         private System.Windows.Forms.BindingSource vDSPHANMANHBindingSource2;
         private System.Windows.Forms.BindingSource vDSPHANMANHBindingSource1;
+        private System.Windows.Forms.Button btnThoat;
     }
 }
