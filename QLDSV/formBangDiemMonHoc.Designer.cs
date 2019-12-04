@@ -44,7 +44,6 @@
             this.qLDSVPMMaster = new QLDSV.QLDSVPMMaster();
             this.label1 = new System.Windows.Forms.Label();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
-            this.txtLanThi = new System.Windows.Forms.TextBox();
             this.dIEMBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.mONHOCBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.qLDSVROOT = new QLDSV.QLDSVROOT();
@@ -64,6 +63,7 @@
             this.dIEMTableAdapter = new QLDSV.QLDSVROOTTableAdapters.DIEMTableAdapter();
             this.sP_XuatBangDiemMonHocTableAdapter = new QLDSV.QLDSVROOTTableAdapters.SP_XuatBangDiemMonHocTableAdapter();
             this.v_DS_PHANMANHTableAdapter = new QLDSV.QLDSVPMMasterTableAdapters.V_DS_PHANMANHTableAdapter();
+            this.comboLanThi = new System.Windows.Forms.ComboBox();
             tENMHLabel = new System.Windows.Forms.Label();
             lANLabel1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
@@ -88,18 +88,18 @@
             tENMHLabel.AutoSize = true;
             tENMHLabel.Location = new System.Drawing.Point(55, 97);
             tENMHLabel.Name = "tENMHLabel";
-            tENMHLabel.Size = new System.Drawing.Size(57, 17);
+            tENMHLabel.Size = new System.Drawing.Size(89, 17);
             tENMHLabel.TabIndex = 2;
-            tENMHLabel.Text = "TENMH:";
+            tENMHLabel.Text = "Tên Môn Học";
             // 
             // lANLabel1
             // 
             lANLabel1.AutoSize = true;
-            lANLabel1.Location = new System.Drawing.Point(319, 96);
+            lANLabel1.Location = new System.Drawing.Point(342, 95);
             lANLabel1.Name = "lANLabel1";
-            lANLabel1.Size = new System.Drawing.Size(37, 17);
+            lANLabel1.Size = new System.Drawing.Size(32, 17);
             lANLabel1.TabIndex = 7;
-            lANLabel1.Text = "LAN:";
+            lANLabel1.Text = "LẦN";
             // 
             // bindingNavigator1
             // 
@@ -139,7 +139,7 @@
             this.btnMayIn.Image = ((System.Drawing.Image)(resources.GetObject("btnMayIn.Image")));
             this.btnMayIn.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnMayIn.Name = "btnMayIn";
-            this.btnMayIn.Size = new System.Drawing.Size(103, 28);
+            this.btnMayIn.Size = new System.Drawing.Size(103, 26);
             this.btnMayIn.Text = "MÁY IN";
             this.btnMayIn.Click += new System.EventHandler(this.btnMayIn_Click);
             // 
@@ -149,7 +149,7 @@
             this.btnThoatMonHoc.Image = ((System.Drawing.Image)(resources.GetObject("btnThoatMonHoc.Image")));
             this.btnThoatMonHoc.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnThoatMonHoc.Name = "btnThoatMonHoc";
-            this.btnThoatMonHoc.Size = new System.Drawing.Size(100, 28);
+            this.btnThoatMonHoc.Size = new System.Drawing.Size(100, 26);
             this.btnThoatMonHoc.Text = "THOÁT";
             this.btnThoatMonHoc.Click += new System.EventHandler(this.btnThoatMonHoc_Click);
             // 
@@ -221,8 +221,8 @@
             // 
             // panelControl1
             // 
+            this.panelControl1.Controls.Add(this.comboLanThi);
             this.panelControl1.Controls.Add(lANLabel1);
-            this.panelControl1.Controls.Add(this.txtLanThi);
             this.panelControl1.Controls.Add(this.txtTenMonHoc);
             this.panelControl1.Controls.Add(this.sP_XuatBangDiemMonHocGridControl);
             this.panelControl1.Controls.Add(tENMHLabel);
@@ -233,14 +233,6 @@
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(894, 435);
             this.panelControl1.TabIndex = 7;
-            // 
-            // txtLanThi
-            // 
-            this.txtLanThi.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.dIEMBindingSource, "LAN", true));
-            this.txtLanThi.Location = new System.Drawing.Point(362, 93);
-            this.txtLanThi.Name = "txtLanThi";
-            this.txtLanThi.Size = new System.Drawing.Size(100, 23);
-            this.txtLanThi.TabIndex = 8;
             // 
             // dIEMBindingSource
             // 
@@ -262,7 +254,7 @@
             this.txtTenMonHoc.DataSource = this.mONHOCBindingSource;
             this.txtTenMonHoc.DisplayMember = "TENMH";
             this.txtTenMonHoc.FormattingEnabled = true;
-            this.txtTenMonHoc.Location = new System.Drawing.Point(122, 93);
+            this.txtTenMonHoc.Location = new System.Drawing.Point(152, 90);
             this.txtTenMonHoc.Name = "txtTenMonHoc";
             this.txtTenMonHoc.Size = new System.Drawing.Size(156, 24);
             this.txtTenMonHoc.TabIndex = 7;
@@ -305,6 +297,7 @@
             // 
             // colHOTEN
             // 
+            this.colHOTEN.Caption = "Họ Tên";
             this.colHOTEN.FieldName = "HOTEN";
             this.colHOTEN.MinWidth = 25;
             this.colHOTEN.Name = "colHOTEN";
@@ -314,6 +307,7 @@
             // 
             // colDIEM
             // 
+            this.colDIEM.Caption = "Điểm";
             this.colDIEM.FieldName = "DIEM";
             this.colDIEM.MinWidth = 25;
             this.colDIEM.Name = "colDIEM";
@@ -326,7 +320,7 @@
             this.txtTenLop.DataSource = this.lOPBindingSource;
             this.txtTenLop.DisplayMember = "TENLOP";
             this.txtTenLop.FormattingEnabled = true;
-            this.txtTenLop.Location = new System.Drawing.Point(122, 42);
+            this.txtTenLop.Location = new System.Drawing.Point(152, 38);
             this.txtTenLop.Name = "txtTenLop";
             this.txtTenLop.Size = new System.Drawing.Size(186, 24);
             this.txtTenLop.TabIndex = 1;
@@ -340,11 +334,11 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(52, 45);
+            this.label2.Location = new System.Drawing.Point(60, 41);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(58, 17);
             this.label2.TabIndex = 0;
-            this.label2.Text = "TENLOP";
+            this.label2.Text = "Tên Lớp";
             // 
             // lOPTableAdapter
             // 
@@ -378,6 +372,14 @@
             // 
             this.v_DS_PHANMANHTableAdapter.ClearBeforeFill = true;
             // 
+            // comboLanThi
+            // 
+            this.comboLanThi.FormattingEnabled = true;
+            this.comboLanThi.Location = new System.Drawing.Point(385, 93);
+            this.comboLanThi.Name = "comboLanThi";
+            this.comboLanThi.Size = new System.Drawing.Size(121, 24);
+            this.comboLanThi.TabIndex = 8;
+            // 
             // formBangDiemMonHoc
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -387,7 +389,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.bindingNavigator1);
             this.Name = "formBangDiemMonHoc";
-            this.Text = "formBangDiemMonHoc";
+            this.Text = "Bảng Điểm Môn Học";
             this.Load += new System.EventHandler(this.formBangDiemMonHoc_Load);
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).EndInit();
             this.bindingNavigator1.ResumeLayout(false);
@@ -445,6 +447,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colHOTEN;
         private DevExpress.XtraGrid.Columns.GridColumn colDIEM;
         private System.Windows.Forms.ComboBox txtTenMonHoc;
-        private System.Windows.Forms.TextBox txtLanThi;
+        private System.Windows.Forms.ComboBox comboLanThi;
     }
 }

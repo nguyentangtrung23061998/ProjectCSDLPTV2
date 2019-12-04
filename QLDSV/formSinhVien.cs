@@ -74,6 +74,23 @@ namespace QLDSV
             comboKHOA.SelectedIndex = Program.mChinhanh;
         }
 
+        private void validation()
+        {
+            if (Program.mGroup == "KHOA")
+            {
+                this.btnSVThem.Visible = false;
+                this.btnSuaSV.Visible = false;
+                this.btnXoaSV.Visible = false;
+                this.btnPhucHoiSV.Visible = false;
+                this.btnClearSV.Visible = false;
+                this.btnRefresh.Visible = false;
+                this.btnChuyenLop.Visible = false;
+                this.btnThoatSV.Visible = false;
+                gridView1.OptionsBehavior.ReadOnly = true;
+                gridView2.OptionsBehavior.ReadOnly = true;
+            }
+        }
+
         public void formSinhVien_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'qLDSVROOT.SINHVIEN' table. You can move, or remove it, as needed.
@@ -92,6 +109,7 @@ namespace QLDSV
             txtMaLop.Enabled = false;
          
             setComboboxKHOAbyDefault();
+            this.validation();
         }
 
         private void comboKHOA_SelectedIndexChanged(object sender, EventArgs e)
@@ -240,52 +258,7 @@ namespace QLDSV
 
         private void btnThemSV2_Click(object sender, EventArgs e)
         {
-            if (Program.conn.State == ConnectionState.Closed)
-                Program.conn.Open();
-            Boolean checkValidation = validationSinhVien();
-            if (!checkValidation)
-            {
-                return;
-            }
-            int checkMaSV = kiemTraSinhVienTonTai(txtMaSV.Text);
-            if (checkMaSV == 1)
-            {
-                MessageBox.Show("Tồn tại mã sinh viên.\n", "", MessageBoxButtons.OK);
-            }
-            else if (checkMaSV == 2)
-            {
-                MessageBox.Show("Tồn tại mã sinh viên trong site khác.\n", "", MessageBoxButtons.OK);
-            }
-            else
-            {
-                try
-                {
-                    String strLenh = "dbo.SP_InsertSinhVien";
-                    Program.sqlcmd = Program.conn.CreateCommand();
-                    Program.sqlcmd.CommandType = CommandType.StoredProcedure;
-                    Program.sqlcmd.CommandText = strLenh;
-                    cmdSinhVien(txtMaSV.Text, txtHo.Text, txtTen.Text, txtMaLop.Text, checkboxPhai.Checked,
-                                comboNgaySinh.Text, txtNoiSinh.Text, txtDiaChi.Text, checkboxNghiHoc.Checked);
-                    Program.sqlcmd.ExecuteNonQuery();
-                    Program.conn.Close();
-                    this.btnRefreshSV.Enabled = false;
-                    this.sINHVIENBindingSource.EndEdit();
-                    sINHVIENBindingSource.ResetAllowNew();
-                    Program.conn.Close();
-                    MessageBox.Show("Thêm sinh viên thành công", "THÔNG BÁO", MessageBoxButtons.OK);
-                    this.btnRefreshSV.Enabled = false;
-                    int type = 1;//Thêm
-                    String lenh = "exec SP_UndoThemSinhVien '" + txtMaSV.Text + "'";
-                    ObjectUndo ob = new ObjectUndo(type, lenh);
-                    st.Push(ob);
-                    return;
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Lỗi ghi sinh viên.\n" + ex.Message, "", MessageBoxButtons.OK);
-                    return;
-                }
-            }
+            
         }
 
         public int xoaSinhVien(String maSV)
@@ -316,6 +289,7 @@ namespace QLDSV
             }
             catch (Exception ex)
             {
+                MessageBox.Show("Xóa sinh viên thất bai."+ex.Message, "", MessageBoxButtons.OK);
                 return 0;
             }
         }
@@ -328,11 +302,10 @@ namespace QLDSV
                 if (result == 1)
                 {
                     MessageBox.Show("Xóa sinh viên thành công.", "", MessageBoxButtons.OK);
-                    this.btnRefreshSV.Enabled = false;
                 }
                 else
                 {
-                    MessageBox.Show("Xóa sinh viên thất bai.", "", MessageBoxButtons.OK);
+                    return;
                 }
             }
         }
@@ -393,7 +366,6 @@ namespace QLDSV
                         int type = 3;//chỉnh sửa
                         ObjectUndo ob = new ObjectUndo(type, lenh);
                         st.Push(ob);
-                        this.btnRefreshSV.Enabled = false;
                     }
                     catch (Exception ex)
                     {
@@ -493,12 +465,55 @@ namespace QLDSV
             btnRefresh.PerformClick();
         }
 
-        private void panelControl1_Paint(object sender, PaintEventArgs e)
+        private void btnSVThem_Click(object sender, EventArgs e)
         {
-
+            if (Program.conn.State == ConnectionState.Closed)
+                Program.conn.Open();
+            Boolean checkValidation = validationSinhVien();
+            if (!checkValidation)
+            {
+                return;
+            }
+            int checkMaSV = kiemTraSinhVienTonTai(txtMaSV.Text);
+            if (checkMaSV == 1)
+            {
+                MessageBox.Show("Tồn tại mã sinh viên.\n", "", MessageBoxButtons.OK);
+            }
+            else if (checkMaSV == 2)
+            {
+                MessageBox.Show("Tồn tại mã sinh viên trong site khác.\n", "", MessageBoxButtons.OK);
+            }
+            else
+            {
+                try
+                {
+                    String strLenh = "dbo.SP_InsertSinhVien";
+                    Program.sqlcmd = Program.conn.CreateCommand();
+                    Program.sqlcmd.CommandType = CommandType.StoredProcedure;
+                    Program.sqlcmd.CommandText = strLenh;
+                    cmdSinhVien(txtMaSV.Text, txtHo.Text, txtTen.Text, txtMaLop.Text, checkboxPhai.Checked,
+                                comboNgaySinh.Text, txtNoiSinh.Text, txtDiaChi.Text, checkboxNghiHoc.Checked);
+                    Program.sqlcmd.ExecuteNonQuery();
+                    Program.conn.Close();
+                    this.sINHVIENBindingSource.EndEdit();
+                    sINHVIENBindingSource.ResetAllowNew();
+                    Program.conn.Close();
+                    MessageBox.Show("Thêm sinh viên thành công", "THÔNG BÁO", MessageBoxButtons.OK);
+                    int type = 1;//Thêm
+                    String lenh = "exec SP_UndoThemSinhVien '" + txtMaSV.Text + "'";
+                    ObjectUndo ob = new ObjectUndo(type, lenh);
+                    st.Push(ob);
+                    return;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi ghi sinh viên.\n" + ex.Message, "", MessageBoxButtons.OK);
+                    return;
+                }
+            }
         }
 
-        private void btnSVThem_Click(object sender, EventArgs e)
+        private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
         }

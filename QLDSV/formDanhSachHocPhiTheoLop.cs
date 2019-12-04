@@ -86,5 +86,10 @@ namespace QLDSV
             ReportPrintTool print = new ReportPrintTool(rpt);
             print.ShowPreviewDialog();
         }
+
+        private void comboNienKhoa_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

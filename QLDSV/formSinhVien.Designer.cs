@@ -120,81 +120,81 @@
             this.mASVLabel.AutoSize = true;
             this.mASVLabel.Location = new System.Drawing.Point(22, 25);
             this.mASVLabel.Name = "mASVLabel";
-            this.mASVLabel.Size = new System.Drawing.Size(47, 17);
+            this.mASVLabel.Size = new System.Drawing.Size(46, 17);
             this.mASVLabel.TabIndex = 0;
-            this.mASVLabel.Text = "MASV:";
+            this.mASVLabel.Text = "MÃ SV";
             // 
             // hOLabel
             // 
             this.hOLabel.AutoSize = true;
             this.hOLabel.Location = new System.Drawing.Point(22, 53);
             this.hOLabel.Name = "hOLabel";
-            this.hOLabel.Size = new System.Drawing.Size(32, 17);
+            this.hOLabel.Size = new System.Drawing.Size(25, 17);
             this.hOLabel.TabIndex = 2;
-            this.hOLabel.Text = "HO:";
+            this.hOLabel.Text = "Họ";
             // 
             // tENLabel
             // 
             this.tENLabel.AutoSize = true;
             this.tENLabel.Location = new System.Drawing.Point(22, 81);
             this.tENLabel.Name = "tENLabel";
-            this.tENLabel.Size = new System.Drawing.Size(38, 17);
+            this.tENLabel.Size = new System.Drawing.Size(31, 17);
             this.tENLabel.TabIndex = 4;
-            this.tENLabel.Text = "TEN:";
+            this.tENLabel.Text = "Tên";
             // 
             // mALOPLabel
             // 
             this.mALOPLabel.AutoSize = true;
             this.mALOPLabel.Location = new System.Drawing.Point(22, 110);
             this.mALOPLabel.Name = "mALOPLabel";
-            this.mALOPLabel.Size = new System.Drawing.Size(56, 17);
+            this.mALOPLabel.Size = new System.Drawing.Size(55, 17);
             this.mALOPLabel.TabIndex = 6;
-            this.mALOPLabel.Text = "MALOP:";
+            this.mALOPLabel.Text = "MÃ LỚP";
             // 
             // pHAILabel
             // 
             this.pHAILabel.AutoSize = true;
             this.pHAILabel.Location = new System.Drawing.Point(22, 137);
             this.pHAILabel.Name = "pHAILabel";
-            this.pHAILabel.Size = new System.Drawing.Size(42, 17);
+            this.pHAILabel.Size = new System.Drawing.Size(33, 17);
             this.pHAILabel.TabIndex = 8;
-            this.pHAILabel.Text = "PHAI:";
+            this.pHAILabel.Text = "Phái";
             // 
             // nGAYSINHLabel
             // 
             this.nGAYSINHLabel.AutoSize = true;
             this.nGAYSINHLabel.Location = new System.Drawing.Point(240, 23);
             this.nGAYSINHLabel.Name = "nGAYSINHLabel";
-            this.nGAYSINHLabel.Size = new System.Drawing.Size(77, 17);
+            this.nGAYSINHLabel.Size = new System.Drawing.Size(70, 17);
             this.nGAYSINHLabel.TabIndex = 10;
-            this.nGAYSINHLabel.Text = "NGAYSINH:";
+            this.nGAYSINHLabel.Text = "Ngày Sinh";
             // 
             // nOISINHLabel
             // 
             this.nOISINHLabel.AutoSize = true;
             this.nOISINHLabel.Location = new System.Drawing.Point(240, 50);
             this.nOISINHLabel.Name = "nOISINHLabel";
-            this.nOISINHLabel.Size = new System.Drawing.Size(66, 17);
+            this.nOISINHLabel.Size = new System.Drawing.Size(57, 17);
             this.nOISINHLabel.TabIndex = 12;
-            this.nOISINHLabel.Text = "NOISINH:";
+            this.nOISINHLabel.Text = "Nơi Sinh";
             // 
             // dIACHILabel
             // 
             this.dIACHILabel.AutoSize = true;
             this.dIACHILabel.Location = new System.Drawing.Point(240, 79);
             this.dIACHILabel.Name = "dIACHILabel";
-            this.dIACHILabel.Size = new System.Drawing.Size(57, 17);
+            this.dIACHILabel.Size = new System.Drawing.Size(50, 17);
             this.dIACHILabel.TabIndex = 14;
-            this.dIACHILabel.Text = "DIACHI:";
+            this.dIACHILabel.Text = "Địa Chỉ";
             // 
             // nGHIHOCLabel
             // 
             this.nGHIHOCLabel.AutoSize = true;
             this.nGHIHOCLabel.Location = new System.Drawing.Point(240, 107);
             this.nGHIHOCLabel.Name = "nGHIHOCLabel";
-            this.nGHIHOCLabel.Size = new System.Drawing.Size(72, 17);
+            this.nGHIHOCLabel.Size = new System.Drawing.Size(63, 17);
             this.nGHIHOCLabel.TabIndex = 16;
-            this.nGHIHOCLabel.Text = "NGHIHOC:";
+            this.nGHIHOCLabel.Text = "Nghĩ Học";
             // 
             // qLDSVROOT
             // 
@@ -293,6 +293,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(943, 80);
             this.panel1.TabIndex = 4;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // lOPGridControl
             // 
@@ -319,6 +320,7 @@
             // 
             // colMALOP
             // 
+            this.colMALOP.Caption = "MÃ LỚP";
             this.colMALOP.FieldName = "MALOP";
             this.colMALOP.MinWidth = 24;
             this.colMALOP.Name = "colMALOP";
@@ -328,6 +330,7 @@
             // 
             // colTENLOP
             // 
+            this.colTENLOP.Caption = "TÊN HỌC";
             this.colTENLOP.FieldName = "TENLOP";
             this.colTENLOP.MinWidth = 24;
             this.colTENLOP.Name = "colTENLOP";
@@ -337,6 +340,7 @@
             // 
             // colMAKH
             // 
+            this.colMAKH.Caption = "MÃ KHOA";
             this.colMAKH.FieldName = "MAKH";
             this.colMAKH.MinWidth = 24;
             this.colMAKH.Name = "colMAKH";
@@ -374,7 +378,6 @@
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(483, 312);
             this.panelControl1.TabIndex = 5;
-            this.panelControl1.Paint += new System.Windows.Forms.PaintEventHandler(this.panelControl1_Paint);
             // 
             // btnThoatSV
             // 
@@ -563,6 +566,7 @@
             // 
             // colMASV
             // 
+            this.colMASV.Caption = "MÃ SV";
             this.colMASV.FieldName = "MASV";
             this.colMASV.MinWidth = 24;
             this.colMASV.Name = "colMASV";
@@ -572,6 +576,7 @@
             // 
             // colHO
             // 
+            this.colHO.Caption = "HỌ";
             this.colHO.FieldName = "HO";
             this.colHO.MinWidth = 24;
             this.colHO.Name = "colHO";
@@ -581,6 +586,7 @@
             // 
             // colTEN
             // 
+            this.colTEN.Caption = "TÊN";
             this.colTEN.FieldName = "TEN";
             this.colTEN.MinWidth = 24;
             this.colTEN.Name = "colTEN";
@@ -590,6 +596,7 @@
             // 
             // colMALOP1
             // 
+            this.colMALOP1.Caption = "MÃ LỚP";
             this.colMALOP1.FieldName = "MALOP";
             this.colMALOP1.MinWidth = 24;
             this.colMALOP1.Name = "colMALOP1";
@@ -599,6 +606,7 @@
             // 
             // colPHAI
             // 
+            this.colPHAI.Caption = "PHÁI";
             this.colPHAI.FieldName = "PHAI";
             this.colPHAI.MinWidth = 24;
             this.colPHAI.Name = "colPHAI";
@@ -608,6 +616,7 @@
             // 
             // colNGAYSINH
             // 
+            this.colNGAYSINH.Caption = "NGÀY SINH";
             this.colNGAYSINH.FieldName = "NGAYSINH";
             this.colNGAYSINH.MinWidth = 24;
             this.colNGAYSINH.Name = "colNGAYSINH";
@@ -617,6 +626,7 @@
             // 
             // colNOISINH
             // 
+            this.colNOISINH.Caption = "NƠI SINH";
             this.colNOISINH.FieldName = "NOISINH";
             this.colNOISINH.MinWidth = 24;
             this.colNOISINH.Name = "colNOISINH";
@@ -626,6 +636,7 @@
             // 
             // colDIACHI
             // 
+            this.colDIACHI.Caption = "ĐỊA CHỈ";
             this.colDIACHI.FieldName = "DIACHI";
             this.colDIACHI.MinWidth = 24;
             this.colDIACHI.Name = "colDIACHI";
@@ -635,6 +646,7 @@
             // 
             // colNGHIHOC
             // 
+            this.colNGHIHOC.Caption = "NGHỈ HỌC";
             this.colNGHIHOC.FieldName = "NGHIHOC";
             this.colNGHIHOC.MinWidth = 24;
             this.colNGHIHOC.Name = "colNGHIHOC";

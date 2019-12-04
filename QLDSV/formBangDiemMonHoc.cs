@@ -33,6 +33,12 @@ namespace QLDSV
             this.lOPTableAdapter.Connection.ConnectionString = Program.connstr;
             this.lOPTableAdapter.Fill(this.qLDSVROOT.LOP);
             this.sP_XuatBangDiemMonHocGridControl.Visible = false;
+            IDictionary<int, string> dict = new Dictionary<int, string>();
+            dict.Add(1, "1");
+            dict.Add(2, "2");
+            comboLanThi.DataSource = new BindingSource(dict, null);
+            comboLanThi.DisplayMember = "Value";
+            comboLanThi.ValueMember = "Key";
         }
 
         //private void fillToolStripButton_Click(object sender, EventArgs e)
@@ -53,7 +59,7 @@ namespace QLDSV
             try
             {
                 this.sP_XuatBangDiemMonHocGridControl.Visible = true;
-                this.sP_XuatBangDiemMonHocTableAdapter.Fill(this.qLDSVROOT.SP_XuatBangDiemMonHoc, txtTenLop.Text, txtTenMonHoc.Text, new System.Nullable<short>(((short)(System.Convert.ChangeType(txtLanThi.Text, typeof(short))))));
+                this.sP_XuatBangDiemMonHocTableAdapter.Fill(this.qLDSVROOT.SP_XuatBangDiemMonHoc, txtTenLop.Text, txtTenMonHoc.Text, new System.Nullable<short>(((short)(System.Convert.ChangeType(comboLanThi.Text, typeof(short))))));
             }
             catch (System.Exception ex)
             {
@@ -63,7 +69,7 @@ namespace QLDSV
 
         private void btnMayIn_Click(object sender, EventArgs e)
         {
-            BaoCao.xRpt_InBangDiemMonHoc_spXuatBangDiemMonHoc rpt = new BaoCao.xRpt_InBangDiemMonHoc_spXuatBangDiemMonHoc(txtTenLop.Text,txtTenMonHoc.Text,txtLanThi.Text);
+            BaoCao.xRpt_InBangDiemMonHoc_spXuatBangDiemMonHoc rpt = new BaoCao.xRpt_InBangDiemMonHoc_spXuatBangDiemMonHoc(txtTenLop.Text,txtTenMonHoc.Text,comboLanThi.Text);
             rpt.lbLop.Text = txtTenLop.Text;
             rpt.lbMH.Text = txtTenMonHoc.Text;
             rpt.lbLanThi.Text = txtTenMonHoc.Text;

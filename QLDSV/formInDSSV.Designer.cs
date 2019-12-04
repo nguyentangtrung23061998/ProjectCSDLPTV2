@@ -126,7 +126,7 @@
             this.btnMayIn.Image = ((System.Drawing.Image)(resources.GetObject("btnMayIn.Image")));
             this.btnMayIn.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnMayIn.Name = "btnMayIn";
-            this.btnMayIn.Size = new System.Drawing.Size(103, 28);
+            this.btnMayIn.Size = new System.Drawing.Size(103, 26);
             this.btnMayIn.Text = "MÁY IN";
             this.btnMayIn.Click += new System.EventHandler(this.btnMayIn_Click);
             // 
@@ -136,7 +136,7 @@
             this.btnThoatMonHoc.Image = ((System.Drawing.Image)(resources.GetObject("btnThoatMonHoc.Image")));
             this.btnThoatMonHoc.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnThoatMonHoc.Name = "btnThoatMonHoc";
-            this.btnThoatMonHoc.Size = new System.Drawing.Size(100, 28);
+            this.btnThoatMonHoc.Size = new System.Drawing.Size(100, 26);
             this.btnThoatMonHoc.Text = "THOÁT";
             this.btnThoatMonHoc.Click += new System.EventHandler(this.btnThoatMonHoc_Click);
             // 
@@ -278,6 +278,7 @@
             // 
             // colMASV
             // 
+            this.colMASV.Caption = "Mã SV";
             this.colMASV.FieldName = "MASV";
             this.colMASV.MinWidth = 25;
             this.colMASV.Name = "colMASV";
@@ -287,6 +288,7 @@
             // 
             // colHO
             // 
+            this.colHO.Caption = "Họ";
             this.colHO.FieldName = "HO";
             this.colHO.MinWidth = 25;
             this.colHO.Name = "colHO";
@@ -296,6 +298,7 @@
             // 
             // colTEN
             // 
+            this.colTEN.Caption = "Tên";
             this.colTEN.FieldName = "TEN";
             this.colTEN.MinWidth = 25;
             this.colTEN.Name = "colTEN";
@@ -305,6 +308,7 @@
             // 
             // colMALOP
             // 
+            this.colMALOP.Caption = "Mã Lớp";
             this.colMALOP.FieldName = "MALOP";
             this.colMALOP.MinWidth = 25;
             this.colMALOP.Name = "colMALOP";
@@ -314,6 +318,7 @@
             // 
             // colPHAI
             // 
+            this.colPHAI.Caption = "Phái";
             this.colPHAI.FieldName = "PHAI";
             this.colPHAI.MinWidth = 25;
             this.colPHAI.Name = "colPHAI";
@@ -323,6 +328,7 @@
             // 
             // colNGAYSINH
             // 
+            this.colNGAYSINH.Caption = "Ngày Sinh";
             this.colNGAYSINH.FieldName = "NGAYSINH";
             this.colNGAYSINH.MinWidth = 25;
             this.colNGAYSINH.Name = "colNGAYSINH";
@@ -332,6 +338,7 @@
             // 
             // colNOISINH
             // 
+            this.colNOISINH.Caption = "Nơi Sinh";
             this.colNOISINH.FieldName = "NOISINH";
             this.colNOISINH.MinWidth = 25;
             this.colNOISINH.Name = "colNOISINH";
@@ -341,6 +348,7 @@
             // 
             // colDIACHI
             // 
+            this.colDIACHI.Caption = "Địa Chỉ";
             this.colDIACHI.FieldName = "DIACHI";
             this.colDIACHI.MinWidth = 25;
             this.colDIACHI.Name = "colDIACHI";
@@ -350,6 +358,7 @@
             // 
             // colNGHIHOC
             // 
+            this.colNGHIHOC.Caption = "Nghỉ Học";
             this.colNGHIHOC.FieldName = "NGHIHOC";
             this.colNGHIHOC.MinWidth = 25;
             this.colNGHIHOC.Name = "colNGHIHOC";
@@ -406,7 +415,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.bindingNavigator1);
             this.Name = "formInDSSV";
-            this.Text = "formInDSSV";
+            this.Text = "In Danh Sách Sinh Viên";
             this.Load += new System.EventHandler(this.formInDSSV_Load);
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).EndInit();
             this.bindingNavigator1.ResumeLayout(false);

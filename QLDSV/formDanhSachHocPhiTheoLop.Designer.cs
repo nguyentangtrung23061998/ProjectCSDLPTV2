@@ -91,7 +91,7 @@
             this.bindingNavigator1.MovePreviousItem = null;
             this.bindingNavigator1.Name = "bindingNavigator1";
             this.bindingNavigator1.PositionItem = null;
-            this.bindingNavigator1.Size = new System.Drawing.Size(836, 29);
+            this.bindingNavigator1.Size = new System.Drawing.Size(836, 31);
             this.bindingNavigator1.TabIndex = 3;
             this.bindingNavigator1.Text = "bindingNavigator1";
             // 
@@ -101,7 +101,7 @@
             this.btnManHinh.Image = ((System.Drawing.Image)(resources.GetObject("btnManHinh.Image")));
             this.btnManHinh.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnManHinh.Name = "btnManHinh";
-            this.btnManHinh.Size = new System.Drawing.Size(133, 26);
+            this.btnManHinh.Size = new System.Drawing.Size(133, 28);
             this.btnManHinh.Text = "MÀN HÌNH";
             this.btnManHinh.Click += new System.EventHandler(this.btnManHinh_Click);
             // 
@@ -182,11 +182,11 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(28, 116);
+            this.label3.Location = new System.Drawing.Point(32, 114);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(73, 17);
+            this.label3.Size = new System.Drawing.Size(69, 17);
             this.label3.TabIndex = 11;
-            this.label3.Text = "NIENKHOA";
+            this.label3.Text = "Niên Khóa";
             // 
             // label4
             // 
@@ -195,7 +195,7 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(52, 17);
             this.label4.TabIndex = 12;
-            this.label4.Text = "HOCKY";
+            this.label4.Text = "Học Kỳ";
             // 
             // comboNienKhoa
             // 
@@ -207,6 +207,7 @@
             this.comboNienKhoa.Size = new System.Drawing.Size(153, 24);
             this.comboNienKhoa.TabIndex = 13;
             this.comboNienKhoa.ValueMember = "NIENKHOA";
+            this.comboNienKhoa.SelectedIndexChanged += new System.EventHandler(this.comboNienKhoa_SelectedIndexChanged);
             // 
             // hOCPHIBindingSource
             // 
@@ -226,9 +227,9 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(32, 67);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(51, 17);
+            this.label2.Size = new System.Drawing.Size(52, 17);
             this.label2.TabIndex = 7;
-            this.label2.Text = "MALOP";
+            this.label2.Text = "Mã Lớp";
             // 
             // comboMaLop
             // 
@@ -276,6 +277,7 @@
             // 
             // colHOTEN
             // 
+            this.colHOTEN.Caption = "Họ Tên";
             this.colHOTEN.FieldName = "HOTEN";
             this.colHOTEN.MinWidth = 25;
             this.colHOTEN.Name = "colHOTEN";
@@ -285,6 +287,7 @@
             // 
             // colHOCPHI
             // 
+            this.colHOCPHI.Caption = "Học Phí";
             this.colHOCPHI.FieldName = "HOCPHI";
             this.colHOCPHI.MinWidth = 25;
             this.colHOCPHI.Name = "colHOCPHI";
@@ -294,6 +297,7 @@
             // 
             // tdSoTienDaDong
             // 
+            this.tdSoTienDaDong.Caption = "Số Tiền Đã Đóng";
             this.tdSoTienDaDong.FieldName = "SOTIENDADONG";
             this.tdSoTienDaDong.MinWidth = 25;
             this.tdSoTienDaDong.Name = "tdSoTienDaDong";
@@ -327,7 +331,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.bindingNavigator1);
             this.Name = "formDanhSachHocPhiTheoLop";
-            this.Text = "formDanhSachHocPhiTheoLop";
+            this.Text = "Danh Sách Học Phí Theo Lớp";
             this.Load += new System.EventHandler(this.formDanhSachHocPhiTheoLop_Load);
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).EndInit();
             this.bindingNavigator1.ResumeLayout(false);
