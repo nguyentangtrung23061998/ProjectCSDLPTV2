@@ -36,7 +36,7 @@ namespace QLDSV.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-695JA31;Initial Catalog=QLDSV;User ID=sa;Password=123456")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=THANH;Initial Catalog=QLDSV;User ID=sa;Password=1234")]
         public string QLDSVConnectionString {
             get {
                 return ((string)(this["QLDSVConnectionString"]));
@@ -46,11 +46,20 @@ namespace QLDSV.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-695JA31\\SERVER1;Initial Catalog=QLDSV;User ID=sa;Password=123" +
-            "456")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=THANH\\SERVER1;Initial Catalog=QLDSV;User ID=sa;Password=1234")]
         public string QLDSVSV1 {
             get {
                 return ((string)(this["QLDSVSV1"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-695JA31;Initial Catalog=QLDSV;User ID=sa;Password=123456")]
+        public string QLDSVConnectionString1 {
+            get {
+                return ((string)(this["QLDSVConnectionString1"]));
             }
         }
     }
