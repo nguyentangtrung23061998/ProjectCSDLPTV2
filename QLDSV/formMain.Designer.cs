@@ -57,6 +57,11 @@
             this.toolStripStatusLabelRole = new System.Windows.Forms.ToolStripStatusLabel();
             this.documentManager1 = new DevExpress.XtraBars.Docking2010.DocumentManager(this.components);
             this.tabbedView1 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView(this.components);
+            this.btnDanhSachSinhVien = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
+            this.btnDSSV = new DevExpress.XtraBars.BarButtonItem();
+            this.btnBangDiemMH = new DevExpress.XtraBars.BarButtonItem();
+            this.btnDanhSachHocPhi = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.v_DS_PHANMANHBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             this.statusStrip1.SuspendLayout();
@@ -86,15 +91,18 @@
             this.btnDangXuat,
             this.btnDSThiHetMon,
             this.btnPhieuDiem,
-            this.btnBangDiemMonHoc});
+            this.btnBangDiemMonHoc,
+            this.btnDSSV,
+            this.btnBangDiemMH,
+            this.btnDanhSachHocPhi});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
             this.ribbonControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.ribbonControl1.MaxItemId = 24;
+            this.ribbonControl1.MaxItemId = 27;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1,
             this.ribbonPage2});
-            this.ribbonControl1.Size = new System.Drawing.Size(1179, 141);
+            this.ribbonControl1.Size = new System.Drawing.Size(1375, 176);
             // 
             // barButtonItem1
             // 
@@ -243,6 +251,9 @@
             // 
             // ribbonPageGroup3
             // 
+            this.ribbonPageGroup3.ItemLinks.Add(this.btnDSSV);
+            this.ribbonPageGroup3.ItemLinks.Add(this.btnBangDiemMH);
+            this.ribbonPageGroup3.ItemLinks.Add(this.btnDanhSachHocPhi);
             this.ribbonPageGroup3.Name = "ribbonPageGroup3";
             this.ribbonPageGroup3.Text = "ribbonPageGroup3";
             // 
@@ -261,29 +272,28 @@
             this.toolStripStatusLabelMaUSER,
             this.toolStripStatusLabelTenUser,
             this.toolStripStatusLabelRole});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 592);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 730);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Padding = new System.Windows.Forms.Padding(1, 0, 12, 0);
-            this.statusStrip1.Size = new System.Drawing.Size(1179, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(1375, 26);
             this.statusStrip1.TabIndex = 2;
             this.statusStrip1.Text = "statusStrip1";
             // 
             // toolStripStatusLabelMaUSER
             // 
             this.toolStripStatusLabelMaUSER.Name = "toolStripStatusLabelMaUSER";
-            this.toolStripStatusLabelMaUSER.Size = new System.Drawing.Size(18, 17);
+            this.toolStripStatusLabelMaUSER.Size = new System.Drawing.Size(24, 20);
             this.toolStripStatusLabelMaUSER.Text = "ID";
             // 
             // toolStripStatusLabelTenUser
             // 
             this.toolStripStatusLabelTenUser.Name = "toolStripStatusLabelTenUser";
-            this.toolStripStatusLabelTenUser.Size = new System.Drawing.Size(34, 17);
+            this.toolStripStatusLabelTenUser.Size = new System.Drawing.Size(44, 20);
             this.toolStripStatusLabelTenUser.Text = "USER";
             // 
             // toolStripStatusLabelRole
             // 
             this.toolStripStatusLabelRole.Name = "toolStripStatusLabelRole";
-            this.toolStripStatusLabelRole.Size = new System.Drawing.Size(35, 17);
+            this.toolStripStatusLabelRole.Size = new System.Drawing.Size(44, 20);
             this.toolStripStatusLabelRole.Text = "ROLE";
             // 
             // documentManager1
@@ -294,11 +304,54 @@
             this.documentManager1.ViewCollection.AddRange(new DevExpress.XtraBars.Docking2010.Views.BaseView[] {
             this.tabbedView1});
             // 
+            // btnDanhSachSinhVien
+            // 
+            this.btnDanhSachSinhVien.Caption = "In DS Sinh Vien";
+            this.btnDanhSachSinhVien.Id = 19;
+            this.btnDanhSachSinhVien.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnDanhSachSinhVien.ImageOptions.Image")));
+            this.btnDanhSachSinhVien.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnDanhSachSinhVien.ImageOptions.LargeImage")));
+            this.btnDanhSachSinhVien.Name = "btnDanhSachSinhVien";
+            // 
+            // barButtonItem4
+            // 
+            this.barButtonItem4.Caption = "In DS Sinh Vien";
+            this.barButtonItem4.Id = 19;
+            this.barButtonItem4.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem4.ImageOptions.Image")));
+            this.barButtonItem4.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem4.ImageOptions.LargeImage")));
+            this.barButtonItem4.Name = "barButtonItem4";
+            // 
+            // btnDSSV
+            // 
+            this.btnDSSV.Caption = "In DS Sinh Vien";
+            this.btnDSSV.Id = 24;
+            this.btnDSSV.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnDSSV.ImageOptions.Image")));
+            this.btnDSSV.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnDSSV.ImageOptions.LargeImage")));
+            this.btnDSSV.Name = "btnDSSV";
+            this.btnDSSV.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDSSV_ItemClick);
+            // 
+            // btnBangDiemMH
+            // 
+            this.btnBangDiemMH.Caption = "Bảng Điểm Môn Học";
+            this.btnBangDiemMH.Id = 25;
+            this.btnBangDiemMH.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnBangDiemMH.ImageOptions.Image")));
+            this.btnBangDiemMH.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnBangDiemMH.ImageOptions.LargeImage")));
+            this.btnBangDiemMH.Name = "btnBangDiemMH";
+            this.btnBangDiemMH.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnBangDiemMH_ItemClick);
+            // 
+            // btnDanhSachHocPhi
+            // 
+            this.btnDanhSachHocPhi.Caption = "In DS Học Phi Lớp";
+            this.btnDanhSachHocPhi.Id = 26;
+            this.btnDanhSachHocPhi.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnDanhSachHocPhi.ImageOptions.Image")));
+            this.btnDanhSachHocPhi.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnDanhSachHocPhi.ImageOptions.LargeImage")));
+            this.btnDanhSachHocPhi.Name = "btnDanhSachHocPhi";
+            this.btnDanhSachHocPhi.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDanhSachHocPhi_ItemClick);
+            // 
             // formMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1179, 614);
+            this.ClientSize = new System.Drawing.Size(1375, 756);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.ribbonControl1);
             this.IsMdiContainer = true;
@@ -349,5 +402,10 @@
         private DevExpress.XtraBars.BarButtonItem btnPhieuDiem;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup4;
         private DevExpress.XtraBars.BarButtonItem btnBangDiemMonHoc;
+        private DevExpress.XtraBars.BarButtonItem btnDSSV;
+        private DevExpress.XtraBars.BarButtonItem btnBangDiemMH;
+        private DevExpress.XtraBars.BarButtonItem btnDanhSachHocPhi;
+        private DevExpress.XtraBars.BarButtonItem btnDanhSachSinhVien;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem4;
     }
 }

@@ -169,5 +169,41 @@ namespace QLDSV
                 f.Show();
             }
         }
+
+        private void btnDSSV_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form frm = this.CheckExists(typeof(formInDSSV));
+            if (frm != null) frm.Activate();
+            else
+            {
+                formInDSSV f = new formInDSSV();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
+
+        private void btnBangDiemMH_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form frm = this.CheckExists(typeof(formBangDiemMonHoc));
+            if (frm != null) frm.Activate();
+            else
+            {
+                formBangDiemMonHoc f = new formBangDiemMonHoc();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
+
+        private void btnDanhSachHocPhi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form frm = this.CheckExists(typeof(formDanhSachHocPhiTheoLop));
+            if (frm != null) frm.Activate();
+            else
+            {
+                formDanhSachHocPhiTheoLop f = new formDanhSachHocPhiTheoLop();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
     }
 }
