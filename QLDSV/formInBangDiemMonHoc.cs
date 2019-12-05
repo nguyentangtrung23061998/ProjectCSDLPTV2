@@ -40,6 +40,8 @@ namespace QLDSV
             BangDiemTongKetGridControl.Enabled = false;
             BangDiemTongKetGridControl.Visible = false;
 
+            gridView1.OptionsBehavior.ReadOnly = true;
+
             txtTenLop.ReadOnly = true;
 
             if (Program.mGroup == "KHOA")

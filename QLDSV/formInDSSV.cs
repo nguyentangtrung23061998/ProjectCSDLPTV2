@@ -39,6 +39,11 @@ namespace QLDSV
             this.v_DS_PHANMANHTableAdapter.Fill(this.qLDSVPMMaster.V_DS_PHANMANH);
             this.sINHVIENGridControl.Visible = false;
             setComboboxKHOAbyDefault();
+
+            if (Program.mGroup == "KHOA")
+            {
+                comboKHOA.Enabled = false;
+            }
         }
 
         private void btnManHinh_Click(object sender, EventArgs e)

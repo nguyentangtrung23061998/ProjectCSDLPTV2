@@ -96,110 +96,112 @@
             // mALOPLabel
             // 
             mALOPLabel.AutoSize = true;
-            mALOPLabel.Location = new System.Drawing.Point(8, 156);
+            mALOPLabel.Location = new System.Drawing.Point(36, 127);
             mALOPLabel.Name = "mALOPLabel";
-            mALOPLabel.Size = new System.Drawing.Size(56, 17);
+            mALOPLabel.Size = new System.Drawing.Size(45, 13);
             mALOPLabel.TabIndex = 40;
-            mALOPLabel.Text = "MALOP:";
+            mALOPLabel.Text = "Mã Lớp:";
             // 
             // mASVLabel
             // 
             mASVLabel.AutoSize = true;
-            mASVLabel.Location = new System.Drawing.Point(8, 34);
+            mASVLabel.Location = new System.Drawing.Point(41, 36);
             mASVLabel.Name = "mASVLabel";
-            mASVLabel.Size = new System.Drawing.Size(47, 17);
+            mASVLabel.Size = new System.Drawing.Size(40, 13);
             mASVLabel.TabIndex = 24;
-            mASVLabel.Text = "MASV:";
+            mASVLabel.Text = "Mã SV:";
             // 
             // hOLabel
             // 
             hOLabel.AutoSize = true;
-            hOLabel.Location = new System.Drawing.Point(8, 62);
+            hOLabel.Location = new System.Drawing.Point(58, 58);
             hOLabel.Name = "hOLabel";
-            hOLabel.Size = new System.Drawing.Size(32, 17);
+            hOLabel.Size = new System.Drawing.Size(23, 13);
             hOLabel.TabIndex = 26;
-            hOLabel.Text = "HO:";
+            hOLabel.Text = "Họ ";
             // 
             // tENLabel
             // 
             tENLabel.AutoSize = true;
-            tENLabel.Location = new System.Drawing.Point(8, 90);
+            tENLabel.Location = new System.Drawing.Point(52, 81);
             tENLabel.Name = "tENLabel";
-            tENLabel.Size = new System.Drawing.Size(38, 17);
+            tENLabel.Size = new System.Drawing.Size(29, 13);
             tENLabel.TabIndex = 28;
-            tENLabel.Text = "TEN:";
+            tENLabel.Text = "Tên:";
             // 
             // pHAILabel
             // 
             pHAILabel.AutoSize = true;
-            pHAILabel.Location = new System.Drawing.Point(8, 118);
+            pHAILabel.Location = new System.Drawing.Point(50, 104);
             pHAILabel.Name = "pHAILabel";
-            pHAILabel.Size = new System.Drawing.Size(42, 17);
+            pHAILabel.Size = new System.Drawing.Size(31, 13);
             pHAILabel.TabIndex = 30;
-            pHAILabel.Text = "PHAI:";
+            pHAILabel.Text = "Phái:";
             // 
             // nGAYSINHLabel
             // 
             nGAYSINHLabel.AutoSize = true;
-            nGAYSINHLabel.Location = new System.Drawing.Point(282, 34);
+            nGAYSINHLabel.Location = new System.Drawing.Point(229, 36);
             nGAYSINHLabel.Name = "nGAYSINHLabel";
-            nGAYSINHLabel.Size = new System.Drawing.Size(77, 17);
+            nGAYSINHLabel.Size = new System.Drawing.Size(61, 13);
             nGAYSINHLabel.TabIndex = 32;
-            nGAYSINHLabel.Text = "NGAYSINH:";
+            nGAYSINHLabel.Text = "Ngày sinh: ";
             // 
             // nOISINHLabel
             // 
             nOISINHLabel.AutoSize = true;
-            nOISINHLabel.Location = new System.Drawing.Point(282, 62);
+            nOISINHLabel.Location = new System.Drawing.Point(239, 58);
             nOISINHLabel.Name = "nOISINHLabel";
-            nOISINHLabel.Size = new System.Drawing.Size(66, 17);
+            nOISINHLabel.Size = new System.Drawing.Size(51, 13);
             nOISINHLabel.TabIndex = 34;
-            nOISINHLabel.Text = "NOISINH:";
+            nOISINHLabel.Text = "Nơi sinh: ";
             // 
             // dIACHILabel
             // 
             dIACHILabel.AutoSize = true;
-            dIACHILabel.Location = new System.Drawing.Point(282, 90);
+            dIACHILabel.Location = new System.Drawing.Point(244, 81);
             dIACHILabel.Name = "dIACHILabel";
-            dIACHILabel.Size = new System.Drawing.Size(57, 17);
+            dIACHILabel.Size = new System.Drawing.Size(46, 13);
             dIACHILabel.TabIndex = 36;
-            dIACHILabel.Text = "DIACHI:";
+            dIACHILabel.Text = "Địa chỉ: ";
             // 
             // nGHIHOCLabel
             // 
             nGHIHOCLabel.AutoSize = true;
-            nGHIHOCLabel.Location = new System.Drawing.Point(282, 121);
+            nGHIHOCLabel.Location = new System.Drawing.Point(235, 104);
             nGHIHOCLabel.Name = "nGHIHOCLabel";
-            nGHIHOCLabel.Size = new System.Drawing.Size(72, 17);
+            nGHIHOCLabel.Size = new System.Drawing.Size(55, 13);
             nGHIHOCLabel.TabIndex = 38;
-            nGHIHOCLabel.Text = "NGHIHOC:";
+            nGHIHOCLabel.Text = "Nghỉ học: ";
             // 
             // tENLOPLabel
             // 
             tENLOPLabel.AutoSize = true;
-            tENLOPLabel.Location = new System.Drawing.Point(17, 101);
+            tENLOPLabel.Location = new System.Drawing.Point(16, 47);
             tENLOPLabel.Name = "tENLOPLabel";
-            tENLOPLabel.Size = new System.Drawing.Size(56, 17);
+            tENLOPLabel.Size = new System.Drawing.Size(45, 13);
             tENLOPLabel.TabIndex = 38;
-            tENLOPLabel.Text = "MALOP:";
+            tENLOPLabel.Text = "Mã lớp: ";
             // 
             // mALOPLabel2
             // 
             mALOPLabel2.AutoSize = true;
-            mALOPLabel2.Location = new System.Drawing.Point(309, 98);
+            mALOPLabel2.Location = new System.Drawing.Point(265, 48);
             mALOPLabel2.Name = "mALOPLabel2";
-            mALOPLabel2.Size = new System.Drawing.Size(56, 17);
+            mALOPLabel2.Size = new System.Drawing.Size(38, 13);
             mALOPLabel2.TabIndex = 37;
-            mALOPLabel2.Text = "MALOP:";
+            mALOPLabel2.Text = "Mã lớp";
             // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Location = new System.Drawing.Point(8, 12);
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl1.Location = new System.Drawing.Point(0, 0);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(525, 309);
+            this.tabControl1.Size = new System.Drawing.Size(459, 229);
             this.tabControl1.TabIndex = 23;
             // 
             // tabPage1
@@ -223,28 +225,31 @@
             this.tabPage1.Controls.Add(nGHIHOCLabel);
             this.tabPage1.Controls.Add(this.cbNghiHoc);
             this.tabPage1.Controls.Add(this.label2);
-            this.tabPage1.Location = new System.Drawing.Point(4, 25);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(517, 280);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabPage1.Size = new System.Drawing.Size(451, 203);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "THÔNG TIN";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // txtMaLop
             // 
-            this.txtMaLop.Location = new System.Drawing.Point(91, 153);
+            this.txtMaLop.Location = new System.Drawing.Point(87, 124);
+            this.txtMaLop.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtMaLop.Name = "txtMaLop";
             this.txtMaLop.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMaLop.Properties.Appearance.ForeColor = System.Drawing.Color.Black;
             this.txtMaLop.Properties.Appearance.Options.UseFont = true;
             this.txtMaLop.Properties.Appearance.Options.UseForeColor = true;
-            this.txtMaLop.Size = new System.Drawing.Size(125, 24);
+            this.txtMaLop.Size = new System.Drawing.Size(107, 22);
             this.txtMaLop.TabIndex = 41;
             // 
             // txtMaSV
             // 
-            this.txtMaSV.Location = new System.Drawing.Point(91, 31);
+            this.txtMaSV.Location = new System.Drawing.Point(87, 33);
+            this.txtMaSV.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtMaSV.Name = "txtMaSV";
             this.txtMaSV.Properties.Appearance.BackColor = System.Drawing.Color.White;
             this.txtMaSV.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -252,12 +257,13 @@
             this.txtMaSV.Properties.Appearance.Options.UseBackColor = true;
             this.txtMaSV.Properties.Appearance.Options.UseFont = true;
             this.txtMaSV.Properties.Appearance.Options.UseForeColor = true;
-            this.txtMaSV.Size = new System.Drawing.Size(125, 24);
+            this.txtMaSV.Size = new System.Drawing.Size(107, 22);
             this.txtMaSV.TabIndex = 25;
             // 
             // txtHo
             // 
-            this.txtHo.Location = new System.Drawing.Point(91, 59);
+            this.txtHo.Location = new System.Drawing.Point(87, 56);
+            this.txtHo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtHo.Name = "txtHo";
             this.txtHo.Properties.Appearance.BackColor = System.Drawing.Color.White;
             this.txtHo.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -265,12 +271,13 @@
             this.txtHo.Properties.Appearance.Options.UseBackColor = true;
             this.txtHo.Properties.Appearance.Options.UseFont = true;
             this.txtHo.Properties.Appearance.Options.UseForeColor = true;
-            this.txtHo.Size = new System.Drawing.Size(125, 24);
+            this.txtHo.Size = new System.Drawing.Size(107, 22);
             this.txtHo.TabIndex = 27;
             // 
             // txtTen
             // 
-            this.txtTen.Location = new System.Drawing.Point(91, 87);
+            this.txtTen.Location = new System.Drawing.Point(87, 79);
+            this.txtTen.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtTen.Name = "txtTen";
             this.txtTen.Properties.Appearance.BackColor = System.Drawing.Color.White;
             this.txtTen.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -278,21 +285,23 @@
             this.txtTen.Properties.Appearance.Options.UseBackColor = true;
             this.txtTen.Properties.Appearance.Options.UseFont = true;
             this.txtTen.Properties.Appearance.Options.UseForeColor = true;
-            this.txtTen.Size = new System.Drawing.Size(125, 24);
+            this.txtTen.Size = new System.Drawing.Size(107, 22);
             this.txtTen.TabIndex = 29;
             // 
             // cbPhai
             // 
-            this.cbPhai.Location = new System.Drawing.Point(91, 115);
+            this.cbPhai.Location = new System.Drawing.Point(87, 101);
+            this.cbPhai.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbPhai.Name = "cbPhai";
             this.cbPhai.Properties.Caption = "(✔ Nam, ☐ Nữ) ";
-            this.cbPhai.Size = new System.Drawing.Size(125, 21);
+            this.cbPhai.Size = new System.Drawing.Size(107, 19);
             this.cbPhai.TabIndex = 31;
             // 
             // comboNgaySinh
             // 
             this.comboNgaySinh.EditValue = null;
-            this.comboNgaySinh.Location = new System.Drawing.Point(365, 31);
+            this.comboNgaySinh.Location = new System.Drawing.Point(296, 33);
+            this.comboNgaySinh.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboNgaySinh.Name = "comboNgaySinh";
             this.comboNgaySinh.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboNgaySinh.Properties.Appearance.ForeColor = System.Drawing.Color.Black;
@@ -302,45 +311,48 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.comboNgaySinh.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.comboNgaySinh.Size = new System.Drawing.Size(125, 24);
+            this.comboNgaySinh.Size = new System.Drawing.Size(107, 22);
             this.comboNgaySinh.TabIndex = 33;
             // 
             // txtNoiSinh
             // 
-            this.txtNoiSinh.Location = new System.Drawing.Point(365, 59);
+            this.txtNoiSinh.Location = new System.Drawing.Point(296, 56);
+            this.txtNoiSinh.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtNoiSinh.Name = "txtNoiSinh";
             this.txtNoiSinh.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNoiSinh.Properties.Appearance.ForeColor = System.Drawing.Color.Black;
             this.txtNoiSinh.Properties.Appearance.Options.UseFont = true;
             this.txtNoiSinh.Properties.Appearance.Options.UseForeColor = true;
-            this.txtNoiSinh.Size = new System.Drawing.Size(125, 24);
+            this.txtNoiSinh.Size = new System.Drawing.Size(107, 22);
             this.txtNoiSinh.TabIndex = 35;
             // 
             // txtDiaChi
             // 
-            this.txtDiaChi.Location = new System.Drawing.Point(365, 87);
+            this.txtDiaChi.Location = new System.Drawing.Point(296, 79);
+            this.txtDiaChi.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtDiaChi.Name = "txtDiaChi";
             this.txtDiaChi.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDiaChi.Properties.Appearance.ForeColor = System.Drawing.Color.Black;
             this.txtDiaChi.Properties.Appearance.Options.UseFont = true;
             this.txtDiaChi.Properties.Appearance.Options.UseForeColor = true;
-            this.txtDiaChi.Size = new System.Drawing.Size(125, 24);
+            this.txtDiaChi.Size = new System.Drawing.Size(107, 22);
             this.txtDiaChi.TabIndex = 37;
             // 
             // cbNghiHoc
             // 
-            this.cbNghiHoc.Location = new System.Drawing.Point(365, 118);
+            this.cbNghiHoc.Location = new System.Drawing.Point(296, 104);
+            this.cbNghiHoc.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbNghiHoc.Name = "cbNghiHoc";
             this.cbNghiHoc.Properties.Caption = "";
-            this.cbNghiHoc.Size = new System.Drawing.Size(125, 19);
+            this.cbNghiHoc.Size = new System.Drawing.Size(107, 19);
             this.cbNghiHoc.TabIndex = 39;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(18, 10);
+            this.label2.Location = new System.Drawing.Point(24, 16);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(0, 17);
+            this.label2.Size = new System.Drawing.Size(0, 13);
             this.label2.TabIndex = 23;
             // 
             // tabPage2
@@ -353,19 +365,21 @@
             this.tabPage2.Controls.Add(this.btnChuyenLop);
             this.tabPage2.Controls.Add(this.label1);
             this.tabPage2.Controls.Add(this.statusStrip1);
-            this.tabPage2.Location = new System.Drawing.Point(4, 25);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(517, 280);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabPage2.Size = new System.Drawing.Size(451, 203);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "CHUYỂN LỚP";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // txtTL
             // 
-            this.txtTL.Location = new System.Drawing.Point(86, 98);
+            this.txtTL.Location = new System.Drawing.Point(67, 45);
+            this.txtTL.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtTL.Name = "txtTL";
-            this.txtTL.Size = new System.Drawing.Size(100, 23);
+            this.txtTL.Size = new System.Drawing.Size(86, 21);
             this.txtTL.TabIndex = 39;
             // 
             // comboMaLop
@@ -373,9 +387,10 @@
             this.comboMaLop.DataSource = this.lOPBindingSource;
             this.comboMaLop.DisplayMember = "MALOP";
             this.comboMaLop.FormattingEnabled = true;
-            this.comboMaLop.Location = new System.Drawing.Point(378, 95);
+            this.comboMaLop.Location = new System.Drawing.Point(316, 44);
+            this.comboMaLop.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboMaLop.Name = "comboMaLop";
-            this.comboMaLop.Size = new System.Drawing.Size(121, 24);
+            this.comboMaLop.Size = new System.Drawing.Size(104, 21);
             this.comboMaLop.TabIndex = 38;
             this.comboMaLop.ValueMember = "MALOP";
             // 
@@ -393,9 +408,10 @@
             // 
             this.btnChuyenLop.BackColor = System.Drawing.Color.DarkGray;
             this.btnChuyenLop.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnChuyenLop.Location = new System.Drawing.Point(165, 166);
+            this.btnChuyenLop.Location = new System.Drawing.Point(142, 100);
+            this.btnChuyenLop.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnChuyenLop.Name = "btnChuyenLop";
-            this.btnChuyenLop.Size = new System.Drawing.Size(169, 31);
+            this.btnChuyenLop.Size = new System.Drawing.Size(145, 28);
             this.btnChuyenLop.TabIndex = 37;
             this.btnChuyenLop.Text = "Chuyển Lớp";
             this.btnChuyenLop.UseVisualStyleBackColor = false;
@@ -405,9 +421,9 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(208, 99);
+            this.label1.Location = new System.Drawing.Point(179, 45);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(80, 19);
+            this.label1.Size = new System.Drawing.Size(64, 17);
             this.label1.TabIndex = 35;
             this.label1.Text = "CHUYỂN";
             // 
@@ -417,23 +433,24 @@
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusMaSV,
             this.toolStripStatusHoTen});
-            this.statusStrip1.Location = new System.Drawing.Point(3, 251);
+            this.statusStrip1.Location = new System.Drawing.Point(3, 179);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(511, 26);
+            this.statusStrip1.Padding = new System.Windows.Forms.Padding(1, 0, 12, 0);
+            this.statusStrip1.Size = new System.Drawing.Size(445, 22);
             this.statusStrip1.TabIndex = 34;
             this.statusStrip1.Text = "statusStrip1";
             // 
             // toolStripStatusMaSV
             // 
             this.toolStripStatusMaSV.Name = "toolStripStatusMaSV";
-            this.toolStripStatusMaSV.Size = new System.Drawing.Size(52, 20);
-            this.toolStripStatusMaSV.Text = "MASV:";
+            this.toolStripStatusMaSV.Size = new System.Drawing.Size(46, 17);
+            this.toolStripStatusMaSV.Text = "Mã SV: ";
             // 
             // toolStripStatusHoTen
             // 
             this.toolStripStatusHoTen.Name = "toolStripStatusHoTen";
-            this.toolStripStatusHoTen.Size = new System.Drawing.Size(55, 20);
-            this.toolStripStatusHoTen.Text = "HoTen:";
+            this.toolStripStatusHoTen.Size = new System.Drawing.Size(49, 17);
+            this.toolStripStatusHoTen.Text = "Họ tên: ";
             // 
             // lOPTableAdapter
             // 
@@ -453,12 +470,13 @@
             // 
             // formChuyenLop
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(536, 324);
+            this.ClientSize = new System.Drawing.Size(459, 229);
             this.Controls.Add(this.tabControl1);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "formChuyenLop";
-            this.Text = "formChuyenLop";
+            this.Text = "Chuyển lớp";
             this.Load += new System.EventHandler(this.formChuyenLop_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);

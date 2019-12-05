@@ -84,20 +84,22 @@
             // tENMHLabel
             // 
             this.tENMHLabel.AutoSize = true;
-            this.tENMHLabel.Location = new System.Drawing.Point(55, 97);
+            this.tENMHLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tENMHLabel.Location = new System.Drawing.Point(46, 81);
             this.tENMHLabel.Name = "tENMHLabel";
-            this.tENMHLabel.Size = new System.Drawing.Size(89, 17);
+            this.tENMHLabel.Size = new System.Drawing.Size(98, 19);
             this.tENMHLabel.TabIndex = 2;
-            this.tENMHLabel.Text = "Tên Môn Học";
+            this.tENMHLabel.Text = "Tên Môn Học:";
             // 
             // lANLabel1
             // 
             this.lANLabel1.AutoSize = true;
-            this.lANLabel1.Location = new System.Drawing.Point(342, 95);
+            this.lANLabel1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lANLabel1.Location = new System.Drawing.Point(452, 59);
             this.lANLabel1.Name = "lANLabel1";
-            this.lANLabel1.Size = new System.Drawing.Size(32, 17);
+            this.lANLabel1.Size = new System.Drawing.Size(57, 19);
             this.lANLabel1.TabIndex = 7;
-            this.lANLabel1.Text = "LẦN";
+            this.lANLabel1.Text = "Lần thi: ";
             // 
             // bindingNavigator1
             // 
@@ -117,7 +119,7 @@
             this.bindingNavigator1.MovePreviousItem = null;
             this.bindingNavigator1.Name = "bindingNavigator1";
             this.bindingNavigator1.PositionItem = null;
-            this.bindingNavigator1.Size = new System.Drawing.Size(894, 31);
+            this.bindingNavigator1.Size = new System.Drawing.Size(766, 27);
             this.bindingNavigator1.TabIndex = 3;
             this.bindingNavigator1.Text = "bindingNavigator1";
             // 
@@ -127,7 +129,7 @@
             this.btnManHinh.Image = ((System.Drawing.Image)(resources.GetObject("btnManHinh.Image")));
             this.btnManHinh.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnManHinh.Name = "btnManHinh";
-            this.btnManHinh.Size = new System.Drawing.Size(133, 28);
+            this.btnManHinh.Size = new System.Drawing.Size(113, 24);
             this.btnManHinh.Text = "MÀN HÌNH";
             this.btnManHinh.Click += new System.EventHandler(this.btnManHinh_Click);
             // 
@@ -137,7 +139,7 @@
             this.btnMayIn.Image = ((System.Drawing.Image)(resources.GetObject("btnMayIn.Image")));
             this.btnMayIn.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnMayIn.Name = "btnMayIn";
-            this.btnMayIn.Size = new System.Drawing.Size(103, 28);
+            this.btnMayIn.Size = new System.Drawing.Size(89, 24);
             this.btnMayIn.Text = "MÁY IN";
             this.btnMayIn.Click += new System.EventHandler(this.btnMayIn_Click);
             // 
@@ -147,7 +149,7 @@
             this.btnThoatMonHoc.Image = ((System.Drawing.Image)(resources.GetObject("btnThoatMonHoc.Image")));
             this.btnThoatMonHoc.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnThoatMonHoc.Name = "btnThoatMonHoc";
-            this.btnThoatMonHoc.Size = new System.Drawing.Size(100, 28);
+            this.btnThoatMonHoc.Size = new System.Drawing.Size(85, 24);
             this.btnThoatMonHoc.Text = "THOÁT";
             this.btnThoatMonHoc.Click += new System.EventHandler(this.btnThoatMonHoc_Click);
             // 
@@ -158,10 +160,10 @@
             this.panel1.Controls.Add(this.comboKHOA);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 31);
+            this.panel1.Location = new System.Drawing.Point(0, 27);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(894, 70);
+            this.panel1.Size = new System.Drawing.Size(766, 57);
             this.panel1.TabIndex = 6;
             // 
             // bunifuCards1
@@ -171,12 +173,12 @@
             this.bunifuCards1.BottomSahddow = true;
             this.bunifuCards1.color = System.Drawing.Color.Tomato;
             this.bunifuCards1.LeftSahddow = false;
-            this.bunifuCards1.Location = new System.Drawing.Point(289, 30);
+            this.bunifuCards1.Location = new System.Drawing.Point(248, 24);
             this.bunifuCards1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.bunifuCards1.Name = "bunifuCards1";
             this.bunifuCards1.RightSahddow = true;
             this.bunifuCards1.ShadowDepth = 20;
-            this.bunifuCards1.Size = new System.Drawing.Size(8, 7);
+            this.bunifuCards1.Size = new System.Drawing.Size(7, 6);
             this.bunifuCards1.TabIndex = 2;
             // 
             // comboKHOA
@@ -185,12 +187,13 @@
             this.comboKHOA.DisplayMember = "TENCN";
             this.comboKHOA.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboKHOA.FormattingEnabled = true;
-            this.comboKHOA.Location = new System.Drawing.Point(122, 16);
+            this.comboKHOA.Location = new System.Drawing.Point(105, 13);
             this.comboKHOA.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboKHOA.Name = "comboKHOA";
-            this.comboKHOA.Size = new System.Drawing.Size(251, 30);
+            this.comboKHOA.Size = new System.Drawing.Size(216, 27);
             this.comboKHOA.TabIndex = 1;
             this.comboKHOA.ValueMember = "TENSERVER";
+            this.comboKHOA.SelectedIndexChanged += new System.EventHandler(this.ComboKHOA_SelectedIndexChanged);
             // 
             // vDSPHANMANHBindingSource
             // 
@@ -211,9 +214,9 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(51, 20);
+            this.label1.Location = new System.Drawing.Point(44, 16);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(66, 22);
+            this.label1.Size = new System.Drawing.Size(55, 19);
             this.label1.TabIndex = 0;
             this.label1.Text = "KHOA";
             // 
@@ -227,27 +230,32 @@
             this.panelControl1.Controls.Add(this.txtTenLop);
             this.panelControl1.Controls.Add(this.label2);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl1.Location = new System.Drawing.Point(0, 101);
+            this.panelControl1.Location = new System.Drawing.Point(0, 84);
+            this.panelControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(894, 433);
+            this.panelControl1.Size = new System.Drawing.Size(766, 350);
             this.panelControl1.TabIndex = 7;
             // 
             // comboLanThi
             // 
+            this.comboLanThi.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboLanThi.FormattingEnabled = true;
-            this.comboLanThi.Location = new System.Drawing.Point(385, 93);
+            this.comboLanThi.Location = new System.Drawing.Point(515, 56);
+            this.comboLanThi.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboLanThi.Name = "comboLanThi";
-            this.comboLanThi.Size = new System.Drawing.Size(121, 24);
+            this.comboLanThi.Size = new System.Drawing.Size(67, 27);
             this.comboLanThi.TabIndex = 8;
             // 
             // txtTenMonHoc
             // 
             this.txtTenMonHoc.DataSource = this.mONHOCBindingSource;
             this.txtTenMonHoc.DisplayMember = "TENMH";
+            this.txtTenMonHoc.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTenMonHoc.FormattingEnabled = true;
-            this.txtTenMonHoc.Location = new System.Drawing.Point(152, 90);
+            this.txtTenMonHoc.Location = new System.Drawing.Point(152, 78);
+            this.txtTenMonHoc.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtTenMonHoc.Name = "txtTenMonHoc";
-            this.txtTenMonHoc.Size = new System.Drawing.Size(156, 24);
+            this.txtTenMonHoc.Size = new System.Drawing.Size(243, 27);
             this.txtTenMonHoc.TabIndex = 7;
             this.txtTenMonHoc.ValueMember = "TENMH";
             // 
@@ -265,10 +273,12 @@
             // 
             this.sP_XuatBangDiemMonHocGridControl.DataSource = this.sP_XuatBangDiemMonHocBindingSource;
             this.sP_XuatBangDiemMonHocGridControl.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.sP_XuatBangDiemMonHocGridControl.Location = new System.Drawing.Point(2, 211);
+            this.sP_XuatBangDiemMonHocGridControl.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.sP_XuatBangDiemMonHocGridControl.Location = new System.Drawing.Point(2, 152);
             this.sP_XuatBangDiemMonHocGridControl.MainView = this.gridView1;
+            this.sP_XuatBangDiemMonHocGridControl.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.sP_XuatBangDiemMonHocGridControl.Name = "sP_XuatBangDiemMonHocGridControl";
-            this.sP_XuatBangDiemMonHocGridControl.Size = new System.Drawing.Size(890, 220);
+            this.sP_XuatBangDiemMonHocGridControl.Size = new System.Drawing.Size(762, 196);
             this.sP_XuatBangDiemMonHocGridControl.TabIndex = 6;
             this.sP_XuatBangDiemMonHocGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -280,48 +290,60 @@
             // 
             // gridView1
             // 
+            this.gridView1.Appearance.HeaderPanel.Options.UseTextOptions = true;
+            this.gridView1.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.gridColumn1,
             this.colHOTEN,
             this.colDIEM});
+            this.gridView1.DetailHeight = 284;
             this.gridView1.GridControl = this.sP_XuatBangDiemMonHocGridControl;
             this.gridView1.Name = "gridView1";
             // 
             // gridColumn1
             // 
+            this.gridColumn1.AppearanceCell.Options.UseTextOptions = true;
+            this.gridColumn1.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn1.Caption = "STT";
             this.gridColumn1.FieldName = "#";
-            this.gridColumn1.MinWidth = 25;
+            this.gridColumn1.MinWidth = 21;
             this.gridColumn1.Name = "gridColumn1";
             this.gridColumn1.Visible = true;
             this.gridColumn1.VisibleIndex = 0;
-            this.gridColumn1.Width = 94;
+            this.gridColumn1.Width = 81;
             // 
             // colHOTEN
             // 
+            this.colHOTEN.Caption = "Họ và tên";
             this.colHOTEN.FieldName = "HOTEN";
-            this.colHOTEN.MinWidth = 25;
+            this.colHOTEN.MinWidth = 21;
             this.colHOTEN.Name = "colHOTEN";
             this.colHOTEN.Visible = true;
             this.colHOTEN.VisibleIndex = 1;
-            this.colHOTEN.Width = 94;
+            this.colHOTEN.Width = 81;
             // 
             // colDIEM
             // 
+            this.colDIEM.AppearanceCell.Options.UseTextOptions = true;
+            this.colDIEM.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colDIEM.Caption = "Điểm ";
             this.colDIEM.FieldName = "DIEM";
-            this.colDIEM.MinWidth = 25;
+            this.colDIEM.MinWidth = 21;
             this.colDIEM.Name = "colDIEM";
             this.colDIEM.Visible = true;
             this.colDIEM.VisibleIndex = 2;
-            this.colDIEM.Width = 94;
+            this.colDIEM.Width = 81;
             // 
             // txtTenLop
             // 
             this.txtTenLop.DataSource = this.lOPBindingSource;
             this.txtTenLop.DisplayMember = "TENLOP";
+            this.txtTenLop.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTenLop.FormattingEnabled = true;
-            this.txtTenLop.Location = new System.Drawing.Point(152, 38);
+            this.txtTenLop.Location = new System.Drawing.Point(152, 32);
+            this.txtTenLop.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtTenLop.Name = "txtTenLop";
-            this.txtTenLop.Size = new System.Drawing.Size(186, 24);
+            this.txtTenLop.Size = new System.Drawing.Size(243, 27);
             this.txtTenLop.TabIndex = 1;
             this.txtTenLop.ValueMember = "TENLOP";
             // 
@@ -333,11 +355,12 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(60, 41);
+            this.label2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(80, 35);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(58, 17);
+            this.label2.Size = new System.Drawing.Size(64, 19);
             this.label2.TabIndex = 0;
-            this.label2.Text = "Tên Lớp";
+            this.label2.Text = "Tên Lớp:";
             // 
             // dIEMBindingSource
             // 
@@ -378,14 +401,15 @@
             // 
             // formBangDiemMonHoc
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(894, 534);
+            this.ClientSize = new System.Drawing.Size(766, 434);
             this.Controls.Add(this.panelControl1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.bindingNavigator1);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "formBangDiemMonHoc";
-            this.Text = "formBangDiemMonHoc";
+            this.Text = "In bảng điểm môn học";
             this.Load += new System.EventHandler(this.formBangDiemMonHoc_Load);
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).EndInit();
             this.bindingNavigator1.ResumeLayout(false);

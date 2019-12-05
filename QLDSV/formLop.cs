@@ -87,7 +87,12 @@ namespace QLDSV
             txtMaKhoa.Enabled = false;
             loadButton();
             setComboboxKHOAbyDefault();
-            this.validation(); ;
+            this.validation();
+
+            if (Program.mGroup == "KHOA")
+            {
+                comboKHOA.Enabled = false;
+            }
         }
 
         public String maL;

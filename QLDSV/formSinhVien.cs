@@ -110,6 +110,11 @@ namespace QLDSV
 
             setComboboxKHOAbyDefault();
             this.validation();
+
+            if(Program.mGroup == "KHOA")
+            {
+                comboKHOA.Enabled = false;
+            }
         }
 
         private void comboKHOA_SelectedIndexChanged(object sender, EventArgs e)

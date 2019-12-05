@@ -24,8 +24,9 @@ namespace QLDSV
             if (Program.maCN != "KETOAN")
             {
                 btnHocPhi.Enabled = false;
-               
-            }else
+                btnDanhSachHocPhi.Enabled = false;
+            }
+            else
             {
                 btnDiem.Enabled = false;
                 btnMonHoc.Enabled = false;
@@ -33,7 +34,9 @@ namespace QLDSV
                 btnSinhVien.Enabled = false;
                 btnPhieuDiem.Enabled = false;
                 btnDSThiHetMon.Enabled = false;
-                btnBangDiemMonHoc.Enabled = false;
+                btnBangDiemTongKet.Enabled = false;
+                btnBangDiemMH.Enabled = false;
+                btnDSSV.Enabled = false;
             }
         }
         private Form CheckExists(Type ftype)
@@ -158,7 +161,7 @@ namespace QLDSV
             }
         }
 
-        private void BtnBangDiemMonHoc_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        private void BtnBangDiemTongKet_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             Form frm = this.CheckExists(typeof(formInBangDiemMonHoc));
             if (frm != null) frm.Activate();
