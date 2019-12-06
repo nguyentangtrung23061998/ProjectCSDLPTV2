@@ -22,14 +22,6 @@ namespace QLDSV
         public int prevSelectedMaLop = -1;
         public int prevSelectedMonHoc = -1;
         public int prevSelectedLanThi = 0;
-        private void setComboboxKHOAbyDefault()
-        {
-            comboKHOA.DataSource = Program.bds_dspm.DataSource;
-            comboKHOA.DisplayMember = "TENCN";
-            comboKHOA.ValueMember = "TENSERVER";
-            // We set mChinhanh when Login 
-            comboKHOA.SelectedIndex = Program.mChinhanh;
-        }
 
         private void FormDiem_Load(object sender, EventArgs e)
         {
@@ -44,14 +36,27 @@ namespace QLDSV
             this.lOPTableAdapter.Connection.ConnectionString = Program.connstr;
             this.lOPTableAdapter.Fill(this.qLDSVROOT.LOP);
 
-            setComboboxKHOAbyDefault();
+            if (Program.mGroup == "KHOA")
+            {
+                comboKHOA.DataSource = Program.bds_dspm.DataSource;
+                comboKHOA.DisplayMember = "TENCN";
+                comboKHOA.ValueMember = "TENSERVER";
+                // We set mChinhanh when Login 
+                comboKHOA.SelectedIndex = Program.mChinhanh;
+                comboKHOA.Enabled = false;
+            }
             if (Program.mGroup == "PGV")
             {
-                comboKHOA.Enabled = true;
-            }
-            else
-            {
-                comboKHOA.Enabled = false;
+                if (Program.conn.State == ConnectionState.Closed)
+                    Program.conn.Open();
+                DataTable dt = new DataTable();
+                dt = Program.ExecSqlDataTable("SELECT * FROM V_DS_PHANMANH WHERE TENCN <> 'QLDSV_KETOAN'");
+              
+                comboKHOA.DataSource = dt;
+                comboKHOA.DisplayMember = "TENCN";
+                comboKHOA.ValueMember = "TENSERVER";
+                comboKHOA.SelectedIndex = Program.mChinhanh;
+                comboKHOA.SelectedIndex = 0;
             }
 
             // Default value for Lanthi
@@ -72,6 +77,7 @@ namespace QLDSV
 
         private void ComboKHOA_SelectedIndexChanged(object sender, EventArgs e)
         {
+            btnBatDau.Enabled = true;
             // For close form
             if (comboKHOA.SelectedValue == null) return;
 
@@ -270,6 +276,7 @@ namespace QLDSV
                 {
                      this.btnBatDau.Enabled = false;
                      this.btnGhiDiem.Enabled = true;
+                    gridView1.OptionsBehavior.Editable = true;
                 }
                 // Dont allow to edit LAN 1 cuz had LAN 2 already
                 if (ret == "0")
@@ -349,6 +356,7 @@ namespace QLDSV
 
         private void BtnCancel_Click(object sender, EventArgs e)
         {
+            comboKHOA.SelectedIndex = Program.mChinhanh;
             this.Close();
         }
     }

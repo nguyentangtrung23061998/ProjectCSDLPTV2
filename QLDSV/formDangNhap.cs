@@ -83,7 +83,7 @@ namespace QLDSV
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            //txtUsername.Text = "HUY";
+            //txtUsername.Text = "SON";
             //txtPassword.Text = "1234";
             if (txtUsername.Text.Trim() == "")
             {

@@ -51,15 +51,6 @@ namespace QLDSV
             this.btnLopThem.Enabled = false;
         }
 
-        private void setComboboxKHOAbyDefault()
-        {
-            comboKHOA.DataSource = Program.bds_dspm.DataSource;
-            comboKHOA.DisplayMember = "TENCN";
-            comboKHOA.ValueMember = "TENSERVER";
-            // We set mChinhanh when Login 
-            comboKHOA.SelectedIndex = Program.mChinhanh;
-        }
-
         private void validation()
         {
             if (Program.mGroup == "KHOA")
@@ -81,17 +72,35 @@ namespace QLDSV
             // TODO: This line of code loads data into the 'qLDSVROOT.LOP' table. You can move, or remove it, as needed.
             this.lOPTableAdapter.Connection.ConnectionString = Program.connstr;
             this.lOPTableAdapter.Fill(this.qLDSVROOT.LOP);
+
             makh = ((DataRowView)lOPBindingSource[0])["MAKH"].ToString();
             // Program.servername = comboKHOA.SelectedValue.ToString();
             txtMaKhoa.Text = makh;
             txtMaKhoa.Enabled = false;
             loadButton();
-            setComboboxKHOAbyDefault();
+          
             this.validation();
 
             if (Program.mGroup == "KHOA")
             {
+                comboKHOA.DataSource = Program.bds_dspm.DataSource;
+                comboKHOA.DisplayMember = "TENCN";
+                comboKHOA.ValueMember = "TENSERVER";
+                // We set mChinhanh when Login 
+                comboKHOA.SelectedIndex = Program.mChinhanh;
                 comboKHOA.Enabled = false;
+            }
+            if(Program.mGroup == "PGV")
+            {
+                if (Program.conn.State == ConnectionState.Closed)
+                    Program.conn.Open();
+                DataTable dt = new DataTable();
+                dt = Program.ExecSqlDataTable("SELECT * FROM V_DS_PHANMANH WHERE TENCN <> 'QLDSV_KETOAN'");
+                
+                comboKHOA.DataSource = dt;
+                comboKHOA.DisplayMember = "TENCN";
+                comboKHOA.ValueMember = "TENSERVER";
+                comboKHOA.SelectedIndex = Program.mChinhanh;
             }
         }
 
@@ -433,9 +442,9 @@ namespace QLDSV
                 MessageBox.Show("Không có gì để Undo", "THÔNG BÁO", MessageBoxButtons.OK);
             }
         }
-
-        private void btnLopThoat_Click(object sender, EventArgs e)
+        private void BtnLopThoat_Click_1(object sender, EventArgs e)
         {
+            comboKHOA.SelectedIndex = Program.mChinhanh;
             this.Close();
         }
     }

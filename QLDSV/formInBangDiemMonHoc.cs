@@ -31,12 +31,6 @@ namespace QLDSV
             this.v_DS_PHANMANHTableAdapter.Connection.ConnectionString = Program.connstr;
             this.v_DS_PHANMANHTableAdapter.Fill(this.qLDSVROOT.V_DS_PHANMANH);
 
-            comboKHOA.DataSource = Program.bds_dspm.DataSource;
-            comboKHOA.DisplayMember = "TENCN";
-            comboKHOA.ValueMember = "TENSERVER";
-            // We set mChinhanh when Login 
-            comboKHOA.SelectedIndex = Program.mChinhanh;
-
             BangDiemTongKetGridControl.Enabled = false;
             BangDiemTongKetGridControl.Visible = false;
 
@@ -44,9 +38,27 @@ namespace QLDSV
 
             txtTenLop.ReadOnly = true;
 
+
             if (Program.mGroup == "KHOA")
             {
+                comboKHOA.DataSource = Program.bds_dspm.DataSource;
+                comboKHOA.DisplayMember = "TENCN";
+                comboKHOA.ValueMember = "TENSERVER";
+                // We set mChinhanh when Login 
+                comboKHOA.SelectedIndex = Program.mChinhanh;
                 comboKHOA.Enabled = false;
+            }
+            if (Program.mGroup == "PGV")
+            {
+                if (Program.conn.State == ConnectionState.Closed)
+                    Program.conn.Open();
+                DataTable dt = new DataTable();
+                dt = Program.ExecSqlDataTable("SELECT * FROM V_DS_PHANMANH WHERE TENCN <> 'QLDSV_KETOAN'");
+
+                comboKHOA.DataSource = dt;
+                comboKHOA.DisplayMember = "TENCN";
+                comboKHOA.ValueMember = "TENSERVER";
+                comboKHOA.SelectedIndex = Program.mChinhanh;
             }
         }
         private void BtnManHinh_Click(object sender, EventArgs e)
@@ -258,65 +270,80 @@ namespace QLDSV
 
         public void InitDetailsBasedonXRTable(XtraReport rep) {
             DataSet ds = ((DataSet)rep.DataSource);
-            int colCount = ds.Tables[0].Columns.Count;
-            int colWidth = (rep.PageWidth - (rep.Margins.Left + rep.Margins.Right)) / colCount;
-
-            // Create a table to represent headers
-            XRTable tableHeader = new XRTable();
-            tableHeader.Height = 20;
-            tableHeader.Width = (rep.PageWidth - (rep.Margins.Left + rep.Margins.Right));
-            tableHeader.Font = new Font("Times New Roman", 10f, FontStyle.Bold);
-            tableHeader.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
-            tableHeader.Borders = DevExpress.XtraPrinting.BorderSide.All;
-            XRTableRow headerRow = new XRTableRow();
-            headerRow.Width = tableHeader.Width;
-            tableHeader.Rows.Add(headerRow);
-
-            tableHeader.BeginInit();
-
-            // Create a table to display data
-            XRTable tableDetail = new XRTable();
-            tableDetail.Height = 20;
-            tableDetail.Width = (rep.PageWidth - (rep.Margins.Left + rep.Margins.Right));
-            tableDetail.Borders = DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Right | DevExpress.XtraPrinting.BorderSide.Bottom;
-            tableDetail.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
-            XRTableRow detailRow = new XRTableRow();
-            detailRow.Width = tableDetail.Width;
-            tableDetail.Rows.Add(detailRow);
-
-            tableDetail.BeginInit();
-
-            // Create table cells, fill the header cells with text, bind the cells to data
-            for(int i = 0; i < colCount; i++) {
-                XRTableCell headerCell = new XRTableCell();
-                headerCell.Width = colWidth;
             
-                //headerCell.Font = new Font("Arial", FontStyle.Bold);
-                if (ds.Tables[0].Columns[i].Caption == "MASV")
+            try
+            {
+                int colCount = ds.Tables[0].Columns.Count;
+                int colWidth = (rep.PageWidth - (rep.Margins.Left + rep.Margins.Right)) / colCount;
+
+                // Create a table to represent headers
+                XRTable tableHeader = new XRTable();
+                tableHeader.Height = 20;
+                tableHeader.Width = (rep.PageWidth - (rep.Margins.Left + rep.Margins.Right));
+                tableHeader.Font = new Font("Times New Roman", 10f, FontStyle.Bold);
+                tableHeader.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
+                tableHeader.Borders = DevExpress.XtraPrinting.BorderSide.All;
+                XRTableRow headerRow = new XRTableRow();
+                headerRow.Width = tableHeader.Width;
+                tableHeader.Rows.Add(headerRow);
+
+                tableHeader.BeginInit();
+
+                // Create a table to display data
+                XRTable tableDetail = new XRTable();
+                tableDetail.Height = 20;
+                tableDetail.Width = (rep.PageWidth - (rep.Margins.Left + rep.Margins.Right));
+                tableDetail.Borders = DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Right | DevExpress.XtraPrinting.BorderSide.Bottom;
+                tableDetail.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
+                XRTableRow detailRow = new XRTableRow();
+                detailRow.Width = tableDetail.Width;
+                tableDetail.Rows.Add(detailRow);
+
+                tableDetail.BeginInit();
+
+                // Create table cells, fill the header cells with text, bind the cells to data
+                for (int i = 0; i < colCount; i++)
                 {
-                    headerCell.Text = "Mã sinh viên";
-                }else if(ds.Tables[0].Columns[i].Caption == "HOTEN")
-                {
-                    headerCell.Text = "Họ và tên";
-                }else
-                {
-                    headerCell.Text = ds.Tables[0].Columns[i].Caption;
+                    XRTableCell headerCell = new XRTableCell();
+                    headerCell.Width = colWidth;
+
+                    //headerCell.Font = new Font("Arial", FontStyle.Bold);
+                    if (ds.Tables[0].Columns[i].Caption == "MASV")
+                    {
+                        headerCell.Text = "Mã sinh viên";
+                    }
+                    else if (ds.Tables[0].Columns[i].Caption == "HOTEN")
+                    {
+                        headerCell.Text = "Họ và tên";
+                    }
+                    else
+                    {
+                        headerCell.Text = ds.Tables[0].Columns[i].Caption;
+                    }
+
+
+                    XRTableCell detailCell = new XRTableCell();
+                    detailCell.Width = colWidth;
+                    detailCell.DataBindings.Add("Text", null, ds.Tables[0].Columns[i].Caption);
+
+                    // Place the cells into the corresponding tables
+                    headerRow.Cells.Add(headerCell);
+                    detailRow.Cells.Add(detailCell);
                 }
-                
+                tableHeader.EndInit();
+                tableDetail.EndInit();
+                // Place the table onto a report's Detail band
+                rep.Bands[BandKind.PageHeader].Controls.Add(tableHeader);
+                rep.Bands[BandKind.Detail].Controls.Add(tableDetail);
 
-                XRTableCell detailCell = new XRTableCell();
-                detailCell.Width = colWidth;
-                detailCell.DataBindings.Add("Text", null, ds.Tables[0].Columns[i].Caption);
-
-                // Place the cells into the corresponding tables
-                headerRow.Cells.Add(headerCell);
-                detailRow.Cells.Add(detailCell);
             }
-            tableHeader.EndInit();
-            tableDetail.EndInit();
-            // Place the table onto a report's Detail band
-            rep.Bands[BandKind.PageHeader].Controls.Add(tableHeader);
-            rep.Bands[BandKind.Detail].Controls.Add(tableDetail);
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lớp chưa có sinh viên!", "Thông báo", MessageBoxButtons.OK);
+                txtTenLop.Focus();
+                return;
+            }
+          
         }
 
         private void ComboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -346,6 +373,7 @@ namespace QLDSV
 
         private void BtnThoat_Click_1(object sender, EventArgs e)
         {
+            comboKHOA.SelectedIndex = Program.mChinhanh;
             this.Close();
         }
     }

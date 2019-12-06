@@ -21,16 +21,6 @@ namespace QLDSV
         public string maLop;
         public string maMH;
         public short lan;
-
-        private void setComboboxKHOAbyDefault()
-        {
-            comboKHOA.DataSource = Program.bds_dspm.DataSource;
-            comboKHOA.DisplayMember = "TENCN";
-            comboKHOA.ValueMember = "TENSERVER";
-            // We set mChinhanh when Login 
-            comboKHOA.SelectedIndex = Program.mChinhanh;
-        }
-
         
         private void FormDanhSachThiHetMon_Load(object sender, EventArgs e)
         {
@@ -50,7 +40,6 @@ namespace QLDSV
             // TODO: This line of code loads data into the 'qLDSVPMMaster.V_DS_PHANMANH' table. You can move, or remove it, as needed.
             this.v_DS_PHANMANHTableAdapter.Fill(this.qLDSVPMMaster.V_DS_PHANMANH);
 
-            setComboboxKHOAbyDefault();
             // Default value for Lanthi
             IDictionary<int, string> dict = new Dictionary<int, string>();
             dict.Add(1, "1");
@@ -63,10 +52,26 @@ namespace QLDSV
 
             cmbTenLop.Focus();
 
-
             if (Program.mGroup == "KHOA")
             {
+                comboKHOA.DataSource = Program.bds_dspm.DataSource;
+                comboKHOA.DisplayMember = "TENCN";
+                comboKHOA.ValueMember = "TENSERVER";
+                // We set mChinhanh when Login 
+                comboKHOA.SelectedIndex = Program.mChinhanh;
                 comboKHOA.Enabled = false;
+            }
+            if (Program.mGroup == "PGV")
+            {
+                if (Program.conn.State == ConnectionState.Closed)
+                    Program.conn.Open();
+                DataTable dt = new DataTable();
+                dt = Program.ExecSqlDataTable("SELECT * FROM V_DS_PHANMANH WHERE TENCN <> 'QLDSV_KETOAN'");
+
+                comboKHOA.DataSource = dt;
+                comboKHOA.DisplayMember = "TENCN";
+                comboKHOA.ValueMember = "TENSERVER";
+                comboKHOA.SelectedIndex = Program.mChinhanh;
             }
         }
 
@@ -120,6 +125,7 @@ namespace QLDSV
 
         private void BtnClose_Click(object sender, EventArgs e)
         {
+            comboKHOA.SelectedIndex = Program.mChinhanh;
             this.Close();
         }
 

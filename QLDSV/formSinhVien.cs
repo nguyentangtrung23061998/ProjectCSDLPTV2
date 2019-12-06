@@ -108,12 +108,30 @@ namespace QLDSV
             txtMaLop.Text = maLop;
             txtMaLop.Enabled = false;
 
-            setComboboxKHOAbyDefault();
+           
             this.validation();
 
-            if(Program.mGroup == "KHOA")
+            if (Program.mGroup == "KHOA")
             {
+                comboKHOA.DataSource = Program.bds_dspm.DataSource;
+                comboKHOA.DisplayMember = "TENCN";
+                comboKHOA.ValueMember = "TENSERVER";
+                // We set mChinhanh when Login 
+                comboKHOA.SelectedIndex = Program.mChinhanh;
                 comboKHOA.Enabled = false;
+            }
+            if (Program.mGroup == "PGV")
+            {
+                if (Program.conn.State == ConnectionState.Closed)
+                    Program.conn.Open();
+                DataTable dt = new DataTable();
+                dt = Program.ExecSqlDataTable("SELECT * FROM V_DS_PHANMANH WHERE TENCN <> 'QLDSV_KETOAN'");
+
+                comboKHOA.DataSource = dt;
+                comboKHOA.DisplayMember = "TENCN";
+                comboKHOA.ValueMember = "TENSERVER";
+                comboKHOA.SelectedIndex = Program.mChinhanh;
+                comboKHOA.SelectedIndex = 0;
             }
         }
 
@@ -394,23 +412,10 @@ namespace QLDSV
                 return;
             }
         }
-        //private void rEFRESHToolStripMenuItem_Click(object sender, EventArgs e)
-        //{
-        //    try
-        //    {
-        //        this.lOPTableAdapter.Fill(this.qLDSVROOT.LOP);
-        //        this.sINHVIENTableAdapter.Fill(this.qLDSVROOT.SINHVIEN);
-        //        this.btnRefreshSV.Enabled = false;
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show("Lỗi Reload :" + ex.Message, "", MessageBoxButtons.OK);
-        //        return;
-        //    }
-        //}
 
         private void btnThoatSV_Click(object sender, EventArgs e)
         {
+            comboKHOA.SelectedIndex = Program.mChinhanh;
             this.Close();
         }
 
