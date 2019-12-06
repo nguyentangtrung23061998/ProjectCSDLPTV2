@@ -77,10 +77,10 @@
             // mASVLabel
             // 
             mASVLabel.AutoSize = true;
-            mASVLabel.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            mASVLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             mASVLabel.Location = new System.Drawing.Point(71, 54);
             mASVLabel.Name = "mASVLabel";
-            mASVLabel.Size = new System.Drawing.Size(56, 17);
+            mASVLabel.Size = new System.Drawing.Size(58, 19);
             mASVLabel.TabIndex = 41;
             mASVLabel.Text = "Tên lớp:";
             // 
@@ -203,10 +203,10 @@
             // 
             // btnThoat
             // 
-            this.btnThoat.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnThoat.Location = new System.Drawing.Point(276, 133);
+            this.btnThoat.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnThoat.Location = new System.Drawing.Point(281, 117);
             this.btnThoat.Name = "btnThoat";
-            this.btnThoat.Size = new System.Drawing.Size(75, 23);
+            this.btnThoat.Size = new System.Drawing.Size(75, 28);
             this.btnThoat.TabIndex = 45;
             this.btnThoat.Text = "Thoát";
             this.btnThoat.UseVisualStyleBackColor = true;
@@ -214,10 +214,10 @@
             // 
             // btnMayIn
             // 
-            this.btnMayIn.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMayIn.Location = new System.Drawing.Point(176, 133);
+            this.btnMayIn.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMayIn.Location = new System.Drawing.Point(181, 117);
             this.btnMayIn.Name = "btnMayIn";
-            this.btnMayIn.Size = new System.Drawing.Size(75, 23);
+            this.btnMayIn.Size = new System.Drawing.Size(75, 28);
             this.btnMayIn.TabIndex = 44;
             this.btnMayIn.Text = "Print";
             this.btnMayIn.UseVisualStyleBackColor = true;
@@ -225,10 +225,10 @@
             // 
             // btnManHinh
             // 
-            this.btnManHinh.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnManHinh.Location = new System.Drawing.Point(74, 133);
+            this.btnManHinh.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnManHinh.Location = new System.Drawing.Point(79, 117);
             this.btnManHinh.Name = "btnManHinh";
-            this.btnManHinh.Size = new System.Drawing.Size(75, 23);
+            this.btnManHinh.Size = new System.Drawing.Size(75, 28);
             this.btnManHinh.TabIndex = 43;
             this.btnManHinh.Text = "Màn hình";
             this.btnManHinh.UseVisualStyleBackColor = true;
@@ -239,9 +239,9 @@
             this.txtTenLop.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.lOPBindingSource, "TENLOP", true));
             this.txtTenLop.Location = new System.Drawing.Point(133, 51);
             this.txtTenLop.Name = "txtTenLop";
-            this.txtTenLop.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTenLop.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTenLop.Properties.Appearance.Options.UseFont = true;
-            this.txtTenLop.Size = new System.Drawing.Size(218, 24);
+            this.txtTenLop.Size = new System.Drawing.Size(218, 26);
             this.txtTenLop.TabIndex = 42;
             // 
             // v_DS_PHANMANHTableAdapter
@@ -299,7 +299,7 @@
             this.Controls.Add(this.panelControl2);
             this.Controls.Add(this.panelControl1);
             this.Name = "formInBangDiemMonHoc";
-            this.Text = "In bảng điểm môn học";
+            this.Text = "In bảng điểm tổng kết";
             this.Load += new System.EventHandler(this.FormInBangDiemMonHoc_Load);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
@@ -344,7 +344,6 @@
         private DevExpress.XtraGrid.GridControl lOPGridControl;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.XtraEditors.PanelControl panelControl5;
-        private QLDSVROOTTableAdapters.SP_InBangDiemTongKetTableAdapter sP_InBangDiemTongKetTableAdapter;
         private DevExpress.XtraGrid.GridControl BangDiemTongKetGridControl;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
         private System.Windows.Forms.BindingSource lOPBindingSource;

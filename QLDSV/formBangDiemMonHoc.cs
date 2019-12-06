@@ -39,6 +39,11 @@ namespace QLDSV
             comboLanThi.DataSource = new BindingSource(dict, null);
             comboLanThi.DisplayMember = "Value";
             comboLanThi.ValueMember = "Key";
+
+            if (Program.mGroup == "KHOA")
+            {
+                comboKHOA.Enabled = false;
+            }
         }
 
         //private void fillToolStripButton_Click(object sender, EventArgs e)
@@ -80,6 +85,31 @@ namespace QLDSV
         private void btnThoatMonHoc_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void ComboKHOA_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // For close form
+            if (comboKHOA.SelectedValue == null) return;
+
+            Program.servername = comboKHOA.SelectedValue.ToString();
+            if (comboKHOA.SelectedIndex != Program.mChinhanh)
+            {
+                Program.mlogin = Program.remotelogin;
+                Program.password = Program.remotepassword;
+            }
+            else
+            {
+                Program.mlogin = Program.mloginDN;
+                Program.password = Program.passwordDN;
+            }
+            if (Program.KetNoi() == 0)
+                MessageBox.Show("Lỗi kết nối về chi nhánh mới", "", MessageBoxButtons.OK);
+            else
+            {
+                this.lOPTableAdapter.Connection.ConnectionString = Program.connstr;
+                this.lOPTableAdapter.Fill(this.qLDSVROOT.LOP);
+            }
         }
     }
 }

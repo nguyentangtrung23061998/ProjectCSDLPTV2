@@ -43,6 +43,7 @@ namespace QLDSV
             comboHocKy.ValueMember = "Key";
 
             this.sP_DanhSachHocPhiLopGridControl.Visible = false;
+
         }
 
         private decimal handleHocPhi()
@@ -85,11 +86,6 @@ namespace QLDSV
             rpt.lbML.Text = comboMaLop.Text;
             ReportPrintTool print = new ReportPrintTool(rpt);
             print.ShowPreviewDialog();
-        }
-
-        private void comboNienKhoa_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

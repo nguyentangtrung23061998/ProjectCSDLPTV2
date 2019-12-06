@@ -208,10 +208,10 @@ namespace QLDSV
             sPNhapDiemMonHocBindingSource.EndEdit();
         }
 
-        private void BtnCancel_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
+        //private void BtnCancel_Click(object sender, EventArgs e)
+        //{
+        //    this.Close();
+        //}
 
         private void BtnBatDau_Click(object sender, EventArgs e)
         {
@@ -345,6 +345,11 @@ namespace QLDSV
                     cmbLanThi.SelectedIndex = prevSelectedLanThi;
                 }
             }
+        }
+
+        private void BtnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

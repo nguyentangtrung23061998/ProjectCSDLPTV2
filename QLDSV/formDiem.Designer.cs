@@ -105,11 +105,11 @@
             // 
             // btnBatDau
             // 
-            this.btnBatDau.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBatDau.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBatDau.Image = ((System.Drawing.Image)(resources.GetObject("btnBatDau.Image")));
             this.btnBatDau.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnBatDau.Name = "btnBatDau";
-            this.btnBatDau.Size = new System.Drawing.Size(80, 25);
+            this.btnBatDau.Size = new System.Drawing.Size(91, 25);
             this.btnBatDau.Text = "Bắt đầu";
             this.btnBatDau.Click += new System.EventHandler(this.BtnBatDau_Click);
             // 
@@ -125,11 +125,11 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancel.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.Image = ((System.Drawing.Image)(resources.GetObject("btnCancel.Image")));
             this.btnCancel.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(68, 25);
+            this.btnCancel.Size = new System.Drawing.Size(78, 25);
             this.btnCancel.Text = "Thoát";
             this.btnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
             // 
@@ -475,7 +475,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colMASV1;
         private DevExpress.XtraGrid.Columns.GridColumn colHO;
         private DevExpress.XtraGrid.Columns.GridColumn colDiem;
-        private System.Windows.Forms.ToolStripButton btnCancel;
         private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repositoryItemTextEdit1;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.XtraGrid.Columns.GridColumn colMASV2;
@@ -502,5 +501,6 @@
         private QLDSVROOTTableAdapters.TableAdapterManager tableAdapterManager;
         private System.Windows.Forms.BindingSource lOPBindingSource;
         private QLDSVROOTTableAdapters.LOPTableAdapter lOPTableAdapter;
+        private System.Windows.Forms.ToolStripButton btnCancel;
     }
 }

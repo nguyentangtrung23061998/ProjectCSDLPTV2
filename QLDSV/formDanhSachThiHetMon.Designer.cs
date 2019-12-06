@@ -41,6 +41,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.v_DS_PHANMANHTableAdapter = new QLDSV.QLDSVPMMasterTableAdapters.V_DS_PHANMANHTableAdapter();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.dtNgayThi = new DevExpress.XtraEditors.DateEdit();
             this.label2 = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnPrint = new System.Windows.Forms.Button();
@@ -69,7 +70,6 @@
             this.sP_DSThiHetMonTableAdapter = new QLDSV.QLDSVROOTTableAdapters.SP_DSThiHetMonTableAdapter();
             this.behaviorManager1 = new DevExpress.Utils.Behaviors.BehaviorManager(this.components);
             this.tableAdapterManager = new QLDSV.QLDSVROOTTableAdapters.TableAdapterManager();
-            this.dtNgayThi = new DevExpress.XtraEditors.DateEdit();
             tENLOPLabel = new System.Windows.Forms.Label();
             mALOPLabel = new System.Windows.Forms.Label();
             tENMHLabel = new System.Windows.Forms.Label();
@@ -79,6 +79,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.qLDSVPMMaster)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtNgayThi.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtNgayThi.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mONHOCBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.qLDSVROOT)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lOPBindingSource)).BeginInit();
@@ -86,8 +88,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.sPDSThiHetMonBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtNgayThi.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtNgayThi.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // tENLOPLabel
@@ -220,6 +220,26 @@
             this.panelControl1.Size = new System.Drawing.Size(970, 142);
             this.panelControl1.TabIndex = 6;
             // 
+            // dtNgayThi
+            // 
+            this.dtNgayThi.EditValue = null;
+            this.dtNgayThi.Location = new System.Drawing.Point(821, 58);
+            this.dtNgayThi.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dtNgayThi.Name = "dtNgayThi";
+            this.dtNgayThi.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtNgayThi.Properties.Appearance.Options.UseFont = true;
+            this.dtNgayThi.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dtNgayThi.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dtNgayThi.Properties.DisplayFormat.FormatString = "dd/MM/yyyy";
+            this.dtNgayThi.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.dtNgayThi.Properties.EditFormat.FormatString = "dd/MM/yyyy";
+            this.dtNgayThi.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.dtNgayThi.Properties.Mask.EditMask = "dd/MM/yyyy";
+            this.dtNgayThi.Size = new System.Drawing.Size(107, 24);
+            this.dtNgayThi.TabIndex = 30;
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -233,10 +253,10 @@
             // 
             // btnClose
             // 
-            this.btnClose.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClose.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClose.Location = new System.Drawing.Point(578, 95);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(75, 23);
+            this.btnClose.Size = new System.Drawing.Size(75, 29);
             this.btnClose.TabIndex = 24;
             this.btnClose.Text = "Thoát";
             this.btnClose.UseVisualStyleBackColor = true;
@@ -244,10 +264,10 @@
             // 
             // btnPrint
             // 
-            this.btnPrint.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPrint.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPrint.Location = new System.Drawing.Point(446, 95);
             this.btnPrint.Name = "btnPrint";
-            this.btnPrint.Size = new System.Drawing.Size(75, 23);
+            this.btnPrint.Size = new System.Drawing.Size(75, 29);
             this.btnPrint.TabIndex = 23;
             this.btnPrint.Text = "Print";
             this.btnPrint.UseVisualStyleBackColor = true;
@@ -255,10 +275,10 @@
             // 
             // btnScreen
             // 
-            this.btnScreen.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnScreen.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnScreen.Location = new System.Drawing.Point(308, 95);
             this.btnScreen.Name = "btnScreen";
-            this.btnScreen.Size = new System.Drawing.Size(75, 23);
+            this.btnScreen.Size = new System.Drawing.Size(75, 29);
             this.btnScreen.TabIndex = 22;
             this.btnScreen.Text = "Màn hình";
             this.btnScreen.UseVisualStyleBackColor = true;
@@ -481,26 +501,6 @@
             this.tableAdapterManager.SINHVIENTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = QLDSV.QLDSVROOTTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
-            // dtNgayThi
-            // 
-            this.dtNgayThi.EditValue = null;
-            this.dtNgayThi.Location = new System.Drawing.Point(821, 58);
-            this.dtNgayThi.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dtNgayThi.Name = "dtNgayThi";
-            this.dtNgayThi.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtNgayThi.Properties.Appearance.Options.UseFont = true;
-            this.dtNgayThi.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dtNgayThi.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dtNgayThi.Properties.DisplayFormat.FormatString = "dd/MM/yyyy";
-            this.dtNgayThi.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.dtNgayThi.Properties.EditFormat.FormatString = "dd/MM/yyyy";
-            this.dtNgayThi.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.dtNgayThi.Properties.Mask.EditMask = "dd/MM/yyyy";
-            this.dtNgayThi.Size = new System.Drawing.Size(107, 24);
-            this.dtNgayThi.TabIndex = 30;
-            // 
             // formDanhSachThiHetMon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -519,6 +519,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             this.panelControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtNgayThi.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtNgayThi.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mONHOCBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.qLDSVROOT)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lOPBindingSource)).EndInit();
@@ -526,8 +528,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.sPDSThiHetMonBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtNgayThi.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtNgayThi.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }

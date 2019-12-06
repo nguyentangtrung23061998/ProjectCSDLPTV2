@@ -91,10 +91,10 @@
             // mASVLabel
             // 
             mASVLabel.AutoSize = true;
-            mASVLabel.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            mASVLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             mASVLabel.Location = new System.Drawing.Point(52, 42);
             mASVLabel.Name = "mASVLabel";
-            mASVLabel.Size = new System.Drawing.Size(86, 17);
+            mASVLabel.Size = new System.Drawing.Size(88, 19);
             mASVLabel.TabIndex = 41;
             mASVLabel.Text = "Mã sinh viên:";
             // 
@@ -315,10 +315,10 @@
             // 
             // btnThoat
             // 
-            this.btnThoat.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnThoat.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnThoat.Location = new System.Drawing.Point(247, 102);
             this.btnThoat.Name = "btnThoat";
-            this.btnThoat.Size = new System.Drawing.Size(75, 23);
+            this.btnThoat.Size = new System.Drawing.Size(75, 30);
             this.btnThoat.TabIndex = 45;
             this.btnThoat.Text = "Thoát";
             this.btnThoat.UseVisualStyleBackColor = true;
@@ -326,10 +326,10 @@
             // 
             // btnMayIn
             // 
-            this.btnMayIn.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMayIn.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMayIn.Location = new System.Drawing.Point(147, 102);
             this.btnMayIn.Name = "btnMayIn";
-            this.btnMayIn.Size = new System.Drawing.Size(75, 23);
+            this.btnMayIn.Size = new System.Drawing.Size(75, 30);
             this.btnMayIn.TabIndex = 44;
             this.btnMayIn.Text = "Print";
             this.btnMayIn.UseVisualStyleBackColor = true;
@@ -337,10 +337,10 @@
             // 
             // btnManHinh
             // 
-            this.btnManHinh.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnManHinh.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnManHinh.Location = new System.Drawing.Point(45, 102);
             this.btnManHinh.Name = "btnManHinh";
-            this.btnManHinh.Size = new System.Drawing.Size(75, 23);
+            this.btnManHinh.Size = new System.Drawing.Size(75, 30);
             this.btnManHinh.TabIndex = 43;
             this.btnManHinh.Text = "Màn hình";
             this.btnManHinh.UseVisualStyleBackColor = true;
@@ -351,9 +351,9 @@
             this.txtMaSV.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.sINHVIENBindingSource, "MASV", true));
             this.txtMaSV.Location = new System.Drawing.Point(144, 39);
             this.txtMaSV.Name = "txtMaSV";
-            this.txtMaSV.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMaSV.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMaSV.Properties.Appearance.Options.UseFont = true;
-            this.txtMaSV.Size = new System.Drawing.Size(157, 24);
+            this.txtMaSV.Size = new System.Drawing.Size(157, 26);
             this.txtMaSV.TabIndex = 42;
             // 
             // panelControl5
