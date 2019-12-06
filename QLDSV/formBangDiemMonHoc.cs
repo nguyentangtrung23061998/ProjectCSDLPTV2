@@ -77,7 +77,7 @@ namespace QLDSV
             BaoCao.xRpt_InBangDiemMonHoc_spXuatBangDiemMonHoc rpt = new BaoCao.xRpt_InBangDiemMonHoc_spXuatBangDiemMonHoc(txtTenLop.Text, txtTenMonHoc.Text, comboLanThi.Text);
             rpt.lbLop.Text = txtTenLop.Text;
             rpt.lbMH.Text = txtTenMonHoc.Text;
-            rpt.lbLanThi.Text = txtTenMonHoc.Text;
+            rpt.lbLanThi.Text = comboLanThi.SelectedValue.ToString();
             ReportPrintTool print = new ReportPrintTool(rpt);
             print.ShowPreviewDialog();
         }
