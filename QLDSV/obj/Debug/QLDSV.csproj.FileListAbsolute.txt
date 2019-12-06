@@ -617,9 +617,3 @@ G:\TaiLieuHkINam4\ProjectCSDLPTV2\thanh2_V2\QLDSV\obj\Debug\QLDSV.BaoCao.xRpt_In
 G:\TaiLieuHkINam4\ProjectCSDLPTV2\thanh2_V2\QLDSV\obj\Debug\QLDSV.formInDSSV.resources
 G:\TaiLieuHkINam4\ProjectCSDLPTV2\thanh2_V2\QLDSV\obj\Debug\QLDSV.formBangDiemMonHoc.resources
 G:\TaiLieuHkINam4\ProjectCSDLPTV2\thanh2_V2\QLDSV\obj\Debug\QLDSV.formDanhSachHocPhiTheoLop.resources
-D:\_Hoc_ky_7\Co_so_du_lieu_phan_tan\master\ProjectCSDLPTV2\QLDSV\obj\Debug\QLDSV.BaoCao.xRpt_InBangDiemMonHoc_spXuatBangDiemMonHoc.resources
-D:\_Hoc_ky_7\Co_so_du_lieu_phan_tan\master\ProjectCSDLPTV2\QLDSV\obj\Debug\QLDSV.BaoCao.xRpt_InDanhSachHocPhiLop_spDanhSachHocPhiLop.resources
-D:\_Hoc_ky_7\Co_so_du_lieu_phan_tan\master\ProjectCSDLPTV2\QLDSV\obj\Debug\QLDSV.BaoCao.xRpt_InDSSV_spTimSVTheoMaLop.resources
-D:\_Hoc_ky_7\Co_so_du_lieu_phan_tan\master\ProjectCSDLPTV2\QLDSV\obj\Debug\QLDSV.formBangDiemMonHoc.resources
-D:\_Hoc_ky_7\Co_so_du_lieu_phan_tan\master\ProjectCSDLPTV2\QLDSV\obj\Debug\QLDSV.formDanhSachHocPhiTheoLop.resources
-D:\_Hoc_ky_7\Co_so_du_lieu_phan_tan\master\ProjectCSDLPTV2\QLDSV\obj\Debug\QLDSV.formInDSSV.resources

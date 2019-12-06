@@ -18,6 +18,10 @@ namespace QLDSV
         public static String pass = "";
         public static String loginName = "";
 
+        public const String variablePGV = "PGV";
+        public const String variableKHOA = "KHOA";
+        public const String variableKETOAN = "KETOAN";
+
         public formTaoLogin()
         {
             InitializeComponent();
@@ -31,13 +35,37 @@ namespace QLDSV
 
         }
 
+        private void setRoleUser()
+        {
+            IDictionary<String, String> dict = new Dictionary<String, String>();
+            if (Program.mGroup == variablePGV)
+            {
+                dict.Add(variablePGV, variablePGV);
+                dict.Add(variableKHOA, variableKHOA);
+            }else if(Program.mGroup == variableKHOA)
+            {
+                comboBoxQuyen.Enabled = false;
+                dict.Add(variableKHOA, variableKHOA);
+            }
+            else
+            {
+                comboBoxQuyen.Enabled = false;
+                dict.Add(variableKETOAN, variableKETOAN);
+            }
+            comboBoxQuyen.DataSource = new BindingSource(dict, null);
+            comboBoxQuyen.DisplayMember = "Value";
+            comboBoxQuyen.ValueMember = "Key";
+        }
+
         private void formTaoLogin_Load(object sender, EventArgs e)
         {
             this.qLDSVROOT.EnforceConstraints = false;
             // TODO: This line of code loads data into the 'qLDSVROOT.GIANGVIEN' table. You can move, or remove it, as needed.
             this.gIANGVIENTableAdapter.Connection.ConnectionString = Program.connstr;
             this.gIANGVIENTableAdapter.Fill(this.qLDSVROOT.GIANGVIEN);
+            setRoleUser();
         }
+
 
         public Boolean checkInfoGV()
         {
@@ -81,7 +109,7 @@ namespace QLDSV
         private void buttonOk_Click(object sender, EventArgs e)
         {
             Boolean checkEmpty = checkInfoGV();
-            String s = comboBoxQuyen.Items[2].ToString();
+            //ring s = comboBoxQuyen.Items[2].ToString();
             if (checkEmpty)
             {
                 try
@@ -98,48 +126,9 @@ namespace QLDSV
                     Program.sqlcmd.Parameters.Add("@USERNAME", SqlDbType.VarChar).Value = username;
                     Program.sqlcmd.Parameters.Add("@ROLE ", SqlDbType.VarChar).Value = quyen;
                     Program.sqlcmd.Parameters.Add("@Ret", SqlDbType.Int).Direction = ParameterDirection.ReturnValue;
-                    if (Program.mGroup == "KHOA")
-                    {
-                        if (Program.mGroup == quyen)
-                        {
-                            Program.sqlcmd.ExecuteNonQuery();
-                            Program.conn.Close();
-                            MessageBox.Show("Thêm thành công", "Thông Báo");
-                        }
-                        else
-                        {
-                            MessageBox.Show("Chỉ tạo quyền khoa", "Thông Báo");
-                            return;
-                        }
-                    }
-                    if (Program.mGroup == "PGV")
-                    {
-                        if (quyen == comboBoxQuyen.Items[2].ToString())
-                        {
-                            MessageBox.Show("Chỉ tạo quyền PGV và KHOA", "Thông Báo");
-                            return;
-                        }
-                        else
-                        {
-                            Program.sqlcmd.ExecuteNonQuery();
-                            Program.conn.Close();
-                            MessageBox.Show("Thêm thành công", "Thông Báo");
-                        }
-                    }
-                    if (Program.mGroup == "KETOAN")
-                    {
-                        if (Program.mGroup == quyen)
-                        {
-                            Program.sqlcmd.ExecuteNonQuery();
-                            Program.conn.Close();
-                            MessageBox.Show("Thêm thành công", "Thông Báo");
-                        }
-                        else
-                        {
-                            MessageBox.Show("Chỉ tạo quyền kế toán", "Thông Báo");
-                            return;
-                        }
-                    }
+                    Program.sqlcmd.ExecuteNonQuery();
+                    Program.conn.Close();
+                    MessageBox.Show("Thêm thành công", "Thông Báo");
                 }
                 catch (Exception ex)
                 {
