@@ -262,7 +262,7 @@ namespace QLDSV
                     String ret = Program.sqlcmd.Parameters["@Ret"].Value.ToString();
                     if (ret == "1")
                     {
-                        MessageBox.Show("Mã lop ton tai trong sinh vien!", "THÔNG BÁO LỖI", MessageBoxButtons.OK);
+                        MessageBox.Show("Lớp có sinh viên!\nKhông thể xóa!", "THÔNG BÁO LỖI", MessageBoxButtons.OK);
                     }
                     if (ret == "2")
                     {
