@@ -108,9 +108,8 @@ namespace QLDSV
             txtMaLop.Text = maLop;
             txtMaLop.Enabled = false;
 
-           
+            //setComboboxKHOAbyDefault();
             this.validation();
-
             if (Program.mGroup == "KHOA")
             {
                 comboKHOA.DataSource = Program.bds_dspm.DataSource;
@@ -131,7 +130,6 @@ namespace QLDSV
                 comboKHOA.DisplayMember = "TENCN";
                 comboKHOA.ValueMember = "TENSERVER";
                 comboKHOA.SelectedIndex = Program.mChinhanh;
-                comboKHOA.SelectedIndex = 0;
             }
         }
 
@@ -412,6 +410,20 @@ namespace QLDSV
                 return;
             }
         }
+        //private void rEFRESHToolStripMenuItem_Click(object sender, EventArgs e)
+        //{
+        //    try
+        //    {
+        //        this.lOPTableAdapter.Fill(this.qLDSVROOT.LOP);
+        //        this.sINHVIENTableAdapter.Fill(this.qLDSVROOT.SINHVIEN);
+        //        this.btnRefreshSV.Enabled = false;
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show("Lỗi Reload :" + ex.Message, "", MessageBoxButtons.OK);
+        //        return;
+        //    }
+        //}
 
         private void btnThoatSV_Click(object sender, EventArgs e)
         {
