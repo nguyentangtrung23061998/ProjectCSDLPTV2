@@ -234,7 +234,6 @@
             this.comboKHOA.Size = new System.Drawing.Size(216, 27);
             this.comboKHOA.TabIndex = 1;
             this.comboKHOA.ValueMember = "TENSERVER";
-         //   this.comboKHOA.SelectedIndexChanged += new System.EventHandler(this.ComboKHOA_SelectedIndexChanged);
             // 
             // vDSPHANMANHBindingSource
             // 

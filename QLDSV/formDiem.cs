@@ -156,9 +156,9 @@ namespace QLDSV
                     {
                         if (Program.conn.State == ConnectionState.Closed)
                             Program.conn.Open();
-                        strLenh = "UPDATE dbo.DIEM SET DIEM = @DIEM WHERE MASV = @MASV and MAMH = @MAMH and LAN = @LAN";
+                        strLenh = "SP_UpdateDiem";
                         Program.sqlcmd = Program.conn.CreateCommand();
-                        Program.sqlcmd.CommandType = CommandType.Text;
+                        Program.sqlcmd.CommandType = CommandType.StoredProcedure;
                         Program.sqlcmd.CommandText = strLenh;
                         Program.sqlcmd.Parameters.Add("@MASV", SqlDbType.NChar).Value = gridView1.GetRowCellValue(i, "MASV").ToString().Trim();
                         Program.sqlcmd.Parameters.Add("@MAMH", SqlDbType.NVarChar).Value = cmbMaMH.SelectedValue.ToString();
@@ -179,9 +179,9 @@ namespace QLDSV
                 {
                     try
                     {
-                        strLenh = "INSERT INTO dbo.DIEM (MASV,MAMH,LAN,DIEM) VALUES (@MASV,@MAMH,@LAN,@DIEM)";
+                        strLenh = "SP_InsertDiem";
                         Program.sqlcmd = Program.conn.CreateCommand();
-                        Program.sqlcmd.CommandType = CommandType.Text;
+                        Program.sqlcmd.CommandType = CommandType.StoredProcedure;
                         Program.sqlcmd.CommandText = strLenh;
                         Program.sqlcmd.Parameters.Add("@MASV", SqlDbType.NChar).Value = gridView1.GetRowCellValue(i, "MASV").ToString().Trim();
                         Program.sqlcmd.Parameters.Add("@MAMH", SqlDbType.NVarChar).Value = cmbMaMH.SelectedValue.ToString();
@@ -203,9 +203,6 @@ namespace QLDSV
             if (!hasError)
             {
                 MessageBox.Show("Ghi điểm thành công!", "", MessageBoxButtons.OK);
-                // If dont have error
-                //this.btnBatDau.Enabled = true;
-                //this.btnGhiDiem.Enabled = false;
             }
             else
             {
@@ -213,11 +210,6 @@ namespace QLDSV
             }
             sPNhapDiemMonHocBindingSource.EndEdit();
         }
-
-        //private void BtnCancel_Click(object sender, EventArgs e)
-        //{
-        //    this.Close();
-        //}
 
         private void BtnBatDau_Click(object sender, EventArgs e)
         {
@@ -274,16 +266,16 @@ namespace QLDSV
                 // Allow to edit and fill
                 if (ret == "1")
                 {
-                     this.btnBatDau.Enabled = false;
+                    // this.btnBatDau.Enabled = false;
                      this.btnGhiDiem.Enabled = true;
                     gridView1.OptionsBehavior.Editable = true;
                 }
                 // Dont allow to edit LAN 1 cuz had LAN 2 already
                 if (ret == "0")
                 {
-                        gridView1.OptionsBehavior.Editable = false;
-                        this.btnBatDau.Enabled = true;
-                        this.btnGhiDiem.Enabled = false;
+                    gridView1.OptionsBehavior.Editable = false;
+                    this.btnBatDau.Enabled = true;
+                    this.btnGhiDiem.Enabled = false;
                 }
             }
             catch (Exception ex)
