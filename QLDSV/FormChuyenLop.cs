@@ -79,28 +79,77 @@ namespace QLDSV
             toolStripStatusHoTen.Text = "Họ Tên: " + txtHo.Text + " " + txtTen.Text;
         }
 
+        public int checkSVCoDiemTonTai(String maSV)
+        {
+            try
+            {
+                if (Program.conn.State == ConnectionState.Closed)
+                    Program.conn.Open();
+                String strLenh = "SP_KiemTraDiemTonTaiSinhVien";
+                Program.sqlcmd = Program.conn.CreateCommand();
+                Program.sqlcmd.CommandType = CommandType.StoredProcedure;
+                Program.sqlcmd.CommandText = strLenh;
+                Program.sqlcmd.Parameters.Add("@MaSV", SqlDbType.NChar).Value = maSV;
+                Program.sqlcmd.Parameters.Add("@Ret", SqlDbType.Int).Direction = ParameterDirection.ReturnValue;
+                Program.sqlcmd.ExecuteNonQuery();
+                String ret = Program.sqlcmd.Parameters["@Ret"].Value.ToString();
+                if (ret == "1")
+                {
+
+                    return 1;
+                }
+                if(ret == "2")
+                {
+                    return 2;
+                }
+                if(ret == "0")
+                {
+                    return 0;
+                }
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi .\n" + ex.Message, "", MessageBoxButtons.OK);
+            }
+            return 0;
+        }
+
         private void btnChuyenLop_Click(object sender, EventArgs e)
         {
             try
             {
-                String maLop = comboMaLop.SelectedValue.ToString();
-                String updateSinhVien = "SP_UpdateSinhVien";
-                Program.sqlcmd = Program.conn.CreateCommand();
-                Program.sqlcmd.CommandType = CommandType.StoredProcedure;
-                Program.sqlcmd.CommandText = updateSinhVien;
-                cmdSinhVien(txtMaSV.Text, txtHo.Text, txtTen.Text, maLop, cbPhai.Checked,
-                       comboNgaySinh.Text, txtNoiSinh.Text, txtDiaChi.Text, cbNghiHoc.Checked);
-                Program.sqlcmd.ExecuteNonQuery();
-                Program.conn.Close();
-                MessageBox.Show("Chuyển lớp thành công!", "", MessageBoxButtons.OK);
-                this.Hide();
-                this.Close();
-                formSinhVien frm = new formSinhVien();
-                frm.formSinhVien_Load(sender, e);
+                int check = checkSVCoDiemTonTai(txtMaSV.Text);
+                if(check == 1)
+                {
+                    MessageBox.Show("Sinh viên đã có điểm! Không được chuyển lớp.\n", "", MessageBoxButtons.OK);
+                }
+                else if(check == 2){
+                    MessageBox.Show("Sinh viên đã nghĩ học không được chuyển lớp.\n", "", MessageBoxButtons.OK);
+                }
+                else
+                {
+                    if (Program.conn.State == ConnectionState.Closed)
+                        Program.conn.Open();
+                    String maLop = comboMaLop.SelectedValue.ToString();
+                    String updateSinhVien = "SP_UpdateSinhVien";
+                    Program.sqlcmd = Program.conn.CreateCommand();
+                    Program.sqlcmd.CommandType = CommandType.StoredProcedure;
+                    Program.sqlcmd.CommandText = updateSinhVien;
+                    cmdSinhVien(txtMaSV.Text, txtHo.Text, txtTen.Text, maLop, cbPhai.Checked,
+                           comboNgaySinh.Text, txtNoiSinh.Text, txtDiaChi.Text, cbNghiHoc.Checked);
+                    Program.sqlcmd.ExecuteNonQuery();
+                    Program.conn.Close();
+                    MessageBox.Show("Chuyển lớp thành công!", "", MessageBoxButtons.OK);
+                    this.Hide();
+                    this.Close();
+                    formSinhVien frm = new formSinhVien();
+                    frm.formSinhVien_Load(sender, e);
+                }
             }
-            catch (Exception ex)
+            catch(Exception ex)
             {
-                MessageBox.Show("Lỗi chuyển lớp sinh viên.\n" + ex.Message, "", MessageBoxButtons.OK);
+                MessageBox.Show("Lỗi.\n" + ex.Message, "", MessageBoxButtons.OK);
                 return;
             }
         }

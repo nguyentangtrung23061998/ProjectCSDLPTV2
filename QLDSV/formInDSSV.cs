@@ -49,6 +49,8 @@ namespace QLDSV
         private void btnManHinh_Click(object sender, EventArgs e)
         {
             this.sINHVIENGridControl.Visible = true;
+            this.sINHVIENTableAdapter.Connection.ConnectionString = Program.connstr;
+            this.sINHVIENTableAdapter.Fill(this.qLDSVROOT.SINHVIEN);
         }
 
         private void btnMayIn_Click(object sender, EventArgs e)

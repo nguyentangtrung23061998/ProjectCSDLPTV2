@@ -63,6 +63,7 @@ namespace QLDSV
         {
             try
             {
+                this.sP_XuatBangDiemMonHocTableAdapter.Connection.ConnectionString = Program.connstr;
                 this.sP_XuatBangDiemMonHocGridControl.Visible = true;
                 this.sP_XuatBangDiemMonHocTableAdapter.Fill(this.qLDSVROOT.SP_XuatBangDiemMonHoc, txtTenLop.Text, txtTenMonHoc.Text, new System.Nullable<short>(((short)(System.Convert.ChangeType(comboLanThi.Text, typeof(short))))));
             }
