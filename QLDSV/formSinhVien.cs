@@ -108,12 +108,28 @@ namespace QLDSV
             txtMaLop.Text = maLop;
             txtMaLop.Enabled = false;
 
-            setComboboxKHOAbyDefault();
+            //setComboboxKHOAbyDefault();
             this.validation();
-
-            if(Program.mGroup == "KHOA")
+            if (Program.mGroup == "KHOA")
             {
+                comboKHOA.DataSource = Program.bds_dspm.DataSource;
+                comboKHOA.DisplayMember = "TENCN";
+                comboKHOA.ValueMember = "TENSERVER";
+                // We set mChinhanh when Login 
+                comboKHOA.SelectedIndex = Program.mChinhanh;
                 comboKHOA.Enabled = false;
+            }
+            if (Program.mGroup == "PGV")
+            {
+                if (Program.conn.State == ConnectionState.Closed)
+                    Program.conn.Open();
+                DataTable dt = new DataTable();
+                dt = Program.ExecSqlDataTable("SELECT * FROM V_DS_PHANMANH WHERE TENCN <> 'QLDSV_KETOAN'");
+
+                comboKHOA.DataSource = dt;
+                comboKHOA.DisplayMember = "TENCN";
+                comboKHOA.ValueMember = "TENSERVER";
+                comboKHOA.SelectedIndex = Program.mChinhanh;
             }
         }
 
@@ -411,6 +427,7 @@ namespace QLDSV
 
         private void btnThoatSV_Click(object sender, EventArgs e)
         {
+            comboKHOA.SelectedIndex = Program.mChinhanh;
             this.Close();
         }
 

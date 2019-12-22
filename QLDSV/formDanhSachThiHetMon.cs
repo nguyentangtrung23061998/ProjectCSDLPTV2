@@ -21,16 +21,6 @@ namespace QLDSV
         public string maLop;
         public string maMH;
         public short lan;
-
-        private void setComboboxKHOAbyDefault()
-        {
-            comboKHOA.DataSource = Program.bds_dspm.DataSource;
-            comboKHOA.DisplayMember = "TENCN";
-            comboKHOA.ValueMember = "TENSERVER";
-            // We set mChinhanh when Login 
-            comboKHOA.SelectedIndex = Program.mChinhanh;
-        }
-
         
         private void FormDanhSachThiHetMon_Load(object sender, EventArgs e)
         {
@@ -50,7 +40,6 @@ namespace QLDSV
             // TODO: This line of code loads data into the 'qLDSVPMMaster.V_DS_PHANMANH' table. You can move, or remove it, as needed.
             this.v_DS_PHANMANHTableAdapter.Fill(this.qLDSVPMMaster.V_DS_PHANMANH);
 
-            setComboboxKHOAbyDefault();
             // Default value for Lanthi
             IDictionary<int, string> dict = new Dictionary<int, string>();
             dict.Add(1, "1");
@@ -63,10 +52,26 @@ namespace QLDSV
 
             cmbTenLop.Focus();
 
-
             if (Program.mGroup == "KHOA")
             {
+                comboKHOA.DataSource = Program.bds_dspm.DataSource;
+                comboKHOA.DisplayMember = "TENCN";
+                comboKHOA.ValueMember = "TENSERVER";
+                // We set mChinhanh when Login 
+                comboKHOA.SelectedIndex = Program.mChinhanh;
                 comboKHOA.Enabled = false;
+            }
+            if (Program.mGroup == "PGV")
+            {
+                if (Program.conn.State == ConnectionState.Closed)
+                    Program.conn.Open();
+                DataTable dt = new DataTable();
+                dt = Program.ExecSqlDataTable("SELECT * FROM V_DS_PHANMANH WHERE TENCN <> 'QLDSV_KETOAN'");
+
+                comboKHOA.DataSource = dt;
+                comboKHOA.DisplayMember = "TENCN";
+                comboKHOA.ValueMember = "TENSERVER";
+                comboKHOA.SelectedIndex = Program.mChinhanh;
             }
         }
 
@@ -108,6 +113,26 @@ namespace QLDSV
             maMH = txtMaMH.Text;
             lan = short.Parse(cmbLanThi.SelectedValue.ToString());
 
+            if (Program.conn.State == ConnectionState.Closed)
+                Program.conn.Open();
+            String check = "SP_DSThiHetMon";
+            Program.sqlcmd = Program.conn.CreateCommand();
+            Program.sqlcmd.CommandType = CommandType.StoredProcedure;
+            Program.sqlcmd.CommandText = check;
+            Program.sqlcmd.Parameters.Add("@MALOP", SqlDbType.NChar).Value = txtMalop.Text;
+            Program.sqlcmd.Parameters.Add("@MAMH", SqlDbType.NChar).Value = txtMaMH.Text;
+            Program.sqlcmd.Parameters.Add("@LAN", SqlDbType.SmallInt).Value = short.Parse(cmbLanThi.SelectedValue.ToString());
+            Program.sqlcmd.Parameters.Add("@Ret", SqlDbType.Int).Direction = ParameterDirection.ReturnValue;
+            Program.sqlcmd.ExecuteNonQuery();
+            String ret = Program.sqlcmd.Parameters["@Ret"].Value.ToString();
+            Program.conn.Close();
+            if (ret == "1")
+            {
+                MessageBox.Show("Lớp, môn học, lần thi này đã có điểm!\nVui lòng chọn môn chưa thi!", "Thông báo", MessageBoxButtons.OK);
+                cmbTenMH.Focus();
+                return;
+            }
+
             XtraReport1 rpt = new XtraReport1(maLop, maMH, lan);
             rpt.lblLop.Text = cmbTenLop.SelectedValue.ToString();
             rpt.lblMonHoc.Text = cmbTenMH.SelectedValue.ToString();
@@ -120,17 +145,37 @@ namespace QLDSV
 
         private void BtnClose_Click(object sender, EventArgs e)
         {
+            comboKHOA.SelectedIndex = Program.mChinhanh;
             this.Close();
         }
 
         private void BtnScreen_Click(object sender, EventArgs e)
         {
-            gctrl_sP_DSThiHetMon.Enabled = true;
-
             maLop = txtMalop.Text;
             maMH = txtMaMH.Text;
             lan = short.Parse(cmbLanThi.SelectedValue.ToString());
 
+            if (Program.conn.State == ConnectionState.Closed)
+                Program.conn.Open();
+            String check = "SP_DSThiHetMon";
+            Program.sqlcmd = Program.conn.CreateCommand();
+            Program.sqlcmd.CommandType = CommandType.StoredProcedure;
+            Program.sqlcmd.CommandText = check;
+            Program.sqlcmd.Parameters.Add("@MALOP", SqlDbType.NChar).Value = txtMalop.Text;
+            Program.sqlcmd.Parameters.Add("@MAMH", SqlDbType.NChar).Value = txtMaMH.Text;
+            Program.sqlcmd.Parameters.Add("@LAN", SqlDbType.SmallInt).Value = short.Parse(cmbLanThi.SelectedValue.ToString());
+            Program.sqlcmd.Parameters.Add("@Ret", SqlDbType.Int).Direction = ParameterDirection.ReturnValue;
+            Program.sqlcmd.ExecuteNonQuery();
+            String ret = Program.sqlcmd.Parameters["@Ret"].Value.ToString();
+            Program.conn.Close();
+            if (ret == "1")
+            {
+                MessageBox.Show("Lớp, môn học, lần thi này đã có điểm!\nVui lòng chọn môn chưa thi!", "Thông báo", MessageBoxButtons.OK);
+                cmbTenMH.Focus();
+                return;
+            }
+
+            gctrl_sP_DSThiHetMon.Enabled = true;
             this.sP_DSThiHetMonTableAdapter.Connection.ConnectionString = Program.connstr;
             this.sP_DSThiHetMonTableAdapter.Fill(this.qLDSVROOT.SP_DSThiHetMon, maLop, maMH, lan);
         }

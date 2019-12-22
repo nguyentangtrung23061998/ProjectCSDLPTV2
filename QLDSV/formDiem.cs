@@ -22,14 +22,6 @@ namespace QLDSV
         public int prevSelectedMaLop = -1;
         public int prevSelectedMonHoc = -1;
         public int prevSelectedLanThi = 0;
-        private void setComboboxKHOAbyDefault()
-        {
-            comboKHOA.DataSource = Program.bds_dspm.DataSource;
-            comboKHOA.DisplayMember = "TENCN";
-            comboKHOA.ValueMember = "TENSERVER";
-            // We set mChinhanh when Login 
-            comboKHOA.SelectedIndex = Program.mChinhanh;
-        }
 
         private void FormDiem_Load(object sender, EventArgs e)
         {
@@ -44,14 +36,27 @@ namespace QLDSV
             this.lOPTableAdapter.Connection.ConnectionString = Program.connstr;
             this.lOPTableAdapter.Fill(this.qLDSVROOT.LOP);
 
-            setComboboxKHOAbyDefault();
+            if (Program.mGroup == "KHOA")
+            {
+                comboKHOA.DataSource = Program.bds_dspm.DataSource;
+                comboKHOA.DisplayMember = "TENCN";
+                comboKHOA.ValueMember = "TENSERVER";
+                // We set mChinhanh when Login 
+                comboKHOA.SelectedIndex = Program.mChinhanh;
+                comboKHOA.Enabled = false;
+            }
             if (Program.mGroup == "PGV")
             {
-                comboKHOA.Enabled = true;
-            }
-            else
-            {
-                comboKHOA.Enabled = false;
+                if (Program.conn.State == ConnectionState.Closed)
+                    Program.conn.Open();
+                DataTable dt = new DataTable();
+                dt = Program.ExecSqlDataTable("SELECT * FROM V_DS_PHANMANH WHERE TENCN <> 'QLDSV_KETOAN'");
+              
+                comboKHOA.DataSource = dt;
+                comboKHOA.DisplayMember = "TENCN";
+                comboKHOA.ValueMember = "TENSERVER";
+                comboKHOA.SelectedIndex = Program.mChinhanh;
+                comboKHOA.SelectedIndex = 0;
             }
 
             // Default value for Lanthi
@@ -72,6 +77,7 @@ namespace QLDSV
 
         private void ComboKHOA_SelectedIndexChanged(object sender, EventArgs e)
         {
+            btnBatDau.Enabled = true;
             // For close form
             if (comboKHOA.SelectedValue == null) return;
 
@@ -150,9 +156,9 @@ namespace QLDSV
                     {
                         if (Program.conn.State == ConnectionState.Closed)
                             Program.conn.Open();
-                        strLenh = "UPDATE dbo.DIEM SET DIEM = @DIEM WHERE MASV = @MASV and MAMH = @MAMH and LAN = @LAN";
+                        strLenh = "SP_UpdateDiem";
                         Program.sqlcmd = Program.conn.CreateCommand();
-                        Program.sqlcmd.CommandType = CommandType.Text;
+                        Program.sqlcmd.CommandType = CommandType.StoredProcedure;
                         Program.sqlcmd.CommandText = strLenh;
                         Program.sqlcmd.Parameters.Add("@MASV", SqlDbType.NChar).Value = gridView1.GetRowCellValue(i, "MASV").ToString().Trim();
                         Program.sqlcmd.Parameters.Add("@MAMH", SqlDbType.NVarChar).Value = cmbMaMH.SelectedValue.ToString();
@@ -173,9 +179,9 @@ namespace QLDSV
                 {
                     try
                     {
-                        strLenh = "INSERT INTO dbo.DIEM (MASV,MAMH,LAN,DIEM) VALUES (@MASV,@MAMH,@LAN,@DIEM)";
+                        strLenh = "SP_InsertDiem";
                         Program.sqlcmd = Program.conn.CreateCommand();
-                        Program.sqlcmd.CommandType = CommandType.Text;
+                        Program.sqlcmd.CommandType = CommandType.StoredProcedure;
                         Program.sqlcmd.CommandText = strLenh;
                         Program.sqlcmd.Parameters.Add("@MASV", SqlDbType.NChar).Value = gridView1.GetRowCellValue(i, "MASV").ToString().Trim();
                         Program.sqlcmd.Parameters.Add("@MAMH", SqlDbType.NVarChar).Value = cmbMaMH.SelectedValue.ToString();
@@ -197,9 +203,6 @@ namespace QLDSV
             if (!hasError)
             {
                 MessageBox.Show("Ghi điểm thành công!", "", MessageBoxButtons.OK);
-                // If dont have error
-                //this.btnBatDau.Enabled = true;
-                //this.btnGhiDiem.Enabled = false;
             }
             else
             {
@@ -207,11 +210,6 @@ namespace QLDSV
             }
             sPNhapDiemMonHocBindingSource.EndEdit();
         }
-
-        //private void BtnCancel_Click(object sender, EventArgs e)
-        //{
-        //    this.Close();
-        //}
 
         private void BtnBatDau_Click(object sender, EventArgs e)
         {
@@ -268,15 +266,16 @@ namespace QLDSV
                 // Allow to edit and fill
                 if (ret == "1")
                 {
-                     this.btnBatDau.Enabled = false;
+                    // this.btnBatDau.Enabled = false;
                      this.btnGhiDiem.Enabled = true;
+                    gridView1.OptionsBehavior.Editable = true;
                 }
                 // Dont allow to edit LAN 1 cuz had LAN 2 already
                 if (ret == "0")
                 {
-                        gridView1.OptionsBehavior.Editable = false;
-                        this.btnBatDau.Enabled = true;
-                        this.btnGhiDiem.Enabled = false;
+                    gridView1.OptionsBehavior.Editable = false;
+                    this.btnBatDau.Enabled = true;
+                    this.btnGhiDiem.Enabled = false;
                 }
             }
             catch (Exception ex)
@@ -349,6 +348,7 @@ namespace QLDSV
 
         private void BtnCancel_Click(object sender, EventArgs e)
         {
+            comboKHOA.SelectedIndex = Program.mChinhanh;
             this.Close();
         }
     }

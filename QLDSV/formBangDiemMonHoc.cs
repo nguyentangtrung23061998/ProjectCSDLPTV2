@@ -42,22 +42,26 @@ namespace QLDSV
 
             if (Program.mGroup == "KHOA")
             {
+                comboKHOA.DataSource = Program.bds_dspm.DataSource;
+                comboKHOA.DisplayMember = "TENCN";
+                comboKHOA.ValueMember = "TENSERVER";
+                // We set mChinhanh when Login 
+                comboKHOA.SelectedIndex = Program.mChinhanh;
                 comboKHOA.Enabled = false;
             }
+            if (Program.mGroup == "PGV")
+            {
+                if (Program.conn.State == ConnectionState.Closed)
+                    Program.conn.Open();
+                DataTable dt = new DataTable();
+                dt = Program.ExecSqlDataTable("SELECT * FROM V_DS_PHANMANH WHERE TENCN <> 'QLDSV_KETOAN'");
+
+                comboKHOA.DataSource = dt;
+                comboKHOA.DisplayMember = "TENCN";
+                comboKHOA.ValueMember = "TENSERVER";
+                comboKHOA.SelectedIndex = Program.mChinhanh;
+            }
         }
-
-        //private void fillToolStripButton_Click(object sender, EventArgs e)
-        //{
-        //    try
-        //    {
-        //        this.sP_XuatBangDiemMonHocTableAdapter.Fill(this.qLDSVROOT.SP_XuatBangDiemMonHoc, txtTenLop.Text, txtTenMonHoc.Text, new System.Nullable<short>(((short)(System.Convert.ChangeType(txtLanThi.Text, typeof(short))))));
-        //    }
-        //    catch (System.Exception ex)
-        //    {
-        //        System.Windows.Forms.MessageBox.Show(ex.Message);
-        //    }
-
-        //}
 
         private void btnManHinh_Click(object sender, EventArgs e)
         {
@@ -85,6 +89,7 @@ namespace QLDSV
 
         private void btnThoatMonHoc_Click(object sender, EventArgs e)
         {
+            comboKHOA.SelectedIndex = Program.mChinhanh;
             this.Close();
         }
 

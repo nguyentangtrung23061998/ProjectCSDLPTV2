@@ -23,7 +23,7 @@ namespace QLDSV
         {
             this.v_DS_PHANMANHTableAdapter.Fill(this.qLDSVROOT.V_DS_PHANMANH);
 
-            string chuoiketnoi = "Data Source=DESKTOP-695JA31\\SERVER1;Initial Catalog=QLDSV;Integrated Security=True;";
+            string chuoiketnoi = "Data Source=THANH\\SERVER1;Initial Catalog=QLDSV;Integrated Security=True;";
             Program.conn.ConnectionString = chuoiketnoi;
             Program.conn.Open();
             DataTable dt = new DataTable();
@@ -83,7 +83,7 @@ namespace QLDSV
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            //txtUsername.Text = "HUY";
+            //txtUsername.Text = "SON";
             //txtPassword.Text = "1234";
             if (txtUsername.Text.Trim() == "")
             {

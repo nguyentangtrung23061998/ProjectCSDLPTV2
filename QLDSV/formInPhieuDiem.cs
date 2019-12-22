@@ -33,15 +33,26 @@ namespace QLDSV
             gctrl_sP_PhieuDiemSinhVien.Enabled = false;
             gridView1.OptionsBehavior.Editable = false;
 
-            cmbKhoa.DataSource = Program.bds_dspm.DataSource;
-            cmbKhoa.DisplayMember = "TENCN";
-            cmbKhoa.ValueMember = "TENSERVER";
-            // We set mChinhanh when Login 
-            cmbKhoa.SelectedIndex = Program.mChinhanh;
-
             if (Program.mGroup == "KHOA")
             {
+                cmbKhoa.DataSource = Program.bds_dspm.DataSource;
+                cmbKhoa.DisplayMember = "TENCN";
+                cmbKhoa.ValueMember = "TENSERVER";
+                // We set mChinhanh when Login 
+                cmbKhoa.SelectedIndex = Program.mChinhanh;
                 cmbKhoa.Enabled = false;
+            }
+            if (Program.mGroup == "PGV")
+            {
+                if (Program.conn.State == ConnectionState.Closed)
+                    Program.conn.Open();
+                DataTable dt = new DataTable();
+                dt = Program.ExecSqlDataTable("SELECT * FROM V_DS_PHANMANH WHERE TENCN <> 'QLDSV_KETOAN'");
+
+                cmbKhoa.DataSource = dt;
+                cmbKhoa.DisplayMember = "TENCN";
+                cmbKhoa.ValueMember = "TENSERVER";
+                cmbKhoa.SelectedIndex = Program.mChinhanh;
             }
         }
 
@@ -73,6 +84,7 @@ namespace QLDSV
 
         private void BtnThoat_Click(object sender, EventArgs e)
         {
+            cmbKhoa.SelectedIndex = Program.mChinhanh;
             this.Close();
         }
  
