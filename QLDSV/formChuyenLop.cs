@@ -86,6 +86,8 @@ namespace QLDSV
             info();
             toolStripStatusMaSV.Text = "MaSV: " + txtMaSV.Text;
             toolStripStatusHoTen.Text = "Họ Tên: " + txtHo.Text + " " + txtTen.Text;
+            tooltipMaSV.Text = "MaSV: " + txtMaSV.Text; 
+            tooltipHoTen.Text= "Họ Tên: " + txtHo.Text + " " + txtTen.Text;
 
             if (Program.mGroup == "KHOA")
             {
