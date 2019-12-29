@@ -64,6 +64,7 @@
             this.tableCell8 = new DevExpress.XtraReports.UI.XRTableCell();
             this.qldsvroot1 = new QLDSV.QLDSVROOT();
             this.sP_PhieuDiemSinhVienTableAdapter = new QLDSV.QLDSVROOTTableAdapters.SP_PhieuDiemSinhVienTableAdapter();
+            this.xrPageInfo1 = new DevExpress.XtraReports.UI.XRPageInfo();
             ((System.ComponentModel.ISupportInitialize)(this.table1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.table2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.qldsvroot1)).BeginInit();
@@ -170,18 +171,19 @@
             // ReportHeader
             // 
             this.ReportHeader.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.xrPageInfo1,
             this.lblMaSV,
             this.lblHoTen,
             this.xrLabel2,
             this.xrLabel1,
             this.label1});
-            this.ReportHeader.HeightF = 103.75F;
+            this.ReportHeader.HeightF = 131.875F;
             this.ReportHeader.Name = "ReportHeader";
             // 
             // lblMaSV
             // 
             this.lblMaSV.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMaSV.LocationFloat = new DevExpress.Utils.PointFloat(334.125F, 56.3193F);
+            this.lblMaSV.LocationFloat = new DevExpress.Utils.PointFloat(338.125F, 87.5693F);
             this.lblMaSV.Multiline = true;
             this.lblMaSV.Name = "lblMaSV";
             this.lblMaSV.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
@@ -192,7 +194,7 @@
             // lblHoTen
             // 
             this.lblHoTen.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHoTen.LocationFloat = new DevExpress.Utils.PointFloat(334.125F, 33.31931F);
+            this.lblHoTen.LocationFloat = new DevExpress.Utils.PointFloat(338.125F, 64.56934F);
             this.lblHoTen.Multiline = true;
             this.lblHoTen.Name = "lblHoTen";
             this.lblHoTen.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
@@ -203,7 +205,7 @@
             // xrLabel2
             // 
             this.xrLabel2.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xrLabel2.LocationFloat = new DevExpress.Utils.PointFloat(234.125F, 56.3193F);
+            this.xrLabel2.LocationFloat = new DevExpress.Utils.PointFloat(238.125F, 87.5693F);
             this.xrLabel2.Multiline = true;
             this.xrLabel2.Name = "xrLabel2";
             this.xrLabel2.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
@@ -214,7 +216,7 @@
             // xrLabel1
             // 
             this.xrLabel1.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xrLabel1.LocationFloat = new DevExpress.Utils.PointFloat(234.125F, 33.31931F);
+            this.xrLabel1.LocationFloat = new DevExpress.Utils.PointFloat(238.125F, 64.56934F);
             this.xrLabel1.Multiline = true;
             this.xrLabel1.Name = "xrLabel1";
             this.xrLabel1.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
@@ -227,7 +229,7 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.LocationFloat = new DevExpress.Utils.PointFloat(6.00001F, 5.999994F);
+            this.label1.LocationFloat = new DevExpress.Utils.PointFloat(10.00001F, 37.25001F);
             this.label1.Name = "label1";
             this.label1.SizeF = new System.Drawing.SizeF(638F, 27.31932F);
             this.label1.StyleName = "Title";
@@ -463,6 +465,15 @@
             // 
             this.sP_PhieuDiemSinhVienTableAdapter.ClearBeforeFill = true;
             // 
+            // xrPageInfo1
+            // 
+            this.xrPageInfo1.LocationFloat = new DevExpress.Utils.PointFloat(564.1667F, 0F);
+            this.xrPageInfo1.Name = "xrPageInfo1";
+            this.xrPageInfo1.SizeF = new System.Drawing.SizeF(85.83331F, 23F);
+            this.xrPageInfo1.StyleName = "PageInfo";
+            this.xrPageInfo1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
+            this.xrPageInfo1.TextFormatString = "Trang {0} ";
+            // 
             // Xrpt_PhieuDiem
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
@@ -526,5 +537,6 @@
         public DevExpress.XtraReports.UI.XRLabel lblHoTen;
         private DevExpress.XtraReports.UI.XRLabel xrLabel2;
         private DevExpress.XtraReports.UI.XRLabel xrLabel1;
+        private DevExpress.XtraReports.UI.XRPageInfo xrPageInfo1;
     }
 }
