@@ -82,9 +82,9 @@
             // 
             this.mALOPLabel1.AutoSize = true;
             this.mALOPLabel1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mALOPLabel1.Location = new System.Drawing.Point(297, 40);
+            this.mALOPLabel1.Location = new System.Drawing.Point(346, 49);
             this.mALOPLabel1.Name = "mALOPLabel1";
-            this.mALOPLabel1.Size = new System.Drawing.Size(56, 19);
+            this.mALOPLabel1.Size = new System.Drawing.Size(74, 22);
             this.mALOPLabel1.TabIndex = 4;
             this.mALOPLabel1.Text = "Mã lớp:";
             // 
@@ -95,10 +95,10 @@
             this.panel1.Controls.Add(this.comboKHOA);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 27);
+            this.panel1.Location = new System.Drawing.Point(0, 31);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(803, 57);
+            this.panel1.Size = new System.Drawing.Size(937, 70);
             this.panel1.TabIndex = 5;
             // 
             // bunifuCards1
@@ -108,12 +108,12 @@
             this.bunifuCards1.BottomSahddow = true;
             this.bunifuCards1.color = System.Drawing.Color.Tomato;
             this.bunifuCards1.LeftSahddow = false;
-            this.bunifuCards1.Location = new System.Drawing.Point(248, 24);
+            this.bunifuCards1.Location = new System.Drawing.Point(289, 30);
             this.bunifuCards1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.bunifuCards1.Name = "bunifuCards1";
             this.bunifuCards1.RightSahddow = true;
             this.bunifuCards1.ShadowDepth = 20;
-            this.bunifuCards1.Size = new System.Drawing.Size(7, 6);
+            this.bunifuCards1.Size = new System.Drawing.Size(8, 7);
             this.bunifuCards1.TabIndex = 2;
             // 
             // comboKHOA
@@ -122,10 +122,10 @@
             this.comboKHOA.DisplayMember = "TENCN";
             this.comboKHOA.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboKHOA.FormattingEnabled = true;
-            this.comboKHOA.Location = new System.Drawing.Point(105, 13);
+            this.comboKHOA.Location = new System.Drawing.Point(122, 16);
             this.comboKHOA.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboKHOA.Name = "comboKHOA";
-            this.comboKHOA.Size = new System.Drawing.Size(216, 27);
+            this.comboKHOA.Size = new System.Drawing.Size(251, 30);
             this.comboKHOA.TabIndex = 1;
             this.comboKHOA.ValueMember = "TENSERVER";
             this.comboKHOA.SelectedIndexChanged += new System.EventHandler(this.comboKHOA_SelectedIndexChanged);
@@ -144,9 +144,9 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(44, 16);
+            this.label1.Location = new System.Drawing.Point(51, 20);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(55, 19);
+            this.label1.Size = new System.Drawing.Size(66, 22);
             this.label1.TabIndex = 0;
             this.label1.Text = "KHOA";
             // 
@@ -168,10 +168,10 @@
             this.panelControl1.Controls.Add(this.comboBox1);
             this.panelControl1.Controls.Add(this.label2);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl1.Location = new System.Drawing.Point(0, 84);
+            this.panelControl1.Location = new System.Drawing.Point(0, 101);
             this.panelControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(803, 301);
+            this.panelControl1.Size = new System.Drawing.Size(937, 373);
             this.panelControl1.TabIndex = 6;
             // 
             // txtML
@@ -179,10 +179,10 @@
             this.txtML.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.lOPBindingSource, "MALOP", true));
             this.txtML.Enabled = false;
             this.txtML.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtML.Location = new System.Drawing.Point(359, 37);
+            this.txtML.Location = new System.Drawing.Point(419, 46);
             this.txtML.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtML.Name = "txtML";
-            this.txtML.Size = new System.Drawing.Size(159, 26);
+            this.txtML.Size = new System.Drawing.Size(185, 30);
             this.txtML.TabIndex = 5;
             // 
             // lOPBindingSource
@@ -200,11 +200,11 @@
             this.sINHVIENGridControl.DataSource = this.sINHVIENBindingSource;
             this.sINHVIENGridControl.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.sINHVIENGridControl.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.sINHVIENGridControl.Location = new System.Drawing.Point(2, 96);
+            this.sINHVIENGridControl.Location = new System.Drawing.Point(2, 121);
             this.sINHVIENGridControl.MainView = this.gridView1;
             this.sINHVIENGridControl.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.sINHVIENGridControl.Name = "sINHVIENGridControl";
-            this.sINHVIENGridControl.Size = new System.Drawing.Size(799, 203);
+            this.sINHVIENGridControl.Size = new System.Drawing.Size(933, 250);
             this.sINHVIENGridControl.TabIndex = 4;
             this.sINHVIENGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -226,7 +226,6 @@
             this.colNOISINH,
             this.colDIACHI,
             this.colNGHIHOC});
-            this.gridView1.DetailHeight = 284;
             this.gridView1.GridControl = this.sINHVIENGridControl;
             this.gridView1.Name = "gridView1";
             // 
@@ -234,91 +233,91 @@
             // 
             this.colMASV.Caption = "Mã SV";
             this.colMASV.FieldName = "MASV";
-            this.colMASV.MinWidth = 21;
+            this.colMASV.MinWidth = 24;
             this.colMASV.Name = "colMASV";
             this.colMASV.Visible = true;
             this.colMASV.VisibleIndex = 0;
-            this.colMASV.Width = 81;
+            this.colMASV.Width = 94;
             // 
             // colHO
             // 
             this.colHO.Caption = "Họ";
             this.colHO.FieldName = "HO";
-            this.colHO.MinWidth = 21;
+            this.colHO.MinWidth = 24;
             this.colHO.Name = "colHO";
             this.colHO.Visible = true;
             this.colHO.VisibleIndex = 1;
-            this.colHO.Width = 81;
+            this.colHO.Width = 94;
             // 
             // colTEN
             // 
             this.colTEN.Caption = "Tên";
             this.colTEN.FieldName = "TEN";
-            this.colTEN.MinWidth = 21;
+            this.colTEN.MinWidth = 24;
             this.colTEN.Name = "colTEN";
             this.colTEN.Visible = true;
             this.colTEN.VisibleIndex = 2;
-            this.colTEN.Width = 81;
+            this.colTEN.Width = 94;
             // 
             // colMALOP
             // 
             this.colMALOP.Caption = "Mã Lớp";
             this.colMALOP.FieldName = "MALOP";
-            this.colMALOP.MinWidth = 21;
+            this.colMALOP.MinWidth = 24;
             this.colMALOP.Name = "colMALOP";
             this.colMALOP.Visible = true;
             this.colMALOP.VisibleIndex = 3;
-            this.colMALOP.Width = 81;
+            this.colMALOP.Width = 94;
             // 
             // colPHAI
             // 
             this.colPHAI.Caption = "Phái";
             this.colPHAI.FieldName = "PHAI";
-            this.colPHAI.MinWidth = 21;
+            this.colPHAI.MinWidth = 24;
             this.colPHAI.Name = "colPHAI";
             this.colPHAI.Visible = true;
             this.colPHAI.VisibleIndex = 4;
-            this.colPHAI.Width = 81;
+            this.colPHAI.Width = 94;
             // 
             // colNGAYSINH
             // 
             this.colNGAYSINH.Caption = "Ngày Sinh";
             this.colNGAYSINH.FieldName = "NGAYSINH";
-            this.colNGAYSINH.MinWidth = 21;
+            this.colNGAYSINH.MinWidth = 24;
             this.colNGAYSINH.Name = "colNGAYSINH";
             this.colNGAYSINH.Visible = true;
             this.colNGAYSINH.VisibleIndex = 5;
-            this.colNGAYSINH.Width = 81;
+            this.colNGAYSINH.Width = 94;
             // 
             // colNOISINH
             // 
             this.colNOISINH.Caption = "Nơi Sinh";
             this.colNOISINH.FieldName = "NOISINH";
-            this.colNOISINH.MinWidth = 21;
+            this.colNOISINH.MinWidth = 24;
             this.colNOISINH.Name = "colNOISINH";
             this.colNOISINH.Visible = true;
             this.colNOISINH.VisibleIndex = 6;
-            this.colNOISINH.Width = 81;
+            this.colNOISINH.Width = 94;
             // 
             // colDIACHI
             // 
             this.colDIACHI.Caption = "Địa Chỉ";
             this.colDIACHI.FieldName = "DIACHI";
-            this.colDIACHI.MinWidth = 21;
+            this.colDIACHI.MinWidth = 24;
             this.colDIACHI.Name = "colDIACHI";
             this.colDIACHI.Visible = true;
             this.colDIACHI.VisibleIndex = 7;
-            this.colDIACHI.Width = 81;
+            this.colDIACHI.Width = 94;
             // 
             // colNGHIHOC
             // 
             this.colNGHIHOC.Caption = "Nghỉ Học";
             this.colNGHIHOC.FieldName = "NGHIHOC";
-            this.colNGHIHOC.MinWidth = 21;
+            this.colNGHIHOC.MinWidth = 24;
             this.colNGHIHOC.Name = "colNGHIHOC";
             this.colNGHIHOC.Visible = true;
             this.colNGHIHOC.VisibleIndex = 8;
-            this.colNGHIHOC.Width = 81;
+            this.colNGHIHOC.Width = 94;
             // 
             // comboBox1
             // 
@@ -326,10 +325,10 @@
             this.comboBox1.DisplayMember = "TENLOP";
             this.comboBox1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(106, 34);
+            this.comboBox1.Location = new System.Drawing.Point(124, 42);
             this.comboBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(155, 27);
+            this.comboBox1.Size = new System.Drawing.Size(180, 30);
             this.comboBox1.TabIndex = 3;
             this.comboBox1.ValueMember = "TENLOP";
             // 
@@ -337,9 +336,9 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(44, 37);
+            this.label2.Location = new System.Drawing.Point(51, 46);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(62, 19);
+            this.label2.Size = new System.Drawing.Size(83, 22);
             this.label2.TabIndex = 2;
             this.label2.Text = "Tên lớp: ";
             // 
@@ -369,7 +368,7 @@
             this.btnManHinh.Image = ((System.Drawing.Image)(resources.GetObject("btnManHinh.Image")));
             this.btnManHinh.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnManHinh.Name = "btnManHinh";
-            this.btnManHinh.Size = new System.Drawing.Size(113, 24);
+            this.btnManHinh.Size = new System.Drawing.Size(133, 28);
             this.btnManHinh.Text = "MÀN HÌNH";
             this.btnManHinh.Click += new System.EventHandler(this.btnManHinh_Click);
             // 
@@ -379,7 +378,7 @@
             this.btnMayIn.Image = ((System.Drawing.Image)(resources.GetObject("btnMayIn.Image")));
             this.btnMayIn.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnMayIn.Name = "btnMayIn";
-            this.btnMayIn.Size = new System.Drawing.Size(89, 24);
+            this.btnMayIn.Size = new System.Drawing.Size(103, 28);
             this.btnMayIn.Text = "MÁY IN";
             this.btnMayIn.Click += new System.EventHandler(this.btnMayIn_Click);
             // 
@@ -389,7 +388,7 @@
             this.btnThoatMonHoc.Image = ((System.Drawing.Image)(resources.GetObject("btnThoatMonHoc.Image")));
             this.btnThoatMonHoc.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnThoatMonHoc.Name = "btnThoatMonHoc";
-            this.btnThoatMonHoc.Size = new System.Drawing.Size(85, 24);
+            this.btnThoatMonHoc.Size = new System.Drawing.Size(100, 28);
             this.btnThoatMonHoc.Text = "THOÁT";
             this.btnThoatMonHoc.Click += new System.EventHandler(this.btnThoatMonHoc_Click);
             // 
@@ -411,15 +410,15 @@
             this.bindingNavigator1.MovePreviousItem = null;
             this.bindingNavigator1.Name = "bindingNavigator1";
             this.bindingNavigator1.PositionItem = null;
-            this.bindingNavigator1.Size = new System.Drawing.Size(803, 27);
+            this.bindingNavigator1.Size = new System.Drawing.Size(937, 31);
             this.bindingNavigator1.TabIndex = 2;
             this.bindingNavigator1.Text = "bindingNavigator1";
             // 
             // formInDSSV
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(803, 385);
+            this.ClientSize = new System.Drawing.Size(937, 474);
             this.Controls.Add(this.panelControl1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.bindingNavigator1);
