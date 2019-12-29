@@ -82,6 +82,9 @@
             this.v_DS_PHANMANHComboBox = new System.Windows.Forms.ComboBox();
             this.v_DS_PHANMANHBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.sP_ThongTinMaLopSiteKhacTableAdapter = new QLDSV.QLDSVROOTTableAdapters.SP_ThongTinMaLopSiteKhacTableAdapter();
+            this.statusStrip2 = new System.Windows.Forms.StatusStrip();
+            this.tooltipMaSV = new System.Windows.Forms.ToolStripStatusLabel();
+            this.tooltipHoTen = new System.Windows.Forms.ToolStripStatusLabel();
             mALOPLabel2 = new System.Windows.Forms.Label();
             tENLOPLabel = new System.Windows.Forms.Label();
             nGHIHOCLabel = new System.Windows.Forms.Label();
@@ -115,6 +118,7 @@
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sPThongTinMaLopSiteKhacBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.v_DS_PHANMANHBindingSource1)).BeginInit();
+            this.statusStrip2.SuspendLayout();
             this.SuspendLayout();
             // 
             // mALOPLabel2
@@ -406,7 +410,7 @@
             this.tabPage1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage1.Size = new System.Drawing.Size(816, 323);
+            this.tabPage1.Size = new System.Drawing.Size(714, 242);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "THÔNG TIN";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -547,6 +551,7 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.statusStrip2);
             this.tabPage3.Controls.Add(this.btnCL);
             this.tabPage3.Controls.Add(this.comboKhacKhoaLop);
             this.tabPage3.Controls.Add(this.label7);
@@ -649,6 +654,30 @@
             // 
             this.sP_ThongTinMaLopSiteKhacTableAdapter.ClearBeforeFill = true;
             // 
+            // statusStrip2
+            // 
+            this.statusStrip2.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.statusStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tooltipMaSV,
+            this.tooltipHoTen});
+            this.statusStrip2.Location = new System.Drawing.Point(3, 213);
+            this.statusStrip2.Name = "statusStrip2";
+            this.statusStrip2.Size = new System.Drawing.Size(708, 26);
+            this.statusStrip2.TabIndex = 47;
+            this.statusStrip2.Text = "statusStrip2";
+            // 
+            // tooltipMaSV
+            // 
+            this.tooltipMaSV.Name = "tooltipMaSV";
+            this.tooltipMaSV.Size = new System.Drawing.Size(58, 20);
+            this.tooltipMaSV.Text = "Mã SV: ";
+            // 
+            // tooltipHoTen
+            // 
+            this.tooltipHoTen.Name = "tooltipHoTen";
+            this.tooltipHoTen.Size = new System.Drawing.Size(61, 20);
+            this.tooltipHoTen.Text = "Họ tên: ";
+            // 
             // formChuyenLop
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -684,6 +713,8 @@
             this.tabPage3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sPThongTinMaLopSiteKhacBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.v_DS_PHANMANHBindingSource1)).EndInit();
+            this.statusStrip2.ResumeLayout(false);
+            this.statusStrip2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -730,5 +761,8 @@
         private System.Windows.Forms.BindingSource v_DS_PHANMANHBindingSource1;
         private System.Windows.Forms.BindingSource sPThongTinMaLopSiteKhacBindingSource;
         private QLDSVROOTTableAdapters.SP_ThongTinMaLopSiteKhacTableAdapter sP_ThongTinMaLopSiteKhacTableAdapter;
+        private System.Windows.Forms.StatusStrip statusStrip2;
+        private System.Windows.Forms.ToolStripStatusLabel tooltipMaSV;
+        private System.Windows.Forms.ToolStripStatusLabel tooltipHoTen;
     }
 }
