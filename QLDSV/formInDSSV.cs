@@ -21,16 +21,14 @@ namespace QLDSV
         private void formInDSSV_Load(object sender, EventArgs e)
         {
             qLDSVROOT.EnforceConstraints = false;
-            // TODO: This line of code loads data into the 'qLDSVROOT.SINHVIEN' table. You can move, or remove it, as needed.
+
             this.sINHVIENTableAdapter.Connection.ConnectionString = Program.connstr;
             this.sINHVIENTableAdapter.Fill(this.qLDSVROOT.SINHVIEN);
-            // TODO: This line of code loads data into the 'qLDSVROOT.LOP' table. You can move, or remove it, as needed.
+
             this.lOPTableAdapter.Connection.ConnectionString = Program.connstr;
             this.lOPTableAdapter.Fill(this.qLDSVROOT.LOP);
-            // TODO: This line of code loads data into the 'qLDSVPMMaster.V_DS_PHANMANH' table. You can move, or remove it, as needed.
-            this.v_DS_PHANMANHTableAdapter.Fill(this.qLDSVPMMaster.V_DS_PHANMANH);
-            this.sINHVIENGridControl.Visible = false;
 
+            this.sINHVIENGridControl.Visible = false;
 
             if (Program.mGroup == "KHOA")
             {
@@ -43,12 +41,7 @@ namespace QLDSV
             }
             if (Program.mGroup == "PGV")
             {
-                if (Program.conn.State == ConnectionState.Closed)
-                    Program.conn.Open();
-                DataTable dt = new DataTable();
-                dt = Program.ExecSqlDataTable("SELECT * FROM V_DS_PHANMANH WHERE TENCN <> 'QLDSV_KETOAN'");
-
-                comboKHOA.DataSource = dt;
+                comboKHOA.DataSource = Program.bds_khoa.DataSource;
                 comboKHOA.DisplayMember = "TENCN";
                 comboKHOA.ValueMember = "TENSERVER";
                 comboKHOA.SelectedIndex = Program.mChinhanh;
@@ -62,20 +55,14 @@ namespace QLDSV
 
         private void btnMayIn_Click(object sender, EventArgs e)
         {
-            //BaoCao.formTimSVTheoMaLop rpt = new BaoCao.formTimSVTheoMaLop(txtML.Text);
-            //BaoCao.formTest rpt2 = new BaoCao.formTest("D1", "D16C3");
-            //ReportPrintTool print = new ReportPrintTool(rpt2);
-            //print.ShowPreviewDialog();
             BaoCao.xRpt_InDSSV_spTimSVTheoMaLop rpt = new BaoCao.xRpt_InDSSV_spTimSVTheoMaLop(txtML.Text);
             rpt.lbML.Text = comboBox1.SelectedValue.ToString();
             ReportPrintTool print = new ReportPrintTool(rpt);
             print.ShowPreviewDialog();
-
         }
 
         private void btnThoatMonHoc_Click(object sender, EventArgs e)
         {
-            comboKHOA.SelectedIndex = Program.mChinhanh;
             this.Close();
         }
 

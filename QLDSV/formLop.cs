@@ -66,15 +66,12 @@ namespace QLDSV
 
         private void formLop_Load(object sender, EventArgs e)
         {
-            //QLDSVROOT.EnforceConstraints = false;
-            // TODO: This line of code loads data into the 'qLDSVPMMaster.V_DS_PHANMANH' table. You can move, or remove it, as needed.
-            this.v_DS_PHANMANHTableAdapter.Fill(this.qLDSVPMMaster.V_DS_PHANMANH);
-            // TODO: This line of code loads data into the 'qLDSVROOT.LOP' table. You can move, or remove it, as needed.
+            qLDSVROOT.EnforceConstraints = false;
+          
             this.lOPTableAdapter.Connection.ConnectionString = Program.connstr;
             this.lOPTableAdapter.Fill(this.qLDSVROOT.LOP);
 
             makh = ((DataRowView)lOPBindingSource[0])["MAKH"].ToString();
-            // Program.servername = comboKHOA.SelectedValue.ToString();
             txtMaKhoa.Text = makh;
             txtMaKhoa.Enabled = false;
             loadButton();
@@ -92,12 +89,7 @@ namespace QLDSV
             }
             if(Program.mGroup == "PGV")
             {
-                if (Program.conn.State == ConnectionState.Closed)
-                    Program.conn.Open();
-                DataTable dt = new DataTable();
-                dt = Program.ExecSqlDataTable("SELECT * FROM V_DS_PHANMANH WHERE TENCN <> 'QLDSV_KETOAN'");
-                
-                comboKHOA.DataSource = dt;
+                comboKHOA.DataSource = Program.bds_khoa.DataSource;
                 comboKHOA.DisplayMember = "TENCN";
                 comboKHOA.ValueMember = "TENSERVER";
                 comboKHOA.SelectedIndex = Program.mChinhanh;
@@ -236,7 +228,7 @@ namespace QLDSV
             {
                 this.lOPTableAdapter.Connection.ConnectionString = Program.connstr;
                 this.lOPTableAdapter.Fill(this.qLDSVROOT.LOP);
-                makh = ((DataRowView)lOPBindingSource[0])["MAKH"].ToString();
+                makh = ((DataRowView)lOPBindingSource[0])["MAKH"].ToString(); 
                 txtMaKhoa.Text = makh;
                 txtMaKhoa.Enabled = false;
             }
@@ -362,7 +354,7 @@ namespace QLDSV
                         if (Program.conn.State == ConnectionState.Closed)
                             Program.conn.Open();
                         handleDuLieuFocus();
-                        String lenh = "exec SP_UndoUpdateLop " + maL + ", " + tenL + ", " + maK;
+                        String lenh = "exec SP_UndoUpdateLop '" + maL + "', N'" + tenL + "', '" + maK + "'";
                         String upDateLop = "SP_UpdateMaLop";
                         Program.sqlcmd = Program.conn.CreateCommand();
                         Program.sqlcmd.CommandType = CommandType.StoredProcedure;
@@ -444,7 +436,6 @@ namespace QLDSV
         }
         private void BtnLopThoat_Click_1(object sender, EventArgs e)
         {
-            comboKHOA.SelectedIndex = Program.mChinhanh;
             this.Close();
         }
     }

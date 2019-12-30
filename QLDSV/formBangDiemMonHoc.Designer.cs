@@ -39,9 +39,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.bunifuCards1 = new Bunifu.Framework.UI.BunifuCards();
             this.comboKHOA = new System.Windows.Forms.ComboBox();
-            this.vDSPHANMANHBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.qLDSVPMMasterBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.qLDSVPMMaster = new QLDSV.QLDSVPMMaster();
             this.label1 = new System.Windows.Forms.Label();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.comboLanThi = new System.Windows.Forms.ComboBox();
@@ -63,13 +60,9 @@
             this.tableAdapterManager = new QLDSV.QLDSVROOTTableAdapters.TableAdapterManager();
             this.dIEMTableAdapter = new QLDSV.QLDSVROOTTableAdapters.DIEMTableAdapter();
             this.sP_XuatBangDiemMonHocTableAdapter = new QLDSV.QLDSVROOTTableAdapters.SP_XuatBangDiemMonHocTableAdapter();
-            this.v_DS_PHANMANHTableAdapter = new QLDSV.QLDSVPMMasterTableAdapters.V_DS_PHANMANHTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
             this.bindingNavigator1.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.vDSPHANMANHBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.qLDSVPMMasterBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.qLDSVPMMaster)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mONHOCBindingSource)).BeginInit();
@@ -183,8 +176,6 @@
             // 
             // comboKHOA
             // 
-            this.comboKHOA.DataSource = this.vDSPHANMANHBindingSource;
-            this.comboKHOA.DisplayMember = "TENCN";
             this.comboKHOA.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboKHOA.FormattingEnabled = true;
             this.comboKHOA.Location = new System.Drawing.Point(105, 13);
@@ -194,21 +185,6 @@
             this.comboKHOA.TabIndex = 1;
             this.comboKHOA.ValueMember = "TENSERVER";
             this.comboKHOA.SelectedIndexChanged += new System.EventHandler(this.ComboKHOA_SelectedIndexChanged);
-            // 
-            // vDSPHANMANHBindingSource
-            // 
-            this.vDSPHANMANHBindingSource.DataMember = "V_DS_PHANMANH";
-            this.vDSPHANMANHBindingSource.DataSource = this.qLDSVPMMasterBindingSource;
-            // 
-            // qLDSVPMMasterBindingSource
-            // 
-            this.qLDSVPMMasterBindingSource.DataSource = this.qLDSVPMMaster;
-            this.qLDSVPMMasterBindingSource.Position = 0;
-            // 
-            // qLDSVPMMaster
-            // 
-            this.qLDSVPMMaster.DataSetName = "QLDSVPMMaster";
-            this.qLDSVPMMaster.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // label1
             // 
@@ -395,10 +371,6 @@
             // 
             this.sP_XuatBangDiemMonHocTableAdapter.ClearBeforeFill = true;
             // 
-            // v_DS_PHANMANHTableAdapter
-            // 
-            this.v_DS_PHANMANHTableAdapter.ClearBeforeFill = true;
-            // 
             // formBangDiemMonHoc
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -416,9 +388,6 @@
             this.bindingNavigator1.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.vDSPHANMANHBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.qLDSVPMMasterBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.qLDSVPMMaster)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             this.panelControl1.PerformLayout();
@@ -457,10 +426,6 @@
         private System.Windows.Forms.BindingSource dIEMBindingSource;
         private System.Windows.Forms.BindingSource sP_XuatBangDiemMonHocBindingSource;
         private QLDSVROOTTableAdapters.SP_XuatBangDiemMonHocTableAdapter sP_XuatBangDiemMonHocTableAdapter;
-        private System.Windows.Forms.BindingSource qLDSVPMMasterBindingSource;
-        private QLDSVPMMaster qLDSVPMMaster;
-        private System.Windows.Forms.BindingSource vDSPHANMANHBindingSource;
-        private QLDSVPMMasterTableAdapters.V_DS_PHANMANHTableAdapter v_DS_PHANMANHTableAdapter;
         private DevExpress.XtraGrid.GridControl sP_XuatBangDiemMonHocGridControl;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;

@@ -57,12 +57,7 @@
             this.txtMaLop = new DevExpress.XtraEditors.TextEdit();
             this.txtTenLop = new DevExpress.XtraEditors.TextEdit();
             this.txtMaKhoa = new DevExpress.XtraEditors.TextEdit();
-            this.qLDSVPMMaster = new QLDSV.QLDSVPMMaster();
             this.tableAdapterManager = new QLDSV.QLDSVROOTTableAdapters.TableAdapterManager();
-            this.v_DS_PHANMANHTableAdapter = new QLDSV.QLDSVPMMasterTableAdapters.V_DS_PHANMANHTableAdapter();
-            this.vDSPHANMANHBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.v_DS_PHANMANHTableAdapter1 = new QLDSV.QLDSVROOTTableAdapters.V_DS_PHANMANHTableAdapter();
-            this.vDSPHANMANHBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             mALOPLabel = new System.Windows.Forms.Label();
             tENLOPLabel = new System.Windows.Forms.Label();
             mAKHLabel = new System.Windows.Forms.Label();
@@ -78,9 +73,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtMaLop.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTenLop.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaKhoa.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.qLDSVPMMaster)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.vDSPHANMANHBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.vDSPHANMANHBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // mALOPLabel
@@ -203,7 +195,6 @@
             // 
             // comboKHOA
             // 
-            this.comboKHOA.DataSource = this.vDSPHANMANHBindingSource;
             this.comboKHOA.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboKHOA.FormattingEnabled = true;
             this.comboKHOA.Location = new System.Drawing.Point(107, 22);
@@ -393,11 +384,6 @@
             this.txtMaKhoa.Size = new System.Drawing.Size(167, 26);
             this.txtMaKhoa.TabIndex = 14;
             // 
-            // qLDSVPMMaster
-            // 
-            this.qLDSVPMMaster.DataSetName = "QLDSVPMMaster";
-            this.qLDSVPMMaster.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // tableAdapterManager
             // 
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
@@ -409,24 +395,6 @@
             this.tableAdapterManager.MONHOCTableAdapter = null;
             this.tableAdapterManager.SINHVIENTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = QLDSV.QLDSVROOTTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            // 
-            // v_DS_PHANMANHTableAdapter
-            // 
-            this.v_DS_PHANMANHTableAdapter.ClearBeforeFill = true;
-            // 
-            // vDSPHANMANHBindingSource
-            // 
-            this.vDSPHANMANHBindingSource.DataMember = "V_DS_PHANMANH";
-            this.vDSPHANMANHBindingSource.DataSource = this.qLDSVPMMaster;
-            // 
-            // v_DS_PHANMANHTableAdapter1
-            // 
-            this.v_DS_PHANMANHTableAdapter1.ClearBeforeFill = true;
-            // 
-            // vDSPHANMANHBindingSource1
-            // 
-            this.vDSPHANMANHBindingSource1.DataMember = "V_DS_PHANMANH";
-            this.vDSPHANMANHBindingSource1.DataSource = this.qLDSVROOT;
             // 
             // formLop
             // 
@@ -460,9 +428,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtMaLop.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTenLop.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaKhoa.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.qLDSVPMMaster)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.vDSPHANMANHBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.vDSPHANMANHBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -493,12 +458,7 @@
         private DevExpress.XtraEditors.TextEdit txtMaLop;
         private DevExpress.XtraEditors.TextEdit txtTenLop;
         private DevExpress.XtraEditors.TextEdit txtMaKhoa;
-        private System.Windows.Forms.BindingSource vDSPHANMANHBindingSource;
-        private QLDSVPMMaster qLDSVPMMaster;
         private QLDSVROOTTableAdapters.TableAdapterManager tableAdapterManager;
-        private QLDSVPMMasterTableAdapters.V_DS_PHANMANHTableAdapter v_DS_PHANMANHTableAdapter;
-        private QLDSVROOTTableAdapters.V_DS_PHANMANHTableAdapter v_DS_PHANMANHTableAdapter1;
-        private System.Windows.Forms.BindingSource vDSPHANMANHBindingSource1;
         // private QLDSV.QLDSVTableAdapters.LOPTableAdapter lOPTableAdapter;
         //private QLDSV.QLDSVTableAdapters.TableAdapterManager tableAdapterManager;
         // private QLDSV.QLDSVTableAdapters.LOPTableAdapter lOPTableAdapter;

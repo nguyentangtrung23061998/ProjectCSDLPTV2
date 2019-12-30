@@ -65,14 +65,6 @@ namespace QLDSV
         {
             InitializeComponent();
         }
-        private void setComboboxKHOAbyDefault()
-        {
-            comboKHOA.DataSource = Program.bds_dspm.DataSource;
-            comboKHOA.DisplayMember = "TENCN";
-            comboKHOA.ValueMember = "TENSERVER";
-            // We set mChinhanh when Login 
-            comboKHOA.SelectedIndex = Program.mChinhanh;
-        }
 
         private void validation()
         {
@@ -93,40 +85,30 @@ namespace QLDSV
 
         public void formSinhVien_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'qLDSVROOT.SINHVIEN' table. You can move, or remove it, as needed.
-            this.sINHVIENTableAdapter.Fill(this.qLDSVROOT.SINHVIEN);
             qLDSVROOT.EnforceConstraints = false;
-            // TODO: This line of code loads data into the 'qLDSVPMMaster.V_DS_PHANMANH' table. You can move, or remove it, as needed.
-            this.v_DS_PHANMANHTableAdapter.Fill(this.qLDSVPMMaster.V_DS_PHANMANH);
-            // TODO: This line of code loads data into the 'qLDSVROOT.SINHVIEN' table. You can move, or remove it, as needed.
+  
             this.sINHVIENTableAdapter.Connection.ConnectionString = Program.connstr;
             this.sINHVIENTableAdapter.Fill(this.qLDSVROOT.SINHVIEN);
-            // TODO: This line of code loads data into the 'qLDSVROOT.LOP' table. You can move, or remove it, as needed.
+         
             this.lOPTableAdapter.Connection.ConnectionString = Program.connstr;
             this.lOPTableAdapter.Fill(this.qLDSVROOT.LOP);
+
             maLop = ((DataRowView)lOPBindingSource[0])["MALOP"].ToString();
             txtMaLop.Text = maLop;
             txtMaLop.Enabled = false;
 
-            //setComboboxKHOAbyDefault();
             this.validation();
             if (Program.mGroup == "KHOA")
             {
                 comboKHOA.DataSource = Program.bds_dspm.DataSource;
                 comboKHOA.DisplayMember = "TENCN";
                 comboKHOA.ValueMember = "TENSERVER";
-                // We set mChinhanh when Login 
                 comboKHOA.SelectedIndex = Program.mChinhanh;
                 comboKHOA.Enabled = false;
             }
             if (Program.mGroup == "PGV")
             {
-                if (Program.conn.State == ConnectionState.Closed)
-                    Program.conn.Open();
-                DataTable dt = new DataTable();
-                dt = Program.ExecSqlDataTable("SELECT * FROM V_DS_PHANMANH WHERE TENCN <> 'QLDSV_KETOAN'");
-
-                comboKHOA.DataSource = dt;
+                comboKHOA.DataSource = Program.bds_khoa.DataSource;
                 comboKHOA.DisplayMember = "TENCN";
                 comboKHOA.ValueMember = "TENSERVER";
                 comboKHOA.SelectedIndex = Program.mChinhanh;
@@ -155,6 +137,8 @@ namespace QLDSV
                 this.lOPTableAdapter.Connection.ConnectionString = Program.connstr;
                 this.lOPTableAdapter.Fill(this.qLDSVROOT.LOP);
 
+                this.sINHVIENTableAdapter.Connection.ConnectionString = Program.connstr;
+                this.sINHVIENTableAdapter.Fill(this.qLDSVROOT.SINHVIEN);
             }
         }
 
@@ -195,6 +179,7 @@ namespace QLDSV
 
         public int kiemTraSinhVienTonTai(String maSV)
         {
+            this.lOPTableAdapter.Connection.ConnectionString = Program.connstr;
             if (Program.conn.State == ConnectionState.Closed)
                 Program.conn.Open();
             try
@@ -410,24 +395,9 @@ namespace QLDSV
                 return;
             }
         }
-        //private void rEFRESHToolStripMenuItem_Click(object sender, EventArgs e)
-        //{
-        //    try
-        //    {
-        //        this.lOPTableAdapter.Fill(this.qLDSVROOT.LOP);
-        //        this.sINHVIENTableAdapter.Fill(this.qLDSVROOT.SINHVIEN);
-        //        this.btnRefreshSV.Enabled = false;
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show("Lỗi Reload :" + ex.Message, "", MessageBoxButtons.OK);
-        //        return;
-        //    }
-        //}
 
         private void btnThoatSV_Click(object sender, EventArgs e)
         {
-            comboKHOA.SelectedIndex = Program.mChinhanh;
             this.Close();
         }
 
@@ -535,9 +505,5 @@ namespace QLDSV
             }
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
     }
 }

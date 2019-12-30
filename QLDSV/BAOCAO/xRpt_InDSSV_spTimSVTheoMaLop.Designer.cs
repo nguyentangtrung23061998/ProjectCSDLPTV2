@@ -179,7 +179,7 @@
             this.lbML.Multiline = true;
             this.lbML.Name = "lbML";
             this.lbML.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.lbML.SizeF = new System.Drawing.SizeF(147.5919F, 23F);
+            this.lbML.SizeF = new System.Drawing.SizeF(167.3836F, 23F);
             this.lbML.StylePriority.UseFont = false;
             this.lbML.StylePriority.UseForeColor = false;
             this.lbML.StylePriority.UseTextAlignment = false;
@@ -276,7 +276,7 @@
             this.xrTableCell1.StylePriority.UseBorderWidth = false;
             this.xrTableCell1.StylePriority.UseForeColor = false;
             this.xrTableCell1.Text = "STT";
-            this.xrTableCell1.Weight = 0.10029153677133414D;
+            this.xrTableCell1.Weight = 0.073842194825172874D;
             // 
             // tableCell1
             // 
@@ -295,7 +295,7 @@
             this.tableCell1.StylePriority.UseBorderWidth = false;
             this.tableCell1.StylePriority.UseForeColor = false;
             this.tableCell1.Text = "Mã SV";
-            this.tableCell1.Weight = 0.10029153031398157D;
+            this.tableCell1.Weight = 0.12674087226014283D;
             // 
             // tableCell2
             // 
@@ -379,7 +379,8 @@
             // 
             this.tableCell7.BackColor = System.Drawing.Color.White;
             this.tableCell7.BorderColor = System.Drawing.Color.Black;
-            this.tableCell7.Borders = ((DevExpress.XtraPrinting.BorderSide)(((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Right) 
+            this.tableCell7.Borders = ((DevExpress.XtraPrinting.BorderSide)((((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Top) 
+            | DevExpress.XtraPrinting.BorderSide.Right) 
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.tableCell7.BorderWidth = 1F;
             this.tableCell7.ForeColor = System.Drawing.Color.Black;
@@ -410,7 +411,7 @@
             this.tableCell8.StylePriority.UseBorderWidth = false;
             this.tableCell8.StylePriority.UseForeColor = false;
             this.tableCell8.Text = "Đại chỉ";
-            this.tableCell8.Weight = 0.1650861463062816D;
+            this.tableCell8.Weight = 0.19245695246383457D;
             // 
             // tableCell9
             // 
@@ -431,7 +432,7 @@
             this.tableCell9.StylePriority.UseTextAlignment = false;
             this.tableCell9.Text = "Nghỉ học";
             this.tableCell9.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
-            this.tableCell9.Weight = 0.18331018974048946D;
+            this.tableCell9.Weight = 0.15593938358293649D;
             // 
             // Detail
             // 
@@ -482,6 +483,7 @@
             this.xrTableCell2.BorderColor = System.Drawing.Color.Black;
             this.xrTableCell2.Borders = ((DevExpress.XtraPrinting.BorderSide)(((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Right) 
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
+            this.xrTableCell2.BorderWidth = 1F;
             this.xrTableCell2.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[#]")});
             this.xrTableCell2.ForeColor = System.Drawing.Color.Black;
@@ -491,9 +493,10 @@
             this.xrTableCell2.StylePriority.UseBackColor = false;
             this.xrTableCell2.StylePriority.UseBorderColor = false;
             this.xrTableCell2.StylePriority.UseBorders = false;
+            this.xrTableCell2.StylePriority.UseBorderWidth = false;
             this.xrTableCell2.StylePriority.UseForeColor = false;
             this.xrTableCell2.Text = "xrTableCell2";
-            this.xrTableCell2.Weight = 0.10029153677133414D;
+            this.xrTableCell2.Weight = 0.073842200012242884D;
             // 
             // tableCell10
             // 
@@ -501,6 +504,7 @@
             this.tableCell10.BorderColor = System.Drawing.Color.Black;
             this.tableCell10.Borders = ((DevExpress.XtraPrinting.BorderSide)(((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Right) 
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
+            this.tableCell10.BorderWidth = 1F;
             this.tableCell10.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[MASV]")});
             this.tableCell10.ForeColor = System.Drawing.Color.Black;
@@ -509,8 +513,9 @@
             this.tableCell10.StylePriority.UseBackColor = false;
             this.tableCell10.StylePriority.UseBorderColor = false;
             this.tableCell10.StylePriority.UseBorders = false;
+            this.tableCell10.StylePriority.UseBorderWidth = false;
             this.tableCell10.StylePriority.UseForeColor = false;
-            this.tableCell10.Weight = 0.10029153677133414D;
+            this.tableCell10.Weight = 0.12674087353042537D;
             // 
             // tableCell11
             // 
@@ -518,6 +523,7 @@
             this.tableCell11.BorderColor = System.Drawing.Color.Black;
             this.tableCell11.Borders = ((DevExpress.XtraPrinting.BorderSide)(((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Right) 
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
+            this.tableCell11.BorderWidth = 1F;
             this.tableCell11.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[HO]")});
             this.tableCell11.ForeColor = System.Drawing.Color.Black;
@@ -526,6 +532,7 @@
             this.tableCell11.StylePriority.UseBackColor = false;
             this.tableCell11.StylePriority.UseBorderColor = false;
             this.tableCell11.StylePriority.UseBorders = false;
+            this.tableCell11.StylePriority.UseBorderWidth = false;
             this.tableCell11.StylePriority.UseForeColor = false;
             this.tableCell11.Weight = 0.066461410522460934D;
             // 
@@ -535,6 +542,7 @@
             this.tableCell12.BorderColor = System.Drawing.Color.Black;
             this.tableCell12.Borders = ((DevExpress.XtraPrinting.BorderSide)(((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Right) 
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
+            this.tableCell12.BorderWidth = 1F;
             this.tableCell12.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[TEN]")});
             this.tableCell12.ForeColor = System.Drawing.Color.Black;
@@ -543,18 +551,28 @@
             this.tableCell12.StylePriority.UseBackColor = false;
             this.tableCell12.StylePriority.UseBorderColor = false;
             this.tableCell12.StylePriority.UseBorders = false;
+            this.tableCell12.StylePriority.UseBorderWidth = false;
             this.tableCell12.StylePriority.UseForeColor = false;
             this.tableCell12.Weight = 0.082164470115427768D;
             // 
             // tableCell14
             // 
+            this.tableCell14.BackColor = System.Drawing.Color.White;
+            this.tableCell14.BorderColor = System.Drawing.Color.Black;
+            this.tableCell14.Borders = ((DevExpress.XtraPrinting.BorderSide)(((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Right) 
+            | DevExpress.XtraPrinting.BorderSide.Bottom)));
+            this.tableCell14.BorderWidth = 1F;
             this.tableCell14.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
             this.checkBox1});
             this.tableCell14.Name = "tableCell14";
             this.tableCell14.StyleName = "DetailData1";
+            this.tableCell14.StylePriority.UseBackColor = false;
+            this.tableCell14.StylePriority.UseBorderColor = false;
+            this.tableCell14.StylePriority.UseBorders = false;
+            this.tableCell14.StylePriority.UseBorderWidth = false;
             this.tableCell14.StylePriority.UseTextAlignment = false;
             this.tableCell14.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
-            this.tableCell14.Weight = 0.0845884771783673D;
+            this.tableCell14.Weight = 0.084588457806308692D;
             // 
             // checkBox1
             // 
@@ -562,18 +580,19 @@
             this.checkBox1.AnchorVertical = ((DevExpress.XtraReports.UI.VerticalAnchorStyles)((DevExpress.XtraReports.UI.VerticalAnchorStyles.Top | DevExpress.XtraReports.UI.VerticalAnchorStyles.Bottom)));
             this.checkBox1.BackColor = System.Drawing.Color.White;
             this.checkBox1.BorderColor = System.Drawing.Color.Black;
-            this.checkBox1.Borders = ((DevExpress.XtraPrinting.BorderSide)(((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Right) 
-            | DevExpress.XtraPrinting.BorderSide.Bottom)));
+            this.checkBox1.Borders = DevExpress.XtraPrinting.BorderSide.None;
+            this.checkBox1.BorderWidth = 1F;
             this.checkBox1.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "CheckState", "[PHAI]")});
             this.checkBox1.ForeColor = System.Drawing.Color.Black;
             this.checkBox1.GlyphOptions.Alignment = DevExpress.Utils.HorzAlignment.Center;
-            this.checkBox1.LocationFloat = new DevExpress.Utils.PointFloat(2.083333F, 0F);
+            this.checkBox1.LocationFloat = new DevExpress.Utils.PointFloat(11.11929F, 0F);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.SizeF = new System.Drawing.SizeF(47.88752F, 25F);
+            this.checkBox1.SizeF = new System.Drawing.SizeF(28.85153F, 25F);
             this.checkBox1.StylePriority.UseBackColor = false;
             this.checkBox1.StylePriority.UseBorderColor = false;
             this.checkBox1.StylePriority.UseBorders = false;
+            this.checkBox1.StylePriority.UseBorderWidth = false;
             this.checkBox1.StylePriority.UseForeColor = false;
             // 
             // tableCell15
@@ -582,6 +601,7 @@
             this.tableCell15.BorderColor = System.Drawing.Color.Black;
             this.tableCell15.Borders = ((DevExpress.XtraPrinting.BorderSide)(((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Right) 
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
+            this.tableCell15.BorderWidth = 1F;
             this.tableCell15.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[NGAYSINH]")});
             this.tableCell15.ForeColor = System.Drawing.Color.Black;
@@ -590,8 +610,9 @@
             this.tableCell15.StylePriority.UseBackColor = false;
             this.tableCell15.StylePriority.UseBorderColor = false;
             this.tableCell15.StylePriority.UseBorders = false;
+            this.tableCell15.StylePriority.UseBorderWidth = false;
             this.tableCell15.StylePriority.UseForeColor = false;
-            this.tableCell15.Weight = 0.15847463754507213D;
+            this.tableCell15.Weight = 0.15847465691713075D;
             // 
             // tableCell16
             // 
@@ -599,6 +620,7 @@
             this.tableCell16.BorderColor = System.Drawing.Color.Black;
             this.tableCell16.Borders = ((DevExpress.XtraPrinting.BorderSide)(((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Right) 
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
+            this.tableCell16.BorderWidth = 1F;
             this.tableCell16.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[NOISINH]")});
             this.tableCell16.ForeColor = System.Drawing.Color.Black;
@@ -607,6 +629,7 @@
             this.tableCell16.StylePriority.UseBackColor = false;
             this.tableCell16.StylePriority.UseBorderColor = false;
             this.tableCell16.StylePriority.UseBorders = false;
+            this.tableCell16.StylePriority.UseBorderWidth = false;
             this.tableCell16.StylePriority.UseForeColor = false;
             this.tableCell16.Weight = 0.15962317502769341D;
             // 
@@ -616,6 +639,7 @@
             this.tableCell17.BorderColor = System.Drawing.Color.Black;
             this.tableCell17.Borders = ((DevExpress.XtraPrinting.BorderSide)(((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Right) 
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
+            this.tableCell17.BorderWidth = 1F;
             this.tableCell17.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[DIACHI]")});
             this.tableCell17.ForeColor = System.Drawing.Color.Black;
@@ -624,8 +648,9 @@
             this.tableCell17.StylePriority.UseBackColor = false;
             this.tableCell17.StylePriority.UseBorderColor = false;
             this.tableCell17.StylePriority.UseBorders = false;
+            this.tableCell17.StylePriority.UseBorderWidth = false;
             this.tableCell17.StylePriority.UseForeColor = false;
-            this.tableCell17.Weight = 0.16508617380394139D;
+            this.tableCell17.Weight = 0.19245695544662086D;
             // 
             // tableCell18
             // 
@@ -633,16 +658,18 @@
             this.tableCell18.BorderColor = System.Drawing.Color.Black;
             this.tableCell18.Borders = ((DevExpress.XtraPrinting.BorderSide)(((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Right) 
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
+            this.tableCell18.BorderWidth = 1F;
             this.tableCell18.ForeColor = System.Drawing.Color.Black;
             this.tableCell18.Name = "tableCell18";
             this.tableCell18.StyleName = "DetailData1";
             this.tableCell18.StylePriority.UseBackColor = false;
             this.tableCell18.StylePriority.UseBorderColor = false;
             this.tableCell18.StylePriority.UseBorders = false;
+            this.tableCell18.StylePriority.UseBorderWidth = false;
             this.tableCell18.StylePriority.UseForeColor = false;
             this.tableCell18.StylePriority.UseTextAlignment = false;
             this.tableCell18.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
-            this.tableCell18.Weight = 0.18331018556492557D;
+            this.tableCell18.Weight = 0.15593940392224609D;
             // 
             // qldsvroot1
             // 

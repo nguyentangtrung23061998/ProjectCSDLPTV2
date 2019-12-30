@@ -28,9 +28,6 @@ namespace QLDSV
             this.lOPTableAdapter.Connection.ConnectionString = Program.connstr;
             this.lOPTableAdapter.Fill(this.qLDSVROOT.LOP);
 
-            this.v_DS_PHANMANHTableAdapter.Connection.ConnectionString = Program.connstr;
-            this.v_DS_PHANMANHTableAdapter.Fill(this.qLDSVROOT.V_DS_PHANMANH);
-
             BangDiemTongKetGridControl.Enabled = false;
             BangDiemTongKetGridControl.Visible = false;
 
@@ -50,12 +47,7 @@ namespace QLDSV
             }
             if (Program.mGroup == "PGV")
             {
-                if (Program.conn.State == ConnectionState.Closed)
-                    Program.conn.Open();
-                DataTable dt = new DataTable();
-                dt = Program.ExecSqlDataTable("SELECT * FROM V_DS_PHANMANH WHERE TENCN <> 'QLDSV_KETOAN'");
-
-                comboKHOA.DataSource = dt;
+                comboKHOA.DataSource = Program.bds_khoa.DataSource;
                 comboKHOA.DisplayMember = "TENCN";
                 comboKHOA.ValueMember = "TENSERVER";
                 comboKHOA.SelectedIndex = Program.mChinhanh;
@@ -373,7 +365,6 @@ namespace QLDSV
 
         private void BtnThoat_Click_1(object sender, EventArgs e)
         {
-            comboKHOA.SelectedIndex = Program.mChinhanh;
             this.Close();
         }
     }

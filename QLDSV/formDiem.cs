@@ -25,10 +25,8 @@ namespace QLDSV
 
         private void FormDiem_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'qLDSVROOT.LOP' table. You can move, or remove it, as needed.
-            this.lOPTableAdapter.Fill(this.qLDSVROOT.LOP);
-            // Stop checking the constraints
             qLDSVROOT.EnforceConstraints = false;
+            // Stop checking the constraints
             // Run on the newest connection
             this.mONHOCTableAdapter.Connection.ConnectionString = Program.connstr;
             this.mONHOCTableAdapter.Fill(this.qLDSVROOT.MONHOC);
@@ -47,16 +45,10 @@ namespace QLDSV
             }
             if (Program.mGroup == "PGV")
             {
-                if (Program.conn.State == ConnectionState.Closed)
-                    Program.conn.Open();
-                DataTable dt = new DataTable();
-                dt = Program.ExecSqlDataTable("SELECT * FROM V_DS_PHANMANH WHERE TENCN <> 'QLDSV_KETOAN'");
-              
-                comboKHOA.DataSource = dt;
+                comboKHOA.DataSource = Program.bds_khoa.DataSource;
                 comboKHOA.DisplayMember = "TENCN";
                 comboKHOA.ValueMember = "TENSERVER";
                 comboKHOA.SelectedIndex = Program.mChinhanh;
-                comboKHOA.SelectedIndex = 0;
             }
 
             // Default value for Lanthi
@@ -348,7 +340,6 @@ namespace QLDSV
 
         private void BtnCancel_Click(object sender, EventArgs e)
         {
-            comboKHOA.SelectedIndex = Program.mChinhanh;
             this.Close();
         }
     }

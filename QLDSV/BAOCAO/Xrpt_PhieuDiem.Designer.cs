@@ -43,6 +43,7 @@
             this.pageInfo1 = new DevExpress.XtraReports.UI.XRPageInfo();
             this.pageInfo2 = new DevExpress.XtraReports.UI.XRPageInfo();
             this.ReportHeader = new DevExpress.XtraReports.UI.ReportHeaderBand();
+            this.xrPageInfo1 = new DevExpress.XtraReports.UI.XRPageInfo();
             this.lblMaSV = new DevExpress.XtraReports.UI.XRLabel();
             this.lblHoTen = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel2 = new DevExpress.XtraReports.UI.XRLabel();
@@ -64,7 +65,6 @@
             this.tableCell8 = new DevExpress.XtraReports.UI.XRTableCell();
             this.qldsvroot1 = new QLDSV.QLDSVROOT();
             this.sP_PhieuDiemSinhVienTableAdapter = new QLDSV.QLDSVROOTTableAdapters.SP_PhieuDiemSinhVienTableAdapter();
-            this.xrPageInfo1 = new DevExpress.XtraReports.UI.XRPageInfo();
             ((System.ComponentModel.ISupportInitialize)(this.table1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.table2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.qldsvroot1)).BeginInit();
@@ -180,6 +180,15 @@
             this.ReportHeader.HeightF = 131.875F;
             this.ReportHeader.Name = "ReportHeader";
             // 
+            // xrPageInfo1
+            // 
+            this.xrPageInfo1.LocationFloat = new DevExpress.Utils.PointFloat(564.1667F, 0F);
+            this.xrPageInfo1.Name = "xrPageInfo1";
+            this.xrPageInfo1.SizeF = new System.Drawing.SizeF(85.83331F, 23F);
+            this.xrPageInfo1.StyleName = "PageInfo";
+            this.xrPageInfo1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
+            this.xrPageInfo1.TextFormatString = "Trang {0} ";
+            // 
             // lblMaSV
             // 
             this.lblMaSV.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -187,7 +196,7 @@
             this.lblMaSV.Multiline = true;
             this.lblMaSV.Name = "lblMaSV";
             this.lblMaSV.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.lblMaSV.SizeF = new System.Drawing.SizeF(100F, 23F);
+            this.lblMaSV.SizeF = new System.Drawing.SizeF(134.375F, 23F);
             this.lblMaSV.StylePriority.UseFont = false;
             this.lblMaSV.Text = "lblMaSV";
             // 
@@ -198,7 +207,7 @@
             this.lblHoTen.Multiline = true;
             this.lblHoTen.Name = "lblHoTen";
             this.lblHoTen.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.lblHoTen.SizeF = new System.Drawing.SizeF(100F, 23F);
+            this.lblHoTen.SizeF = new System.Drawing.SizeF(210.4167F, 23.00001F);
             this.lblHoTen.StylePriority.UseFont = false;
             this.lblHoTen.Text = "lblHoTen";
             // 
@@ -464,15 +473,6 @@
             // sP_PhieuDiemSinhVienTableAdapter
             // 
             this.sP_PhieuDiemSinhVienTableAdapter.ClearBeforeFill = true;
-            // 
-            // xrPageInfo1
-            // 
-            this.xrPageInfo1.LocationFloat = new DevExpress.Utils.PointFloat(564.1667F, 0F);
-            this.xrPageInfo1.Name = "xrPageInfo1";
-            this.xrPageInfo1.SizeF = new System.Drawing.SizeF(85.83331F, 23F);
-            this.xrPageInfo1.StyleName = "PageInfo";
-            this.xrPageInfo1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
-            this.xrPageInfo1.TextFormatString = "Trang {0} ";
             // 
             // Xrpt_PhieuDiem
             // 

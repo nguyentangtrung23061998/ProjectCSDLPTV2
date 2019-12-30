@@ -32,13 +32,11 @@
             System.Windows.Forms.Label mASVLabel;
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.comboKHOA = new System.Windows.Forms.ComboBox();
-            this.vDSPHANMANHBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.qLDSVROOT = new QLDSV.QLDSVROOT();
             this.label2 = new System.Windows.Forms.Label();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.panelControl4 = new DevExpress.XtraEditors.PanelControl();
             this.lOPGridControl = new DevExpress.XtraGrid.GridControl();
-            this.lOPBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colMALOP = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTENLOP = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -47,23 +45,21 @@
             this.btnMayIn = new System.Windows.Forms.Button();
             this.btnManHinh = new System.Windows.Forms.Button();
             this.txtTenLop = new DevExpress.XtraEditors.TextEdit();
-            this.v_DS_PHANMANHTableAdapter = new QLDSV.QLDSVROOTTableAdapters.V_DS_PHANMANHTableAdapter();
             this.tableAdapterManager = new QLDSV.QLDSVROOTTableAdapters.TableAdapterManager();
             this.panelControl5 = new DevExpress.XtraEditors.PanelControl();
             this.BangDiemTongKetGridControl = new DevExpress.XtraGrid.GridControl();
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.lOPTableAdapter = new QLDSV.QLDSVROOTTableAdapters.LOPTableAdapter();
+            this.lOPBindingSource = new System.Windows.Forms.BindingSource(this.components);
             mASVLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.vDSPHANMANHBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.qLDSVROOT)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
             this.panelControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).BeginInit();
             this.panelControl4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lOPGridControl)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lOPBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
             this.panelControl3.SuspendLayout();
@@ -72,6 +68,7 @@
             this.panelControl5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BangDiemTongKetGridControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lOPBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // mASVLabel
@@ -96,8 +93,6 @@
             // 
             // comboKHOA
             // 
-            this.comboKHOA.DataSource = this.vDSPHANMANHBindingSource;
-            this.comboKHOA.DisplayMember = "TENCN";
             this.comboKHOA.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboKHOA.FormattingEnabled = true;
             this.comboKHOA.Location = new System.Drawing.Point(97, 17);
@@ -107,11 +102,6 @@
             this.comboKHOA.TabIndex = 44;
             this.comboKHOA.ValueMember = "TENSERVER";
             this.comboKHOA.SelectedIndexChanged += new System.EventHandler(this.ComboBox1_SelectedIndexChanged);
-            // 
-            // vDSPHANMANHBindingSource
-            // 
-            this.vDSPHANMANHBindingSource.DataMember = "V_DS_PHANMANH";
-            this.vDSPHANMANHBindingSource.DataSource = this.qLDSVROOT;
             // 
             // qLDSVROOT
             // 
@@ -158,11 +148,6 @@
             this.lOPGridControl.TabIndex = 0;
             this.lOPGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
-            // 
-            // lOPBindingSource
-            // 
-            this.lOPBindingSource.DataMember = "LOP";
-            this.lOPBindingSource.DataSource = this.qLDSVROOT;
             // 
             // gridView1
             // 
@@ -236,17 +221,13 @@
             // 
             // txtTenLop
             // 
-            this.txtTenLop.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.lOPBindingSource, "TENLOP", true));
+            this.txtTenLop.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.lOPBindingSource, "TENLOP", true));
             this.txtTenLop.Location = new System.Drawing.Point(133, 51);
             this.txtTenLop.Name = "txtTenLop";
             this.txtTenLop.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTenLop.Properties.Appearance.Options.UseFont = true;
             this.txtTenLop.Size = new System.Drawing.Size(218, 26);
             this.txtTenLop.TabIndex = 42;
-            // 
-            // v_DS_PHANMANHTableAdapter
-            // 
-            this.v_DS_PHANMANHTableAdapter.ClearBeforeFill = true;
             // 
             // tableAdapterManager
             // 
@@ -290,6 +271,11 @@
             // 
             this.lOPTableAdapter.ClearBeforeFill = true;
             // 
+            // lOPBindingSource
+            // 
+            this.lOPBindingSource.DataMember = "LOP";
+            this.lOPBindingSource.DataSource = this.qLDSVROOT;
+            // 
             // formInBangDiemMonHoc
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -304,14 +290,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             this.panelControl1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.vDSPHANMANHBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.qLDSVROOT)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
             this.panelControl2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).EndInit();
             this.panelControl4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.lOPGridControl)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lOPBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
             this.panelControl3.ResumeLayout(false);
@@ -321,6 +305,7 @@
             this.panelControl5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.BangDiemTongKetGridControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lOPBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -338,17 +323,15 @@
         private System.Windows.Forms.Button btnManHinh;
         public DevExpress.XtraEditors.TextEdit txtTenLop;
         private QLDSVROOT qLDSVROOT;
-        private System.Windows.Forms.BindingSource vDSPHANMANHBindingSource;
-        private QLDSVROOTTableAdapters.V_DS_PHANMANHTableAdapter v_DS_PHANMANHTableAdapter;
         private QLDSVROOTTableAdapters.TableAdapterManager tableAdapterManager;
         private DevExpress.XtraGrid.GridControl lOPGridControl;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.XtraEditors.PanelControl panelControl5;
         private DevExpress.XtraGrid.GridControl BangDiemTongKetGridControl;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
-        private System.Windows.Forms.BindingSource lOPBindingSource;
         private QLDSVROOTTableAdapters.LOPTableAdapter lOPTableAdapter;
         private DevExpress.XtraGrid.Columns.GridColumn colMALOP;
         private DevExpress.XtraGrid.Columns.GridColumn colTENLOP;
+        private System.Windows.Forms.BindingSource lOPBindingSource;
     }
 }
