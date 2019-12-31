@@ -43,10 +43,6 @@
             System.Windows.Forms.Label label5;
             this.v_DS_PHANMANHBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.qLDSVPMMaster = new QLDSV.QLDSVPMMaster();
-            this.lOPBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.qLDSVROOT = new QLDSV.QLDSVROOT();
-            this.lOPTableAdapter = new QLDSV.QLDSVROOTTableAdapters.LOPTableAdapter();
-            this.tableAdapterManager = new QLDSV.QLDSVROOTTableAdapters.TableAdapterManager();
             this.v_DS_PHANMANHTableAdapter = new QLDSV.QLDSVPMMasterTableAdapters.V_DS_PHANMANHTableAdapter();
             this.tableAdapterManager1 = new QLDSV.QLDSVPMMasterTableAdapters.TableAdapterManager();
             this.tabPage2 = new System.Windows.Forms.TabPage();
@@ -54,6 +50,8 @@
             this.comboKHOA = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.comboMaLop = new System.Windows.Forms.ComboBox();
+            this.lOPBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.qLDSVROOT = new QLDSV.QLDSVROOT();
             this.btnChuyenLop = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
@@ -72,6 +70,9 @@
             this.label2 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.statusStrip2 = new System.Windows.Forms.StatusStrip();
+            this.tooltipMaSV = new System.Windows.Forms.ToolStripStatusLabel();
+            this.tooltipHoTen = new System.Windows.Forms.ToolStripStatusLabel();
             this.btnCL = new System.Windows.Forms.Button();
             this.comboKhacKhoaLop = new System.Windows.Forms.ComboBox();
             this.sPThongTinMaLopSiteKhacBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -81,10 +82,10 @@
             this.label4 = new System.Windows.Forms.Label();
             this.v_DS_PHANMANHComboBox = new System.Windows.Forms.ComboBox();
             this.v_DS_PHANMANHBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.sP_ThongTinMaLopSiteKhacTableAdapter = new QLDSV.QLDSVROOTTableAdapters.SP_ThongTinMaLopSiteKhacTableAdapter();
-            this.statusStrip2 = new System.Windows.Forms.StatusStrip();
-            this.tooltipMaSV = new System.Windows.Forms.ToolStripStatusLabel();
-            this.tooltipHoTen = new System.Windows.Forms.ToolStripStatusLabel();
+            this.lOPTableAdapter = new QLDSV.QLDSVROOTTableAdapters.LOPTableAdapter();
+            this.tableAdapterManager = new QLDSV.QLDSVROOTTableAdapters.TableAdapterManager();
+            this.sPThongTinMaLopSiteKhac1BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.sP_ThongTinMaLopSiteKhac1TableAdapter = new QLDSV.QLDSVROOTTableAdapters.SP_ThongTinMaLopSiteKhac1TableAdapter();
             mALOPLabel2 = new System.Windows.Forms.Label();
             tENLOPLabel = new System.Windows.Forms.Label();
             nGHIHOCLabel = new System.Windows.Forms.Label();
@@ -99,9 +100,9 @@
             label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.v_DS_PHANMANHBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.qLDSVPMMaster)).BeginInit();
+            this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lOPBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.qLDSVROOT)).BeginInit();
-            this.tabPage2.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaLop.Properties)).BeginInit();
@@ -116,9 +117,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.cbNghiHoc.Properties)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage3.SuspendLayout();
+            this.statusStrip2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sPThongTinMaLopSiteKhacBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.v_DS_PHANMANHBindingSource1)).BeginInit();
-            this.statusStrip2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.sPThongTinMaLopSiteKhac1BindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // mALOPLabel2
@@ -239,32 +241,6 @@
             this.qLDSVPMMaster.DataSetName = "QLDSVPMMaster";
             this.qLDSVPMMaster.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // lOPBindingSource
-            // 
-            this.lOPBindingSource.DataMember = "LOP";
-            this.lOPBindingSource.DataSource = this.qLDSVROOT;
-            // 
-            // qLDSVROOT
-            // 
-            this.qLDSVROOT.DataSetName = "QLDSVROOT";
-            this.qLDSVROOT.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // lOPTableAdapter
-            // 
-            this.lOPTableAdapter.ClearBeforeFill = true;
-            // 
-            // tableAdapterManager
-            // 
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.DIEMTableAdapter = null;
-            this.tableAdapterManager.GIANGVIENTableAdapter = null;
-            this.tableAdapterManager.HOCPHITableAdapter = null;
-            this.tableAdapterManager.KHOATableAdapter = null;
-            this.tableAdapterManager.LOPTableAdapter = this.lOPTableAdapter;
-            this.tableAdapterManager.MONHOCTableAdapter = null;
-            this.tableAdapterManager.SINHVIENTableAdapter = null;
-            this.tableAdapterManager.UpdateOrder = QLDSV.QLDSVROOTTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            // 
             // v_DS_PHANMANHTableAdapter
             // 
             this.v_DS_PHANMANHTableAdapter.ClearBeforeFill = true;
@@ -337,6 +313,16 @@
             this.comboMaLop.Size = new System.Drawing.Size(121, 24);
             this.comboMaLop.TabIndex = 38;
             this.comboMaLop.ValueMember = "MALOP";
+            // 
+            // lOPBindingSource
+            // 
+            this.lOPBindingSource.DataMember = "LOP";
+            this.lOPBindingSource.DataSource = this.qLDSVROOT;
+            // 
+            // qLDSVROOT
+            // 
+            this.qLDSVROOT.DataSetName = "QLDSVROOT";
+            this.qLDSVROOT.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // btnChuyenLop
             // 
@@ -568,6 +554,30 @@
             this.tabPage3.Text = "CHUYỂN KHÁC KHOA";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // statusStrip2
+            // 
+            this.statusStrip2.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.statusStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tooltipMaSV,
+            this.tooltipHoTen});
+            this.statusStrip2.Location = new System.Drawing.Point(3, 213);
+            this.statusStrip2.Name = "statusStrip2";
+            this.statusStrip2.Size = new System.Drawing.Size(708, 26);
+            this.statusStrip2.TabIndex = 47;
+            this.statusStrip2.Text = "statusStrip2";
+            // 
+            // tooltipMaSV
+            // 
+            this.tooltipMaSV.Name = "tooltipMaSV";
+            this.tooltipMaSV.Size = new System.Drawing.Size(58, 20);
+            this.tooltipMaSV.Text = "Mã SV: ";
+            // 
+            // tooltipHoTen
+            // 
+            this.tooltipHoTen.Name = "tooltipHoTen";
+            this.tooltipHoTen.Size = new System.Drawing.Size(61, 20);
+            this.tooltipHoTen.Text = "Họ tên: ";
+            // 
             // btnCL
             // 
             this.btnCL.BackColor = System.Drawing.Color.DarkGray;
@@ -582,7 +592,7 @@
             // 
             // comboKhacKhoaLop
             // 
-            this.comboKhacKhoaLop.DataSource = this.sPThongTinMaLopSiteKhacBindingSource;
+            this.comboKhacKhoaLop.DataSource = this.sPThongTinMaLopSiteKhac1BindingSource;
             this.comboKhacKhoaLop.DisplayMember = "MALOP";
             this.comboKhacKhoaLop.FormattingEnabled = true;
             this.comboKhacKhoaLop.Location = new System.Drawing.Point(540, 87);
@@ -650,33 +660,30 @@
             this.v_DS_PHANMANHBindingSource1.DataMember = "V_DS_PHANMANH";
             this.v_DS_PHANMANHBindingSource1.DataSource = this.qLDSVPMMaster;
             // 
-            // sP_ThongTinMaLopSiteKhacTableAdapter
+            // lOPTableAdapter
             // 
-            this.sP_ThongTinMaLopSiteKhacTableAdapter.ClearBeforeFill = true;
+            this.lOPTableAdapter.ClearBeforeFill = true;
             // 
-            // statusStrip2
+            // tableAdapterManager
             // 
-            this.statusStrip2.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.statusStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tooltipMaSV,
-            this.tooltipHoTen});
-            this.statusStrip2.Location = new System.Drawing.Point(3, 213);
-            this.statusStrip2.Name = "statusStrip2";
-            this.statusStrip2.Size = new System.Drawing.Size(708, 26);
-            this.statusStrip2.TabIndex = 47;
-            this.statusStrip2.Text = "statusStrip2";
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.DIEMTableAdapter = null;
+            this.tableAdapterManager.GIANGVIENTableAdapter = null;
+            this.tableAdapterManager.HOCPHITableAdapter = null;
+            this.tableAdapterManager.KHOATableAdapter = null;
+            this.tableAdapterManager.LOPTableAdapter = this.lOPTableAdapter;
+            this.tableAdapterManager.MONHOCTableAdapter = null;
+            this.tableAdapterManager.SINHVIENTableAdapter = null;
+            this.tableAdapterManager.UpdateOrder = QLDSV.QLDSVROOTTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
-            // tooltipMaSV
+            // sPThongTinMaLopSiteKhac1BindingSource
             // 
-            this.tooltipMaSV.Name = "tooltipMaSV";
-            this.tooltipMaSV.Size = new System.Drawing.Size(58, 20);
-            this.tooltipMaSV.Text = "Mã SV: ";
+            this.sPThongTinMaLopSiteKhac1BindingSource.DataMember = "SP_ThongTinMaLopSiteKhac1";
+            this.sPThongTinMaLopSiteKhac1BindingSource.DataSource = this.qLDSVROOT;
             // 
-            // tooltipHoTen
+            // sP_ThongTinMaLopSiteKhac1TableAdapter
             // 
-            this.tooltipHoTen.Name = "tooltipHoTen";
-            this.tooltipHoTen.Size = new System.Drawing.Size(61, 20);
-            this.tooltipHoTen.Text = "Họ tên: ";
+            this.sP_ThongTinMaLopSiteKhac1TableAdapter.ClearBeforeFill = true;
             // 
             // formChuyenLop
             // 
@@ -690,10 +697,10 @@
             this.Load += new System.EventHandler(this.formChuyenLop_Load);
             ((System.ComponentModel.ISupportInitialize)(this.v_DS_PHANMANHBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.qLDSVPMMaster)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lOPBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.qLDSVROOT)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lOPBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.qLDSVROOT)).EndInit();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             this.tabPage1.ResumeLayout(false);
@@ -711,10 +718,11 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.sPThongTinMaLopSiteKhacBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.v_DS_PHANMANHBindingSource1)).EndInit();
             this.statusStrip2.ResumeLayout(false);
             this.statusStrip2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.sPThongTinMaLopSiteKhacBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.v_DS_PHANMANHBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sPThongTinMaLopSiteKhac1BindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -760,9 +768,10 @@
         private System.Windows.Forms.ComboBox v_DS_PHANMANHComboBox;
         private System.Windows.Forms.BindingSource v_DS_PHANMANHBindingSource1;
         private System.Windows.Forms.BindingSource sPThongTinMaLopSiteKhacBindingSource;
-        private QLDSVROOTTableAdapters.SP_ThongTinMaLopSiteKhacTableAdapter sP_ThongTinMaLopSiteKhacTableAdapter;
         private System.Windows.Forms.StatusStrip statusStrip2;
         private System.Windows.Forms.ToolStripStatusLabel tooltipMaSV;
         private System.Windows.Forms.ToolStripStatusLabel tooltipHoTen;
+        private System.Windows.Forms.BindingSource sPThongTinMaLopSiteKhac1BindingSource;
+        private QLDSVROOTTableAdapters.SP_ThongTinMaLopSiteKhac1TableAdapter sP_ThongTinMaLopSiteKhac1TableAdapter;
     }
 }

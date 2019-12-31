@@ -267,6 +267,39 @@ namespace QLDSV
 
         }
 
+
+        public int checkSVCoDiemTonTai(String maSV)
+        {
+            try
+            {
+                if (Program.conn.State == ConnectionState.Closed)
+                    Program.conn.Open();
+                String strLenh = "SP_KiemTraDiemTonTaiSinhVien";
+                Program.sqlcmd = Program.conn.CreateCommand();
+                Program.sqlcmd.CommandType = CommandType.StoredProcedure;
+                Program.sqlcmd.CommandText = strLenh;
+                Program.sqlcmd.Parameters.Add("@MaSV", SqlDbType.NChar).Value = maSV;
+                Program.sqlcmd.Parameters.Add("@Ret", SqlDbType.Int).Direction = ParameterDirection.ReturnValue;
+                Program.sqlcmd.ExecuteNonQuery();
+                String ret = Program.sqlcmd.Parameters["@Ret"].Value.ToString();
+            
+                if (ret == "1")
+                {
+                    return 1;
+                }
+                if (ret == "0")
+                {
+                    return 0;
+                }
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi "+ex.Message, "", MessageBoxButtons.OK);
+            }
+            return 0;
+        }
+
         public int xoaSinhVien(String maSV)
         {
             if (Program.conn.State == ConnectionState.Closed)
@@ -304,14 +337,22 @@ namespace QLDSV
         {
             if (MessageBox.Show("Bạn có chắc muốn xóa nó không?", "Xóa sinh viên", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                int result = xoaSinhVien(txtMaSV.Text);
-                if (result == 1)
+                int checkSinhVienCoDiem = checkSVCoDiemTonTai(txtMaSV.Text);
+                if (checkSinhVienCoDiem == 1)
                 {
-                    MessageBox.Show("Xóa sinh viên thành công.", "", MessageBoxButtons.OK);
+                    MessageBox.Show("Sinh viên đã có điểm. Không được xóa", "", MessageBoxButtons.OK);
                 }
                 else
                 {
-                    return;
+                    int result = xoaSinhVien(txtMaSV.Text);
+                    if (result == 1)
+                    {
+                        MessageBox.Show("Xóa sinh viên thành công.", "", MessageBoxButtons.OK);
+                    }
+                    else
+                    {
+                        return;
+                    }
                 }
             }
         }

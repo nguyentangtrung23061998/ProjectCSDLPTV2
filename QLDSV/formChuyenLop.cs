@@ -71,10 +71,12 @@ namespace QLDSV
 
         private void formChuyenLop_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'qLDSVROOT.SP_ThongTinMaLopSiteKhac1' table. You can move, or remove it, as needed.
+           
             this.qLDSVROOT.EnforceConstraints = false;
             // TODO: This line of code loads data into the 'qLDSVROOT.SP_ThongTinMaLopSiteKhac' table. You can move, or remove it, as needed.
-            this.sP_ThongTinMaLopSiteKhacTableAdapter.Connection.ConnectionString = Program.connstr;
-            this.sP_ThongTinMaLopSiteKhacTableAdapter.Fill(this.qLDSVROOT.SP_ThongTinMaLopSiteKhac);
+            this.sP_ThongTinMaLopSiteKhac1TableAdapter.Connection.ConnectionString = Program.connstr;
+            this.sP_ThongTinMaLopSiteKhac1TableAdapter.Fill(this.qLDSVROOT.SP_ThongTinMaLopSiteKhac1);
             // TODO: This line of code loads data into the 'qLDSVPMMaster.V_DS_PHANMANH' table. You can move, or remove it, as needed.
             this.v_DS_PHANMANHTableAdapter.Fill(this.qLDSVPMMaster.V_DS_PHANMANH);
             // TODO: This line of code loads data into the 'qLDSVPMMaster.V_DS_PHANMANH' table. You can move, or remove it, as needed.

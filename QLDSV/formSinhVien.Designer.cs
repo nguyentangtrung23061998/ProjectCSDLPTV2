@@ -59,7 +59,6 @@
             this.btnClearSV = new System.Windows.Forms.Button();
             this.btnPhucHoiSV = new System.Windows.Forms.Button();
             this.btnSVThem = new System.Windows.Forms.Button();
-            this.txtMaSV = new System.Windows.Forms.ComboBox();
             this.sINHVIENBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.txtHo = new DevExpress.XtraEditors.TextEdit();
             this.txtTen = new DevExpress.XtraEditors.TextEdit();
@@ -87,6 +86,7 @@
             this.btnXoaSV = new System.Windows.Forms.ToolStripMenuItem();
             this.btnSuaSV = new System.Windows.Forms.ToolStripMenuItem();
             this.btnChuyenLop = new System.Windows.Forms.ToolStripMenuItem();
+            this.txtMaSV = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.qLDSVROOT)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lOPBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.qLDSVPMMaster)).BeginInit();
@@ -251,6 +251,7 @@
             // 
             // comboKHOA
             // 
+            this.comboKHOA.DisplayMember = "TENSERVER";
             this.comboKHOA.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboKHOA.FormattingEnabled = true;
             this.comboKHOA.Location = new System.Drawing.Point(147, 28);
@@ -288,7 +289,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1024, 80);
             this.panel1.TabIndex = 4;
-         //   this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // lOPGridControl
             // 
@@ -353,12 +353,12 @@
             // 
             // panelControl1
             // 
+            this.panelControl1.Controls.Add(this.txtMaSV);
             this.panelControl1.Controls.Add(this.btnThoatSV);
             this.panelControl1.Controls.Add(this.btnClearSV);
             this.panelControl1.Controls.Add(this.btnPhucHoiSV);
             this.panelControl1.Controls.Add(this.btnSVThem);
             this.panelControl1.Controls.Add(this.mASVLabel);
-            this.panelControl1.Controls.Add(this.txtMaSV);
             this.panelControl1.Controls.Add(this.hOLabel);
             this.panelControl1.Controls.Add(this.txtHo);
             this.panelControl1.Controls.Add(this.tENLabel);
@@ -437,17 +437,6 @@
             this.btnSVThem.Text = "THÊM";
             this.btnSVThem.UseVisualStyleBackColor = false;
             this.btnSVThem.Click += new System.EventHandler(this.btnSVThem_Click);
-            // 
-            // txtMaSV
-            // 
-            this.txtMaSV.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.sINHVIENBindingSource, "MASV", true));
-            this.txtMaSV.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMaSV.FormattingEnabled = true;
-            this.txtMaSV.Location = new System.Drawing.Point(140, 22);
-            this.txtMaSV.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtMaSV.Name = "txtMaSV";
-            this.txtMaSV.Size = new System.Drawing.Size(125, 29);
-            this.txtMaSV.TabIndex = 1;
             // 
             // sINHVIENBindingSource
             // 
@@ -730,6 +719,14 @@
             this.btnChuyenLop.Text = "Chuyển Lớp";
             this.btnChuyenLop.Click += new System.EventHandler(this.btnChuyenLop_Click);
             // 
+            // txtMaSV
+            // 
+            this.txtMaSV.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.sINHVIENBindingSource, "MASV", true));
+            this.txtMaSV.Location = new System.Drawing.Point(140, 25);
+            this.txtMaSV.Name = "txtMaSV";
+            this.txtMaSV.Size = new System.Drawing.Size(126, 23);
+            this.txtMaSV.TabIndex = 19;
+            // 
             // formSinhVien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -791,7 +788,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colTENLOP;
         private DevExpress.XtraGrid.Columns.GridColumn colMAKH;
         private DevExpress.XtraEditors.PanelControl panelControl1;
-        private System.Windows.Forms.ComboBox txtMaSV;
         private DevExpress.XtraEditors.TextEdit txtHo;
         private DevExpress.XtraEditors.TextEdit txtTen;
         private DevExpress.XtraEditors.TextEdit txtMaLop;
@@ -833,5 +829,6 @@
         private System.Windows.Forms.Button btnRefreshSV;
         private System.Windows.Forms.Button btnSVThem;
         private System.Windows.Forms.ToolStripMenuItem btnRefresh;
+        private System.Windows.Forms.TextBox txtMaSV;
     }
 }
