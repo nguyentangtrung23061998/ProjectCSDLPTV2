@@ -20,8 +20,6 @@ namespace QLDSV
 
         private void formBangDiemMonHoc_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'qLDSVPMMaster.V_DS_PHANMANH' table. You can move, or remove it, as needed.
-            this.v_DS_PHANMANHTableAdapter.Fill(this.qLDSVPMMaster.V_DS_PHANMANH);
             this.qLDSVROOT.EnforceConstraints = false;
             // TODO: This line of code loads data into the 'qLDSVROOT.DIEM' table. You can move, or remove it, as needed.
             this.dIEMTableAdapter.Connection.ConnectionString = Program.connstr;
@@ -32,7 +30,9 @@ namespace QLDSV
             // TODO: This line of code loads data into the 'qLDSVROOT.LOP' table. You can move, or remove it, as needed.
             this.lOPTableAdapter.Connection.ConnectionString = Program.connstr;
             this.lOPTableAdapter.Fill(this.qLDSVROOT.LOP);
+
             this.sP_XuatBangDiemMonHocGridControl.Visible = false;
+
             IDictionary<int, string> dict = new Dictionary<int, string>();
             dict.Add(1, "1");
             dict.Add(2, "2");
@@ -51,12 +51,7 @@ namespace QLDSV
             }
             if (Program.mGroup == "PGV")
             {
-                if (Program.conn.State == ConnectionState.Closed)
-                    Program.conn.Open();
-                DataTable dt = new DataTable();
-                dt = Program.ExecSqlDataTable("SELECT * FROM V_DS_PHANMANH WHERE TENCN <> 'QLDSV_KETOAN'");
-
-                comboKHOA.DataSource = dt;
+                comboKHOA.DataSource = Program.bds_khoa.DataSource;
                 comboKHOA.DisplayMember = "TENCN";
                 comboKHOA.ValueMember = "TENSERVER";
                 comboKHOA.SelectedIndex = Program.mChinhanh;
@@ -89,7 +84,6 @@ namespace QLDSV
 
         private void btnThoatMonHoc_Click(object sender, EventArgs e)
         {
-            comboKHOA.SelectedIndex = Program.mChinhanh;
             this.Close();
         }
 

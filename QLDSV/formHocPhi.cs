@@ -36,8 +36,6 @@ namespace QLDSV
             this.sINHVIENTableAdapter.Connection.ConnectionString = Program.connstr;
             this.sINHVIENTableAdapter.Fill(this.qLDSVROOT.SINHVIEN);
            
-            this.v_DS_PHANMANHTableAdapter.Fill(this.qLDSVPMMaster.V_DS_PHANMANH);
-           
             setComboboxKHOAbyDefault();
 
             IDictionary<int, string> dict = new Dictionary<int, string>();
@@ -109,6 +107,7 @@ namespace QLDSV
                         btnClear.Enabled = false;
                         txtNienKhoa.Focus();
                         txtNienKhoa.ReadOnly = false;
+                        cmbHocKy.Enabled = true;
                         // Create new row in grid control
                         this.sPDongHocPhiSinhVienBindingSource.AddNew();
                         isAddNew = true;
@@ -209,11 +208,11 @@ namespace QLDSV
                     isAddNew = false;
                     try
                     {
-                        string strLenh = "INSERT INTO dbo.HOCPHI (MASV,NIENKHOA,HOCKY,HOCPHI,SOTIENDADONG) VALUES (@MASV,@NIENKHOA,@HOCKY,@HOCPHI,@SOTIENDADONG)";
+                        string strLenh = "dbo.SP_InsertHocPhiChoSinhVien";
                         if (Program.conn.State == ConnectionState.Closed)
                             Program.conn.Open();
                         Program.sqlcmd = Program.conn.CreateCommand();
-                        Program.sqlcmd.CommandType = CommandType.Text;
+                        Program.sqlcmd.CommandType = CommandType.StoredProcedure;
                         Program.sqlcmd.CommandText = strLenh;
                         Program.sqlcmd.Parameters.Add("@MASV", SqlDbType.NChar).Value = txtMASV.Text.Trim();
                         Program.sqlcmd.Parameters.Add("@NIENKHOA", SqlDbType.NVarChar).Value = txtNienKhoa.Text.Trim();
@@ -237,11 +236,11 @@ namespace QLDSV
                 {
                     try
                     {
-                        string strLenh = "UPDATE dbo.HOCPHI SET NIENKHOA = @NIENKHOA, HOCKY=@HOCKY, HOCPHI=@HOCPHI, SOTIENDADONG=@SOTIENDADONG WHERE MASV = @MASV and NIENKHOA=N'" + txtNienKhoa.Text.Trim() + "' and HOCKY='" + cmbHocKy.SelectedValue.ToString() + "'";
+                        string strLenh = "dbo.SP_UpdateHocPhiChoSinhVien";
                         if (Program.conn.State == ConnectionState.Closed)
                             Program.conn.Open();
                         Program.sqlcmd = Program.conn.CreateCommand();
-                        Program.sqlcmd.CommandType = CommandType.Text;
+                        Program.sqlcmd.CommandType = CommandType.StoredProcedure;
                         Program.sqlcmd.CommandText = strLenh;
                         Program.sqlcmd.Parameters.Add("@MASV", SqlDbType.NChar).Value = txtMASV.Text.Trim();
                         Program.sqlcmd.Parameters.Add("@NIENKHOA", SqlDbType.NVarChar).Value = txtNienKhoa.Text.Trim();
@@ -251,7 +250,7 @@ namespace QLDSV
                         Program.sqlcmd.ExecuteNonQuery();
                         Program.conn.Close();
                         MessageBox.Show("Đã cập nhật dữ liệu", "", MessageBoxButtons.OK);
-                        this.sPDongHocPhiSinhVienBindingSource.EndEdit();
+                        //this.sPDongHocPhiSinhVienBindingSource.EndEdit();
                     }
                     catch (Exception ex)
                     {

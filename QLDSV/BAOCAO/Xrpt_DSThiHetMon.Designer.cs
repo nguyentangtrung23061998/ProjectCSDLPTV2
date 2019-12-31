@@ -73,6 +73,7 @@
             this.qldsvroot1 = new QLDSV.QLDSVROOT();
             this.sP_DSThiHetMonTableAdapter = new QLDSV.QLDSVROOTTableAdapters.SP_DSThiHetMonTableAdapter();
             this.dIEMTableAdapter = new QLDSV.QLDSVROOTTableAdapters.DIEMTableAdapter();
+            this.xrPageInfo1 = new DevExpress.XtraReports.UI.XRPageInfo();
             ((System.ComponentModel.ISupportInitialize)(this.table1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.table2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.qldsvroot1)).BeginInit();
@@ -197,6 +198,7 @@
             // ReportHeader
             // 
             this.ReportHeader.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.xrPageInfo1,
             this.lblNgayThi,
             this.lblMonHoc,
             this.lblLop,
@@ -204,13 +206,13 @@
             this.xrLabel2,
             this.xrLabel1,
             this.label1});
-            this.ReportHeader.HeightF = 120.4167F;
+            this.ReportHeader.HeightF = 157.9167F;
             this.ReportHeader.Name = "ReportHeader";
             // 
             // lblNgayThi
             // 
             this.lblNgayThi.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNgayThi.LocationFloat = new DevExpress.Utils.PointFloat(291.6508F, 70.19434F);
+            this.lblNgayThi.LocationFloat = new DevExpress.Utils.PointFloat(291.6508F, 111.861F);
             this.lblNgayThi.Multiline = true;
             this.lblNgayThi.Name = "lblNgayThi";
             this.lblNgayThi.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
@@ -221,7 +223,7 @@
             // lblMonHoc
             // 
             this.lblMonHoc.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMonHoc.LocationFloat = new DevExpress.Utils.PointFloat(291.6508F, 47.19434F);
+            this.lblMonHoc.LocationFloat = new DevExpress.Utils.PointFloat(291.6508F, 88.86102F);
             this.lblMonHoc.Multiline = true;
             this.lblMonHoc.Name = "lblMonHoc";
             this.lblMonHoc.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
@@ -232,7 +234,7 @@
             // lblLop
             // 
             this.lblLop.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLop.LocationFloat = new DevExpress.Utils.PointFloat(265.6091F, 24.19434F);
+            this.lblLop.LocationFloat = new DevExpress.Utils.PointFloat(265.6091F, 65.861F);
             this.lblLop.Multiline = true;
             this.lblLop.Name = "lblLop";
             this.lblLop.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
@@ -243,7 +245,7 @@
             // xrLabel3
             // 
             this.xrLabel3.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xrLabel3.LocationFloat = new DevExpress.Utils.PointFloat(220.8176F, 70.19431F);
+            this.xrLabel3.LocationFloat = new DevExpress.Utils.PointFloat(220.8176F, 111.861F);
             this.xrLabel3.Multiline = true;
             this.xrLabel3.Name = "xrLabel3";
             this.xrLabel3.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
@@ -254,7 +256,7 @@
             // xrLabel2
             // 
             this.xrLabel2.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xrLabel2.LocationFloat = new DevExpress.Utils.PointFloat(220.8176F, 47.19431F);
+            this.xrLabel2.LocationFloat = new DevExpress.Utils.PointFloat(220.8176F, 88.86095F);
             this.xrLabel2.Multiline = true;
             this.xrLabel2.Name = "xrLabel2";
             this.xrLabel2.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
@@ -265,7 +267,7 @@
             // xrLabel1
             // 
             this.xrLabel1.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xrLabel1.LocationFloat = new DevExpress.Utils.PointFloat(220.8176F, 24.1943F);
+            this.xrLabel1.LocationFloat = new DevExpress.Utils.PointFloat(220.8176F, 65.86097F);
             this.xrLabel1.Multiline = true;
             this.xrLabel1.Name = "xrLabel1";
             this.xrLabel1.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
@@ -278,7 +280,7 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
+            this.label1.LocationFloat = new DevExpress.Utils.PointFloat(0F, 41.66667F);
             this.label1.Name = "label1";
             this.label1.SizeF = new System.Drawing.SizeF(650F, 24.19433F);
             this.label1.StyleName = "Title";
@@ -604,6 +606,15 @@
             // 
             this.dIEMTableAdapter.ClearBeforeFill = true;
             // 
+            // xrPageInfo1
+            // 
+            this.xrPageInfo1.LocationFloat = new DevExpress.Utils.PointFloat(564.1667F, 0F);
+            this.xrPageInfo1.Name = "xrPageInfo1";
+            this.xrPageInfo1.SizeF = new System.Drawing.SizeF(85.83331F, 23F);
+            this.xrPageInfo1.StyleName = "PageInfo";
+            this.xrPageInfo1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
+            this.xrPageInfo1.TextFormatString = "Trang {0} ";
+            // 
             // XtraReport1
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
@@ -675,5 +686,6 @@
         private QLDSVROOTTableAdapters.SP_DSThiHetMonTableAdapter sP_DSThiHetMonTableAdapter;
         private QLDSVROOTTableAdapters.DIEMTableAdapter dIEMTableAdapter;
         public DevExpress.XtraReports.UI.XRLabel lblNgayThi;
+        private DevExpress.XtraReports.UI.XRPageInfo xrPageInfo1;
     }
 }

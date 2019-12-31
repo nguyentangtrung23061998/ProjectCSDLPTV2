@@ -134,6 +134,16 @@ namespace QLDSV
             }
             Program.mHoten = myReader.GetString(1);
             Program.mGroup = myReader.GetString(2);
+            if(Program.mGroup == "PGV")
+            {
+                if (Program.conn.State == ConnectionState.Open)
+                    Program.conn.Close();
+                DataTable dt = new DataTable();
+                dt = Program.ExecSqlDataTable("SELECT * FROM V_DS_PHANMANH WHERE TENCN <> 'QLDSV_KETOAN'");
+                Program.bds_khoa.DataSource = dt;
+                // set cmb start with value of index 0
+                Program.mChinhanh = 0;
+            }
             myReader.Close();
             Program.conn.Close();
 

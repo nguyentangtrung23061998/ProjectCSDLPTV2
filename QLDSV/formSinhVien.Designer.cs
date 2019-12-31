@@ -44,8 +44,6 @@
             this.lOPTableAdapter = new QLDSV.QLDSVROOTTableAdapters.LOPTableAdapter();
             this.tableAdapterManager = new QLDSV.QLDSVROOTTableAdapters.TableAdapterManager();
             this.qLDSVPMMaster = new QLDSV.QLDSVPMMaster();
-            this.v_DS_PHANMANHBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.v_DS_PHANMANHTableAdapter = new QLDSV.QLDSVPMMasterTableAdapters.V_DS_PHANMANHTableAdapter();
             this.tableAdapterManager1 = new QLDSV.QLDSVPMMasterTableAdapters.TableAdapterManager();
             this.label1 = new System.Windows.Forms.Label();
             this.comboKHOA = new System.Windows.Forms.ComboBox();
@@ -92,7 +90,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.qLDSVROOT)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lOPBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.qLDSVPMMaster)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.v_DS_PHANMANHBindingSource)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lOPGridControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
@@ -236,15 +233,6 @@
             this.qLDSVPMMaster.DataSetName = "QLDSVPMMaster";
             this.qLDSVPMMaster.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // v_DS_PHANMANHBindingSource
-            // 
-            this.v_DS_PHANMANHBindingSource.DataMember = "V_DS_PHANMANH";
-            this.v_DS_PHANMANHBindingSource.DataSource = this.qLDSVPMMaster;
-            // 
-            // v_DS_PHANMANHTableAdapter
-            // 
-            this.v_DS_PHANMANHTableAdapter.ClearBeforeFill = true;
-            // 
             // tableAdapterManager1
             // 
             this.tableAdapterManager1.BackupDataSetBeforeUpdate = false;
@@ -263,8 +251,6 @@
             // 
             // comboKHOA
             // 
-            this.comboKHOA.DataSource = this.v_DS_PHANMANHBindingSource;
-            this.comboKHOA.DisplayMember = "TENCN";
             this.comboKHOA.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboKHOA.FormattingEnabled = true;
             this.comboKHOA.Location = new System.Drawing.Point(147, 28);
@@ -302,7 +288,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1024, 80);
             this.panel1.TabIndex = 4;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+         //   this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // lOPGridControl
             // 
@@ -761,7 +747,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.qLDSVROOT)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lOPBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.qLDSVPMMaster)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.v_DS_PHANMANHBindingSource)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lOPGridControl)).EndInit();
@@ -795,8 +780,6 @@
         private QLDSVROOTTableAdapters.LOPTableAdapter lOPTableAdapter;
         private QLDSVROOTTableAdapters.TableAdapterManager tableAdapterManager;
         private QLDSVPMMaster qLDSVPMMaster;
-        private System.Windows.Forms.BindingSource v_DS_PHANMANHBindingSource;
-        private QLDSVPMMasterTableAdapters.V_DS_PHANMANHTableAdapter v_DS_PHANMANHTableAdapter;
         private QLDSVPMMasterTableAdapters.TableAdapterManager tableAdapterManager1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox comboKHOA;

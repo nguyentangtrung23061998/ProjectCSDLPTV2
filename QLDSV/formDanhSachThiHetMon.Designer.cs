@@ -36,10 +36,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.bunifuCards1 = new Bunifu.Framework.UI.BunifuCards();
             this.comboKHOA = new System.Windows.Forms.ComboBox();
-            this.vDSPHANMANHBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.qLDSVPMMaster = new QLDSV.QLDSVPMMaster();
             this.label1 = new System.Windows.Forms.Label();
-            this.v_DS_PHANMANHTableAdapter = new QLDSV.QLDSVPMMasterTableAdapters.V_DS_PHANMANHTableAdapter();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.dtNgayThi = new DevExpress.XtraEditors.DateEdit();
             this.label2 = new System.Windows.Forms.Label();
@@ -75,8 +72,6 @@
             tENMHLabel = new System.Windows.Forms.Label();
             mAMHLabel = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.vDSPHANMANHBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.qLDSVPMMaster)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtNgayThi.Properties.CalendarTimeProperties)).BeginInit();
@@ -160,8 +155,6 @@
             // 
             // comboKHOA
             // 
-            this.comboKHOA.DataSource = this.vDSPHANMANHBindingSource;
-            this.comboKHOA.DisplayMember = "TENCN";
             this.comboKHOA.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboKHOA.FormattingEnabled = true;
             this.comboKHOA.Location = new System.Drawing.Point(105, 13);
@@ -172,16 +165,6 @@
             this.comboKHOA.ValueMember = "TENSERVER";
             this.comboKHOA.SelectedIndexChanged += new System.EventHandler(this.ComboKHOA_SelectedIndexChanged);
             // 
-            // vDSPHANMANHBindingSource
-            // 
-            this.vDSPHANMANHBindingSource.DataMember = "V_DS_PHANMANH";
-            this.vDSPHANMANHBindingSource.DataSource = this.qLDSVPMMaster;
-            // 
-            // qLDSVPMMaster
-            // 
-            this.qLDSVPMMaster.DataSetName = "QLDSVPMMaster";
-            this.qLDSVPMMaster.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -191,10 +174,6 @@
             this.label1.Size = new System.Drawing.Size(55, 19);
             this.label1.TabIndex = 0;
             this.label1.Text = "KHOA";
-            // 
-            // v_DS_PHANMANHTableAdapter
-            // 
-            this.v_DS_PHANMANHTableAdapter.ClearBeforeFill = true;
             // 
             // panelControl1
             // 
@@ -514,8 +493,6 @@
             this.Load += new System.EventHandler(this.FormDanhSachThiHetMon_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.vDSPHANMANHBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.qLDSVPMMaster)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             this.panelControl1.PerformLayout();
@@ -538,9 +515,6 @@
         private Bunifu.Framework.UI.BunifuCards bunifuCards1;
         private System.Windows.Forms.ComboBox comboKHOA;
         private System.Windows.Forms.Label label1;
-        private QLDSVPMMaster qLDSVPMMaster;
-        private System.Windows.Forms.BindingSource vDSPHANMANHBindingSource;
-        private QLDSVPMMasterTableAdapters.V_DS_PHANMANHTableAdapter v_DS_PHANMANHTableAdapter;
         private DevExpress.XtraEditors.PanelControl panelControl1;
         private System.Windows.Forms.Label txtMalop;
         private System.Windows.Forms.ComboBox cmbTenLop;

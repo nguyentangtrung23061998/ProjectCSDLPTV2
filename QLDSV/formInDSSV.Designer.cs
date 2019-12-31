@@ -34,10 +34,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.bunifuCards1 = new Bunifu.Framework.UI.BunifuCards();
             this.comboKHOA = new System.Windows.Forms.ComboBox();
-            this.v_DS_PHANMANHBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.qLDSVPMMaster = new QLDSV.QLDSVPMMaster();
             this.label1 = new System.Windows.Forms.Label();
-            this.v_DS_PHANMANHTableAdapter = new QLDSV.QLDSVPMMasterTableAdapters.V_DS_PHANMANHTableAdapter();
             this.tableAdapterManager = new QLDSV.QLDSVPMMasterTableAdapters.TableAdapterManager();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.txtML = new System.Windows.Forms.TextBox();
@@ -65,8 +62,6 @@
             this.btnThoatMonHoc = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigator1 = new System.Windows.Forms.BindingNavigator(this.components);
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.v_DS_PHANMANHBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.qLDSVPMMaster)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lOPBindingSource)).BeginInit();
@@ -118,8 +113,6 @@
             // 
             // comboKHOA
             // 
-            this.comboKHOA.DataSource = this.v_DS_PHANMANHBindingSource;
-            this.comboKHOA.DisplayMember = "TENCN";
             this.comboKHOA.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboKHOA.FormattingEnabled = true;
             this.comboKHOA.Location = new System.Drawing.Point(122, 16);
@@ -130,16 +123,6 @@
             this.comboKHOA.ValueMember = "TENSERVER";
             this.comboKHOA.SelectedIndexChanged += new System.EventHandler(this.comboKHOA_SelectedIndexChanged);
             // 
-            // v_DS_PHANMANHBindingSource
-            // 
-            this.v_DS_PHANMANHBindingSource.DataMember = "V_DS_PHANMANH";
-            this.v_DS_PHANMANHBindingSource.DataSource = this.qLDSVPMMaster;
-            // 
-            // qLDSVPMMaster
-            // 
-            this.qLDSVPMMaster.DataSetName = "QLDSVPMMaster";
-            this.qLDSVPMMaster.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -149,10 +132,6 @@
             this.label1.Size = new System.Drawing.Size(66, 22);
             this.label1.TabIndex = 0;
             this.label1.Text = "KHOA";
-            // 
-            // v_DS_PHANMANHTableAdapter
-            // 
-            this.v_DS_PHANMANHTableAdapter.ClearBeforeFill = true;
             // 
             // tableAdapterManager
             // 
@@ -428,8 +407,6 @@
             this.Load += new System.EventHandler(this.formInDSSV_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.v_DS_PHANMANHBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.qLDSVPMMaster)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             this.panelControl1.PerformLayout();
@@ -451,9 +428,6 @@
         private Bunifu.Framework.UI.BunifuCards bunifuCards1;
         private System.Windows.Forms.ComboBox comboKHOA;
         private System.Windows.Forms.Label label1;
-        private QLDSVPMMaster qLDSVPMMaster;
-        private System.Windows.Forms.BindingSource v_DS_PHANMANHBindingSource;
-        private QLDSVPMMasterTableAdapters.V_DS_PHANMANHTableAdapter v_DS_PHANMANHTableAdapter;
         private QLDSVPMMasterTableAdapters.TableAdapterManager tableAdapterManager;
         private DevExpress.XtraEditors.PanelControl panelControl1;
         private QLDSVROOT qLDSVROOT;

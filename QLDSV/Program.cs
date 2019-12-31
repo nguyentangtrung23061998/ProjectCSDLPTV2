@@ -37,6 +37,7 @@ namespace QLDSV
         public static String tenChiNhanh = "";
         public static String maCN = "";
         public static BindingSource bds_dspm = new BindingSource();
+        public static BindingSource bds_khoa = new BindingSource();
         public static int checkDangNhap = 0;
 
 

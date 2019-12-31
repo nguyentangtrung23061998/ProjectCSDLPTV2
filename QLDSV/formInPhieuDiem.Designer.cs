@@ -30,9 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.Label mASVLabel;
-            this.vDSPHANMANHBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.qLDSVROOT = new QLDSV.QLDSVROOT();
-            this.v_DS_PHANMANHTableAdapter = new QLDSV.QLDSVROOTTableAdapters.V_DS_PHANMANHTableAdapter();
             this.tableAdapterManager = new QLDSV.QLDSVROOTTableAdapters.TableAdapterManager();
             this.sINHVIENBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.sP_PhieuDiemSinhVienBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -67,7 +65,6 @@
             this.colTEMH = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDIEM = new DevExpress.XtraGrid.Columns.GridColumn();
             mASVLabel = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.vDSPHANMANHBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.qLDSVROOT)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sINHVIENBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sP_PhieuDiemSinhVienBindingSource)).BeginInit();
@@ -98,19 +95,10 @@
             mASVLabel.TabIndex = 41;
             mASVLabel.Text = "Mã sinh viên:";
             // 
-            // vDSPHANMANHBindingSource
-            // 
-            this.vDSPHANMANHBindingSource.DataMember = "V_DS_PHANMANH";
-            this.vDSPHANMANHBindingSource.DataSource = this.qLDSVROOT;
-            // 
             // qLDSVROOT
             // 
             this.qLDSVROOT.DataSetName = "QLDSVROOT";
             this.qLDSVROOT.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // v_DS_PHANMANHTableAdapter
-            // 
-            this.v_DS_PHANMANHTableAdapter.ClearBeforeFill = true;
             // 
             // tableAdapterManager
             // 
@@ -155,8 +143,6 @@
             // 
             // cmbKhoa
             // 
-            this.cmbKhoa.DataSource = this.vDSPHANMANHBindingSource;
-            this.cmbKhoa.DisplayMember = "TENCN";
             this.cmbKhoa.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbKhoa.FormattingEnabled = true;
             this.cmbKhoa.Location = new System.Drawing.Point(97, 17);
@@ -438,7 +424,6 @@
             this.Name = "formInPhieuDiem";
             this.Text = "Phiếu điểm";
             this.Load += new System.EventHandler(this.FormPhieuDiem_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.vDSPHANMANHBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.qLDSVROOT)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sINHVIENBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sP_PhieuDiemSinhVienBindingSource)).EndInit();
@@ -465,8 +450,6 @@
 
         #endregion
         private QLDSVROOT qLDSVROOT;
-        private System.Windows.Forms.BindingSource vDSPHANMANHBindingSource;
-        private QLDSVROOTTableAdapters.V_DS_PHANMANHTableAdapter v_DS_PHANMANHTableAdapter;
         private QLDSVROOTTableAdapters.TableAdapterManager tableAdapterManager;
         private System.Windows.Forms.BindingSource sP_PhieuDiemSinhVienBindingSource;
         private QLDSVROOTTableAdapters.SP_PhieuDiemSinhVienTableAdapter sP_PhieuDiemSinhVienTableAdapter;
