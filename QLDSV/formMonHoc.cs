@@ -434,7 +434,7 @@ namespace QLDSV
                 }
                 if (ob.getType() == 3)
                 {
-                    undo("Khôi phục sau khi sữa?", ob.getLenh());
+                    undo("Khôi phục sau khi sửa?", ob.getLenh());
                 }
             }
             catch (Exception ex)

@@ -47,12 +47,12 @@
             this.buttonOk = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
-            this.txtMaGV = new DevExpress.XtraEditors.TextEdit();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.txtMatKhau = new System.Windows.Forms.TextBox();
             this.textBoxtenDangNhap = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.cmbMaGV = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.qLDSVROOT)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gIANGVIENBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gIANGVIENGridControl)).BeginInit();
@@ -63,7 +63,6 @@
             this.panelControl3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
             this.panelControl2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtMaGV.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // qLDSVROOT
@@ -247,7 +246,7 @@
             // 
             // panelControl2
             // 
-            this.panelControl2.Controls.Add(this.txtMaGV);
+            this.panelControl2.Controls.Add(this.cmbMaGV);
             this.panelControl2.Controls.Add(this.label1);
             this.panelControl2.Controls.Add(this.label3);
             this.panelControl2.Controls.Add(this.txtMatKhau);
@@ -258,17 +257,6 @@
             this.panelControl2.Name = "panelControl2";
             this.panelControl2.Size = new System.Drawing.Size(434, 224);
             this.panelControl2.TabIndex = 20;
-            // 
-            // txtMaGV
-            // 
-            this.txtMaGV.EditValue = "";
-            this.txtMaGV.Location = new System.Drawing.Point(181, 44);
-            this.txtMaGV.Name = "txtMaGV";
-            this.txtMaGV.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMaGV.Properties.Appearance.Options.UseFont = true;
-            this.txtMaGV.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Buffered;
-            this.txtMaGV.Size = new System.Drawing.Size(174, 26);
-            this.txtMaGV.TabIndex = 18;
             // 
             // label1
             // 
@@ -316,6 +304,18 @@
             this.label2.TabIndex = 15;
             this.label2.Text = "Mật khẩu:";
             // 
+            // cmbMaGV
+            // 
+            this.cmbMaGV.DataSource = this.gIANGVIENBindingSource;
+            this.cmbMaGV.DisplayMember = "MAGV";
+            this.cmbMaGV.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbMaGV.FormattingEnabled = true;
+            this.cmbMaGV.Location = new System.Drawing.Point(181, 44);
+            this.cmbMaGV.Name = "cmbMaGV";
+            this.cmbMaGV.Size = new System.Drawing.Size(174, 27);
+            this.cmbMaGV.TabIndex = 18;
+            this.cmbMaGV.ValueMember = "MAGV";
+            // 
             // formTaoLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -339,7 +339,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
             this.panelControl2.ResumeLayout(false);
             this.panelControl2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtMaGV.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -367,8 +366,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtMatKhau;
         private System.Windows.Forms.Label label1;
-        private DevExpress.XtraEditors.TextEdit txtMaGV;
         private DevExpress.XtraEditors.PanelControl panelControl3;
         private DevExpress.XtraEditors.PanelControl panelControl2;
+        private System.Windows.Forms.ComboBox cmbMaGV;
     }
 }

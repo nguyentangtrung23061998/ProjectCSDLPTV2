@@ -34,7 +34,6 @@
             System.Windows.Forms.Label mAKHLabel;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formLop));
             this.frmLop = new DevExpress.XtraGrid.GridControl();
-            this.lOPBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.qLDSVROOT = new QLDSV.QLDSVROOT();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colMALOP = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -52,17 +51,17 @@
             this.btnLopThoat = new System.Windows.Forms.ToolStripButton();
             this.btnLopClear = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigator1 = new System.Windows.Forms.BindingNavigator(this.components);
-            this.lOPTableAdapter = new QLDSV.QLDSVROOTTableAdapters.LOPTableAdapter();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.txtMaLop = new DevExpress.XtraEditors.TextEdit();
             this.txtTenLop = new DevExpress.XtraEditors.TextEdit();
             this.txtMaKhoa = new DevExpress.XtraEditors.TextEdit();
             this.tableAdapterManager = new QLDSV.QLDSVROOTTableAdapters.TableAdapterManager();
+            this.lOPBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.lOPTableAdapter = new QLDSV.QLDSVROOTTableAdapters.LOPTableAdapter();
             mALOPLabel = new System.Windows.Forms.Label();
             tENLOPLabel = new System.Windows.Forms.Label();
             mAKHLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.frmLop)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lOPBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.qLDSVROOT)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -73,6 +72,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtMaLop.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTenLop.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaKhoa.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lOPBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // mALOPLabel
@@ -122,11 +122,6 @@
             this.frmLop.TabIndex = 4;
             this.frmLop.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
-            // 
-            // lOPBindingSource
-            // 
-            this.lOPBindingSource.DataMember = "LOP";
-            this.lOPBindingSource.DataSource = this.qLDSVROOT;
             // 
             // qLDSVROOT
             // 
@@ -195,6 +190,7 @@
             // 
             // comboKHOA
             // 
+            this.comboKHOA.DisplayMember = "TENSERVER";
             this.comboKHOA.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboKHOA.FormattingEnabled = true;
             this.comboKHOA.Location = new System.Drawing.Point(107, 22);
@@ -332,10 +328,6 @@
             this.bindingNavigator1.TabIndex = 0;
             this.bindingNavigator1.Text = "bindingNavigator1";
             // 
-            // lOPTableAdapter
-            // 
-            this.lOPTableAdapter.ClearBeforeFill = true;
-            // 
             // panelControl1
             // 
             this.panelControl1.Controls.Add(mALOPLabel);
@@ -353,7 +345,7 @@
             // 
             // txtMaLop
             // 
-            this.txtMaLop.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.lOPBindingSource, "MALOP", true));
+            this.txtMaLop.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.lOPBindingSource, "MALOP", true));
             this.txtMaLop.Location = new System.Drawing.Point(116, 17);
             this.txtMaLop.Margin = new System.Windows.Forms.Padding(5);
             this.txtMaLop.Name = "txtMaLop";
@@ -364,7 +356,7 @@
             // 
             // txtTenLop
             // 
-            this.txtTenLop.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.lOPBindingSource, "TENLOP", true));
+            this.txtTenLop.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.lOPBindingSource, "TENLOP", true));
             this.txtTenLop.Location = new System.Drawing.Point(116, 62);
             this.txtTenLop.Margin = new System.Windows.Forms.Padding(5);
             this.txtTenLop.Name = "txtTenLop";
@@ -375,7 +367,7 @@
             // 
             // txtMaKhoa
             // 
-            this.txtMaKhoa.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.lOPBindingSource, "MAKH", true));
+            this.txtMaKhoa.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.lOPBindingSource, "MAKH", true));
             this.txtMaKhoa.Location = new System.Drawing.Point(116, 110);
             this.txtMaKhoa.Margin = new System.Windows.Forms.Padding(5);
             this.txtMaKhoa.Name = "txtMaKhoa";
@@ -391,10 +383,18 @@
             this.tableAdapterManager.GIANGVIENTableAdapter = null;
             this.tableAdapterManager.HOCPHITableAdapter = null;
             this.tableAdapterManager.KHOATableAdapter = null;
-            this.tableAdapterManager.LOPTableAdapter = this.lOPTableAdapter;
             this.tableAdapterManager.MONHOCTableAdapter = null;
             this.tableAdapterManager.SINHVIENTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = QLDSV.QLDSVROOTTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            // 
+            // lOPBindingSource
+            // 
+            this.lOPBindingSource.DataMember = "LOP";
+            this.lOPBindingSource.DataSource = this.qLDSVROOT;
+            // 
+            // lOPTableAdapter
+            // 
+            this.lOPTableAdapter.ClearBeforeFill = true;
             // 
             // formLop
             // 
@@ -414,7 +414,6 @@
             this.Text = "Lớp";
             this.Load += new System.EventHandler(this.formLop_Load);
             ((System.ComponentModel.ISupportInitialize)(this.frmLop)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lOPBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.qLDSVROOT)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.panel1.ResumeLayout(false);
@@ -428,6 +427,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtMaLop.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTenLop.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaKhoa.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lOPBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -452,13 +452,13 @@
         private System.Windows.Forms.ToolStripButton btnLopClear;
         private System.Windows.Forms.BindingNavigator bindingNavigator1;
         private QLDSVROOT qLDSVROOT;
-        private System.Windows.Forms.BindingSource lOPBindingSource;
-        private QLDSVROOTTableAdapters.LOPTableAdapter lOPTableAdapter;
         private DevExpress.XtraEditors.PanelControl panelControl1;
         private DevExpress.XtraEditors.TextEdit txtMaLop;
         private DevExpress.XtraEditors.TextEdit txtTenLop;
         private DevExpress.XtraEditors.TextEdit txtMaKhoa;
         private QLDSVROOTTableAdapters.TableAdapterManager tableAdapterManager;
+        private System.Windows.Forms.BindingSource lOPBindingSource;
+        private QLDSVROOTTableAdapters.LOPTableAdapter lOPTableAdapter;
         // private QLDSV.QLDSVTableAdapters.LOPTableAdapter lOPTableAdapter;
         //private QLDSV.QLDSVTableAdapters.TableAdapterManager tableAdapterManager;
         // private QLDSV.QLDSVTableAdapters.LOPTableAdapter lOPTableAdapter;

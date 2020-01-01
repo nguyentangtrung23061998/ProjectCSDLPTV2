@@ -16,9 +16,9 @@ namespace QLDSV.BaoCao
         public xRpt_InDSSV_spTimSVTheoMaLop(String maLop)
         {
             InitializeComponent();
-            qldsvroot3.EnforceConstraints = false;
-            this.sP_XuatSinhVienTheoMaLopTableAdapter2.Connection.ConnectionString = Program.connstr;
-            this.sP_XuatSinhVienTheoMaLopTableAdapter2.Fill(qldsvroot3.SP_XuatSinhVienTheoMaLop,maLop);
+            qldsvroot4.EnforceConstraints = false;
+            this.sP_XuatSinhVienTheoMaLopTableAdapter.Connection.ConnectionString = Program.connstr;
+            this.sP_XuatSinhVienTheoMaLopTableAdapter.Fill(qldsvroot4.SP_XuatSinhVienTheoMaLop,maLop);
         }
 
     }

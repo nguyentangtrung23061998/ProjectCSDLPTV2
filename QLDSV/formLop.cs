@@ -66,6 +66,8 @@ namespace QLDSV
 
         private void formLop_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'qLDSVROOT.LOP' table. You can move, or remove it, as needed.
+            this.lOPTableAdapter.Fill(this.qLDSVROOT.LOP);
             qLDSVROOT.EnforceConstraints = false;
           
             this.lOPTableAdapter.Connection.ConnectionString = Program.connstr;
@@ -222,13 +224,14 @@ namespace QLDSV
                 Program.mlogin = Program.mloginDN;
                 Program.password = Program.passwordDN;
             }
-            if (Program.KetNoi() == 0)
+            if (Program.KetNoi() == 0) { 
                 MessageBox.Show("Lỗi kết nối về chi nhánh mới", "", MessageBoxButtons.OK);
+            }
             else
             {
                 this.lOPTableAdapter.Connection.ConnectionString = Program.connstr;
                 this.lOPTableAdapter.Fill(this.qLDSVROOT.LOP);
-                makh = ((DataRowView)lOPBindingSource[0])["MAKH"].ToString(); 
+                makh = this.qLDSVROOT.LOP[0].MAKH; 
                 txtMaKhoa.Text = makh;
                 txtMaKhoa.Enabled = false;
             }
@@ -385,9 +388,8 @@ namespace QLDSV
         {
             try
             {
-
+                this.lOPTableAdapter.Connection.ConnectionString = Program.connstr;
                 this.lOPTableAdapter.Fill(this.qLDSVROOT.LOP);
-
             }
             catch (Exception ex)
             {
@@ -436,6 +438,7 @@ namespace QLDSV
         }
         private void BtnLopThoat_Click_1(object sender, EventArgs e)
         {
+            comboKHOA.SelectedIndex = Program.mChinhanh;
             this.Close();
         }
     }

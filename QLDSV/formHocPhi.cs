@@ -91,7 +91,7 @@ namespace QLDSV
                     this.sP_DongHocPhiSinhVienTableAdapter.Fill(this.qLDSVROOT.SP_DongHocPhiSinhVien, txtMASV.Text.Trim());
 
                     txtNienKhoa.ReadOnly = true;
-                    cmbHocKy.Enabled = false;
+                  
                     txtMASV.Enabled = false;
                     btnLoad.Enabled = true;
 
@@ -114,6 +114,7 @@ namespace QLDSV
                     }
                     else
                     {
+                        cmbHocKy.Enabled = false;
                         btnClear.Enabled = true;
                     }
                 }
@@ -165,6 +166,12 @@ namespace QLDSV
             {
                 MessageBox.Show("Số tiền đã đóng <= học phí!", "Lỗi", MessageBoxButtons.OK);
                 txtSoTien.Focus();
+                return;
+            }
+            if (cmbHocKy.Text.Trim() == "")
+            {
+                MessageBox.Show("Vui lòng chọn học kỳ!", "Lỗi", MessageBoxButtons.OK);
+                cmbHocKy.Focus();
                 return;
             }
             Boolean stopUpdate = false;
@@ -262,6 +269,7 @@ namespace QLDSV
             }
             btnClear.Enabled = true;
             txtNienKhoa.ReadOnly = true;
+            cmbHocKy.Enabled = false;
             this.sP_DongHocPhiSinhVienTableAdapter.Connection.ConnectionString = Program.connstr;
             this.sP_DongHocPhiSinhVienTableAdapter.Fill(this.qLDSVROOT.SP_DongHocPhiSinhVien, txtMASV.Text.Trim());
         }

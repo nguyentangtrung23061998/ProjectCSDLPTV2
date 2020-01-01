@@ -209,7 +209,7 @@ namespace QLDSV
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi kiem tra tồn tại sinh viên.\n" + ex.Message, "", MessageBoxButtons.OK);
+                MessageBox.Show("Lỗi kiem tra sinh viên tồn tại.\n" + ex.Message, "", MessageBoxButtons.OK);
                 return 0;
             }
         }
@@ -386,7 +386,7 @@ namespace QLDSV
                 }
                 else if (checkMaSV == 2)
                 {
-                    MessageBox.Show("Tồn tại mã sinh viên trong site khác.\n", "", MessageBoxButtons.OK);
+                    MessageBox.Show("Đã tồn tại mã sinh viên trong site khác.\n", "", MessageBoxButtons.OK);
                 }
                 else
                 {
@@ -510,7 +510,7 @@ namespace QLDSV
             int checkMaSV = kiemTraSinhVienTonTai(txtMaSV.Text);
             if (checkMaSV == 1)
             {
-                MessageBox.Show("Tồn tại mã sinh viên.\n", "", MessageBoxButtons.OK);
+                MessageBox.Show("Mã sinh viên đã tồn tại.\n", "", MessageBoxButtons.OK);
             }
             else if (checkMaSV == 2)
             {

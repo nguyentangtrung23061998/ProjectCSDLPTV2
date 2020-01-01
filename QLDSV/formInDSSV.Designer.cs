@@ -41,36 +41,35 @@
             this.lOPBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.qLDSVROOT = new QLDSV.QLDSVROOT();
             this.sINHVIENGridControl = new DevExpress.XtraGrid.GridControl();
-            this.sINHVIENBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.colMASV = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colHO = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colTEN = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colMALOP = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colPHAI = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colNGAYSINH = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colNOISINH = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colDIACHI = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colNGHIHOC = new DevExpress.XtraGrid.Columns.GridColumn();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.lOPTableAdapter = new QLDSV.QLDSVROOTTableAdapters.LOPTableAdapter();
             this.tableAdapterManager1 = new QLDSV.QLDSVROOTTableAdapters.TableAdapterManager();
-            this.sINHVIENTableAdapter = new QLDSV.QLDSVROOTTableAdapters.SINHVIENTableAdapter();
             this.btnManHinh = new System.Windows.Forms.ToolStripButton();
             this.btnMayIn = new System.Windows.Forms.ToolStripButton();
             this.btnThoatMonHoc = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigator1 = new System.Windows.Forms.BindingNavigator(this.components);
+            this.sPXuatSinhVienTheoMaLopBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.sP_XuatSinhVienTheoMaLopTableAdapter = new QLDSV.QLDSVROOTTableAdapters.SP_XuatSinhVienTheoMaLopTableAdapter();
+            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colMASV = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colHO = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colTEN = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colPhai = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colNGAYSINH = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colNOISINH = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colDIACHI = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lOPBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.qLDSVROOT)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sINHVIENGridControl)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sINHVIENBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
             this.bindingNavigator1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.sPXuatSinhVienTheoMaLopBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // mALOPLabel1
@@ -113,6 +112,7 @@
             // 
             // comboKHOA
             // 
+            this.comboKHOA.DisplayMember = "TENSERVER";
             this.comboKHOA.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboKHOA.FormattingEnabled = true;
             this.comboKHOA.Location = new System.Drawing.Point(105, 13);
@@ -176,7 +176,7 @@
             // 
             // sINHVIENGridControl
             // 
-            this.sINHVIENGridControl.DataSource = this.sINHVIENBindingSource;
+            this.sINHVIENGridControl.DataSource = this.sPXuatSinhVienTheoMaLopBindingSource;
             this.sINHVIENGridControl.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.sINHVIENGridControl.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.sINHVIENGridControl.Location = new System.Drawing.Point(2, 96);
@@ -188,116 +188,20 @@
             this.sINHVIENGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
             // 
-            // sINHVIENBindingSource
-            // 
-            this.sINHVIENBindingSource.DataMember = "FK_SINHVIEN_LOP";
-            this.sINHVIENBindingSource.DataSource = this.lOPBindingSource;
-            // 
             // gridView1
             // 
             this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumn1,
             this.colMASV,
             this.colHO,
             this.colTEN,
-            this.colMALOP,
-            this.colPHAI,
+            this.colPhai,
             this.colNGAYSINH,
             this.colNOISINH,
-            this.colDIACHI,
-            this.colNGHIHOC});
+            this.colDIACHI});
             this.gridView1.DetailHeight = 284;
             this.gridView1.GridControl = this.sINHVIENGridControl;
             this.gridView1.Name = "gridView1";
-            // 
-            // colMASV
-            // 
-            this.colMASV.Caption = "Mã SV";
-            this.colMASV.FieldName = "MASV";
-            this.colMASV.MinWidth = 21;
-            this.colMASV.Name = "colMASV";
-            this.colMASV.Visible = true;
-            this.colMASV.VisibleIndex = 0;
-            this.colMASV.Width = 81;
-            // 
-            // colHO
-            // 
-            this.colHO.Caption = "Họ";
-            this.colHO.FieldName = "HO";
-            this.colHO.MinWidth = 21;
-            this.colHO.Name = "colHO";
-            this.colHO.Visible = true;
-            this.colHO.VisibleIndex = 1;
-            this.colHO.Width = 81;
-            // 
-            // colTEN
-            // 
-            this.colTEN.Caption = "Tên";
-            this.colTEN.FieldName = "TEN";
-            this.colTEN.MinWidth = 21;
-            this.colTEN.Name = "colTEN";
-            this.colTEN.Visible = true;
-            this.colTEN.VisibleIndex = 2;
-            this.colTEN.Width = 81;
-            // 
-            // colMALOP
-            // 
-            this.colMALOP.Caption = "Mã Lớp";
-            this.colMALOP.FieldName = "MALOP";
-            this.colMALOP.MinWidth = 21;
-            this.colMALOP.Name = "colMALOP";
-            this.colMALOP.Visible = true;
-            this.colMALOP.VisibleIndex = 3;
-            this.colMALOP.Width = 81;
-            // 
-            // colPHAI
-            // 
-            this.colPHAI.Caption = "Phái";
-            this.colPHAI.FieldName = "PHAI";
-            this.colPHAI.MinWidth = 21;
-            this.colPHAI.Name = "colPHAI";
-            this.colPHAI.Visible = true;
-            this.colPHAI.VisibleIndex = 4;
-            this.colPHAI.Width = 81;
-            // 
-            // colNGAYSINH
-            // 
-            this.colNGAYSINH.Caption = "Ngày Sinh";
-            this.colNGAYSINH.FieldName = "NGAYSINH";
-            this.colNGAYSINH.MinWidth = 21;
-            this.colNGAYSINH.Name = "colNGAYSINH";
-            this.colNGAYSINH.Visible = true;
-            this.colNGAYSINH.VisibleIndex = 5;
-            this.colNGAYSINH.Width = 81;
-            // 
-            // colNOISINH
-            // 
-            this.colNOISINH.Caption = "Nơi Sinh";
-            this.colNOISINH.FieldName = "NOISINH";
-            this.colNOISINH.MinWidth = 21;
-            this.colNOISINH.Name = "colNOISINH";
-            this.colNOISINH.Visible = true;
-            this.colNOISINH.VisibleIndex = 6;
-            this.colNOISINH.Width = 81;
-            // 
-            // colDIACHI
-            // 
-            this.colDIACHI.Caption = "Địa Chỉ";
-            this.colDIACHI.FieldName = "DIACHI";
-            this.colDIACHI.MinWidth = 21;
-            this.colDIACHI.Name = "colDIACHI";
-            this.colDIACHI.Visible = true;
-            this.colDIACHI.VisibleIndex = 7;
-            this.colDIACHI.Width = 81;
-            // 
-            // colNGHIHOC
-            // 
-            this.colNGHIHOC.Caption = "Nghỉ Học";
-            this.colNGHIHOC.FieldName = "NGHIHOC";
-            this.colNGHIHOC.MinWidth = 21;
-            this.colNGHIHOC.Name = "colNGHIHOC";
-            this.colNGHIHOC.Visible = true;
-            this.colNGHIHOC.VisibleIndex = 8;
-            this.colNGHIHOC.Width = 81;
             // 
             // comboBox1
             // 
@@ -337,10 +241,6 @@
             this.tableAdapterManager1.MONHOCTableAdapter = null;
             this.tableAdapterManager1.SINHVIENTableAdapter = null;
             this.tableAdapterManager1.UpdateOrder = QLDSV.QLDSVROOTTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            // 
-            // sINHVIENTableAdapter
-            // 
-            this.sINHVIENTableAdapter.ClearBeforeFill = true;
             // 
             // btnManHinh
             // 
@@ -394,6 +294,71 @@
             this.bindingNavigator1.TabIndex = 2;
             this.bindingNavigator1.Text = "bindingNavigator1";
             // 
+            // sPXuatSinhVienTheoMaLopBindingSource
+            // 
+            this.sPXuatSinhVienTheoMaLopBindingSource.DataMember = "SP_XuatSinhVienTheoMaLop";
+            this.sPXuatSinhVienTheoMaLopBindingSource.DataSource = this.qLDSVROOT;
+            // 
+            // sP_XuatSinhVienTheoMaLopTableAdapter
+            // 
+            this.sP_XuatSinhVienTheoMaLopTableAdapter.ClearBeforeFill = true;
+            // 
+            // gridColumn1
+            // 
+            this.gridColumn1.FieldName = "#";
+            this.gridColumn1.Name = "gridColumn1";
+            this.gridColumn1.Visible = true;
+            this.gridColumn1.VisibleIndex = 0;
+            // 
+            // colMASV
+            // 
+            this.colMASV.FieldName = "MASV";
+            this.colMASV.Name = "colMASV";
+            this.colMASV.Visible = true;
+            this.colMASV.VisibleIndex = 1;
+            // 
+            // colHO
+            // 
+            this.colHO.FieldName = "HO";
+            this.colHO.Name = "colHO";
+            this.colHO.Visible = true;
+            this.colHO.VisibleIndex = 2;
+            // 
+            // colTEN
+            // 
+            this.colTEN.FieldName = "TEN";
+            this.colTEN.Name = "colTEN";
+            this.colTEN.Visible = true;
+            this.colTEN.VisibleIndex = 3;
+            // 
+            // colPhai
+            // 
+            this.colPhai.FieldName = "Phai";
+            this.colPhai.Name = "colPhai";
+            this.colPhai.Visible = true;
+            this.colPhai.VisibleIndex = 4;
+            // 
+            // colNGAYSINH
+            // 
+            this.colNGAYSINH.FieldName = "NGAYSINH";
+            this.colNGAYSINH.Name = "colNGAYSINH";
+            this.colNGAYSINH.Visible = true;
+            this.colNGAYSINH.VisibleIndex = 5;
+            // 
+            // colNOISINH
+            // 
+            this.colNOISINH.FieldName = "NOISINH";
+            this.colNOISINH.Name = "colNOISINH";
+            this.colNOISINH.Visible = true;
+            this.colNOISINH.VisibleIndex = 6;
+            // 
+            // colDIACHI
+            // 
+            this.colDIACHI.FieldName = "DIACHI";
+            this.colDIACHI.Name = "colDIACHI";
+            this.colDIACHI.Visible = true;
+            this.colDIACHI.VisibleIndex = 7;
+            // 
             // formInDSSV
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -414,11 +379,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.lOPBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.qLDSVROOT)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sINHVIENGridControl)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sINHVIENBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).EndInit();
             this.bindingNavigator1.ResumeLayout(false);
             this.bindingNavigator1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.sPXuatSinhVienTheoMaLopBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -437,24 +402,23 @@
         private QLDSVROOTTableAdapters.TableAdapterManager tableAdapterManager1;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.BindingSource sINHVIENBindingSource;
-        private QLDSVROOTTableAdapters.SINHVIENTableAdapter sINHVIENTableAdapter;
         private DevExpress.XtraGrid.GridControl sINHVIENGridControl;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
-        private DevExpress.XtraGrid.Columns.GridColumn colMASV;
-        private DevExpress.XtraGrid.Columns.GridColumn colHO;
-        private DevExpress.XtraGrid.Columns.GridColumn colTEN;
-        private DevExpress.XtraGrid.Columns.GridColumn colMALOP;
-        private DevExpress.XtraGrid.Columns.GridColumn colPHAI;
-        private DevExpress.XtraGrid.Columns.GridColumn colNGAYSINH;
-        private DevExpress.XtraGrid.Columns.GridColumn colNOISINH;
-        private DevExpress.XtraGrid.Columns.GridColumn colDIACHI;
-        private DevExpress.XtraGrid.Columns.GridColumn colNGHIHOC;
         private System.Windows.Forms.TextBox txtML;
         private System.Windows.Forms.Label mALOPLabel1;
         private System.Windows.Forms.ToolStripButton btnManHinh;
         private System.Windows.Forms.ToolStripButton btnMayIn;
         private System.Windows.Forms.ToolStripButton btnThoatMonHoc;
         private System.Windows.Forms.BindingNavigator bindingNavigator1;
+        private System.Windows.Forms.BindingSource sPXuatSinhVienTheoMaLopBindingSource;
+        private QLDSVROOTTableAdapters.SP_XuatSinhVienTheoMaLopTableAdapter sP_XuatSinhVienTheoMaLopTableAdapter;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
+        private DevExpress.XtraGrid.Columns.GridColumn colMASV;
+        private DevExpress.XtraGrid.Columns.GridColumn colHO;
+        private DevExpress.XtraGrid.Columns.GridColumn colTEN;
+        private DevExpress.XtraGrid.Columns.GridColumn colPhai;
+        private DevExpress.XtraGrid.Columns.GridColumn colNGAYSINH;
+        private DevExpress.XtraGrid.Columns.GridColumn colNOISINH;
+        private DevExpress.XtraGrid.Columns.GridColumn colDIACHI;
     }
 }

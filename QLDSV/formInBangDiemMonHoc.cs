@@ -115,7 +115,7 @@ namespace QLDSV
             }
             catch(Exception ex)
             {
-                MessageBox.Show("Lớp chưa có sinh viên!", "THÔNG BÁO", MessageBoxButtons.OK);
+                MessageBox.Show("Lớp chưa có sinh viên hoặc chưa có điểm!", "THÔNG BÁO", MessageBoxButtons.OK);
                 Program.conn.Close();
                 return;
             }
@@ -154,7 +154,7 @@ namespace QLDSV
                 }
                 if (ret == "1")
                 {
-                    MessageBox.Show("Lớp chưa có sinh viên!", "Thông báo", MessageBoxButtons.OK);
+                    MessageBox.Show("Lớp chưa có sinh viên hoặc chưa có điểm!", "Thông báo", MessageBoxButtons.OK);
                     txtTenLop.Focus();
                     return;
                 }
@@ -217,7 +217,7 @@ namespace QLDSV
             reportFooter.Height = 380;
             pageHeader.Height = 20;
 
-            var reportHeaderBand = CreateReportHeader("BẢNG ĐIỂM MÔN HỌC", "Lớp: " + txtTenLop.Text.Trim(), 15.75f, 12f);
+            var reportHeaderBand = CreateReportHeader("BẢNG ĐIỂM TỔNG KẾT ", "Lớp: " + txtTenLop.Text.Trim(), 15.75f, 12f);
 
             // Place the bands onto a report
             rep.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] { detail, pageHeader, reportFooter, reportHeaderBand});

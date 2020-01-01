@@ -43,6 +43,7 @@
             this.TopMargin = new DevExpress.XtraReports.UI.TopMarginBand();
             this.BottomMargin = new DevExpress.XtraReports.UI.BottomMarginBand();
             this.ReportHeader = new DevExpress.XtraReports.UI.ReportHeaderBand();
+            this.xrPageInfo1 = new DevExpress.XtraReports.UI.XRPageInfo();
             this.xrLabel5 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel4 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel3 = new DevExpress.XtraReports.UI.XRLabel();
@@ -66,7 +67,6 @@
             this.tableCell6 = new DevExpress.XtraReports.UI.XRTableCell();
             this.qldsvroot1 = new QLDSV.QLDSVROOT();
             this.sP_XuatBangDiemMonHocTableAdapter = new QLDSV.QLDSVROOTTableAdapters.SP_XuatBangDiemMonHocTableAdapter();
-            this.xrPageInfo1 = new DevExpress.XtraReports.UI.XRPageInfo();
             ((System.ComponentModel.ISupportInitialize)(this.table1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.table2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.qldsvroot1)).BeginInit();
@@ -169,33 +169,42 @@
             this.xrLabel1,
             this.label1});
             this.ReportHeader.Font = new System.Drawing.Font("Times New Roman", 12F);
-            this.ReportHeader.HeightF = 198.3333F;
+            this.ReportHeader.HeightF = 185.8333F;
             this.ReportHeader.Name = "ReportHeader";
             this.ReportHeader.StylePriority.UseBackColor = false;
             this.ReportHeader.StylePriority.UseFont = false;
             this.ReportHeader.StylePriority.UseTextAlignment = false;
             this.ReportHeader.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
             // 
+            // xrPageInfo1
+            // 
+            this.xrPageInfo1.LocationFloat = new DevExpress.Utils.PointFloat(564.1667F, 0F);
+            this.xrPageInfo1.Name = "xrPageInfo1";
+            this.xrPageInfo1.SizeF = new System.Drawing.SizeF(85.83331F, 23F);
+            this.xrPageInfo1.StyleName = "PageInfo";
+            this.xrPageInfo1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
+            this.xrPageInfo1.TextFormatString = "Trang {0} ";
+            // 
             // xrLabel5
             // 
             this.xrLabel5.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold);
             this.xrLabel5.ForeColor = System.Drawing.Color.Black;
-            this.xrLabel5.LocationFloat = new DevExpress.Utils.PointFloat(398.3694F, 113.5F);
+            this.xrLabel5.LocationFloat = new DevExpress.Utils.PointFloat(368.5776F, 133.5833F);
             this.xrLabel5.Multiline = true;
             this.xrLabel5.Name = "xrLabel5";
             this.xrLabel5.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel5.SizeF = new System.Drawing.SizeF(76.63065F, 22.99999F);
+            this.xrLabel5.SizeF = new System.Drawing.SizeF(66.21399F, 22.99998F);
             this.xrLabel5.StylePriority.UseFont = false;
             this.xrLabel5.StylePriority.UseForeColor = false;
             this.xrLabel5.StylePriority.UseTextAlignment = false;
-            this.xrLabel5.Text = "Lần thi";
-            this.xrLabel5.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
+            this.xrLabel5.Text = "Lần thi:";
+            this.xrLabel5.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             // 
             // xrLabel4
             // 
             this.xrLabel4.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrLabel4.ForeColor = System.Drawing.Color.Black;
-            this.xrLabel4.LocationFloat = new DevExpress.Utils.PointFloat(398.3694F, 76.83334F);
+            this.xrLabel4.LocationFloat = new DevExpress.Utils.PointFloat(370.661F, 92.04169F);
             this.xrLabel4.Multiline = true;
             this.xrLabel4.Name = "xrLabel4";
             this.xrLabel4.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
@@ -203,65 +212,65 @@
             this.xrLabel4.StylePriority.UseFont = false;
             this.xrLabel4.StylePriority.UseForeColor = false;
             this.xrLabel4.StylePriority.UseTextAlignment = false;
-            this.xrLabel4.Text = "Môn học";
-            this.xrLabel4.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
+            this.xrLabel4.Text = "Môn học:";
+            this.xrLabel4.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             // 
             // xrLabel3
             // 
             this.xrLabel3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrLabel3.ForeColor = System.Drawing.Color.Black;
-            this.xrLabel3.LocationFloat = new DevExpress.Utils.PointFloat(398.3694F, 43F);
+            this.xrLabel3.LocationFloat = new DevExpress.Utils.PointFloat(371.7026F, 55.5F);
             this.xrLabel3.Multiline = true;
             this.xrLabel3.Name = "xrLabel3";
             this.xrLabel3.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel3.SizeF = new System.Drawing.SizeF(41.66666F, 23F);
+            this.xrLabel3.SizeF = new System.Drawing.SizeF(41.66666F, 23.00002F);
             this.xrLabel3.StylePriority.UseFont = false;
             this.xrLabel3.StylePriority.UseForeColor = false;
             this.xrLabel3.StylePriority.UseTextAlignment = false;
-            this.xrLabel3.Text = "Lớp";
-            this.xrLabel3.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
+            this.xrLabel3.Text = "Lớp:";
+            this.xrLabel3.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             // 
             // lbLanThi
             // 
-            this.lbLanThi.Font = new System.Drawing.Font("Times New Roman", 9.75F);
-            this.lbLanThi.LocationFloat = new DevExpress.Utils.PointFloat(475.4167F, 113.5F);
+            this.lbLanThi.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbLanThi.LocationFloat = new DevExpress.Utils.PointFloat(434.7916F, 133.5833F);
             this.lbLanThi.Multiline = true;
             this.lbLanThi.Name = "lbLanThi";
             this.lbLanThi.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.lbLanThi.SizeF = new System.Drawing.SizeF(145.8333F, 22.99999F);
+            this.lbLanThi.SizeF = new System.Drawing.SizeF(140.0001F, 22.99998F);
             this.lbLanThi.StylePriority.UseFont = false;
             this.lbLanThi.StylePriority.UseTextAlignment = false;
-            this.lbLanThi.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
+            this.lbLanThi.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             // 
             // lbMH
             // 
-            this.lbMH.Font = new System.Drawing.Font("Times New Roman", 9.75F);
-            this.lbMH.LocationFloat = new DevExpress.Utils.PointFloat(475.4167F, 76.83334F);
+            this.lbMH.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbMH.LocationFloat = new DevExpress.Utils.PointFloat(447.2916F, 92.04169F);
             this.lbMH.Multiline = true;
             this.lbMH.Name = "lbMH";
             this.lbMH.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.lbMH.SizeF = new System.Drawing.SizeF(145.8333F, 23F);
+            this.lbMH.SizeF = new System.Drawing.SizeF(174.375F, 23F);
             this.lbMH.StylePriority.UseFont = false;
             this.lbMH.StylePriority.UseTextAlignment = false;
-            this.lbMH.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
+            this.lbMH.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             // 
             // lbLop
             // 
-            this.lbLop.Font = new System.Drawing.Font("Times New Roman", 9.75F);
-            this.lbLop.LocationFloat = new DevExpress.Utils.PointFloat(475.4167F, 43F);
+            this.lbLop.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbLop.LocationFloat = new DevExpress.Utils.PointFloat(413.3693F, 55.5F);
             this.lbLop.Multiline = true;
             this.lbLop.Name = "lbLop";
             this.lbLop.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.lbLop.SizeF = new System.Drawing.SizeF(145.8333F, 23F);
+            this.lbLop.SizeF = new System.Drawing.SizeF(218.2974F, 23.00002F);
             this.lbLop.StylePriority.UseFont = false;
             this.lbLop.StylePriority.UseTextAlignment = false;
-            this.lbLop.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
+            this.lbLop.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             // 
             // xrLabel2
             // 
             this.xrLabel2.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Bold);
             this.xrLabel2.ForeColor = System.Drawing.Color.Black;
-            this.xrLabel2.LocationFloat = new DevExpress.Utils.PointFloat(30F, 43F);
+            this.xrLabel2.LocationFloat = new DevExpress.Utils.PointFloat(29.99999F, 43F);
             this.xrLabel2.Multiline = true;
             this.xrLabel2.Name = "xrLabel2";
             this.xrLabel2.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
@@ -270,7 +279,7 @@
             this.xrLabel2.StylePriority.UseForeColor = false;
             this.xrLabel2.StylePriority.UseTextAlignment = false;
             this.xrLabel2.Text = "TRUNG TÂM ĐÀO TẠO BC-VT II\r\n";
-            this.xrLabel2.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter;
+            this.xrLabel2.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             // 
             // xrLabel1
             // 
@@ -283,13 +292,15 @@
             this.xrLabel1.SizeF = new System.Drawing.SizeF(278.3333F, 23F);
             this.xrLabel1.StylePriority.UseFont = false;
             this.xrLabel1.StylePriority.UseForeColor = false;
+            this.xrLabel1.StylePriority.UseTextAlignment = false;
             this.xrLabel1.Text = "HỌC VIỆN BƯU CHÍNH VIỄN THÔNG";
+            this.xrLabel1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             // 
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("Times New Roman", 16F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.LocationFloat = new DevExpress.Utils.PointFloat(77.5F, 89.16666F);
+            this.label1.LocationFloat = new DevExpress.Utils.PointFloat(77.49999F, 76.83334F);
             this.label1.Multiline = true;
             this.label1.Name = "label1";
             this.label1.SizeF = new System.Drawing.SizeF(135.7832F, 24.19434F);
@@ -298,7 +309,7 @@
             this.label1.StylePriority.UseForeColor = false;
             this.label1.StylePriority.UseTextAlignment = false;
             this.label1.Text = "BẢNG ĐIỂM\r\n";
-            this.label1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
+            this.label1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             // 
             // GroupHeader1
             // 
@@ -333,6 +344,7 @@
             | DevExpress.XtraPrinting.BorderSide.Right) 
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.tableCell1.BorderWidth = 1F;
+            this.tableCell1.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tableCell1.ForeColor = System.Drawing.Color.Black;
             this.tableCell1.Name = "tableCell1";
             this.tableCell1.StyleName = "DetailCaption1";
@@ -340,10 +352,11 @@
             this.tableCell1.StylePriority.UseBorderColor = false;
             this.tableCell1.StylePriority.UseBorders = false;
             this.tableCell1.StylePriority.UseBorderWidth = false;
+            this.tableCell1.StylePriority.UseFont = false;
             this.tableCell1.StylePriority.UseForeColor = false;
             this.tableCell1.StylePriority.UseTextAlignment = false;
-            this.tableCell1.Text = "STT\t";
-            this.tableCell1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
+            this.tableCell1.Text = "STT";
+            this.tableCell1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             this.tableCell1.Weight = 0.17428189791165866D;
             // 
             // tableCell2
@@ -354,6 +367,7 @@
             | DevExpress.XtraPrinting.BorderSide.Right) 
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.tableCell2.BorderWidth = 1F;
+            this.tableCell2.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tableCell2.ForeColor = System.Drawing.Color.Black;
             this.tableCell2.Name = "tableCell2";
             this.tableCell2.StyleName = "DetailCaption1";
@@ -361,6 +375,7 @@
             this.tableCell2.StylePriority.UseBorderColor = false;
             this.tableCell2.StylePriority.UseBorders = false;
             this.tableCell2.StylePriority.UseBorderWidth = false;
+            this.tableCell2.StylePriority.UseFont = false;
             this.tableCell2.StylePriority.UseForeColor = false;
             this.tableCell2.StylePriority.UseTextAlignment = false;
             this.tableCell2.Text = "Họ tên ";
@@ -375,6 +390,7 @@
             | DevExpress.XtraPrinting.BorderSide.Right) 
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.tableCell3.BorderWidth = 1F;
+            this.tableCell3.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tableCell3.ForeColor = System.Drawing.Color.Black;
             this.tableCell3.Name = "tableCell3";
             this.tableCell3.StyleName = "DetailCaption1";
@@ -382,6 +398,7 @@
             this.tableCell3.StylePriority.UseBorderColor = false;
             this.tableCell3.StylePriority.UseBorders = false;
             this.tableCell3.StylePriority.UseBorderWidth = false;
+            this.tableCell3.StylePriority.UseFont = false;
             this.tableCell3.StylePriority.UseForeColor = false;
             this.tableCell3.StylePriority.UseTextAlignment = false;
             this.tableCell3.Text = "Điểm";
@@ -422,7 +439,7 @@
             this.tableCell4.BorderWidth = 1F;
             this.tableCell4.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[#]")});
-            this.tableCell4.Font = new System.Drawing.Font("Times New Roman", 8.25F);
+            this.tableCell4.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tableCell4.Name = "tableCell4";
             this.tableCell4.StyleName = "DetailData1";
             this.tableCell4.StylePriority.UseBackColor = false;
@@ -443,7 +460,7 @@
             this.tableCell5.BorderWidth = 1F;
             this.tableCell5.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[HOTEN]")});
-            this.tableCell5.Font = new System.Drawing.Font("Times New Roman", 8.25F);
+            this.tableCell5.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tableCell5.Name = "tableCell5";
             this.tableCell5.StyleName = "DetailData1";
             this.tableCell5.StylePriority.UseBackColor = false;
@@ -451,6 +468,8 @@
             this.tableCell5.StylePriority.UseBorders = false;
             this.tableCell5.StylePriority.UseBorderWidth = false;
             this.tableCell5.StylePriority.UseFont = false;
+            this.tableCell5.StylePriority.UseTextAlignment = false;
+            this.tableCell5.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
             this.tableCell5.Weight = 0.461670907827524D;
             // 
             // tableCell6
@@ -462,7 +481,7 @@
             this.tableCell6.BorderWidth = 1F;
             this.tableCell6.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[DIEM]")});
-            this.tableCell6.Font = new System.Drawing.Font("Times New Roman", 8.25F);
+            this.tableCell6.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tableCell6.Name = "tableCell6";
             this.tableCell6.StyleName = "DetailData1";
             this.tableCell6.StylePriority.UseBackColor = false;
@@ -482,15 +501,6 @@
             // sP_XuatBangDiemMonHocTableAdapter
             // 
             this.sP_XuatBangDiemMonHocTableAdapter.ClearBeforeFill = true;
-            // 
-            // xrPageInfo1
-            // 
-            this.xrPageInfo1.LocationFloat = new DevExpress.Utils.PointFloat(564.1667F, 0F);
-            this.xrPageInfo1.Name = "xrPageInfo1";
-            this.xrPageInfo1.SizeF = new System.Drawing.SizeF(85.83331F, 23F);
-            this.xrPageInfo1.StyleName = "PageInfo";
-            this.xrPageInfo1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
-            this.xrPageInfo1.TextFormatString = "Trang {0} ";
             // 
             // xRpt_InBangDiemMonHoc_spXuatBangDiemMonHoc
             // 

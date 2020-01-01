@@ -177,6 +177,8 @@
             // 
             // gridView1
             // 
+            this.gridView1.Appearance.HeaderPanel.Options.UseTextOptions = true;
+            this.gridView1.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colMASV2,
             this.colHoTen,
@@ -188,6 +190,8 @@
             // 
             // colMASV2
             // 
+            this.colMASV2.AppearanceCell.Options.UseTextOptions = true;
+            this.colMASV2.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.colMASV2.Caption = "Mã sinh viên";
             this.colMASV2.FieldName = "MASV";
             this.colMASV2.Name = "colMASV2";

@@ -69,10 +69,10 @@ namespace QLDSV
 
         public Boolean checkInfoGV()
         {
-            if (this.txtMaGV.Text.Trim() == "")
+            if (this.cmbMaGV.Text.Trim() == "")
             {
                 MessageBox.Show("Mã giảng viên không được thiếu.\n", "", MessageBoxButtons.OK);
-                txtMaGV.Focus();
+                cmbMaGV.Focus();
                 return false;
             }
             if (this.txtMatKhau.Text.Trim() == "")
@@ -101,7 +101,7 @@ namespace QLDSV
         public void acceptInfo()
         {
             loginName = textBoxtenDangNhap.Text.Trim();
-            username = txtMaGV.Text.Trim();
+            username = cmbMaGV.Text.Trim();
             pass = txtMatKhau.Text.Trim();
             quyen = comboBoxQuyen.Text.Trim();
         }

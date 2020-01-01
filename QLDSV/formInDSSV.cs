@@ -22,8 +22,8 @@ namespace QLDSV
         {
             qLDSVROOT.EnforceConstraints = false;
 
-            this.sINHVIENTableAdapter.Connection.ConnectionString = Program.connstr;
-            this.sINHVIENTableAdapter.Fill(this.qLDSVROOT.SINHVIEN);
+            //this.sINHVIENTableAdapter.Connection.ConnectionString = Program.connstr;
+            //this.sINHVIENTableAdapter.Fill(this.qLDSVROOT.SINHVIEN);
 
             this.lOPTableAdapter.Connection.ConnectionString = Program.connstr;
             this.lOPTableAdapter.Fill(this.qLDSVROOT.LOP);
@@ -51,6 +51,8 @@ namespace QLDSV
         private void btnManHinh_Click(object sender, EventArgs e)
         {
             this.sINHVIENGridControl.Visible = true;
+            this.sP_XuatSinhVienTheoMaLopTableAdapter.Connection.ConnectionString = Program.connstr;
+            this.sP_XuatSinhVienTheoMaLopTableAdapter.Fill(qLDSVROOT.SP_XuatSinhVienTheoMaLop, txtML.Text.Trim());
         }
 
         private void btnMayIn_Click(object sender, EventArgs e)
@@ -89,8 +91,8 @@ namespace QLDSV
                 // TODO: This line of code loads data into the 'qLDSVROOT.LOP' table. You can move, or remove it, as needed.
                 this.lOPTableAdapter.Connection.ConnectionString = Program.connstr;
                 this.lOPTableAdapter.Fill(this.qLDSVROOT.LOP);
-                this.sINHVIENTableAdapter.Connection.ConnectionString = Program.connstr;
-                this.sINHVIENTableAdapter.Fill(this.qLDSVROOT.SINHVIEN);
+                //this.sINHVIENTableAdapter.Connection.ConnectionString = Program.connstr;
+                //this.sINHVIENTableAdapter.Fill(this.qLDSVROOT.SINHVIEN);
 
             }
         }

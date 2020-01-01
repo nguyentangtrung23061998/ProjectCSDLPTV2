@@ -191,7 +191,7 @@
             this.xrLabel3.StylePriority.UseTextAlignment = false;
             xrSummary1.Running = DevExpress.XtraReports.UI.SummaryRunning.Report;
             this.xrLabel3.Summary = xrSummary1;
-            this.xrLabel3.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
+            this.xrLabel3.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
             // 
             // xrLabel2
             // 
@@ -210,28 +210,32 @@
             // 
             // lbML
             // 
-            this.lbML.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Bold);
+            this.lbML.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbML.ForeColor = System.Drawing.Color.Black;
-            this.lbML.LocationFloat = new DevExpress.Utils.PointFloat(285.607F, 85.58334F);
+            this.lbML.LocationFloat = new DevExpress.Utils.PointFloat(299.1487F, 86.625F);
             this.lbML.Multiline = true;
             this.lbML.Name = "lbML";
             this.lbML.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.lbML.SizeF = new System.Drawing.SizeF(159.1667F, 23F);
+            this.lbML.SizeF = new System.Drawing.SizeF(193.5417F, 23F);
             this.lbML.StylePriority.UseFont = false;
             this.lbML.StylePriority.UseForeColor = false;
+            this.lbML.StylePriority.UseTextAlignment = false;
+            this.lbML.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             // 
             // xrLabel1
             // 
-            this.xrLabel1.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Bold);
+            this.xrLabel1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrLabel1.ForeColor = System.Drawing.Color.Black;
-            this.xrLabel1.LocationFloat = new DevExpress.Utils.PointFloat(200.4167F, 85.58334F);
+            this.xrLabel1.LocationFloat = new DevExpress.Utils.PointFloat(237.9167F, 86.625F);
             this.xrLabel1.Multiline = true;
             this.xrLabel1.Name = "xrLabel1";
             this.xrLabel1.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel1.SizeF = new System.Drawing.SizeF(100F, 23F);
+            this.xrLabel1.SizeF = new System.Drawing.SizeF(61.23199F, 23F);
             this.xrLabel1.StylePriority.UseFont = false;
             this.xrLabel1.StylePriority.UseForeColor = false;
+            this.xrLabel1.StylePriority.UseTextAlignment = false;
             this.xrLabel1.Text = "Mã lớp: ";
+            this.xrLabel1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             // 
             // pageInfo2
             // 
@@ -244,11 +248,11 @@
             // 
             // label1
             // 
-            this.label1.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Bold);
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Black;
             this.label1.LocationFloat = new DevExpress.Utils.PointFloat(120.8333F, 48.33333F);
             this.label1.Name = "label1";
-            this.label1.SizeF = new System.Drawing.SizeF(414.1667F, 24.19434F);
+            this.label1.SizeF = new System.Drawing.SizeF(452.7083F, 24.19434F);
             this.label1.StyleName = "Title";
             this.label1.StylePriority.UseFont = false;
             this.label1.StylePriority.UseForeColor = false;
@@ -292,6 +296,7 @@
             | DevExpress.XtraPrinting.BorderSide.Right) 
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.tableCell1.BorderWidth = 1F;
+            this.tableCell1.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tableCell1.ForeColor = System.Drawing.Color.Black;
             this.tableCell1.Name = "tableCell1";
             this.tableCell1.StyleName = "DetailCaption1";
@@ -299,10 +304,11 @@
             this.tableCell1.StylePriority.UseBorderColor = false;
             this.tableCell1.StylePriority.UseBorders = false;
             this.tableCell1.StylePriority.UseBorderWidth = false;
+            this.tableCell1.StylePriority.UseFont = false;
             this.tableCell1.StylePriority.UseForeColor = false;
             this.tableCell1.StylePriority.UseTextAlignment = false;
             this.tableCell1.Text = "STT";
-            this.tableCell1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
+            this.tableCell1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             this.tableCell1.Weight = 0.084895694439227759D;
             // 
             // tableCell2
@@ -313,6 +319,7 @@
             | DevExpress.XtraPrinting.BorderSide.Right) 
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.tableCell2.BorderWidth = 1F;
+            this.tableCell2.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tableCell2.ForeColor = System.Drawing.Color.Black;
             this.tableCell2.Name = "tableCell2";
             this.tableCell2.StyleName = "DetailCaption1";
@@ -320,6 +327,7 @@
             this.tableCell2.StylePriority.UseBorderColor = false;
             this.tableCell2.StylePriority.UseBorders = false;
             this.tableCell2.StylePriority.UseBorderWidth = false;
+            this.tableCell2.StylePriority.UseFont = false;
             this.tableCell2.StylePriority.UseForeColor = false;
             this.tableCell2.StylePriority.UseTextAlignment = false;
             this.tableCell2.Text = "Họ tên";
@@ -334,6 +342,7 @@
             | DevExpress.XtraPrinting.BorderSide.Right) 
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.tableCell3.BorderWidth = 1F;
+            this.tableCell3.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tableCell3.ForeColor = System.Drawing.Color.Black;
             this.tableCell3.Name = "tableCell3";
             this.tableCell3.StyleName = "DetailCaption1";
@@ -341,9 +350,10 @@
             this.tableCell3.StylePriority.UseBorderColor = false;
             this.tableCell3.StylePriority.UseBorders = false;
             this.tableCell3.StylePriority.UseBorderWidth = false;
+            this.tableCell3.StylePriority.UseFont = false;
             this.tableCell3.StylePriority.UseForeColor = false;
             this.tableCell3.StylePriority.UseTextAlignment = false;
-            this.tableCell3.Text = "Học phí";
+            this.tableCell3.Text = "Học phí (VNĐ)";
             this.tableCell3.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             this.tableCell3.Weight = 0.24339397723858172D;
             // 
@@ -355,6 +365,7 @@
             | DevExpress.XtraPrinting.BorderSide.Right) 
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.tableCell4.BorderWidth = 1F;
+            this.tableCell4.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tableCell4.ForeColor = System.Drawing.Color.Black;
             this.tableCell4.Name = "tableCell4";
             this.tableCell4.StyleName = "DetailCaption1";
@@ -362,9 +373,10 @@
             this.tableCell4.StylePriority.UseBorderColor = false;
             this.tableCell4.StylePriority.UseBorders = false;
             this.tableCell4.StylePriority.UseBorderWidth = false;
+            this.tableCell4.StylePriority.UseFont = false;
             this.tableCell4.StylePriority.UseForeColor = false;
             this.tableCell4.StylePriority.UseTextAlignment = false;
-            this.tableCell4.Text = "Số tiền đã đóng";
+            this.tableCell4.Text = "Số tiền đã đóng (VNĐ)";
             this.tableCell4.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             this.tableCell4.Weight = 0.446822509765625D;
             // 
@@ -405,6 +417,7 @@
             this.tableCell5.BorderWidth = 1F;
             this.tableCell5.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[#]")});
+            this.tableCell5.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tableCell5.ForeColor = System.Drawing.Color.Black;
             this.tableCell5.Name = "tableCell5";
             this.tableCell5.StyleName = "DetailData1";
@@ -412,9 +425,10 @@
             this.tableCell5.StylePriority.UseBorderColor = false;
             this.tableCell5.StylePriority.UseBorders = false;
             this.tableCell5.StylePriority.UseBorderWidth = false;
+            this.tableCell5.StylePriority.UseFont = false;
             this.tableCell5.StylePriority.UseForeColor = false;
             this.tableCell5.StylePriority.UseTextAlignment = false;
-            this.tableCell5.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
+            this.tableCell5.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             this.tableCell5.Weight = 0.084895694439227759D;
             // 
             // tableCell6
@@ -426,6 +440,7 @@
             this.tableCell6.BorderWidth = 1F;
             this.tableCell6.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[HOTEN]")});
+            this.tableCell6.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tableCell6.ForeColor = System.Drawing.Color.Black;
             this.tableCell6.Name = "tableCell6";
             this.tableCell6.StyleName = "DetailData1";
@@ -433,9 +448,10 @@
             this.tableCell6.StylePriority.UseBorderColor = false;
             this.tableCell6.StylePriority.UseBorders = false;
             this.tableCell6.StylePriority.UseBorderWidth = false;
+            this.tableCell6.StylePriority.UseFont = false;
             this.tableCell6.StylePriority.UseForeColor = false;
             this.tableCell6.StylePriority.UseTextAlignment = false;
-            this.tableCell6.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
+            this.tableCell6.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
             this.tableCell6.Weight = 0.22488778921274039D;
             // 
             // tableCell7
@@ -447,6 +463,7 @@
             this.tableCell7.BorderWidth = 1F;
             this.tableCell7.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[HOCPHI]")});
+            this.tableCell7.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tableCell7.ForeColor = System.Drawing.Color.Black;
             this.tableCell7.Name = "tableCell7";
             this.tableCell7.StyleName = "DetailData1";
@@ -454,6 +471,7 @@
             this.tableCell7.StylePriority.UseBorderColor = false;
             this.tableCell7.StylePriority.UseBorders = false;
             this.tableCell7.StylePriority.UseBorderWidth = false;
+            this.tableCell7.StylePriority.UseFont = false;
             this.tableCell7.StylePriority.UseForeColor = false;
             this.tableCell7.StylePriority.UseTextAlignment = false;
             this.tableCell7.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
@@ -468,6 +486,7 @@
             this.tdSoTienDaDong.BorderWidth = 1F;
             this.tdSoTienDaDong.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[SOTIENDADONG]")});
+            this.tdSoTienDaDong.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tdSoTienDaDong.ForeColor = System.Drawing.Color.Black;
             this.tdSoTienDaDong.Name = "tdSoTienDaDong";
             this.tdSoTienDaDong.StyleName = "DetailData1";
@@ -475,6 +494,7 @@
             this.tdSoTienDaDong.StylePriority.UseBorderColor = false;
             this.tdSoTienDaDong.StylePriority.UseBorders = false;
             this.tdSoTienDaDong.StylePriority.UseBorderWidth = false;
+            this.tdSoTienDaDong.StylePriority.UseFont = false;
             this.tdSoTienDaDong.StylePriority.UseForeColor = false;
             this.tdSoTienDaDong.StylePriority.UseTextAlignment = false;
             this.tdSoTienDaDong.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
