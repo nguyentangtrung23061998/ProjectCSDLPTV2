@@ -23,10 +23,12 @@ namespace QLDSV
 
         private void formDanhSachHocPhiTheoLop_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'qLDSVROOT.HOCPHI' table. You can move, or remove it, as needed.
+            // TODO: This line of code loads data into the 'qLDSVROOT.GetAllMaLop' table. You can move, or remove it, as needed.
+            this.getAllMaLopTableAdapter.Connection.ConnectionString = Program.connstr;
+            this.getAllMaLopTableAdapter.Fill(this.qLDSVROOT.GetAllMaLop);
             // TODO: This line of code loads data into the 'qLDSVROOT.SINHVIEN' table. You can move, or remove it, as needed.
             this.qLDSVROOT.EnforceConstraints = false;
-            this.sINHVIENTableAdapter.Connection.ConnectionString = Program.connstr;
-            this.sINHVIENTableAdapter.Fill(this.qLDSVROOT.SINHVIEN);
             // TODO: This line of code loads data into the 'qLDSVROOT.HOCPHI' table. You can move, or remove it, as needed.
             this.hOCPHITableAdapter.Connection.ConnectionString = Program.connstr;
             this.hOCPHITableAdapter.FillBy(this.qLDSVROOT.HOCPHI);

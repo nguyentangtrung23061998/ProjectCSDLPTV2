@@ -39,19 +39,14 @@
             this.v_DS_PHANMANHTableAdapter = new QLDSV.QLDSVPMMasterTableAdapters.V_DS_PHANMANHTableAdapter();
             this.tableAdapterManager = new QLDSV.QLDSVPMMasterTableAdapters.TableAdapterManager();
             this.qLDSVROOT = new QLDSV.QLDSVROOT();
-            this.lOPBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.lOPTableAdapter = new QLDSV.QLDSVROOTTableAdapters.LOPTableAdapter();
             this.tableAdapterManager1 = new QLDSV.QLDSVROOTTableAdapters.TableAdapterManager();
-            this.hOCPHITableAdapter = new QLDSV.QLDSVROOTTableAdapters.HOCPHITableAdapter();
-            this.sINHVIENTableAdapter = new QLDSV.QLDSVROOTTableAdapters.SINHVIENTableAdapter();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.comboNienKhoa = new System.Windows.Forms.ComboBox();
-            this.hOCPHIBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.comboHocKy = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.comboMaLop = new System.Windows.Forms.ComboBox();
-            this.sINHVIENBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.getAllMaLopBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.sP_DanhSachHocPhiLopBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.sP_DanhSachHocPhiLopTableAdapter = new QLDSV.QLDSVROOTTableAdapters.SP_DanhSachHocPhiLopTableAdapter();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -62,14 +57,15 @@
             this.sP_DanhSachHocPhiLopGridControl = new DevExpress.XtraGrid.GridControl();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
+            this.getAllMaLopTableAdapter = new QLDSV.QLDSVROOTTableAdapters.GetAllMaLopTableAdapter();
+            this.hOCPHIBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.hOCPHITableAdapter = new QLDSV.QLDSVROOTTableAdapters.HOCPHITableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
             this.bindingNavigator1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.v_DS_PHANMANHBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.qLDSVPMMaster)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.qLDSVROOT)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lOPBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.hOCPHIBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sINHVIENBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.getAllMaLopBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sP_DanhSachHocPhiLopBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sP_DanhSachHocPhiLopGridControl)).BeginInit();
@@ -77,6 +73,7 @@
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
             this.panelControl2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.hOCPHIBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // bindingNavigator1
@@ -156,34 +153,18 @@
             this.qLDSVROOT.DataSetName = "QLDSVROOT";
             this.qLDSVROOT.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // lOPBindingSource
-            // 
-            this.lOPBindingSource.DataMember = "LOP";
-            this.lOPBindingSource.DataSource = this.qLDSVROOT;
-            // 
-            // lOPTableAdapter
-            // 
-            this.lOPTableAdapter.ClearBeforeFill = true;
-            // 
             // tableAdapterManager1
             // 
             this.tableAdapterManager1.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager1.Connection = null;
             this.tableAdapterManager1.DIEMTableAdapter = null;
             this.tableAdapterManager1.GIANGVIENTableAdapter = null;
-            this.tableAdapterManager1.HOCPHITableAdapter = this.hOCPHITableAdapter;
+            this.tableAdapterManager1.HOCPHITableAdapter = null;
             this.tableAdapterManager1.KHOATableAdapter = null;
-            this.tableAdapterManager1.LOPTableAdapter = this.lOPTableAdapter;
+            this.tableAdapterManager1.LOPTableAdapter = null;
             this.tableAdapterManager1.MONHOCTableAdapter = null;
-            this.tableAdapterManager1.SINHVIENTableAdapter = this.sINHVIENTableAdapter;
+            this.tableAdapterManager1.SINHVIENTableAdapter = null;
             this.tableAdapterManager1.UpdateOrder = QLDSV.QLDSVROOTTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            // 
-            // hOCPHITableAdapter
-            // 
-            this.hOCPHITableAdapter.ClearBeforeFill = true;
-            // 
-            // sINHVIENTableAdapter
-            // 
-            this.sINHVIENTableAdapter.ClearBeforeFill = true;
             // 
             // label3
             // 
@@ -217,12 +198,6 @@
             this.comboNienKhoa.Size = new System.Drawing.Size(132, 27);
             this.comboNienKhoa.TabIndex = 13;
             this.comboNienKhoa.ValueMember = "NIENKHOA";
-          //  this.comboNienKhoa.SelectedIndexChanged += new System.EventHandler(this.comboNienKhoa_SelectedIndexChanged);
-            // 
-            // hOCPHIBindingSource
-            // 
-            this.hOCPHIBindingSource.DataMember = "HOCPHI";
-            this.hOCPHIBindingSource.DataSource = this.qLDSVROOT;
             // 
             // comboHocKy
             // 
@@ -246,7 +221,7 @@
             // 
             // comboMaLop
             // 
-            this.comboMaLop.DataSource = this.sINHVIENBindingSource;
+            this.comboMaLop.DataSource = this.getAllMaLopBindingSource;
             this.comboMaLop.DisplayMember = "MALOP";
             this.comboMaLop.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboMaLop.FormattingEnabled = true;
@@ -257,10 +232,10 @@
             this.comboMaLop.TabIndex = 8;
             this.comboMaLop.ValueMember = "MALOP";
             // 
-            // sINHVIENBindingSource
+            // getAllMaLopBindingSource
             // 
-            this.sINHVIENBindingSource.DataMember = "SINHVIEN";
-            this.sINHVIENBindingSource.DataSource = this.qLDSVROOT;
+            this.getAllMaLopBindingSource.DataMember = "GetAllMaLop";
+            this.getAllMaLopBindingSource.DataSource = this.qLDSVROOT;
             // 
             // sP_DanhSachHocPhiLopBindingSource
             // 
@@ -362,6 +337,19 @@
             this.panelControl2.Size = new System.Drawing.Size(761, 191);
             this.panelControl2.TabIndex = 15;
             // 
+            // getAllMaLopTableAdapter
+            // 
+            this.getAllMaLopTableAdapter.ClearBeforeFill = true;
+            // 
+            // hOCPHIBindingSource
+            // 
+            this.hOCPHIBindingSource.DataMember = "HOCPHI";
+            this.hOCPHIBindingSource.DataSource = this.qLDSVROOT;
+            // 
+            // hOCPHITableAdapter
+            // 
+            this.hOCPHITableAdapter.ClearBeforeFill = true;
+            // 
             // formDanhSachHocPhiTheoLop
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -380,9 +368,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.v_DS_PHANMANHBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.qLDSVPMMaster)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.qLDSVROOT)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lOPBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.hOCPHIBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sINHVIENBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.getAllMaLopBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sP_DanhSachHocPhiLopBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sP_DanhSachHocPhiLopGridControl)).EndInit();
@@ -391,6 +377,7 @@
             this.panelControl1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
             this.panelControl2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.hOCPHIBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -407,19 +394,13 @@
         private QLDSVPMMasterTableAdapters.V_DS_PHANMANHTableAdapter v_DS_PHANMANHTableAdapter;
         private QLDSVPMMasterTableAdapters.TableAdapterManager tableAdapterManager;
         private QLDSVROOT qLDSVROOT;
-        private System.Windows.Forms.BindingSource lOPBindingSource;
-        private QLDSVROOTTableAdapters.LOPTableAdapter lOPTableAdapter;
         private QLDSVROOTTableAdapters.TableAdapterManager tableAdapterManager1;
-        private QLDSVROOTTableAdapters.HOCPHITableAdapter hOCPHITableAdapter;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox comboNienKhoa;
-        private System.Windows.Forms.BindingSource hOCPHIBindingSource;
         private System.Windows.Forms.ComboBox comboHocKy;
-        private QLDSVROOTTableAdapters.SINHVIENTableAdapter sINHVIENTableAdapter;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox comboMaLop;
-        private System.Windows.Forms.BindingSource sINHVIENBindingSource;
         private System.Windows.Forms.BindingSource sP_DanhSachHocPhiLopBindingSource;
         private QLDSVROOTTableAdapters.SP_DanhSachHocPhiLopTableAdapter sP_DanhSachHocPhiLopTableAdapter;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
@@ -430,5 +411,9 @@
         private DevExpress.XtraGrid.GridControl sP_DanhSachHocPhiLopGridControl;
         private DevExpress.XtraEditors.PanelControl panelControl1;
         private DevExpress.XtraEditors.PanelControl panelControl2;
+        private System.Windows.Forms.BindingSource getAllMaLopBindingSource;
+        private QLDSVROOTTableAdapters.GetAllMaLopTableAdapter getAllMaLopTableAdapter;
+        private System.Windows.Forms.BindingSource hOCPHIBindingSource;
+        private QLDSVROOTTableAdapters.HOCPHITableAdapter hOCPHITableAdapter;
     }
 }

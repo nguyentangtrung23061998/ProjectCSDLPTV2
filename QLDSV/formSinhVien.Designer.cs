@@ -55,12 +55,12 @@
             this.colTENLOP = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colMAKH = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.txtMaSV = new DevExpress.XtraEditors.TextEdit();
+            this.sINHVIENBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.btnThoatSV = new System.Windows.Forms.Button();
             this.btnClearSV = new System.Windows.Forms.Button();
             this.btnPhucHoiSV = new System.Windows.Forms.Button();
             this.btnSVThem = new System.Windows.Forms.Button();
-            this.txtMaSV = new System.Windows.Forms.ComboBox();
-            this.sINHVIENBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.txtHo = new DevExpress.XtraEditors.TextEdit();
             this.txtTen = new DevExpress.XtraEditors.TextEdit();
             this.txtMaLop = new DevExpress.XtraEditors.TextEdit();
@@ -87,6 +87,7 @@
             this.btnXoaSV = new System.Windows.Forms.ToolStripMenuItem();
             this.btnSuaSV = new System.Windows.Forms.ToolStripMenuItem();
             this.btnChuyenLop = new System.Windows.Forms.ToolStripMenuItem();
+            this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.qLDSVROOT)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lOPBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.qLDSVPMMaster)).BeginInit();
@@ -95,6 +96,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMaSV.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sINHVIENBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtHo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTen.Properties)).BeginInit();
@@ -251,6 +253,7 @@
             // 
             // comboKHOA
             // 
+            this.comboKHOA.DisplayMember = "TENSERVER";
             this.comboKHOA.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboKHOA.FormattingEnabled = true;
             this.comboKHOA.Location = new System.Drawing.Point(126, 23);
@@ -288,7 +291,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(808, 65);
             this.panel1.TabIndex = 4;
-         //   this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // lOPGridControl
             // 
@@ -354,12 +356,12 @@
             // 
             // panelControl1
             // 
+            this.panelControl1.Controls.Add(this.txtMaSV);
             this.panelControl1.Controls.Add(this.btnThoatSV);
             this.panelControl1.Controls.Add(this.btnClearSV);
             this.panelControl1.Controls.Add(this.btnPhucHoiSV);
             this.panelControl1.Controls.Add(this.btnSVThem);
             this.panelControl1.Controls.Add(this.mASVLabel);
-            this.panelControl1.Controls.Add(this.txtMaSV);
             this.panelControl1.Controls.Add(this.hOLabel);
             this.panelControl1.Controls.Add(this.txtHo);
             this.panelControl1.Controls.Add(this.tENLabel);
@@ -382,6 +384,22 @@
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(508, 278);
             this.panelControl1.TabIndex = 5;
+            // 
+            // txtMaSV
+            // 
+            this.txtMaSV.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.sINHVIENBindingSource, "MASV", true));
+            this.txtMaSV.Location = new System.Drawing.Point(120, 19);
+            this.txtMaSV.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtMaSV.Name = "txtMaSV";
+            this.txtMaSV.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMaSV.Properties.Appearance.Options.UseFont = true;
+            this.txtMaSV.Size = new System.Drawing.Size(107, 24);
+            this.txtMaSV.TabIndex = 19;
+            // 
+            // sINHVIENBindingSource
+            // 
+            this.sINHVIENBindingSource.DataMember = "FK_SINHVIEN_LOP";
+            this.sINHVIENBindingSource.DataSource = this.lOPBindingSource;
             // 
             // btnThoatSV
             // 
@@ -438,22 +456,6 @@
             this.btnSVThem.Text = "THÊM";
             this.btnSVThem.UseVisualStyleBackColor = false;
             this.btnSVThem.Click += new System.EventHandler(this.btnSVThem_Click);
-            // 
-            // txtMaSV
-            // 
-            this.txtMaSV.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.sINHVIENBindingSource, "MASV", true));
-            this.txtMaSV.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMaSV.FormattingEnabled = true;
-            this.txtMaSV.Location = new System.Drawing.Point(120, 18);
-            this.txtMaSV.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtMaSV.Name = "txtMaSV";
-            this.txtMaSV.Size = new System.Drawing.Size(108, 25);
-            this.txtMaSV.TabIndex = 1;
-            // 
-            // sINHVIENBindingSource
-            // 
-            this.sINHVIENBindingSource.DataMember = "FK_SINHVIEN_LOP";
-            this.sINHVIENBindingSource.DataSource = this.lOPBindingSource;
             // 
             // txtHo
             // 
@@ -732,6 +734,11 @@
             this.btnChuyenLop.Text = "Chuyển Lớp";
             this.btnChuyenLop.Click += new System.EventHandler(this.btnChuyenLop_Click);
             // 
+            // contextMenuStrip2
+            // 
+            this.contextMenuStrip2.Name = "contextMenuStrip2";
+            this.contextMenuStrip2.Size = new System.Drawing.Size(61, 4);
+            // 
             // formSinhVien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -756,6 +763,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             this.panelControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMaSV.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sINHVIENBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtHo.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTen.Properties)).EndInit();
@@ -793,7 +801,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colTENLOP;
         private DevExpress.XtraGrid.Columns.GridColumn colMAKH;
         private DevExpress.XtraEditors.PanelControl panelControl1;
-        private System.Windows.Forms.ComboBox txtMaSV;
         private DevExpress.XtraEditors.TextEdit txtHo;
         private DevExpress.XtraEditors.TextEdit txtTen;
         private DevExpress.XtraEditors.TextEdit txtMaLop;
@@ -835,5 +842,7 @@
         private System.Windows.Forms.Button btnRefreshSV;
         private System.Windows.Forms.Button btnSVThem;
         private System.Windows.Forms.ToolStripMenuItem btnRefresh;
+        private DevExpress.XtraEditors.TextEdit txtMaSV;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip2;
     }
 }
